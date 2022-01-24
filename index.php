@@ -7,6 +7,19 @@
 		echo key($f);
 	};
 
+
+	
+	function generateSeed($settingsString)
+	{
+		$adjectiveArray = explode("\n", file_get_contents(".\Resources\HashAdjectives.txt"));
+		$nameArray = explode("\n", file_get_contents(".\Resources\HashNames.txt"));
+		shuffle($adjectiveArray);
+		shuffle($nameArray);
+		$seedHash = $nameArray[0]." ".$adjectiveArray[0];
+		shell_exec("dotnet run TPRandomizer.dll ".$settingsString." ".$seedHash);
+		header('Location: localhost/Seeds/TPR - v1.0 - ' + $seedHash + ".txt", true, 302);
+		exit;					
+	} 
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +31,7 @@
 		<meta property="og:image" content="https://rando.tpspeed.run/img/logo.png" />
 		<meta property="og:description" content="The official Twilight Princess Randomizer website! From download to setup and even tools!" />
 		<link rel="stylesheet" target="_blank" href="css/style.css">
+		<script src="jquery-3.6.0.js"></script>
 	</head>
 	<body>
 		<script>
@@ -206,7 +220,7 @@
 				<div id="excludedChecksTab" class="tabcontent">
 					<select id="baseExcludedChecksListbox" multiple="multiple" size="10" width="20%">
 						<?php 
-							$files = glob('World/Checks/*/*/*.json');
+							$files = glob('Generator/World/Checks/*/*/*.json');
 								$i = 0;
 							foreach ($files as $file) 
 							{
@@ -224,7 +238,7 @@
 				<div id="startingInventoryTab" class="tabcontent">
 					<select id="baseImportantItemsListbox" multiple="multiple" size="10" width="20%">
 						<?php 
-							$important_items = file_get_contents("StartingItems.txt");
+							$important_items = file_get_contents("Resources/StartingItems.txt");
 							$important_items = explode("\n", $important_items);
 							foreach ($important_items as $important_item) 
 							{
@@ -379,24 +393,26 @@
 					</fieldset>
 				</div>
 				<br/>
+				<form method="post" action="index.php">
 				<label for="Settings String Text Box">Settings String:</label>
   				<input type="text" id="settingsStringTextbox" name="Settings String Text Box">
+						
 				<input id="importSettingsStringButton" value="Import" type="button">
 				<br/>
-				<input id="generateSeedButton" value="Generate" type="button" onclick="generateSeedButtonClick()">
+				<input id="generateSeedButton" name="generateSeedButton" value="Generate" type="submit" >
 				<?php
-					function generateSeed()
-					{
-						echo "test";
-					} 
-				?>
-				<script> 
-					function generateSeedButtonClick()
-					{
-						var result = "<?php generateSeed(); ?>"
-						alert(result);
-					}
-				</script>
+				if(isset($_POST['generateSeedButton']))
+				{
+					$adjectiveArray = explode("\n", file_get_contents(".\Resources\HashAdjectives.txt"));
+					$nameArray = explode("\n", file_get_contents(".\Resources\HashNames.txt"));
+					shuffle($adjectiveArray);
+					shuffle($nameArray);
+					$seedHash = $nameArray[0]." ".$adjectiveArray[0];
+					shell_exec("dotnet run --project ./Generator/TPRandomizer.csproj ".$_POST['Settings String Text Box']." ".$seedHash);
+					header('Location: localhost/Seeds/TPR - v1.0 - '.$seedHash.".txt", true, 302);
+				}
+							?>
+				</form>
 			</div>
 			<div class="blackbg">
 				<h1>Tools and resources</h1>
