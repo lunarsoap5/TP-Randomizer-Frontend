@@ -68,7 +68,7 @@ namespace TPRandomizer.Assets
             currentSeedData.AddRange(CheckDataRaw);
             
             var gci = new gci((byte)randomizerSettings.seedNumber, randomizerSettings.gameRegion, currentSeedData);
-            string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.gci";
+            string fileHash = "Seed/TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.gci";
             File.WriteAllBytes(fileHash,gci.gciFile);
         }
 

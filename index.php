@@ -7,19 +7,32 @@
 		echo key($f);
 	};
 
-
-	
-	function generateSeed($settingsString)
+	if(isset($_POST['generateSeedButton']))
 	{
-		$adjectiveArray = explode("\n", file_get_contents(".\Resources\HashAdjectives.txt"));
-		$nameArray = explode("\n", file_get_contents(".\Resources\HashNames.txt"));
+		$adjectiveArray = explode(',', file_get_contents(".\Resources\HashAdjectives.txt"));
+		$nameArray = explode(",", file_get_contents(".\Resources\HashNames.txt"));
 		shuffle($adjectiveArray);
 		shuffle($nameArray);
-		$seedHash = $nameArray[0]." ".$adjectiveArray[0];
-		shell_exec("dotnet run TPRandomizer.dll ".$settingsString." ".$seedHash);
-		header('Location: localhost/Seeds/TPR - v1.0 - ' + $seedHash + ".txt", true, 302);
-		exit;					
-	} 
+		$seedHash = implode('-', array($adjectiveArray[0],$nameArray[0]));
+		shell_exec('dotnet run --project ./Generator/TPRandomizer.csproj '.escapeshellarg($_POST['settingsStringTextBox']).' '.escapeshellarg($seedHash));
+		
+		$file = "TPR-v1.0-$seedHash.zip";
+		$filePath = "Seed/$file";
+		if(!empty($file) && file_exists($filePath))
+		{
+    		header("Cache-Control: public");
+    		header("Content-Description: File Transfer");
+    		header("Content-Disposition: attachment; filename=$file");
+    		header("Content-Type: application/zip");
+    		header("Content-Transfer-Encoding: binary");
+			readfile($filePath); //showing the path to the server where the file is to be download
+		}
+		else 
+		{ 
+			echo 'The file does not exist'; 
+		}
+		header('Location: localhost/Seeds/TPR - v1.0 - '.$seedHash.".txt", true, 302);
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -393,25 +406,13 @@
 					</fieldset>
 				</div>
 				<br/>
-				<form method="post" action="index.php">
+				<form method="post">
 				<label for="Settings String Text Box">Settings String:</label>
-  				<input type="text" id="settingsStringTextbox" name="Settings String Text Box">
+  				<input type="text" id="settingsStringTextbox" name="settingsStringTextBox">
 						
 				<input id="importSettingsStringButton" value="Import" type="button">
 				<br/>
 				<input id="generateSeedButton" name="generateSeedButton" value="Generate" type="submit" >
-				<?php
-				if(isset($_POST['generateSeedButton']))
-				{
-					$adjectiveArray = explode("\n", file_get_contents(".\Resources\HashAdjectives.txt"));
-					$nameArray = explode("\n", file_get_contents(".\Resources\HashNames.txt"));
-					shuffle($adjectiveArray);
-					shuffle($nameArray);
-					$seedHash = $nameArray[0]." ".$adjectiveArray[0];
-					shell_exec("dotnet run --project ./Generator/TPRandomizer.csproj ".$_POST['Settings String Text Box']." ".$seedHash);
-					header('Location: localhost/Seeds/TPR - v1.0 - '.$seedHash.".txt", true, 302);
-				}
-							?>
 				</form>
 			</div>
 			<div class="blackbg">

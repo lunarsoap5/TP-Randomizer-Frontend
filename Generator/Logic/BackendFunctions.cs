@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System.Reflection;
 using System.Linq;
 using System.Text;
+using System.IO.Compression;
 
 using System.Collections;
 namespace TPRandomizer
@@ -404,7 +405,7 @@ namespace TPRandomizer
             Random rnd = new Random();
             Randomizer.Items.generateItemPool();
 
-            string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + ".txt";
+            string fileHash = "Seed/TPR - v1.0 - " + Randomizer.seedHash + ".txt";
             //Once everything is complete, we want to write the results to a spoiler log.
             using (StreamWriter file = new(fileHash))
             {
@@ -516,6 +517,19 @@ namespace TPRandomizer
             }
                  
             return sum1 + (sum2 * (modValue+1));
+        }
+
+       public static void CreateZipFile(string fileName, IEnumerable<string> files)
+        {
+            // Create and open a new ZIP file
+            var zip = ZipFile.Open(fileName, ZipArchiveMode.Create);
+            foreach (var file in files)
+            {
+                // Add the entry for each file
+                zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
+            }
+            // Dispose of the object when we are done
+            zip.Dispose();
         }
     }
 }

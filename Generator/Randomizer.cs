@@ -68,6 +68,8 @@ namespace TPRandomizer
                 Assets.SeedData.generateSeedData();
                 Console.WriteLine("Generating Spoiler Log.");
                 BackendFunctions.generateSpoilerLog(startingRoom);
+                IEnumerable<string> fileList = new string[] {"Seed/TPR - v1.0 - " + Randomizer.seedHash + ".txt", "Seed/TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.gci"};
+                BackendFunctions.CreateZipFile("Seed/TPR-v1.0-" + Randomizer.seedHash + ".zip", fileList);
                 Console.WriteLine("Generation Complete!");
                 break;
             }
