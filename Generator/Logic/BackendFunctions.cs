@@ -527,6 +527,7 @@ namespace TPRandomizer
             {
                 // Add the entry for each file
                 zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
+                File.Delete(file);
             }
             // Dispose of the object when we are done
             zip.Dispose();
