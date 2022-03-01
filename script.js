@@ -145,7 +145,6 @@ document.getElementById('faronTwilightCheckbox').addEventListener("click", setSe
 document.getElementById('eldinTwilightCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('lanayruTwilightCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('skipMinorCutscenesCheckbox').addEventListener("click", setSettingsString);
-document.getElementById('msPuzzleCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('fastIBCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('quickTransformCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('transformAnywhereCheckbox').addEventListener("click", setSettingsString);
@@ -161,6 +160,8 @@ document.getElementById('bButtonColorFieldset').onchange = setSettingsString;
 document.getElementById('xButtonColorFieldset').onchange = setSettingsString;
 document.getElementById('yButtonColorFieldset').onchange = setSettingsString;
 document.getElementById('zButtonColorFieldset').onchange = setSettingsString;
+document.getElementById('increaseWalletCheckbox').addEventListener("click", setSettingsString);
+document.getElementById('reduceDonationsCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('importSettingsStringButton').addEventListener("click", importSettingsString);
 
 function importSettingsString()
@@ -188,40 +189,41 @@ function setSettingsString()
         settingsStringRaw[14] = document.getElementById('eldinTwilightCheckbox').checked;
         settingsStringRaw[15] = document.getElementById('lanayruTwilightCheckbox').checked;
         settingsStringRaw[16] = document.getElementById('skipMinorCutscenesCheckbox').checked;
-        settingsStringRaw[17] = document.getElementById('msPuzzleCheckbox').checked;
-        settingsStringRaw[18] = document.getElementById('fastIBCheckbox').checked;
-        settingsStringRaw[19] = document.getElementById('quickTransformCheckbox').checked;
-        settingsStringRaw[20] = document.getElementById('transformAnywhereCheckbox').checked;
-        settingsStringRaw[21] = document.getElementById('foolishItemFieldset').selectedIndex;
+        settingsStringRaw[17] = document.getElementById('fastIBCheckbox').checked;
+        settingsStringRaw[18] = document.getElementById('quickTransformCheckbox').checked;
+        settingsStringRaw[19] = document.getElementById('transformAnywhereCheckbox').checked;
+        settingsStringRaw[20] = document.getElementById('foolishItemFieldset').selectedIndex;
 		var i = null;
 		var options = [];
 		for (var i = 0; i < document.getElementById('addedImportantItemsListbox').length; i++)
 		{
 			options.push(document.getElementById('addedImportantItemsListbox').options[i].value);
 		}
-		settingsStringRaw[22] = options;
+		settingsStringRaw[21] = options;
 		options = [];
 		for (var i = 0; i < document.getElementById('addedExcludedChecksListbox').length; i++)
 		{
 			options.push(document.getElementById('addedExcludedChecksListbox').options[i].value);
 		}
-		settingsStringRaw[23] = options;
-        settingsStringRaw[24] = document.getElementById('tunicColorFieldset').selectedIndex;
-        settingsStringRaw[25] = document.getElementById('midnaHairColorFieldset').selectedIndex;
-        settingsStringRaw[26] = document.getElementById('lanternColorFieldset').selectedIndex;
-        settingsStringRaw[27] = document.getElementById('heartColorFieldset').selectedIndex;
-        settingsStringRaw[28] = document.getElementById('aButtonColorFieldset').selectedIndex;
-        settingsStringRaw[29] = document.getElementById('bButtonColorFieldset').selectedIndex;
-        settingsStringRaw[30] = document.getElementById('xButtonColorFieldset').selectedIndex;
-        settingsStringRaw[31] = document.getElementById('yButtonColorFieldset').selectedIndex;
-        settingsStringRaw[32] = document.getElementById('zButtonColorFieldset').selectedIndex;
-        settingsStringRaw[33] = document.getElementById('randomizeBGMCheckbox').checked;
-        settingsStringRaw[34] = document.getElementById('randomizeFanfaresCheckbox').checked;
-        settingsStringRaw[35] = document.getElementById('disableEnemyBGMCheckbox').checked;
-        settingsStringRaw[36] = document.getElementById('gameRegionFieldset').selectedIndex;
-        settingsStringRaw[37] = document.getElementById('hiddenSkillsCheckbox').checked;
-        settingsStringRaw[38] = document.getElementById('skyCharacterCheckbox').checked;
-        settingsStringRaw[39] = document.getElementById('seedNumberFieldset').selectedIndex;
+		settingsStringRaw[22] = options;
+        settingsStringRaw[23] = document.getElementById('tunicColorFieldset').selectedIndex;
+        settingsStringRaw[24] = document.getElementById('midnaHairColorFieldset').selectedIndex;
+        settingsStringRaw[25] = document.getElementById('lanternColorFieldset').selectedIndex;
+        settingsStringRaw[26] = document.getElementById('heartColorFieldset').selectedIndex;
+        settingsStringRaw[27] = document.getElementById('aButtonColorFieldset').selectedIndex;
+        settingsStringRaw[28] = document.getElementById('bButtonColorFieldset').selectedIndex;
+        settingsStringRaw[29] = document.getElementById('xButtonColorFieldset').selectedIndex;
+        settingsStringRaw[30] = document.getElementById('yButtonColorFieldset').selectedIndex;
+        settingsStringRaw[31] = document.getElementById('zButtonColorFieldset').selectedIndex;
+        settingsStringRaw[32] = document.getElementById('randomizeBGMCheckbox').checked;
+        settingsStringRaw[33] = document.getElementById('randomizeFanfaresCheckbox').checked;
+        settingsStringRaw[34] = document.getElementById('disableEnemyBGMCheckbox').checked;
+        settingsStringRaw[35] = document.getElementById('gameRegionFieldset').selectedIndex;
+        settingsStringRaw[36] = document.getElementById('hiddenSkillsCheckbox').checked;
+        settingsStringRaw[37] = document.getElementById('skyCharacterCheckbox').checked;
+        settingsStringRaw[38] = document.getElementById('seedNumberFieldset').selectedIndex;
+		settingsStringRaw[39] = document.getElementById('increaseWalletCheckbox').checked;
+		settingsStringRaw[40] = document.getElementById('reduceDonationsCheckbox').checked;
 		document.getElementById('settingsStringTextbox').value = getSettingsString(settingsStringRaw);
     }
 
@@ -344,7 +346,6 @@ var arrayOfSettingsItems =
 	"eldinTwilightCheckbox",
 	"lanayruTwilightCheckbox",
 	"skipMinorCutscenesCheckbox",
-	"msPuzzleCheckbox",
 	"fastIBCheckbox",
 	"quickTransformCheckbox",
 	"transformAnywhereCheckbox",
@@ -366,7 +367,9 @@ var arrayOfSettingsItems =
 	"gameRegionFieldset",
 	"hiddenSkillsCheckbox",
 	"skyCharacterCheckbox",
-	"seedNumberFieldset"
+	"seedNumberFieldset",
+	"increaseWalletCheckbox",
+	"reduceDonationsCheckbox"
 ];
 
 function parseSettingsString(settingsString)
@@ -402,7 +405,7 @@ function parseSettingsString(settingsString)
 				evaluatedByteString += bitString[0];
 				bitString = bitString.substring(1);
 			}
-			document.getElementById(currentSettingsItem).selectedIndex = parseInt(bitString,2);
+			document.getElementById(currentSettingsItem).selectedIndex = parseInt(evaluatedByteString,2);
 		}
 		if (currentSettingsItem.includes("Listbox"))
 		{

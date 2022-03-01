@@ -31,7 +31,7 @@
 		{ 
 			echo 'The file does not exist'; 
 		}
-		header('Location: localhost/Seeds/TPR - v1.0 - '.$seedHash.".txt", true, 302);
+		//header('Location: localhost/Seeds/TPR - v1.0 - '.$seedHash.".txt", true, 302);
 	}
 ?>
 <!DOCTYPE html>
@@ -131,7 +131,8 @@
 								<option value="1">Fused Shadows</option>
 								<option value="2">Mirror Shards</option>
 								<option value="3">All Dungeons</option>
-								<option value="4">Vanilla</option>
+								<option value="4">Random Dungeons</option>
+								<option value="5">Vanilla</option>
 							</select>
 							<br/>
 							<label for="Palace Requirements">Palace of Twilight Requirements:</label>
@@ -225,8 +226,8 @@
 						<legend>Cutscenes/Mundane Skips</legend>
 						<input type="checkbox" id="skipMinorCutscenesCheckbox" name="Skip Minor Cutscenes Checkbox" value="">
 						<label for="Skip Minor Cutscenes Checkbox"> Skip Minor Cutscenes </label><br>
-						<input type="checkbox" id="msPuzzleCheckbox" name="Master Sword Puzzle Checkbox" value="">
-						<label for="Master Sword Puzzle Checkbox"> Skip Master Sword Puzzle </label><br>
+						<input type="checkbox" id="reduceDonationsCheckbox" name="Reduce Donations Checkbox" value="">
+						<label for="Reduce Donations Checkbox"> Reduce Donation Costs </label><br>
 					</fieldset>
 				</div>
 				  
@@ -276,6 +277,8 @@
 							<label for="Quick Transform Checkbox"> Quick Transform </label><br>
 							<input type="checkbox" id="transformAnywhereCheckbox" name="Transform Anywhere Checkbox" value="">
 							<label for="Transform Anywhere Checkbox"> Transform Anywhere</label><br>
+							<input type="checkbox" id="increaseWalletCheckbox" name="Increase Wallet Checkbox" value="">
+							<label for="Increase Wallet Checkbox"> Increase Wallet Capacity</label><br>
 						</fieldset>
 						<fieldset id="musicAndSFXFieldset">
 							<legend> Music and SFX </legend>

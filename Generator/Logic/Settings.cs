@@ -8,85 +8,45 @@ namespace TPRandomizer
     public class RandomizerSetting
     {
         public string logicRules { get; set; }
-
         public string castleRequirements { get; set; }
-
         public string palaceRequirements { get; set; }
-
         public string faronWoodsLogic { get; set; }
-
         public bool mdhSkipped { get; set; }
-
         public bool introSkipped { get; set; }
-
         public string smallKeySettings { get; set; }
-
         public string bossKeySettings { get; set; }
-
         public string mapAndCompassSettings { get; set; }
-
         public bool goldenBugsShuffled { get; set; }
-
         public bool poesShuffled { get; set; }
-
         public bool npcItemsShuffled { get; set; }
-
         public bool shopItemsShuffled { get; set; }
-
         public bool faronTwilightCleared { get; set; }
-
         public bool eldinTwilightCleared { get; set; }
-
         public bool lanayruTwilightCleared { get; set; }
-
         public bool skipMinorCutscenes { get; set; }
-
         public bool fastIronBoots { get; set; }
-
         public bool quickTransform { get; set; }
-
         public bool transformAnywhere { get; set; }
-
         public string iceTrapSettings { get; set; }
-
         public List<Item> StartingItems { get; set; }
-
         public List<string> ExcludedChecks { get; set; }
-
         public int TunicColor { get; set; }
-
         public int MidnaHairColor { get; set; }
-
         public int lanternColor { get; set; }
-
         public int heartColor { get; set; }
-
         public int aButtonColor { get; set; }
-
         public int bButtonColor { get; set; }
-
         public int xButtonColor { get; set; }
-
         public int yButtonColor { get; set; }
-
         public int zButtonColor { get; set; }
-
         public bool shuffleBackgroundMusic { get; set; }
-
         public bool shuffleItemFanfares { get; set; }
-
         public bool disableEnemyBackgoundMusic { get; set; }
-
         public string gameRegion { get; set; }
-
         public bool shuffleHiddenSkills { get; set; }
-
         public bool shuffleSkyCharacters { get; set; }
-
         public int seedNumber { get; set; }
-
         public bool increaseWallet { get; set; }
-
         public bool reduceDonations { get; set; }
     }
 

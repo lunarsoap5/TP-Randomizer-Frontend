@@ -89,7 +89,7 @@ namespace TPRandomizer
                     Console.WriteLine("Generating Spoiler Log.");
                     BackendFunctions.GenerateSpoilerLog(startingRoom, seedHash);
                     IEnumerable<string> fileList = new string[] {"TPR-v1.0-" + seedHash + ".txt", "TPR-v1.0-" + seedHash + "-Seed-Data.gci"};
-                    BackendFunctions.CreateZipFile("TPR-v1.0-" + seedHash + ".zip", fileList);
+                    BackendFunctions.CreateZipFile("Seed/TPR-v1.0-" + seedHash + ".zip", fileList);
                     Console.WriteLine("Generation Complete!");
                     generationStatus = true;
                     break;
