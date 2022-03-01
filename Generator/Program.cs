@@ -11,14 +11,13 @@ namespace TPRandomizer
 {
     static class Program
     {
-        static Randomizer currentRandomizer = new Randomizer();
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main(string[] args)
         {
-            currentRandomizer.start(args[0], args[1]);
+            Randomizer.Start(args[0], args[1]);
         }
     }
 }

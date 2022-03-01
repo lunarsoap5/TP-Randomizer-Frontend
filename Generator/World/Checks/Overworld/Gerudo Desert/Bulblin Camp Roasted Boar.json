@@ -1,7 +1,7 @@
 {
-    "requirements": "hasSword",
-    "stageIDX": 55,
-    "roomID": 1,
+    "requirements": "HasSword",
+    "stageIDX": [55],
+    "roomIDX": 1,
     "category": ["Overworld", "Bulblin Camp", "Boss"],
     "itemId": "Piece_of_Heart"
 }

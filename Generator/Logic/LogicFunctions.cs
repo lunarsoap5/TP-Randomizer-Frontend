@@ -4,19 +4,28 @@ using System.Reflection;
 
 namespace TPRandomizer
 {
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class LogicFunctions
     {
-        public Dictionary<Token, string> TokenDict = new Dictionary<Token, String>();
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public Dictionary<Token, string> TokenDict = new ();
 
         //Evaluate the tokenized settings to their respective values that are set by the settings string.
-        public static bool evaluateSetting(string setting, string value)
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool EvaluateSetting(string setting, string value)
         {
-            RandomizerSetting parseSetting = Randomizer.RandoSetting;
             PropertyInfo[] settingProperties = Randomizer.RandoSetting.GetType().GetProperties();
             setting = setting.Replace("Setting.", "");
             bool isEqual = false;
             foreach (PropertyInfo property in settingProperties)
-			{
+            {
                 var settingValue = property.GetValue(Randomizer.RandoSetting, null);
                 if ((property.Name == setting) && (value == settingValue.ToString()))
                 {
@@ -26,18 +35,24 @@ namespace TPRandomizer
             return isEqual;
         }
 
-        public static bool canUse(Item item)
-		{
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanUse(Item item)
+        {
             bool canUseItem = false;
             if (Randomizer.Items.heldItems.Contains(item))
-                {
-                    canUseItem = true;
-                }
-			return canUseItem;
-		}
+            {
+                canUseItem = true;
+            }
+            return canUseItem;
+        }
 
-        public static bool canUse(string item)
-		{
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanUse(string item)
+        {
             bool canUseItem = false;
             foreach (var listItem in Randomizer.Items.heldItems)
             {
@@ -47,889 +62,1535 @@ namespace TPRandomizer
                     break;
                 }
             }
-			return canUseItem;
-		}
-
-        public static bool hasDamagingItem()
-        {
-            return ( hasSword() ||
-                    canUse(Item.Ball_and_Chain) ||
-                    (getItemCount(Item.Progressive_Bow) >= 1) ||
-                    hasBombs() ||
-                    canUse(Item.Iron_Boots) ||
-                    canUse(Item.Spinner) ||
-                    canUse(Item.Shadow_Crystal));
+            return canUseItem;
         }
 
-        public static bool hasSword()
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool HasDamagingItem()
         {
-            return  ((getItemCount(Item.Progressive_Sword) >= 1));
+            return 
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || hasBombs()
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal);
         }
 
-        public static bool canDefeatAeralfos()
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool HasSword()
         {
-            return ((getItemCount(Item.Progressive_Clawshot) >= 1) ||
-                    hasDamagingItem());
+            return getItemCount(Item.Progressive_Sword) >= 1;
         }
-        public static bool canDefeatArmos()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatAeralfos()
         {
-            return (hasDamagingItem() ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1));
+            return (getItemCount(Item.Progressive_Clawshot) >= 1) || HasDamagingItem();
         }
-        public static bool canDefeatBabaSerpent()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatArmos()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return HasDamagingItem() || (getItemCount(Item.Progressive_Clawshot) >= 1);
         }
-        public static bool canDefeatBabyGohma()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBabaSerpent()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Slingshot) ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1));
+            return 
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal);
         }
-        public static bool canDefeatBari()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBabyGohma()
         {
-            return (canUseWaterBombs() ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1));
+            return 
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Slingshot)
+                || (getItemCount(Item.Progressive_Clawshot) >= 1);
         }
-        public static bool canDefeatBeamos()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBari()
         {
-            return (canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            hasBombs());
+            return CanUseWaterBombs() || (getItemCount(Item.Progressive_Clawshot) >= 1);
         }
-        public static bool canDefeatBigBaba()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBeamos()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return 
+                CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || hasBombs();
         }
-        public static bool canDefeatChu()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBigBaba()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return 
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal);
         }
-        public static bool canDefeatBokoblin()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatChu()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Slingshot));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatBombfish()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBokoblin()
         {
-            return (canUse(Item.Iron_Boots) &&
-            (hasSword() ||
-            canUse(Item.Ordon_Shield) ||
-            canUse(Item.Wooden_Shield)  ||
-            canUse(Item.Hylian_Shield)  ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1)));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Slingshot)
+            );
         }
-        public static bool canDefeatBombling()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBombfish()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                CanUse(Item.Iron_Boots)
+                && (
+                    HasSword()
+                    || CanUse(Item.Ordon_Shield)
+                    || CanUse(Item.Wooden_Shield)
+                    || CanUse(Item.Hylian_Shield)
+                    || (getItemCount(Item.Progressive_Clawshot) >= 1)
+                )
+            );
         }
-        public static bool canDefeatBomskit()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBombling()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatBubble()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBomskit()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatBulblin()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBubble()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatChilfos()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBulblin()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatChuWorm()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatChilfos()
         {
-            return ((hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal)) &&
-            (hasBombs() ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1)));
-            
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatDarknut()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatChuWorm()
         {
-            return hasSword();
+            return (
+                (
+                    HasSword()
+                    || CanUse(Item.Ball_and_Chain)
+                    || (getItemCount(Item.Progressive_Bow) >= 1)
+                    || CanUse(Item.Iron_Boots)
+                    || CanUse(Item.Spinner)
+                    || CanUse(Item.Shadow_Crystal)
+                ) && (hasBombs() || (getItemCount(Item.Progressive_Clawshot) >= 1))
+            );
         }
-        public static bool canDefeatDekuBaba()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDarknut()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shield_Attack) ||
-            canUse(Item.Slingshot) ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1));
+            return HasSword();
         }
-        public static bool canDefeatDekuLike()
-        {    
-            return (hasBombs() ||
-            hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatDodongo()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDekuBaba()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shield_Attack)
+                || CanUse(Item.Slingshot)
+                || (getItemCount(Item.Progressive_Clawshot) >= 1)
+            );
         }
-        public static bool canDefeatDinalfos()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDekuLike()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                hasBombs()
+                || HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatFireBubble()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDodongo()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatFireKeese()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDinalfos()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Slingshot) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatFireToadpoli()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatFireBubble()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatFreezard()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatFireKeese()
         {
-            return canUse(Item.Ball_and_Chain);
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Slingshot)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatGoron()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatFireToadpoli()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shield_Attack) ||
-            canUse(Item.Slingshot) ||
-            canUse(Item.Lantern) ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatGhoulRat()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatFreezard()
         {
-            return canUse(Item.Shadow_Crystal);
+            return CanUse(Item.Ball_and_Chain);
         }
-        public static bool canDefeatGuay()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatGoron()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shield_Attack)
+                || CanUse(Item.Slingshot)
+                || CanUse(Item.Lantern)
+                || (getItemCount(Item.Progressive_Clawshot) >= 1)
+            );
         }
-        public static bool canDefeatHelmasaur()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatGhoulRat()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return CanUse(Item.Shadow_Crystal);
         }
-        public static bool canDefeatHelmasaurus()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatGuay()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatIceBubble()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatHelmasaur()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatIceKeese()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatHelmasaurus()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Slingshot) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatPoe()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatIceBubble()
         {
-            return canUse(Item.Shadow_Crystal);
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatKargarok()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatIceKeese()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Slingshot)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatKeese()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatPoe()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Slingshot) ||
-            canUse(Item.Shadow_Crystal));
+            return CanUse(Item.Shadow_Crystal);
         }
-        public static bool canDefeatLeever()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatKargarok()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatLizalfos()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatKeese()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Slingshot)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatMiniFreezard()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatLeever()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatMoldorm()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatLizalfos()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatPoisonMite()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatMiniFreezard()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Lantern) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatPuppet()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatMoldorm()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatRat()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatPoisonMite()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Slingshot) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Lantern)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatRedeadKnight()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatPuppet()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatShadowBeast()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatRat()
         {
-            return (hasSword() ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Slingshot)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatShadowBulblin()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatRedeadKnight()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatShadowDekuBaba()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatShadowBeast()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shield_Attack) ||
-            canUse(Item.Slingshot) ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1));
+            return (HasSword() || CanUse(Item.Shadow_Crystal));
         }
-        public static bool canDefeatShadowInsect()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatShadowBulblin()
         {
-            return canUse(Item.Shadow_Crystal);
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatShadowKargarok()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatShadowDekuBaba()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shield_Attack)
+                || CanUse(Item.Slingshot)
+                || (getItemCount(Item.Progressive_Clawshot) >= 1)
+            );
         }
-        public static bool canDefeatShadowKeese()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatShadowInsect()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Slingshot) ||
-            canUse(Item.Shadow_Crystal));
+            return CanUse(Item.Shadow_Crystal);
         }
-        public static bool canDefeatShadowVermin()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatShadowKargarok()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatShellBlade()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatShadowKeese()
         {
-            return ((hasSword() ||
-            canUseWaterBombs()) &&
-            canUse(Item.Iron_Boots));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Slingshot)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatSkullfish()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatShadowVermin()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
-        public static bool canDefeatSkulltula()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatShellBlade()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
+            return ((HasSword() || CanUseWaterBombs()) && CanUse(Item.Iron_Boots));
         }
-        public static bool canDefeatStalfos()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatSkullfish()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatSkulltula()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatStalfos()
         {
             return (canSmash());
         }
-        public static bool canDefeatStalhound()
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatStalhound()
         {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatStalchild()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatTetike()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatTileWorm()
-        {
-            return ((hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Shadow_Crystal)) &&
-            canUse(Item.Boomerang));
-        }
-        public static bool canDefeatToado()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatWaterToadpoli()
-        {
-            return (hasSword() || 
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatTorchSlug()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatWalltula()
-        {
-            return (canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            hasBombs() ||
-            canUse(Item.Boomerang) ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1));
-        }
-        public static bool canDefeatWhiteWolfos()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatYoungGohma()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatZantHead()
-        {
-            return (canUse(Item.Shadow_Crystal) ||
-            hasSword());
-        }
-        public static bool canDefeatOok()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatDangoro()
-        {
-            return ((hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            canUse(Item.Shadow_Crystal)) &&
-            canUse(Item.Iron_Boots));
-        }
-        public static bool canDefeatCarrierKargarok()
-        {
-            return canUse(Item.Shadow_Crystal);
-        }
-        public static bool canDefeatTwilitBloat()
-        {
-            return canUse(Item.Shadow_Crystal);
-        }
-        public static bool canDefeatDekuToad()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatSkullKid()
-        {
-            return (getItemCount(Item.Progressive_Bow) >= 1);
-        }
-        public static bool canDefeatKingBulblinBridge()
-        {
-            return (getItemCount(Item.Progressive_Bow) >= 1);
-        }
-        public static bool canDefeatKingBulblinDesert()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatKingBulblinCastle()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatDeathSword()
-        {
-            return ((hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner)) &&
-            (canUse(Item.Boomerang) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1)) &&
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatDarkhammer()
-        {
-            return (hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatPhantomZant()
-        {
-            return (canUse(Item.Shadow_Crystal) ||
-            hasSword());
-        }
-        public static bool canDefeatDiababa()
-        {
-            return ((canUse(Item.Boomerang) ||
-            (hasBombs() &&
-            (getItemCount(Item.Progressive_Bow) >= 1))) &&
-            hasSword() ||
-            canUse(Item.Ball_and_Chain) ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Shadow_Crystal));
-        }
-        public static bool canDefeatFyrus()
-        {
-            return ((getItemCount(Item.Progressive_Bow) >= 1) &&
-            canUse(Item.Iron_Boots) &&
-            hasSword());
-        }
-        public static bool canDefeatMorpheel()
-        {
-            return (canUse(Item.Zora_Armor) &&
-            canUse(Item.Iron_Boots) &&
-            hasSword());
-        }
-        public static bool canDefeatStallord()
-        {
-            return (canUse(Item.Spinner) &&
-            hasSword());
-        }
-        public static bool canDefeatBlizzeta()
-        {
-            return canUse(Item.Ball_and_Chain);
-        }
-        public static bool canDefeatArmogohma()
-        {
-            return ((getItemCount(Item.Progressive_Bow) >= 1) &&
-            (getItemCount(Item.Progressive_Dominion_Rod) >= 1));
-        }
-        public static bool canDefeatArgorok()
-        {
-            return ((getItemCount(Item.Progressive_Clawshot) >= 2) &&
-            canUse(Item.Iron_Boots) &&
-            (getItemCount(Item.Progressive_Sword) >= 2));
-        }
-        public static bool canDefeatZant()
-        {
-            return ((getItemCount(Item.Progressive_Sword) >= 3) &&
-            (canUse(Item.Boomerang) &&
-            (getItemCount(Item.Progressive_Clawshot) >= 1) &&
-            canUse(Item.Iron_Boots) &&
-            canUse(Item.Zora_Armor) &&
-            canUse(Item.Ball_and_Chain)));
-        }
-        public static bool canDefeatGanondorf()
-        {
-            return (canUse(Item.Shadow_Crystal) &&
-            (getItemCount(Item.Progressive_Sword) >= 3) );
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatStalchild()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatTetike()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatTileWorm()
+        {
+            return (
+                (
+                    HasSword()
+                    || CanUse(Item.Ball_and_Chain)
+                    || (getItemCount(Item.Progressive_Bow) >= 1)
+                    || CanUse(Item.Shadow_Crystal)
+                ) && CanUse(Item.Boomerang)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatToado()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatWaterToadpoli()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatTorchSlug()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatWalltula()
+        {
+            return (
+                CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || hasBombs()
+                || CanUse(Item.Boomerang)
+                || (getItemCount(Item.Progressive_Clawshot) >= 1)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatWhiteWolfos()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatYoungGohma()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatZantHead()
+        {
+            return (CanUse(Item.Shadow_Crystal) || HasSword());
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatOok()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDangoro()
+        {
+            return (
+                (HasSword() || CanUse(Item.Ball_and_Chain) || CanUse(Item.Shadow_Crystal))
+                && CanUse(Item.Iron_Boots)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatCarrierKargarok()
+        {
+            return CanUse(Item.Shadow_Crystal);
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatTwilitBloat()
+        {
+            return CanUse(Item.Shadow_Crystal);
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDekuToad()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatSkullKid()
+        {
+            return (getItemCount(Item.Progressive_Bow) >= 1);
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatKingBulblinBridge()
+        {
+            return (getItemCount(Item.Progressive_Bow) >= 1);
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatKingBulblinDesert()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatKingBulblinCastle()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDeathSword()
+        {
+            return (
+                (
+                    HasSword()
+                    || CanUse(Item.Ball_and_Chain)
+                    || CanUse(Item.Iron_Boots)
+                    || CanUse(Item.Spinner)
+                )
+                && (
+                    CanUse(Item.Boomerang)
+                    || (getItemCount(Item.Progressive_Bow) >= 1)
+                    || (getItemCount(Item.Progressive_Clawshot) >= 1)
+                )
+                && CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDarkhammer()
+        {
+            return (
+                HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatPhantomZant()
+        {
+            return (CanUse(Item.Shadow_Crystal) || HasSword());
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatDiababa()
+        {
+            return (
+                (
+                    CanUse(Item.Boomerang)
+                    || (hasBombs() && (getItemCount(Item.Progressive_Bow) >= 1))
+                ) && HasSword()
+                || CanUse(Item.Ball_and_Chain)
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Shadow_Crystal)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatFyrus()
+        {
+            return (
+                (getItemCount(Item.Progressive_Bow) >= 1) && CanUse(Item.Iron_Boots) && HasSword()
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatMorpheel()
+        {
+            return (CanUse(Item.Zora_Armor) && CanUse(Item.Iron_Boots) && HasSword());
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatStallord()
+        {
+            return (CanUse(Item.Spinner) && HasSword());
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatBlizzeta()
+        {
+            return CanUse(Item.Ball_and_Chain);
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatArmogohma()
+        {
+            return (
+                (getItemCount(Item.Progressive_Bow) >= 1)
+                && (getItemCount(Item.Progressive_Dominion_Rod) >= 1)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatArgorok()
+        {
+            return (
+                (getItemCount(Item.Progressive_Clawshot) >= 2)
+                && CanUse(Item.Iron_Boots)
+                && (getItemCount(Item.Progressive_Sword) >= 2)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatZant()
+        {
+            return (
+                (getItemCount(Item.Progressive_Sword) >= 3)
+                && (
+                    CanUse(Item.Boomerang)
+                    && (getItemCount(Item.Progressive_Clawshot) >= 1)
+                    && CanUse(Item.Iron_Boots)
+                    && CanUse(Item.Zora_Armor)
+                    && CanUse(Item.Ball_and_Chain)
+                )
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanDefeatGanondorf()
+        {
+            return (CanUse(Item.Shadow_Crystal) && (getItemCount(Item.Progressive_Sword) >= 3));
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canSmash()
         {
-                return (canUse(Item.Ball_and_Chain) ||
-                hasBombs());
+            return (CanUse(Item.Ball_and_Chain) || hasBombs());
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canBurnWebs()
         {
-            return (canUse(Item.Ball_and_Chain) ||
-            canUse(Item.Lantern) ||
-            hasBombs());
+            return (CanUse(Item.Ball_and_Chain) || CanUse(Item.Lantern) || hasBombs());
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool hasRangedItem()
         {
-            return (canUse(Item.Ball_and_Chain) ||
-            canUse(Item.Slingshot) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1) ||
-            canUse(Item.Boomerang));
+            return (
+                CanUse(Item.Ball_and_Chain)
+                || CanUse(Item.Slingshot)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || (getItemCount(Item.Progressive_Clawshot) >= 1)
+                || CanUse(Item.Boomerang)
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool hasSheild()
         {
-            return (canUse(Item.Ordon_Shield)  ||
-            canUse(Item.Wooden_Shield)  ||
-            canUse(Item.Hylian_Shield) );
+            return (
+                CanUse(Item.Ordon_Shield)
+                || CanUse(Item.Wooden_Shield)
+                || CanUse(Item.Hylian_Shield)
+            );
         }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canLaunchBombs()
         {
-            return ((canUse(Item.Boomerang) ||
-            (getItemCount(Item.Progressive_Bow) >= 1)) &&
-            hasBombs());
+            return (
+                (CanUse(Item.Boomerang) || (getItemCount(Item.Progressive_Bow) >= 1)) && hasBombs()
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCutHangingWeb()
         {
-            return ((getItemCount(Item.Progressive_Clawshot) >= 1) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            canUse(Item.Boomerang) ||
-            canUse(Item.Ball_and_Chain));
+            return (
+                (getItemCount(Item.Progressive_Clawshot) >= 1)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Boomerang)
+                || CanUse(Item.Ball_and_Chain)
+            );
         }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canKnockDownHCPainting()
         {
-            return ((getItemCount(Item.Progressive_Bow) >= 1) ||
-            hasBombs());
-        } 
+            return ((getItemCount(Item.Progressive_Bow) >= 1) || hasBombs());
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canBreakMonkeyCage()
         {
-            return (hasSword() ||
-            canUse(Item.Iron_Boots) ||
-            canUse(Item.Spinner) ||
-            canUse(Item.Ball_and_Chain) ||
-            canUse(Item.Shadow_Crystal) ||
-            (getItemCount(Item.Progressive_Bow) >= 1) ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1));
+            return (
+                HasSword()
+                || CanUse(Item.Iron_Boots)
+                || CanUse(Item.Spinner)
+                || CanUse(Item.Ball_and_Chain)
+                || CanUse(Item.Shadow_Crystal)
+                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || (getItemCount(Item.Progressive_Clawshot) >= 1)
+            );
         }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canPressMinesSwitch()
         {
-            return (canUse(Item.Ball_and_Chain) ||
-            canUse(Item.Iron_Boots));
+            return (CanUse(Item.Ball_and_Chain) || CanUse(Item.Iron_Boots));
         }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canFreeAllMonkeys()
         {
-                    return (canBreakMonkeyCage()  &&
-                    canBurnWebs() &&
-                    canUse(Item.Boomerang) && canDefeatBokoblin() && canDefeatBigBaba());
+            return (
+                canBreakMonkeyCage()
+                && canBurnWebs()
+                && CanUse(Item.Boomerang)
+                && CanDefeatBokoblin()
+                && CanDefeatBigBaba()
+                && (getItemCount(Item.Forest_Temple_Small_Key) >= 4)
+            );
         }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canKnockDownHangingBaba()
         {
-            return ((getItemCount(Item.Progressive_Bow) >= 1) ||
-            (getItemCount(Item.Progressive_Clawshot) >= 1) ||
-            canUse(Item.Boomerang));
+            return (
+                (getItemCount(Item.Progressive_Bow) >= 1)
+                || (getItemCount(Item.Progressive_Clawshot) >= 1)
+                || CanUse(Item.Boomerang)
+            );
         }
-        
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canBreakWoodenDoor()
         {
-            return (canUse(Item.Shadow_Crystal) ||
-            hasSword() ||
-            (canUse(Item.Ball_and_Chain) ||
-            hasBombs()));
+            return (
+                CanUse(Item.Shadow_Crystal)
+                || HasSword()
+                || (CanUse(Item.Ball_and_Chain) || hasBombs())
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool hasBombs()
         {
-            return (canUse(Item.Bomb_Bag_And_Bombs) ||
-            canUse(Item.Empty_Bomb_Bag));
+            return (CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag));
         }
 
-        public static bool canUseWaterBombs()
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanUseWaterBombs()
         {
             return (hasBombs() && canLeaveForest());
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canLeaveForest()
         {
-            return ((canCompleteForestTemple() || (Randomizer.RandoSetting.faronWoodsLogic == "Open")));
+            return (
+                (canCompleteForestTemple() || (Randomizer.RandoSetting.faronWoodsLogic == "Open"))
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCompleteForestTemple()
         {
-            return ((getItemCount(Item.Forest_Temple_Small_Key) >=4) && canUse(Item.Boomerang) && canUse(Item.North_Faron_Woods_Gate_Key) && canBreakMonkeyCage() && canDefeatWalltula() && canDefeatBigBaba() && canBurnWebs() && canDefeatOok() && canDefeatDiababa() && canUse(Item.Forest_Temple_Big_Key));
+            return (
+                ((getItemCount(Item.Forest_Temple_Small_Key) >= 4))
+                && CanUse(Item.Boomerang)
+                && (CanUse(Item.North_Faron_Woods_Gate_Key) || Randomizer.RandoSetting.introSkipped)
+                && canBreakMonkeyCage()
+                && CanDefeatWalltula()
+                && CanDefeatBigBaba()
+                && canBurnWebs()
+                && CanDefeatOok()
+                && CanDefeatDiababa()
+                && CanUse(Item.Forest_Temple_Big_Key)
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCompleteGoronMines()
         {
-            return ((getItemCount(Item.Goron_Mines_Small_Key) >=3) && canDefeatDangoro() && canDefeatFyrus() && (getItemCount(Item.Progressive_Bow) >= 1) && canUse(Item.Iron_Boots) && hasSword() && canUse(Item.Goron_Mines_Big_Key));
+            return (
+                (getItemCount(Item.Goron_Mines_Small_Key) >= 3)
+                && CanDefeatDangoro()
+                && CanDefeatFyrus()
+                && (getItemCount(Item.Progressive_Bow) >= 1)
+                && CanUse(Item.Iron_Boots)
+                && HasSword()
+                && CanUse(Item.Goron_Mines_Big_Key)
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCompleteLakebedTemple()
         {
-            return ((getItemCount(Item.Lakebed_Temple_Small_Key) >=3) && canDefeatDekuToad() && canDefeatMorpheel() && (getItemCount(Item.Progressive_Clawshot) >= 1) && canLaunchBombs() && canUseWaterBombs() && canUse(Item.Lakebed_Temple_Big_Key));
+            return (
+                (getItemCount(Item.Lakebed_Temple_Small_Key) >= 3)
+                && CanDefeatDekuToad()
+                && CanDefeatMorpheel()
+                && (getItemCount(Item.Progressive_Clawshot) >= 1)
+                && canLaunchBombs()
+                && CanUseWaterBombs()
+                && CanUse(Item.Lakebed_Temple_Big_Key)
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCompleteArbitersGrounds()
         {
-            return ((getItemCount(Item.Arbiters_Grounds_Small_Key) >=5) && canUse(Item.Arbiters_Grounds_Big_Key) && canUse(Item.Lantern) && canDefeatPoe() && canUse(Item.Shadow_Crystal) && (getItemCount(Item.Progressive_Clawshot)>= 1) && canDefeatRedeadKnight() && canDefeatStalchild() && canDefeatBubble() && canDefeatGhoulRat() && canDefeatStalfos() && canUse(Item.Spinner) && canDefeatStallord());
+            return (
+                (getItemCount(Item.Arbiters_Grounds_Small_Key) >= 5)
+                && CanUse(Item.Arbiters_Grounds_Big_Key)
+                && CanUse(Item.Lantern)
+                && CanDefeatPoe()
+                && CanUse(Item.Shadow_Crystal)
+                && (getItemCount(Item.Progressive_Clawshot) >= 1)
+                && CanDefeatRedeadKnight()
+                && CanDefeatStalchild()
+                && CanDefeatBubble()
+                && CanDefeatGhoulRat()
+                && CanDefeatStalfos()
+                && CanUse(Item.Spinner)
+                && CanDefeatStallord()
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCompleteSnowpeakRuins()
         {
-            return (canDefeatBlizzeta() && canUse(Item.Snowpeak_Ruins_Ordon_Goat_Cheese) && canUse(Item.Snowpeak_Ruins_Ordon_Pumpkin) && canUse(Item.Ball_and_Chain) && canDefeatChilfos() && canDefeatMiniFreezard() && canDefeatFreezard() && (getItemCount(Item.Snowpeak_Ruins_Small_Key) >= 4) && hasBombs() && canUse(Item.Snowpeak_Ruins_Bedroom_Key));
+            return (
+                CanDefeatBlizzeta()
+                && CanUse(Item.Snowpeak_Ruins_Ordon_Goat_Cheese)
+                && CanUse(Item.Snowpeak_Ruins_Ordon_Pumpkin)
+                && CanUse(Item.Ball_and_Chain)
+                && CanDefeatChilfos()
+                && CanDefeatMiniFreezard()
+                && CanDefeatFreezard()
+                && (getItemCount(Item.Snowpeak_Ruins_Small_Key) >= 4)
+                && hasBombs()
+                && CanUse(Item.Snowpeak_Ruins_Bedroom_Key)
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCompleteTempleofTime()
         {
-            return ((getItemCount(Item.Progressive_Dominion_Rod) >= 1) && (getItemCount(Item.Progressive_Bow) >= 1) && canUse(Item.Spinner) && canDefeatLizalfos() && canDefeatDinalfos() && canDefeatDarknut() && canDefeatArmogohma() && canUse(Item.Temple_of_Time_Big_Key) && (getItemCount(Item.Temple_of_Time_Small_Key) >= 3));
+            return (
+                (getItemCount(Item.Progressive_Dominion_Rod) >= 1)
+                && (getItemCount(Item.Progressive_Bow) >= 1)
+                && CanUse(Item.Spinner)
+                && CanDefeatLizalfos()
+                && CanDefeatDinalfos()
+                && CanDefeatDarknut()
+                && CanDefeatArmogohma()
+                && CanUse(Item.Temple_of_Time_Big_Key)
+                && (getItemCount(Item.Temple_of_Time_Small_Key) >= 3)
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCompleteCityinTheSky()
         {
-            return ((getItemCount(Item.Progressive_Clawshot) >= 2) && canUse(Item.Spinner) && canDefeatKargarok() && canDefeatDinalfos() && (getItemCount(Item.City_in_The_Sky_Small_Key) >= 1) && canUse(Item.City_in_The_Sky_Big_Key) && canDefeatBabaSerpent() && canDefeatArgorok());
+            return (
+                (getItemCount(Item.Progressive_Clawshot) >= 2)
+                && CanUse(Item.Spinner)
+                && CanDefeatKargarok()
+                && CanDefeatDinalfos()
+                && (getItemCount(Item.City_in_The_Sky_Small_Key) >= 1)
+                && CanUse(Item.City_in_The_Sky_Big_Key)
+                && CanDefeatBabaSerpent()
+                && CanDefeatArgorok()
+            );
         }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCompletePalaceofTwilight()
         {
-            return ((getItemCount(Item.Palace_of_Twilight_Small_Key) >=7) && (getItemCount(Item.Progressive_Sword) >= 4) && canDefeatZantHead() && canDefeatShadowBeast() && (getItemCount(Item.Progressive_Clawshot) >= 2) && canDefeatPhantomZant() && canDefeatZant() && canUse(Item.Shadow_Crystal) && canUse(Item.Palace_of_Twilight_Big_Key));
+            return (
+                (getItemCount(Item.Palace_of_Twilight_Small_Key) >= 7)
+                && (getItemCount(Item.Progressive_Sword) >= 4)
+                && CanDefeatZantHead()
+                && CanDefeatShadowBeast()
+                && (getItemCount(Item.Progressive_Clawshot) >= 2)
+                && CanDefeatPhantomZant()
+                && CanDefeatZant()
+                && CanUse(Item.Shadow_Crystal)
+                && CanUse(Item.Palace_of_Twilight_Big_Key)
+            );
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool canCompleteAllDungeons()
         {
-            return(canCompleteForestTemple() && canCompleteGoronMines() && canCompleteLakebedTemple() && canCompleteArbitersGrounds() && canCompleteSnowpeakRuins() &&
-                    canCompleteTempleofTime() && canCompleteCityinTheSky() && canCompletePalaceofTwilight());
-        }
-
-        public static bool randomDungeonsCompleted()
-        {
-            //This is placeholder until I figure out how I want to do random dungeons. may remove it completely. Idk yet.
-            return true;
+            return (
+                canCompleteForestTemple()
+                && canCompleteGoronMines()
+                && canCompleteLakebedTemple()
+                && canCompleteArbitersGrounds()
+                && canCompleteSnowpeakRuins()
+                && canCompleteTempleofTime()
+                && canCompleteCityinTheSky()
+                && canCompletePalaceofTwilight()
+            );
         }
 
         public static int getItemCount(Item itemToBeCounted)
-		{
+        {
             List<Item> itemList = Randomizer.Items.heldItems;
-			int itemQuantity = 0;
-			foreach (var item in itemList)
-			{
-				if (item == itemToBeCounted)
-				{
-					itemQuantity++;
-				}
-			}
+            int itemQuantity = 0;
+            foreach (var item in itemList)
+            {
+                if (item == itemToBeCounted)
+                {
+                    itemQuantity++;
+                }
+            }
             return itemQuantity;
-		}
+        }
 
-        
-
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static bool verifyItemQuantity(string itemToBeCounted, int quantity)
-		{
+        {
             List<Item> itemList = Randomizer.Items.heldItems;
-			int itemQuantity = 0;
+            int itemQuantity = 0;
             bool isQuantity = false;
-            
-			foreach (var item in itemList)
-			{
-				if (item.ToString() == itemToBeCounted)
-				{
-					itemQuantity++;
-				}
-			}
+
+            foreach (var item in itemList)
+            {
+                if (item.ToString() == itemToBeCounted)
+                {
+                    itemQuantity++;
+                }
+            }
             if (itemQuantity >= quantity)
             {
                 isQuantity = true;
             }
             return isQuantity;
-		}
+        }
 
-        public bool evaluateRequirements(string expression)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public bool EvaluateRequirements(string expression)
         {
             Parser parse = new Parser();
             parse.ParserReset();

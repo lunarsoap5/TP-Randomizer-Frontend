@@ -1,19 +1,19 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Kakariko Gorge", 
         "Eldin Field", 
         "Death Mountain Trail", 
         "Lake Hylia"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "true",
         "true",
         "hasBombs and Iron_Boots"
     ],
-    "checks": 
+    "Checks": 
     [
         "Kakariko Inn Chest",
         "Eldin Spring Underwater Chest",        
@@ -33,7 +33,9 @@
         "Kakariko Graveyard Open Poe",
         "Kakariko Village Bomb Shop Poe",
         "Kakariko Village Watchtower Poe",
-        "Kakariko Graveyard Golden Wolf"
+        "Kakariko Graveyard Golden Wolf",
+        "Kakariko Village Malo Mart Hylian Shield",
+        "Kakariko Village Malo Mart Hawkeye"
     ],
-    "region": "Eldin Province"
+    "Region": "Eldin Province"
 }

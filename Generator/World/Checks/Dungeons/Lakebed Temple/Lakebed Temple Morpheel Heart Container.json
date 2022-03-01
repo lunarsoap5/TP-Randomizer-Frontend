@@ -1,6 +1,6 @@
 {
-    "requirements": "canDefeatMorpheel",
-    "stageIDX": 1,
+    "requirements": "CanDefeatMorpheel",
+    "stageIDX": [1],
     "category": ["Heart Container", "Dungeon", "Lakebed Temple", "Boss"],
     "itemId": "Heart_Container"
 }

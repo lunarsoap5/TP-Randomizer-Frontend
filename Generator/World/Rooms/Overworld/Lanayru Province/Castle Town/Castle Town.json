@@ -1,19 +1,19 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Outside Castle Town West", 
         "Eldin Field", 
         "Outside Castle Town South", 
         "Hyrule Castle Entrance"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "true",
         "true",
-        "((Setting.castleRequirements equals Open) or ((Setting.castleRequirements equals Vanilla) and canCompletePalaceofTwilight) or ((Setting.castleRequirements equals Fused_Shadows) and (Progressive_Fused_Shadow, 3)) or ((Setting.castleRequirements equals Mirror_Shards) and (Progressive_Mirror_Shard, 4)) or ((Setting.castleRequirements equals All_Dungeons) and canCompleteAllDungeons) or ((Setting.castleRequirements equals Random_Dungeons) and randomDungeonsCompleted)) and (canCompleteLakebedTemple or (Setting.mdhSkipped equals True))"
+        "((Setting.castleRequirements equals Open) or ((Setting.castleRequirements equals Vanilla) and Room.Palace_of_Twilight_Boss_Room and CanDefeatZant) or ((Setting.castleRequirements equals Fused_Shadows) and (Progressive_Fused_Shadow, 3)) or ((Setting.castleRequirements equals Mirror_Shards) and (Progressive_Mirror_Shard, 4)) or ((Setting.castleRequirements equals All_Dungeons) and canCompleteAllDungeons) and (canCompleteLakebedTemple or (Setting.mdhSkipped equals True)))"
     ],
-    "checks": 
+    "Checks": 
     [
         "Doctors Office Balcony Chest",
         "STAR Prize 1",
@@ -46,7 +46,10 @@
         "Agitha Male Stag Beetle Reward",
         "East Castle Town Bridge Poe",
         "Jovani House Poe",
-        "North Castle Town Golden Wolf"
+        "North Castle Town Golden Wolf",
+        "Castle Town Malo Mart Magic Armor",
+        "Jovani 20 Poe Soul Reward",
+        "Jovani 60 Poe Soul Reward"
     ],
-    "region": "Castle Town"
+    "Region": "Castle Town"
 }
