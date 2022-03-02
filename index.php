@@ -5,33 +5,6 @@
 		$f = array_combine($f, array_map('filectime', $f));
 		arsort($f);
 		echo key($f);
-	};
-
-	if(isset($_POST['generateSeedButton']))
-	{
-		$adjectiveArray = explode(',', file_get_contents(".\Resources\HashAdjectives.txt"));
-		$nameArray = explode(",", file_get_contents(".\Resources\HashNames.txt"));
-		shuffle($adjectiveArray);
-		shuffle($nameArray);
-		$seedHash = implode('-', array($adjectiveArray[0],$nameArray[0]));
-		shell_exec('dotnet run --project ./Generator/TPRandomizer.csproj '.escapeshellarg($_POST['settingsStringTextBox']).' '.escapeshellarg($seedHash));
-		
-		$file = "TPR-v1.0-$seedHash.zip";
-		$filePath = "Seed/$file";
-		if(!empty($file) && file_exists($filePath))
-		{
-    		header("Cache-Control: public");
-    		header("Content-Description: File Transfer");
-    		header("Content-Disposition: attachment; filename=$file");
-    		header("Content-Type: application/zip");
-    		header("Content-Transfer-Encoding: binary");
-			readfile($filePath); //showing the path to the server where the file is to be download
-		}
-		else 
-		{ 
-			echo 'The file does not exist'; 
-		}
-		//header('Location: localhost/Seeds/TPR - v1.0 - '.$seedHash.".txt", true, 302);
 	}
 ?>
 <!DOCTYPE html>
@@ -311,13 +284,11 @@
 							<option value="1">Red</option>
 							<option value="2">Orange</option>
 							<option value="3">Yellow</option>
-							<option value="4">Lime Green</option>
-							<option value="5">Dark Green</option>
-							<option value="6">Blue</option>
-							<option value="7">Purple</option>
-							<option value="8">Black</option>
-							<option value="9">White</option>
-							<option value="10">Cyan</option>
+							<option value="4">Green</option>
+							<option value="5">Blue</option>
+							<option value="6">Purple</option>
+							<option value="7">White</option>
+							<option value="8">Cyan</option>
 						</select>
 						<br/>
 						<label for="Midna Hair Color Fieldset">Midna Hair Color:</label>
@@ -329,14 +300,13 @@
 						<label for="Heart Color Fieldset">Heart Color:</label>
 						<select name="Heart Color Fieldset" id="heartColorFieldset">
 							<option value="0">Default</option>
-							<option value="1">Rainbow</option>
-							<option value="2">Teal</option>
-							<option value="3">Pink</option>
-							<option value="4">Orange</option>
-							<option value="5">Blue</option>
+							<option value="1">Teal</option>
+							<option value="2">Pink</option>
+							<option value="3">Orange</option>
+							<option value="4">Blue</option>
+							<option value="5">Green</option>
 							<option value="6">Purple</option>
-							<option value="7">Green</option>
-							<option value="8">Black</option>
+							<option value="7">Black</option>
 						</select>
 						<br/>
 						<label for="A Button Color Fieldset">A Button Color:</label>
@@ -346,10 +316,12 @@
 							<option value="2">Orange</option>
 							<option value="3">Yellow</option>
 							<option value="4">Dark Green</option>
-							<option value="5">Purple</option>
-							<option value="6">Black</option>
-							<option value="7">Grey</option>
-							<option value="8">Pink</option>
+							<option value="5">Blue</option>
+							<option value="6">Purple</option>
+							<option value="7">Black</option>
+							<option value="8">Grey</option>
+							<option value="9">Pink</option>
+
 						</select>
 						<br/>
 						<label for="B Button Color Fieldset">B Button Color:</label>
@@ -409,14 +381,22 @@
 					</fieldset>
 				</div>
 				<br/>
-				<form method="post">
+				<form method="post" action="generator.php">
 				<label for="Settings String Text Box">Settings String:</label>
-  				<input type="text" id="settingsStringTextbox" name="settingsStringTextBox">
-						
-				<input id="importSettingsStringButton" value="Import" type="button">
+  				<input type="text" id="settingsStringTextbox" name="settingsStringTextBox" style="min-width: 30em;">
+				<input type="number" id="seed-slot" name="seed-slot" value="-1" hidden/>
+				<input id="importSettingsStringButton" value="Import/Apply" type="button">
 				<br/>
 				<input id="generateSeedButton" name="generateSeedButton" value="Generate" type="submit" >
 				</form>
+                <script>
+                    document.getElementById('seedNumberFieldset').addEventListener("change",
+                    function ()
+                    {
+                        document.getElementById('seed-slot').value = this.value;
+                    });
+                    document.getElementById('seed-slot').value = 0;
+                </script>
 			</div>
 			<div class="blackbg">
 				<h1>Tools and resources</h1>

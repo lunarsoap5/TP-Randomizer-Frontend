@@ -92,6 +92,7 @@ namespace TPRandomizer
                         {
                             currentCheck.checkStatus = "Vanilla";
                             Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
+			    Randomizer.Items.alwaysItems.Remove(currentCheck.itemId);
                         }
                     }
 
@@ -116,6 +117,7 @@ namespace TPRandomizer
                         if (currentCheck.category.Contains("Hidden Skill"))
                         {
                             currentCheck.checkStatus = "Vanilla";
+			    Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                         }
                     }
 
@@ -134,6 +136,8 @@ namespace TPRandomizer
                         {
                             currentCheck.checkStatus = "Vanilla";
                             Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
+ 			    Randomizer.Items.alwaysItems.Remove(currentCheck.itemId);
+
                         }
                     }
                 }
