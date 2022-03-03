@@ -71,8 +71,8 @@
 							<label for="Logic Rules Fieldset">Logic Rules:</label>
 							<select name="Logic Rules Fieldset" id="logicRulesFieldset">
 								<option value="0">Glitchless</option>
-								<option value="1">Glitched</option>
-								<option value="2">No Logic</option>
+								<option value="1">G̶l̶i̶t̶c̶h̶e̶d̶</option>
+								<option value="2">N̶o̶ ̶L̶o̶g̶i̶c̶</option>
 							</select>
 							<br/>
 							<label for="Game Region Fieldset">Game Region:</label>
@@ -100,30 +100,30 @@
 							<legend> Access Options</legend>
 							<label for="Castle Requirements">Hyrule Castle Requirements:</label>
 							<select name="Castle Requirements" id="castleRequirementsFieldset">
-								<option value="0">Open</option>
-								<option value="1">Fused Shadows</option>
-								<option value="2">Mirror Shards</option>
-								<option value="3">All Dungeons</option>
-								<option value="4">Random Dungeons</option>
-								<option value="5">Vanilla</option>
+								<option value="0"> ̶O̶p̶e̶n̶</option>
+								<option value="1">F̶u̶s̶e̶d̶ ̶S̶h̶a̶d̶o̶w̶s̶</option>
+								<option value="2">̶M̶i̶r̶r̶o̶r̶ ̶S̶h̶a̶r̶d̶s̶</option>
+								<option value="3">̶A̶l̶l̶ ̶D̶u̶n̶g̶e̶o̶n̶s̶</option>
+								<option value="4">̶R̶a̶n̶d̶o̶m̶ ̶D̶u̶n̶g̶e̶o̶n̶s̶</option>
+								<option value="5" selected>Vanilla</option>
 							</select>
 							<br/>
 							<label for="Palace Requirements">Palace of Twilight Requirements:</label>
 							<select name="Palace Requirements" id="palaceRequirementsFieldset">
-								<option value="0">Open</option>
-								<option value="1">Fused Shadows</option>
-								<option value="2">Mirror Shards</option>
-								<option value="3">Vanilla</option>
+								<option value="0">O̶p̶e̶n̶</option>
+								<option value="1">F̶u̶s̶e̶d̶ ̶S̶h̶a̶d̶o̶w̶s̶</option>
+								<option value="2">̶M̶i̶r̶r̶o̶r̶ ̶S̶h̶a̶r̶d̶s̶</option>
+								<option value="3" selected>Vanilla</option>
 							</select>
 							<br/>
 							<label for="Faron Woods Logic">Faron Woods Logic:</label>
 							<select name="Faron Woods  Logic" id="faronLogicFieldset">
-								<option value="0">Open</option>
-								<option value="1">Closed</option>
+								<option value="0">O̶p̶e̶n̶</option>
+								<option value="1" selected>Closed</option>
 							</select>
 							<br/>
 							<input type="checkbox" id="mdhCheckbox" name="MDH Logic" value="">
-							<label for="MDH Logic"> Skip Midna's Desperate Hour</label><br>
+							<label for="MDH Logic">  ̶S̶k̶i̶p̶ ̶M̶i̶d̶n̶a̶'̶s̶ ̶D̶e̶s̶p̶e̶r̶a̶t̶e̶ ̶H̶o̶u̶r̶</label><br>
 							<input type="checkbox" id="introCheckbox" name="Intro Logic" value="">
 							<label for="Intro Logic"> Skip Intro </label><br>
 						</fieldset>
@@ -176,10 +176,10 @@
 							<label for="Foolish Items">Foolish Items:</label>
 							<select name="Foolish Items" id="foolishItemFieldset">
 								<option value="0">None</option>
-								<option value="1">Few</option>
-								<option value="2">Many</option>
-								<option value="3">Mayhem</option>
-								<option value="4">Nightmare</option>
+								<option value="1">̶F̶e̶w̶</option>
+								<option value="2">̶M̶a̶n̶y̶</option>
+								<option value="3">̶M̶a̶y̶h̶e̶m̶</option>
+								<option value="4">̶N̶i̶g̶h̶t̶m̶a̶r̶e̶</option>
 							</select>
 						</fieldset>
 					</fieldset>
@@ -193,14 +193,14 @@
 						<input type="checkbox" id="eldinTwilightCheckbox" name="Eldin Twilight Checkbox" value="">
 						<label for="Eldin Twilight Checkbox"> Eldin Twilight Cleared </label><br>
 						<input type="checkbox" id="lanayruTwilightCheckbox" name="Lanayru Twilight Checkbox" value="">
-						<label for="Lanayru Twilight Checkbox"> Lanayru Twilight Cleared </label><br>
+						<label for="Lanayru Twilight Checkbox">   ̶L̶a̶n̶a̶y̶r̶u̶ ̶T̶w̶i̶l̶i̶g̶h̶t̶ ̶C̶l̶e̶a̶r̶e̶d̶</label><br>
 					</fieldset>
 					<fieldset id="cutscenesAndMundaneSkipsFieldset">
 						<legend>Cutscenes/Mundane Skips</legend>
 						<input type="checkbox" id="skipMinorCutscenesCheckbox" name="Skip Minor Cutscenes Checkbox" value="">
-						<label for="Skip Minor Cutscenes Checkbox"> Skip Minor Cutscenes </label><br>
+						<label for="Skip Minor Cutscenes Checkbox">  ̶S̶k̶i̶p̶ ̶M̶i̶n̶o̶r̶ ̶C̶u̶t̶s̶c̶e̶n̶e̶s̶ ̶</label><br>
 						<input type="checkbox" id="reduceDonationsCheckbox" name="Reduce Donations Checkbox" value="">
-						<label for="Reduce Donations Checkbox"> Reduce Donation Costs </label><br>
+						<label for="Reduce Donations Checkbox">  ̶R̶e̶d̶u̶c̶e̶ ̶D̶o̶n̶a̶t̶i̶o̶n̶ ̶C̶o̶s̶t̶s̶ ̶</label><br>
 					</fieldset>
 				</div>
 				  
@@ -247,9 +247,9 @@
 							<input type="checkbox" id="fastIBCheckbox" name="Fast IB Checkbox" value="">
 							<label for="Fast IB Checkbox"> Fast Iron Boots </label><br>
 							<input type="checkbox" id="quickTransformCheckbox" name="Quick Transform Checkbox" value="">
-							<label for="Quick Transform Checkbox"> Quick Transform </label><br>
+							<label for="Quick Transform Checkbox">  ̶Q̶u̶i̶c̶k̶ ̶T̶r̶a̶n̶s̶f̶o̶r̶m̶</label><br>
 							<input type="checkbox" id="transformAnywhereCheckbox" name="Transform Anywhere Checkbox" value="">
-							<label for="Transform Anywhere Checkbox"> Transform Anywhere</label><br>
+							<label for="Transform Anywhere Checkbox">  ̶T̶r̶a̶n̶s̶f̶o̶r̶m̶ ̶A̶n̶y̶w̶h̶e̶r̶e̶</label><br>
 							<input type="checkbox" id="increaseWalletCheckbox" name="Increase Wallet Checkbox" value="">
 							<label for="Increase Wallet Checkbox"> Increase Wallet Capacity</label><br>
 						</fieldset>
@@ -265,7 +265,7 @@
 					</div>
 					<fieldset id="itemPoolOptionsFieldset">
 					<legend>Item Pool Options</legend>
-						<label for="Tunic Color Fieldset">Tunic Color:</label>
+						<label for="Tunic Color Fieldset">Tunic Color: (not implemented)</label>
 						<select name="Tunic Color Fieldset" id="tunicColorFieldset">
 							<option value="0">Default</option>
 							<option value="1">Red</option>
@@ -284,14 +284,16 @@
 							<option value="1">Red</option>
 							<option value="2">Orange</option>
 							<option value="3">Yellow</option>
-							<option value="4">Green</option>
-							<option value="5">Blue</option>
-							<option value="6">Purple</option>
-							<option value="7">White</option>
-							<option value="8">Cyan</option>
+							<option value="4">Lime Green</option>
+							<option value="5">Dark Green</option>
+							<option value="6">Blue</option>
+							<option value="7">Purple</option>
+							<option value="8">Black</option>
+							<option value="9">White</option>
+							<option value="10">Cyan</option>
 						</select>
 						<br/>
-						<label for="Midna Hair Color Fieldset">Midna Hair Color:</label>
+						<label for="Midna Hair Color Fieldset">Midna Hair Color: (not implemented)</label>
 						<select name="Midna Hair Color Fieldset" id="midnaHairColorFieldset">
 							<option value="0">Default</option>
 							<option value="1">Blue</option>
@@ -300,13 +302,14 @@
 						<label for="Heart Color Fieldset">Heart Color:</label>
 						<select name="Heart Color Fieldset" id="heartColorFieldset">
 							<option value="0">Default</option>
-							<option value="1">Teal</option>
-							<option value="2">Pink</option>
-							<option value="3">Orange</option>
-							<option value="4">Blue</option>
-							<option value="5">Green</option>
+							<option value="1">Rainbow</option>
+							<option value="2">Teal</option>
+							<option value="3">Pink</option>
+							<option value="4">Orange</option>
+							<option value="5">Blue</option>
 							<option value="6">Purple</option>
-							<option value="7">Black</option>
+							<option value="7">Green</option>
+							<option value="8">Black</option>
 						</select>
 						<br/>
 						<label for="A Button Color Fieldset">A Button Color:</label>
@@ -316,12 +319,10 @@
 							<option value="2">Orange</option>
 							<option value="3">Yellow</option>
 							<option value="4">Dark Green</option>
-							<option value="5">Blue</option>
-							<option value="6">Purple</option>
-							<option value="7">Black</option>
-							<option value="8">Grey</option>
-							<option value="9">Pink</option>
-
+							<option value="5">Purple</option>
+							<option value="6">Black</option>
+							<option value="7">Grey</option>
+							<option value="8">Pink</option>
 						</select>
 						<br/>
 						<label for="B Button Color Fieldset">B Button Color:</label>

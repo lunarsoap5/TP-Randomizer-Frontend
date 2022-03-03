@@ -36,8 +36,8 @@ try
 
     $settingsString = escapeshellarg($_POST['settingsStringTextBox']);
     
-    $adjectiveArray = explode(',', file_get_contents("Resources/HashAdjectives.txt"));
-    $nameArray = explode(",", file_get_contents("Resources/HashNames.txt"));
+    $adjectiveArray = explode("\n", file_get_contents("Resources/HashAdjectives.txt"));
+    $nameArray = explode("\n", file_get_contents("Resources/HashNames.txt"));
     shuffle($adjectiveArray);
     
     do
