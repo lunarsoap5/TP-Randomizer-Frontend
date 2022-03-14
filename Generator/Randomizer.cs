@@ -318,7 +318,6 @@ namespace TPRandomizer
                                         break;
                                     }
                                 }
-
                                 if (!currentCheck.hasBeenReached)
                                 {
                                     var areCheckRequirementsMet = Logic.EvaluateRequirements(currentCheck.requirements);
@@ -499,7 +498,7 @@ namespace TPRandomizer
                 currentCheck.itemWasPlaced = false;
                 Checks.CheckDict[fileName] = currentCheck;
 
-                // Console.WriteLine("Check File Loaded " + fileName);
+                //Console.WriteLine("Check File Loaded " + fileName);
             }
 
             return;

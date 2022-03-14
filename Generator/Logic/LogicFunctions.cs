@@ -1259,7 +1259,7 @@ namespace TPRandomizer
         /// <summary>
         /// summary text.
         /// </summary>
-        public static bool hasSheild()
+        public static bool hasShield()
         {
             return (
                 CanUse(Item.Ordon_Shield)

@@ -1,5 +1,5 @@
 {
-    "requirements": "canCompleteTempleofTime",
+    "requirements": "Room.Temple_of_Time_Boss_Room and CanDefeatArmogohma",
     "arcFileValues": [["bmgres2.arc", "18F27"]],
     "fileDirectoryType": [1],
     "replacementType": [0],

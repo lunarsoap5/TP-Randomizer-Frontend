@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal and CanDefeatRedeadKnight",
+    "requirements": "Shadow_Crystal and CanDefeatRedeadKnight and (Arbiters_Grounds_Small_Key, 3)",
     "stageIDX": [24],
     "flag": "20",
     "category": ["Overworld", "Poe", "Arbiters Grounds"],

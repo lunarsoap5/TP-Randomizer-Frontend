@@ -258,8 +258,8 @@ namespace TPRandomizer
         Snowpeak_Ruins_Bedroom_Key = 0xF6,
         /*Shield?	=	0xF7,*/
         Got_Lantern_Back = 0xF8,
-        Goron_Mines_Key_Shard_1 = 0xF9,
-        Goron_Mines_Key_Shard_2 = 0xFA,
+        Goron_Mines_Key_Shard_First = 0xF9,
+        Goron_Mines_Key_Shard_Second = 0xFA,
         Goron_Mines_Key_Shard_3 = 0xFB,
         /*Key?	=	0xFC,*/
         Goron_Mines_Big_Key = 0xFD,
@@ -331,8 +331,8 @@ namespace TPRandomizer
         internal List<Item> DungeonBigKeys = new ()
         {
             Item.Forest_Temple_Big_Key,
-            Item.Goron_Mines_Key_Shard_1,
-            Item.Goron_Mines_Key_Shard_2,
+            Item.Goron_Mines_Key_Shard_First,
+            Item.Goron_Mines_Key_Shard_Second,
             Item.Goron_Mines_Big_Key,
             Item.Lakebed_Temple_Big_Key,
             Item.Arbiters_Grounds_Big_Key,

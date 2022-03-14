@@ -1,5 +1,5 @@
 {
-    "requirements": "canCompleteGoronMines",
+    "requirements": "(Room.Goron_Mines_Boss_Room and CanDefeatFyrus)",
     "arcFileValues": [["bmgres2.arc", "1A66F"]],
     "fileDirectoryType": [1],
     "replacementType": [0],

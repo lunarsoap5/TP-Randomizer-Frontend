@@ -30,6 +30,7 @@ namespace TPRandomizer.Assets
                 { 0x3, 0x40 }, // Kakariko Village Portal
                 { 0x3, 0x4A }, // Death Mountain Portal
                 { 0x3, 0xA7 }, // Unlock Jumps to top of Sanctuary
+		{ 0x6, 0x4A }, // Give Gorge Portal
             };
 
         /// <summary>
@@ -120,7 +121,7 @@ namespace TPRandomizer.Assets
             { 0x45, 0x10 }, // Saved Talo
             { 0x10, 0x1 }, // Cat got Fish
             { 0x3, 0x2 }, // Gave Wooden Sword to Talo
-            { 0x4A, 0x40 }, // Completed Ordon Day 1.
+            { 0x4A, 0x60 }, // Completed Ordon Day 1 and Finished Sword Training.
             { 0x16, 0x1 }, // Completed Ordon Day 2.
             { 0x15, 0x80 }, // Watched CS for Goats 2 Done.
             { 0x46, 0x10 }, // Rode Epona back to Link's House
