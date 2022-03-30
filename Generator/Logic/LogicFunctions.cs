@@ -1394,15 +1394,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool canCompleteForestTemple()
         {
-            return (
-                (((getItemCount(Item.Forest_Temple_Small_Key) >= 4) && canBurnWebs() && CanDefeatOok()) || (getItemCount(Item.Progressive_Clawshot) >= 1))
-                && CanUse(Item.Boomerang)
-                && (CanUse(Item.North_Faron_Woods_Gate_Key) || Randomizer.RandoSetting.introSkipped)
-                && canBreakMonkeyCage()
-                && CanDefeatWalltula()
-                && CanDefeatDiababa()
-                && CanUse(Item.Forest_Temple_Big_Key)
-            );
+            return (Randomizer.Rooms.RoomDict["Forest Temple Boss Room"].ReachedByPlaythrough && CanDefeatDiababa());
         }
 
         /// <summary>
