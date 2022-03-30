@@ -1367,7 +1367,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool hasBombs()
         {
-            return (CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag));
+            return ((CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag)) && canLeaveForest());
         }
 
         /// <summary>
@@ -1375,7 +1375,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanUseWaterBombs()
         {
-            return (hasBombs() && canLeaveForest());
+            return (hasBombs());
         }
 
         /// <summary>
@@ -1394,14 +1394,11 @@ namespace TPRandomizer
         public static bool canCompleteForestTemple()
         {
             return (
-                ((getItemCount(Item.Forest_Temple_Small_Key) >= 4))
+                (((getItemCount(Item.Forest_Temple_Small_Key) >= 4) && canBurnWebs() && CanDefeatOok()) || (getItemCount(Item.Progressive_Clawshot) >= 1))
                 && CanUse(Item.Boomerang)
                 && (CanUse(Item.North_Faron_Woods_Gate_Key) || Randomizer.RandoSetting.introSkipped)
                 && canBreakMonkeyCage()
                 && CanDefeatWalltula()
-                && CanDefeatBigBaba()
-                && canBurnWebs()
-                && CanDefeatOok()
                 && CanDefeatDiababa()
                 && CanUse(Item.Forest_Temple_Big_Key)
             );
