@@ -1,5 +1,5 @@
 {
-    "requirements": "canPressMinesSwitch",
+    "requirements": "canPressMinesSwitch and canBreakWoodenDoor",
     "arcFileValues": [["D_MN04/R01_00.arc", "85AB4"]],
     "fileDirectoryType": [0],
     "replacementType": [0],
