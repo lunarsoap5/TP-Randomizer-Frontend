@@ -225,6 +225,7 @@ namespace TPRandomizer
                 || CanUse(Item.Iron_Boots)
                 || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
+                || (getItemCount(Item.Progressive_Clawshot) >= 1)
             );
         }
 
