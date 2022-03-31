@@ -1331,7 +1331,7 @@ namespace TPRandomizer
         {
             return (
                 canBreakMonkeyCage()
-                && canBurnWebs()
+                && CanUse(Item.Lantern)
                 && CanUse(Item.Boomerang)
                 && CanDefeatBokoblin()
                 && CanDefeatBigBaba()
