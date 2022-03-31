@@ -1368,7 +1368,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool hasBombs()
         {
-            return ((CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag)) && canLeaveForest());
+            return ((CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag)) && Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough);
         }
 
         /// <summary>
