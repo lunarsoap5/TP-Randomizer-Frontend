@@ -936,6 +936,7 @@ namespace TPRandomizer
         {
             return (
                 CanUse(Item.Ball_and_Chain)
+		|| CanUse(Item.Slingshot)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || hasBombs()
                 || CanUse(Item.Boomerang)
