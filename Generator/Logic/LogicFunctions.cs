@@ -694,7 +694,12 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatShadowBeast()
         {
-            return (HasSword() || CanUse(Item.Shadow_Crystal));
+            return (
+                HasSword()
+                || (CanUse(Item.Shadow_Crystal) 
+                    && ((Randomizer.RandoSetting.mdhSkipped == true) || (Randomizer.Rooms.RoomDict["Lakebed Temple Boss Room"].ReachedByPlaythrough && CanDefeatMorpheel()))
+                    )
+            );
         }
 
         /// <summary>
