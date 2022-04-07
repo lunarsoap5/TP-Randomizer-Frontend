@@ -162,6 +162,7 @@ document.getElementById('yButtonColorFieldset').onchange = setSettingsString;
 document.getElementById('zButtonColorFieldset').onchange = setSettingsString;
 document.getElementById('increaseWalletCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('reduceDonationsCheckbox').addEventListener("click", setSettingsString);
+document.getElementById('modifyShopModelsCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('importSettingsStringButton').addEventListener("click", importSettingsString);
 
 function importSettingsString()
@@ -224,6 +225,7 @@ function setSettingsString()
         settingsStringRaw[38] = document.getElementById('seedNumberFieldset').selectedIndex;
 		settingsStringRaw[39] = document.getElementById('increaseWalletCheckbox').checked;
 		settingsStringRaw[40] = document.getElementById('reduceDonationsCheckbox').checked;
+		settingsStringRaw[41] = document.getElementById('modifyShopModelsCheckbox').checked;
 		document.getElementById('settingsStringTextbox').value = getSettingsString(settingsStringRaw);
     }
 
@@ -369,7 +371,8 @@ var arrayOfSettingsItems =
 	"skyCharacterCheckbox",
 	"seedNumberFieldset",
 	"increaseWalletCheckbox",
-	"reduceDonationsCheckbox"
+	"reduceDonationsCheckbox",
+	"modifyShopModelsCheckbox"
 ];
 
 function parseSettingsString(settingsString)
