@@ -412,6 +412,7 @@ namespace TPRandomizer
 	    Item.Progressive_Hidden_Skill,
 	    Item.Progressive_Hidden_Skill,
             Item.Magic_Armor,
+            Item.Ordon_Shield,
         };
 
         public readonly List<Item> goldenBugs = new ()
@@ -487,7 +488,7 @@ namespace TPRandomizer
             Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Silver_Rupee, Item.Silver_Rupee,
             Item.Progressive_Wallet, Item.Progressive_Bow, Item.Progressive_Bow,
             Item.Bomb_Bag_And_Bombs, Item.Bomb_Bag_And_Bombs, Item.Giant_Bomb_Bag, Item.Sera_Bottle, Item.Coro_Bottle,
-            Item.Jovani_Bottle, Item.Ordon_Shield,
+            Item.Jovani_Bottle,
             Item.Hylian_Shield, Item.Hawkeye,
         };
 
