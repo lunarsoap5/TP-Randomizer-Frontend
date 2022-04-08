@@ -48,6 +48,7 @@ namespace TPRandomizer
         public int seedNumber { get; set; }
         public bool increaseWallet { get; set; }
         public bool reduceDonations { get; set; }
+        public bool modifyShopModels {get; set;}
     }
 
     public class SettingData
@@ -260,5 +261,7 @@ namespace TPRandomizer
         public bool increaseWallet { get; set; }
 
         public bool reduceDonations { get; set; }
+
+        public bool modifyShopModels { get; set; }
     }
 }

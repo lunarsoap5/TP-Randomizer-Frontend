@@ -47,7 +47,8 @@ namespace TPRandomizer.Assets
                 { 0x2, 0x63 }, // Trill lets you shop at his store.
                 { 0x2, 0x60 }, // Got Lantern Back from Monkey
                 { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
-                { 0xA, 0x69 }, // Desert Entrance CS.
+                { 0xA, 0x99 }, // Desert Entrance CS.
+                { 0xA, 0x20 }, // Set Freestanding key flag.
                 { 0x3, 0xA4 }, // Barnes Sells Bombs.
                 { 0x6, 0x7E }, // Kakariko Gorge placed CS
                 { 0x10, 0x49 }, // FT Ook Bridge Destroyed

@@ -252,6 +252,8 @@
 							<label for="Transform Anywhere Checkbox">  ̶T̶r̶a̶n̶s̶f̶o̶r̶m̶ ̶A̶n̶y̶w̶h̶e̶r̶e̶</label><br>
 							<input type="checkbox" id="increaseWalletCheckbox" name="Increase Wallet Checkbox" value="">
 							<label for="Increase Wallet Checkbox"> Increase Wallet Capacity</label><br>
+							<input type="checkbox" id="modifyShopModelsCheckbox" name="Modify Shop Models Checkbox" value="">
+							<label for="Modify Shop Models Checkbox">Shop Models Show The Replaced Item</label><br>
 						</fieldset>
 						<fieldset id="musicAndSFXFieldset">
 							<legend> Music and SFX </legend>

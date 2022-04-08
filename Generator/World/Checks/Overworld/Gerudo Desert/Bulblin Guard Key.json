@@ -1,9 +1,10 @@
 {
     "requirements": "CanDefeatBulblin",
-    "moduleID": ["26D"],
+    "category": ["Overworld", "Bulblin Camp", "Small Key", "DZX"],
+    "hash": ["670D"],
     "stageIDX": [55],
-    "offsets": ["155C"],
-    "relOverride": ["38800000"],
-    "category": ["Overworld", "Bulblin Camp", "Small Key", "REL"],
+    "dzxTag": ["TRES"],
+    "magicByte": ["88"],
+    "actrData": [["74", "62", "6F", "78", "41", "30", "00", "00", "FF", "0F", "F7", "40", "45", "7F", "81", "6B", "43", "82", "00", "00", "C5", "72", "F6", "80", "00", "00", "00", "00", "E5", "FF", "FF", "FF"]],
     "itemId": "Gerudo_Desert_Bulblin_Camp_Key"
 }

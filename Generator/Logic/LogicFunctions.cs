@@ -1230,7 +1230,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatGanondorf()
         {
-            return (CanUse(Item.Shadow_Crystal) && (getItemCount(Item.Progressive_Sword) >= 3));
+            return CanUse(Item.Shadow_Crystal) && (getItemCount(Item.Progressive_Sword) >= 3) && (getItemCount(Item.Progressive_Hidden_Skill) >= 1);
         }
 
         /// <summary>
