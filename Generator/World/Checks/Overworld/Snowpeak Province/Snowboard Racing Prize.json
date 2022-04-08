@@ -1,5 +1,5 @@
 {
-    "requirements": "canCompleteSnowpeakRuins",
+    "requirements": "Room.Snowpeak_Ruins_Boss_Room and CanDefeatBlizzeta",
     "arcFileValues": [["bmgres6.arc", "19D57"]],
     "fileDirectoryType": [1],
     "replacementType": [0],
