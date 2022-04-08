@@ -1374,7 +1374,13 @@ namespace TPRandomizer
         /// </summary>
         public static bool hasBombs()
         {
-            return ((CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag)) && Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough);
+            return (
+                (CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag))
+                && (Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough
+                    || (Randomizer.Rooms.RoomDict["Eldin Field Water Bomb Fish Grotto"].ReachedByPlaythrough && (getItemCount(Item.Progressive_Fishing_Rod) >= 1))
+                    || (Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough && Randomizer.Rooms.RoomDict["Castle Town"].ReachedByPlaythrough)
+                    || Randomizer.Rooms.RoomDict["City in The Sky Entrance"].ReachedByPlaythrough)
+            );
         }
 
         /// <summary>
@@ -1382,7 +1388,12 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanUseWaterBombs()
         {
-            return (hasBombs());
+            return (
+                (CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag))
+                && ((Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough && CanUse(Item.Gate_Keys))
+                    || (Randomizer.Rooms.RoomDict["Eldin Field Water Bomb Fish Grotto"].ReachedByPlaythrough && (getItemCount(Item.Progressive_Fishing_Rod) >= 1))
+                    || (Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough && Randomizer.Rooms.RoomDict["Castle Town"].ReachedByPlaythrough))
+            );
         }
 
         /// <summary>
