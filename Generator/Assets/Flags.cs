@@ -98,6 +98,66 @@ namespace TPRandomizer.Assets
                 { 0x3, 0x83 }, // Kakariko Graveyard intro CS.
                 { 0x3, 0x8C }, // Midna text after Meteor fell.
                 { 0x3, 0x9A }, // Kakariko Village intro CS.
+                { 0x4, 0x58 }, // Talked to Rutella in Lanayru Twilight.
+                { 0x4, 0x5F }, // Zora's domain intro CS twilight. 
+                { 0x4, 0x67 }, // Midna text after jumping to Lake from burning bridge.
+                { 0x4, 0x6B }, // Zora's Domain exit flood water cutscene.
+                { 0x4, 0x72 }, // Midna text after arriving at frozen Upper Zora River.
+                { 0x4, 0x91 }, // Midna text after frozen Zora Domain intro CS.
+                { 0x4, 0xB0 }, // Watched CS of Ooccoo running to Sky Cannon.
+                { 0x6, 0x68 }, // Midna text after warping Gorge bridge.
+                { 0x6, 0x7C }, // Midna text after Lanayru Field twilight CS.
+                { 0x6, 0x72 }, // Faron Field intro CS.
+                { 0x6, 0x40 }, // Twilight Lanayru Field intro CS.
+                { 0x6, 0x4F }, // Cutscene of gate outside Kakariko Village.
+                { 0x6, 0xB3 }, // Midna text after entering Lanayru Twilight.
+                { 0x6, 0xB6 }, // Midna text after entering Eldin Twilight.
+                { 0x6, 0xB7 }, // Midna text when seeing Eldin Twilight from far away.
+                { 0x7, 0x42 }, // Midna text after pushing block shortcut as human after Grove 2.
+                { 0x7, 0x43 }, // CS after pushing block shortcut as human after Grove 2.
+                { 0x7, 0x44 }, // Lost Woods intro CS.
+                { 0x8, 0x45 }, // Snowpeak Summit intro CS.
+                { 0x8, 0x5E }, // Midna text outside SPR.
+                { 0x8, 0x5F }, // Snowpeak intro CS.
+                { 0x9, 0x55 }, // STAR Tent intro CS.
+                { 0x9, 0x7D }, // Jovani House intro CS.
+                { 0xA, 0x53 }, // Mirror Chamber Intro CS.
+                { 0x10, 0x41 }, // Midna text after getting Boomerang.
+                { 0x10, 0x42 }, // Midna text after Ook breaks the bridge.
+                { 0x10, 0x47 }, // Midna text after freeing first monkey.
+                { 0x10, 0x49 }, // Bridge before Ook broken.
+                { 0x10, 0x56 }, // Bokoblins spot Link in windless bridge room.
+                { 0x10, 0x57 }, // Turned bridge in windless bridge room.
+                { 0x10, 0x72 }, // West Tile Worm room intro CS.
+                { 0x10, 0x76 }, // Second monkey room intro CS.
+                { 0x10, 0x7C }, // Big Baba room intro CS.
+                { 0x10, 0x7D }, // Midna text in room before boss room.
+                { 0x10, 0x7E }, // Midna text after saving monkey after defeating Ook.
+                { 0x10, 0x85 }, // Midna text after opening hanging chest.
+                { 0x10, 0x83 }, // East outside room intro CS. 
+                { 0x10, 0xB6 }, // Forest Temple intro CS.
+                { 0x11, 0x43 }, // Cut rope of door in outside room CS.
+                { 0x11, 0x44 }, // Pressed second button of the main magnet room of the second floor CS trigger.
+                { 0x11, 0x45 }, // Pressed third button in entrance room CS.
+                { 0x11, 0x46 }, // Pressed second button in entrance room CS.
+                { 0x11, 0x47 }, // Cut rope of door in Toadpoli room CS.
+                { 0x11, 0x4A }, // Pressed first button of the main magnet room on the second floor CS.
+                { 0x11, 0x68 }, // Pressed outside magnet switch for first time CS.
+                { 0x11, 0x72 }, // Main magnet room intro CS.
+                { 0x11, 0x73 }, // Main magnet room intro CS trigger.
+                { 0x11, 0x7A }, // Outside room intro CS.
+                { 0x11, 0x80 }, // Room after Bow chest intro CS.
+                { 0x11, 0x81 }, // Pulled Beamos in outside room CS.
+                { 0x11, 0x84 }, // Open gate in Toadpoli room CS.
+                { 0x11, 0x85 }, // Pressed second button in Toadpoli room CS.
+                { 0x11, 0x88 }, // Magnet maze room intro CS.
+                { 0x11, 0x8A }, // Goron Mines intro CS.
+                { 0x11, 0x8B }, // Pressed first button in entrance room CS.
+                { 0x11, 0x8C }, // Open gate in entrance room CS.
+                { 0x11, 0xBC }, // Main magnet room second floor intro CS.
+                { 0x11, 0xBD }, // Main magnet room second floor intro CS trigger.
+                { 0x11, 0xBE }, // Hit crystal switch in room after bow chest CS.
+                { 0x11, 0xBF }, // Room after Bow chest intro CS trigger.
             };
 
         /// <summary>
