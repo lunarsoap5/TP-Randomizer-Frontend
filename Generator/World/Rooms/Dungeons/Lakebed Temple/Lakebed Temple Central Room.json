@@ -11,7 +11,7 @@
         "true", 
         "(Lakebed_Temple_Small_Key, 1)", 
         "true",
-        "(Lakebed_Temple_Small_Key, 3) and (canLaunchBombs or ((Progressive_Clawshot, 1) and canSmash))",
+        "(Lakebed_Temple_Small_Key, 3) and canSmash and (Progressive_Clawshot, 1)",
         "(Lakebed_Temple_Small_Key, 3) and canLaunchBombs and (Progressive_Clawshot, 1) and Lakebed_Temple_Big_Key"
     ],
     "Checks": 

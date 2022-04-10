@@ -76,7 +76,6 @@ namespace TPRandomizer
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || hasBombs()
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal);
         }
 
@@ -162,7 +161,6 @@ namespace TPRandomizer
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal);
         }
 
@@ -284,7 +282,6 @@ namespace TPRandomizer
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
@@ -370,7 +367,6 @@ namespace TPRandomizer
             return (
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
@@ -593,7 +589,6 @@ namespace TPRandomizer
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
@@ -684,7 +679,6 @@ namespace TPRandomizer
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
@@ -943,7 +937,6 @@ namespace TPRandomizer
                 CanUse(Item.Ball_and_Chain)
 		|| CanUse(Item.Slingshot)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
-                || hasBombs()
                 || CanUse(Item.Boomerang)
                 || (getItemCount(Item.Progressive_Clawshot) >= 1)
             );
@@ -997,7 +990,6 @@ namespace TPRandomizer
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
@@ -1039,7 +1031,6 @@ namespace TPRandomizer
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
@@ -1070,7 +1061,6 @@ namespace TPRandomizer
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
@@ -1085,7 +1075,6 @@ namespace TPRandomizer
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
@@ -1100,7 +1089,6 @@ namespace TPRandomizer
                     HasSword()
                     || CanUse(Item.Ball_and_Chain)
                     || CanUse(Item.Iron_Boots)
-                    || CanUse(Item.Spinner)
                 )
                 && (
                     CanUse(Item.Boomerang)
@@ -1121,7 +1109,6 @@ namespace TPRandomizer
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
@@ -1146,7 +1133,6 @@ namespace TPRandomizer
                 ) && HasSword()
                 || CanUse(Item.Ball_and_Chain)
                 || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
             );
         }
