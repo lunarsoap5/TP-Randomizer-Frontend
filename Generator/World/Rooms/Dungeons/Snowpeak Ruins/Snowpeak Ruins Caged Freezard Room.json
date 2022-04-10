@@ -8,7 +8,7 @@
     "NeighbourRequirements": 
     [
         "true",
-        "Ball_and_Chain and (Snowpeak_Ruins_Small_Key, 1)",
+        "Ball_and_Chain and (Snowpeak_Ruins_Small_Key, 3)",
         "Ball_and_Chain"
     ],
     "Checks": 
