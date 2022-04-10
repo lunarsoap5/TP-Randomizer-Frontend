@@ -158,6 +158,63 @@ namespace TPRandomizer.Assets
                 { 0x11, 0xBD }, // Main magnet room second floor intro CS trigger.
                 { 0x11, 0xBE }, // Hit crystal switch in room after bow chest CS.
                 { 0x11, 0xBF }, // Room after Bow chest intro CS trigger.
+                { 0x12, 0x46 }, // Midna Stalactite text in second room.
+                { 0x12, 0x7E }, // Horizontal wheel is turning in east room CS.
+                { 0x12, 0x7F }, // Horizontal wheel is turning in east room CS trigger.
+                { 0x12, 0xA5 }, // Central room intro CS.
+                { 0x12, 0xA6 }, // South bridge to main room intro CS.
+                { 0x12, 0xA7 }, // Lakebed Temple intro CS.
+                { 0x12, 0xAA }, // Rotate staircase main room CS.
+                { 0x12, 0xB4 }, // East water supply Chu Worm CS.
+                { 0x13, 0x5A }, // Turn walls in third room Basement second floor CS.
+                { 0x13, 0x73 }, // Arbiters Grounds intro CS.
+                { 0x13, 0x94 }, // Risen tracks on pilar before boss CS.
+                { 0x14, 0x83 }, // First Floor Northwest room intro CS.
+                { 0x14, 0xA1 }, // Midna text after finding Bedroom Key.
+                { 0x14, 0xA7 }, // Snowpeak Ruins intro CS.
+                { 0x14, 0xAA }, // Freezard in cage CS.
+                { 0x14, 0xAC }, // Courtyard intro CS.
+                { 0x14, 0xAE }, // Pumpkin room intro CS.
+                { 0x14, 0xB2 }, // Midna text after getting Cheese.
+                { 0x14, 0xB4 }, // Midna text after getting Pumpkin.
+                { 0x15, 0x40 }, // Midna text telling you to use your senses on the missing statue.
+                { 0x15, 0x41 }, // Midna text after using senses on missing statue.
+                { 0x15, 0x4A }, // Temple of Time intro CS.
+                { 0x15, 0x4B }, // Scales of Time room intro CS.
+                { 0x15, 0x4C }, // CS after changing the balance on the scales for the first time.
+                { 0x15, 0x4D }, // CS trigger after changing the balance on the scales for the first time.
+                { 0x15, 0x90 }, // Pressed button in room 1 for the first time CS.
+                { 0x15, 0x91 }, // Pressed the button on the seventh floor for the first time CS.
+                { 0x15, 0x94 }, // Pressed the button on the fifth floor for the first time CS.
+                { 0x15, 0x95 }, // Pressed buttons on third floor for the first time CS.
+                { 0x15, 0x96 }, // Pressed the button on the second floor for the first time CS.
+                { 0x16, 0x64 }, // North wing main room intro CS.
+                { 0x16, 0x65 }, // East wing fan room second floor intro CS.
+                { 0x16, 0x66 }, // Went beyond first gate outside shop intro CS.
+                { 0x16, 0x67 }, // City in The Sky intro CS.
+                { 0x16, 0x6E }, // East bridge extended CS.
+                { 0x17, 0x4D }, // Phantom Zant 1 CS.
+                { 0x17, 0x5E }, // Palace of Twilight intro CS.
+                { 0x17, 0x66 }, // Midna text when west hand steals sol.
+                { 0x17, 0x6F }, // Midna text about black fog in west room.
+                { 0x17, 0x70 }, // Midna text after finding west sol.
+                { 0x17, 0x72 }, // Midna text trigger when seeing a Twili for the first time.
+                { 0x17, 0x78 }, // Midna text when seeing a Twili for the first time.
+                { 0x17, 0x79 }, // Midna text after Light Sword cutscene.
+                { 0x17, 0x95 }, // Midna text after re-entering west wing after sol was stolen.
+                { 0x17, 0x9E }, // Midna text at dungeon entrance.
+                { 0x17, 0xB3 }, // Watched east wing second room stairs CS.
+                { 0x18, 0x4F }, // Hyrule Castle Graveyard intro CS.
+                { 0x18, 0x8C }, // East garden intro CS.
+                { 0x18, 0x8D }, // East garden intro CS trigger.
+                { 0x18, 0x77 }, // Midna text at the east end of the east garden.
+                { 0x18, 0x82 }, // South garden intro CS.
+                { 0x18, 0x86 }, // Midna text after KB4.
+                { 0x18, 0x99 }, // Double Darknut room intro CS
+                { 0x18, 0xA4 }, // Midna text after Owl Statue chest in graveyard.
+                { 0x18, 0xA6 }, // Trigger for Midna text after KB4.
+                { 0x18, 0xB7 }, // Lit southeast torch in second floor north room for the first time CS.
+                { 0x18, 0xB8 }, // Lit northeast torch in second floor north room for the first time CS.
             };
 
         /// <summary>

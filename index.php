@@ -198,7 +198,7 @@
 					<fieldset id="cutscenesAndMundaneSkipsFieldset">
 						<legend>Cutscenes/Mundane Skips</legend>
 						<input type="checkbox" id="skipMinorCutscenesCheckbox" name="Skip Minor Cutscenes Checkbox" value="">
-						<label for="Skip Minor Cutscenes Checkbox">  ̶S̶k̶i̶p̶ ̶M̶i̶n̶o̶r̶ ̶C̶u̶t̶s̶c̶e̶n̶e̶s̶ ̶</label><br>
+						<label for="Skip Minor Cutscenes Checkbox"> Skip Minor Cutscenes </label><br>
 						<input type="checkbox" id="reduceDonationsCheckbox" name="Reduce Donations Checkbox" value="">
 						<label for="Reduce Donations Checkbox">  ̶R̶e̶d̶u̶c̶e̶ ̶D̶o̶n̶a̶t̶i̶o̶n̶ ̶C̶o̶s̶t̶s̶ ̶</label><br>
 					</fieldset>
