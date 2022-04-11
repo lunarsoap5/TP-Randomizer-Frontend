@@ -1,5 +1,5 @@
 Link
-Wolf Link
+Wolf-Link
 Midna
 Zant
 Zelda
@@ -11,7 +11,6 @@ Barnes
 Beth
 Colin
 Coro
-Dangoro
 Darbus
 Borville
 Eldin
@@ -19,11 +18,11 @@ Fado
 Falbi
 Faron
 Fyer
-Gor Amoto
-Gor Coron
-Gor Ebizo
-Gor Liggs
-Great Fairy
+Gor-Amoto
+Gor-Coron
+Gor-Ebizo
+Gor-Liggs
+Great-Fairy
 Hanch
 Hena
 Ilia
@@ -31,13 +30,13 @@ Impaz
 Iza
 Jaggle
 Jovani
-King Bulblin
+King-Bulblin
 Lanayru
 Luda
 Malo
 Bo
 Ooccoo
-Ooccoo Jr
+Ooccoo-Jr
 Ordona
 Postman
 Purlo
@@ -47,7 +46,7 @@ Renado
 Rusl
 Sera
 Shad
-Skull Kid
+Skull-Kid
 Talo
 Telma
 Uli
@@ -55,7 +54,7 @@ Yeta
 Yeto
 Epona
 Gengle
-Lord Bullbo
+Lord-Bullbo
 Louise
 Ook
 Plumm
@@ -71,8 +70,15 @@ Misha
 Pergie
 Soal
 Dangoro
-Deku Toad
-Death Sword
+Deku-Toad
+Death-Sword
 Darkhammer
 Darknut
 Aeralfos
+Diababa
+Fyrus
+Morpheel
+Stallord
+Blizetta
+Armogohma
+Argorok

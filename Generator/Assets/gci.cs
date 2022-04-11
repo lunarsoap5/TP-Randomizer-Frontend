@@ -10,7 +10,6 @@ namespace TPRandomizer.Assets
     public class Gci
     {
         private readonly List<byte> gciHeader;
-        private readonly char regionCode;
         public List<byte> gciFile;
         private readonly List<byte> gciData;
 

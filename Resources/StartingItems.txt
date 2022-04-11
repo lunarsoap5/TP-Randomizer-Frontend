@@ -27,10 +27,6 @@
 233,Progressive_Sky_Book
 233,Progressive_Sky_Book
 233,Progressive_Sky_Book
-128,Renardos_Letter
-129,Invoice
-130,Wooden_Statue
-131,Ilias_Charm
 132,Horse_Call
 243,Gate_Keys
 96,Empty_Bottle
