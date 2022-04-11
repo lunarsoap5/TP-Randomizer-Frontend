@@ -60,7 +60,10 @@ namespace TPRandomizer.Assets
         public static readonly byte[,] LanayruTwilightRegionFlags = new byte[,]
             {
                 { 0x6, 0x58 }, // Lake Hylia has water on Hyrule Field Map
+                { 0x6, 0x5C }, // Castle Town Portal
                 { 0x4, 0x7F }, // Lake Hylia has water on Lake Hylia Map.
+                { 0x4, 0x55 }, // Lake Hylia Portal.
+                { 0x4, 0x5D }, // Zora's Domain Portal.
             };
 
         /// <summary>
