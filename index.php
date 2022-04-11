@@ -193,7 +193,7 @@
 						<input type="checkbox" id="eldinTwilightCheckbox" name="Eldin Twilight Checkbox" value="">
 						<label for="Eldin Twilight Checkbox"> Eldin Twilight Cleared </label><br>
 						<input type="checkbox" id="lanayruTwilightCheckbox" name="Lanayru Twilight Checkbox" value="">
-						<label for="Lanayru Twilight Checkbox">   ̶L̶a̶n̶a̶y̶r̶u̶ ̶T̶w̶i̶l̶i̶g̶h̶t̶ ̶C̶l̶e̶a̶r̶e̶d̶</label><br>
+						<label for="Lanayru Twilight Checkbox"> Lanayru Twilight Cleared </label><br>
 					</fieldset>
 					<fieldset id="cutscenesAndMundaneSkipsFieldset">
 						<legend>Cutscenes/Mundane Skips</legend>
