@@ -45,6 +45,7 @@ try
         shuffle($adjectiveArray);
         shuffle($nameArray);
         $seedHash = "[$slot]-".implode('-', array($adjectiveArray[0], $nameArray[0]));
+        $seedHash = str_replace("\r", '', $seedHash); // Prevent accidental carriage returns on different OS formatting.
         $seedFile = "Seed/TPR-v1.0-$seedHash.zip";
         $logFile = "Seed/TPR-v1.0-$seedHash.log";
     } while(file_exists($seedFile) || file_exists($logFile));
