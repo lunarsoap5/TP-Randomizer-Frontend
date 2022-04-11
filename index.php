@@ -118,7 +118,7 @@
 							<br/>
 							<label for="Faron Woods Logic">Faron Woods Logic:</label>
 							<select name="Faron Woods  Logic" id="faronLogicFieldset">
-								<option value="0">O̶p̶e̶n̶</option>
+								<option value="0">Open</option>
 								<option value="1" selected>Closed</option>
 							</select>
 							<br/>

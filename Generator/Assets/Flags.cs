@@ -337,6 +337,14 @@ namespace TPRandomizer.Assets
         /// <summary>
         /// summary text.
         /// </summary>
+        public static readonly byte[,] OpenForestEventFlags = new byte[,]
+        {
+            { 0x6, 0x2 }, // Forest Temple Story Flag
+        };
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static readonly Dictionary<int, byte[,]> EventFlags = new ()
         {
             { 0, IntroEventFlags },
@@ -344,6 +352,7 @@ namespace TPRandomizer.Assets
             { 2, EldinTwilightEventFlags },
             { 3, LanayruTwilightEventFlags },
             { 4, CutsceneEventFlags },
+            { 5, OpenForestEventFlags },
         };
         private static readonly RandomizerSetting RandomizerSettings = Randomizer.RandoSetting;
         /// <summary>
@@ -356,6 +365,7 @@ namespace TPRandomizer.Assets
             RandomizerSettings.eldinTwilightCleared,
             RandomizerSettings.lanayruTwilightCleared,
             RandomizerSettings.skipMinorCutscenes,
+            RandomizerSettings.faronWoodsLogic == "Open"
         };
     }
 }
