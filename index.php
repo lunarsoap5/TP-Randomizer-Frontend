@@ -13,8 +13,8 @@
 		<link rel="icon" target="_blank" href="favicon.png">
 		<title>TP Randomizer</title>
 		<meta property="og:title" content="Twilight Princess Randomizer" />
-		<meta property="og:url" content="https://rando.tpspeed.run/" />
-		<meta property="og:image" content="https://rando.tpspeed.run/img/logo.png" />
+		<meta property="og:url" content="https://rando.zeldatp.net/" />
+		<meta property="og:image" content="https://rando.zeldatp.net/img/logo.png" />
 		<meta property="og:description" content="The official Twilight Princess Randomizer website! From download to setup and even tools!" />
 		<link rel="stylesheet" target="_blank" href="css/style.css">
 		<script src="jquery-3.6.0.js"></script>
@@ -406,22 +406,22 @@
 				<table>
 					<tr>
 						<td class="rBor">
-							<a target="_blank" href="https://takarikka.github.io/TP-Tracker/"><img src="img/github.png" /></a>
+							<a target="_blank" href="https://takarikka.github.io/TP-Tracker/"><img src="img/github.png" alt=" Github Logo" /></a>
 						</td>
 						<td class="rBor">
-							<a target="_blank" href="https://docs.google.com/spreadsheets/d/1quJjkAGV7asF1CNRtJEDNsy9Oga7hmzGLe09u2zxdJI/edit#gid=1131787935"><img src="img/sheets.png" /></a>
+							<a target="_blank" href="https://docs.google.com/spreadsheets/d/1quJjkAGV7asF1CNRtJEDNsy9Oga7hmzGLe09u2zxdJI/edit#gid=1131787935"><img src="img/sheets.png" alt="Google Sheets Logo"/></a>
 						</td>
 						<td class="rBor">
-							<a target="_blank" href="http://tp.docs.aecx.cc/Yet+Another+GameCube+Documentation/index.html"><img src="img/yagcd.png" /></a>
+							<a target="_blank" href="http://tp.docs.aecx.cc/Yet+Another+GameCube+Documentation/index.html"><img src="img/yagcd.png" alt="YAGCD Logo"/></a>
 						</td>
 						<td class="rBor">
-							<a target="_blank" href="https://github.com/zsrtp"><img src="img/tp.png" /></a>
+							<a target="_blank" href="https://github.com/zsrtp"><img src="img/tp.png" alt="Midna Icon"/></a>
 						</td>
 						<td class="rBor">
-							<a target="_blank" href="https://wiki.tpspeed.run/Main_Page"><img src="img/wiki.png" /></a>
+							<a target="_blank" href="https://wiki.zeldatp.net/Main_Page"><img src="img/wiki.png" alt="Wiki Logo"/></a>
 						</td>
 						<td>
-							<a target="_blank" href="https://discord.tpspeed.run/"><img src="img/discord.png" /></a>
+							<a target="_blank" href="https://discord.zeldatp.net/"><img src="img/discord.png" alt="Discord Logo"/></a>
 						</td>
 					</tr>
 					<tr>
@@ -438,10 +438,10 @@
 							<a target="_blank" href="https://github.com/zsrtp">TP Devs</a>
 						</td>
 						<td class="rBor">
-							<a target="_blank" href="https://wiki.tpspeed.run/Main_Page">TP Speedrun Wiki</a>
+							<a target="_blank" href="https://wiki.zeldatp.net/Main_Page">TP Speedrun Wiki</a>
 						</td>
 						<td>
-							<a target="_blank" href="https://discord.tpspeed.run/">Discord</a>
+							<a target="_blank" href="https://discord.zeldatp.net/">Discord</a>
 						</td>
 					</tr>
 				</table>
@@ -449,7 +449,7 @@
 			<div class="blackbg" style="padding: 0px; margin-bottom: 0px;">
 				<p>
 					v1.09 - Made with 
-					<img style="display: inline; margin: 0px 0px -10px;" src="img/heart.png" />
+					<img style="display: inline; margin: 0px 0px -10px;" src="img/heart.png" alt="Heart Container"/>
 					 by 
 					<a target="_blank" href="https://github.com/zsrtp/Randomizer-Frontend" target="_blank" style="color: #d62013;">Luneyes</a>!<br/>
 					

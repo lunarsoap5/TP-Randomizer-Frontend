@@ -15,7 +15,7 @@ $j = array();
 foreach(scandir('.') as $file)
 {
     $ext = pathinfo($file, PATHINFO_EXTENSION);
-    if ($ext != 'zip' && $ext != 'log') continue;
+    if ($ext != 'zip' && $ext != 'log') {continue;}
     $n = explode('-', $file)[2];
 
     switch($n)
@@ -49,6 +49,9 @@ foreach(scandir('.') as $file)
         break;
         case '[9]':
             array_push($j, $file);
+        break;
+        default:
+            array_push($a, $file);
         break;
     }
 }

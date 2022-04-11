@@ -326,7 +326,7 @@ namespace TPRandomizer.Assets
             { 0x38, 0x6 }, // Hena cabin first time CS, talked to Hena first time.
             { 0x3A, 0x1 }, // Talked to Ralis in Graveyard for the first time.
             { 0x40, 0x2 }, // Agreed to help Rusl after Snowpeak Ruins.
-            { 0x42, 0x1 }, // Watched post-ToT Ooccoo CS.
+            { 0x42, 0x5 }, // Watched post-ToT Ooccoo CS. Watched Cutscene with Rusl in North Faron Woods.
             { 0x45, 0x8 }, // Allows postman letters to show up in inventory.
             { 0x4A, 0x10 }, // Saw Talo in cage CS.
             { 0x3E, 0x2 }, // City Ooccoo CS watched.

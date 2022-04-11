@@ -172,7 +172,8 @@ namespace TPRandomizer.Assets
                 randomizerSettings.faronTwilightCleared,
                 randomizerSettings.eldinTwilightCleared,
                 randomizerSettings.lanayruTwilightCleared,
-                randomizerSettings.modifyShopModels
+                randomizerSettings.modifyShopModels,
+                randomizerSettings.skipMinorCutscenes
             };
             int patchOptions = 0x0;
             int bitwiseOperator = 0;
