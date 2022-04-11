@@ -52,7 +52,7 @@ try
     while (@ ob_end_flush()); // end all output buffers if any
 
     $cmd = "dotnet Generator/bin/Debug/net5.0/TPRandomizer.dll $settingsString '$seedHash'";
-    $proc = popen($cmd, 'r'); // for Windows, use popen("start /B ". $cmd, 'r');
+    $proc = popen($cmd, 'r'); // for Windows, use popen("start /B ". $cmd, 'r'); 
     echo "<h3>TPR 1.0 Seed generator (pre-alpha)</h3><h4>$seedHash</h4><hr><pre>$cmd\n----\n\n";
     $log = "$cmd\n----\n\n";
     while (!feof($proc))
