@@ -30,7 +30,7 @@ namespace TPRandomizer.Assets
                 { 0x3, 0x40 }, // Kakariko Village Portal
                 { 0x3, 0x4A }, // Death Mountain Portal
                 { 0x3, 0xA7 }, // Unlock Jumps to top of Sanctuary
-		{ 0x6, 0x4A }, // Give Gorge Portal
+		        { 0x6, 0x4A }, // Give Gorge Portal
             };
 
         /// <summary>
@@ -52,6 +52,15 @@ namespace TPRandomizer.Assets
                 { 0x3, 0xA4 }, // Barnes Sells Bombs.
                 { 0x6, 0x7E }, // Kakariko Gorge placed CS
                 { 0x10, 0x49 }, // FT Ook Bridge Destroyed
+            };
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static readonly byte[,] LanayruTwilightRegionFlags = new byte[,]
+            {
+                { 0x6, 0x58 }, // Lake Hylia has water on Hyrule Field Map
+                { 0x4, 0x7F }, // Lake Hylia has water on Lake Hylia Map.
             };
 
         /// <summary>
@@ -225,7 +234,8 @@ namespace TPRandomizer.Assets
             { 0, IntroRegionFlags },
             { 1, FaronTwilightRegionFlags },
             { 2, EldinTwilightRegionFlags },
-            { 3, CutsceneRegionFlags },
+            { 3, LanayruTwilightRegionFlags },
+            { 4, CutsceneRegionFlags },
         };
 
         /// <summary>
@@ -266,6 +276,16 @@ namespace TPRandomizer.Assets
         {
             { 0x7, 0x8 }, // Cleared Eldin Twilight
             { 0x6, 0x4 }, // Map Warping unlocked.
+        };
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static readonly byte[,] LanayruTwilightEventFlags = new byte[,]
+        {
+            { 0x8, 0x80 }, // Zora's Domain Thawed.
+            { 0xC, 0x2 }, // Lanayru Twilight Story Flag.
+            { 0xA, 0x10 }, // Defeated Kargarok Rider at Lake (allows player to howl for Kargorok.);
         };
 
         /// <summary>
@@ -317,7 +337,8 @@ namespace TPRandomizer.Assets
             { 0, IntroEventFlags },
             { 1, FaronTwilightEventFlags },
             { 2, EldinTwilightEventFlags },
-            { 3, CutsceneEventFlags },
+            { 3, LanayruTwilightEventFlags },
+            { 4, CutsceneEventFlags },
         };
         private static readonly RandomizerSetting RandomizerSettings = Randomizer.RandoSetting;
         /// <summary>
@@ -328,6 +349,7 @@ namespace TPRandomizer.Assets
             RandomizerSettings.introSkipped,
             RandomizerSettings.faronTwilightCleared,
             RandomizerSettings.eldinTwilightCleared,
+            RandomizerSettings.lanayruTwilightCleared,
             RandomizerSettings.skipMinorCutscenes,
         };
     }
