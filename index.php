@@ -284,13 +284,11 @@
 							<option value="1">Red</option>
 							<option value="2">Orange</option>
 							<option value="3">Yellow</option>
-							<option value="4">Lime Green</option>
-							<option value="5">Dark Green</option>
-							<option value="6">Blue</option>
-							<option value="7">Purple</option>
-							<option value="8">Black</option>
-							<option value="9">White</option>
-							<option value="10">Cyan</option>
+							<option value="4">Green</option>
+							<option value="5">Blue</option>
+							<option value="6">Purple</option>
+							<option value="7">White</option>
+							<option value="8">Cyan</option>
 						</select>
 						<br/>
 						<label for="Midna Hair Color Fieldset">Midna Hair Color: (not implemented)</label>
@@ -302,13 +300,12 @@
 						<label for="Heart Color Fieldset">Heart Color:</label>
 						<select name="Heart Color Fieldset" id="heartColorFieldset">
 							<option value="0">Default</option>
-							<option value="1">Rainbow</option>
 							<option value="2">Teal</option>
 							<option value="3">Pink</option>
 							<option value="4">Orange</option>
 							<option value="5">Blue</option>
-							<option value="6">Purple</option>
-							<option value="7">Green</option>
+							<option value="6">Green</option>
+							<option value="7">Purple</option>
 							<option value="8">Black</option>
 						</select>
 						<br/>
@@ -319,10 +316,11 @@
 							<option value="2">Orange</option>
 							<option value="3">Yellow</option>
 							<option value="4">Dark Green</option>
-							<option value="5">Purple</option>
-							<option value="6">Black</option>
-							<option value="7">Grey</option>
-							<option value="8">Pink</option>
+							<option value="5">Blue</option>
+							<option value="6">Purple</option>
+							<option value="7">Black</option>
+							<option value="8">Grey</option>
+							<option value="9">Pink</option>
 						</select>
 						<br/>
 						<label for="B Button Color Fieldset">B Button Color:</label>
