@@ -123,7 +123,7 @@
 							</select>
 							<br/>
 							<input type="checkbox" id="mdhCheckbox" name="MDH Logic" value="">
-							<label for="MDH Logic">  ̶S̶k̶i̶p̶ ̶M̶i̶d̶n̶a̶'̶s̶ ̶D̶e̶s̶p̶e̶r̶a̶t̶e̶ ̶H̶o̶u̶r̶</label><br>
+							<label for="MDH Logic">  Skip Midna's Desperate Hour </label><br>
 							<input type="checkbox" id="introCheckbox" name="Intro Logic" value="">
 							<label for="Intro Logic"> Skip Intro </label><br>
 						</fieldset>

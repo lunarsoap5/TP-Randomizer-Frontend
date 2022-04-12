@@ -343,6 +343,12 @@ namespace TPRandomizer.Assets
             { 0x6, 0x2 }, // Forest Temple Story Flag
         };
 
+        public static readonly byte[,] MDHEventFlags = new byte[,]
+        {
+            { 0xC, 0x1 }, // Midna's Desperate Hour started.
+            { 0x1E, 0x8 }, // Midna's Deseperate Hour Completed.
+        };
+
         /// <summary>
         /// summary text.
         /// </summary>
@@ -354,6 +360,7 @@ namespace TPRandomizer.Assets
             { 3, LanayruTwilightEventFlags },
             { 4, CutsceneEventFlags },
             { 5, OpenForestEventFlags },
+            { 6, MDHEventFlags },
         };
         private static readonly RandomizerSetting RandomizerSettings = Randomizer.RandoSetting;
         /// <summary>
@@ -366,7 +373,8 @@ namespace TPRandomizer.Assets
             RandomizerSettings.eldinTwilightCleared,
             RandomizerSettings.lanayruTwilightCleared,
             RandomizerSettings.skipMinorCutscenes,
-            RandomizerSettings.faronWoodsLogic == "Open"
+            RandomizerSettings.faronWoodsLogic == "Open",
+            RandomizerSettings.mdhSkipped
         };
     }
 }
