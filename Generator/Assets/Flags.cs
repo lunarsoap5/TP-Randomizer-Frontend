@@ -123,6 +123,7 @@ namespace TPRandomizer.Assets
                 { 0x6, 0x40 }, // Twilight Lanayru Field intro CS.
                 { 0x6, 0x4F }, // Cutscene of gate outside Kakariko Village.
                 { 0x6, 0xB3 }, // Midna text after entering Lanayru Twilight.
+                { 0x6, 0xB4 }, // Midna text when seeing Lanayru Twilight from far away.
                 { 0x6, 0xB6 }, // Midna text after entering Eldin Twilight.
                 { 0x6, 0xB7 }, // Midna text when seeing Eldin Twilight from far away.
                 { 0x7, 0x42 }, // Midna text after pushing block shortcut as human after Grove 2.
