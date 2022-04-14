@@ -247,7 +247,7 @@
 							<input type="checkbox" id="quickTransformCheckbox" name="Quick Transform Checkbox" value="">
 							<label for="Quick Transform Checkbox">  ̶Q̶u̶i̶c̶k̶ ̶T̶r̶a̶n̶s̶f̶o̶r̶m̶</label><br>
 							<input type="checkbox" id="transformAnywhereCheckbox" name="Transform Anywhere Checkbox" value="">
-							<label for="Transform Anywhere Checkbox">  ̶T̶r̶a̶n̶s̶f̶o̶r̶m̶ ̶A̶n̶y̶w̶h̶e̶r̶e̶</label><br>
+							<label for="Transform Anywhere Checkbox">  Transform Anywhere </label><br>
 							<input type="checkbox" id="increaseWalletCheckbox" name="Increase Wallet Checkbox" value="">
 							<label for="Increase Wallet Checkbox"> Increase Wallet Capacity</label><br>
 							<input type="checkbox" id="modifyShopModelsCheckbox" name="Modify Shop Models Checkbox" value="">
