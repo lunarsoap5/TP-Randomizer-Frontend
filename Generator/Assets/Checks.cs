@@ -174,6 +174,11 @@ namespace TPRandomizer
                 Randomizer.Checks.CheckDict["Ordon Shield"].checkStatus = "Vanilla";
             }
 
+            if (parseSetting.mdhSkipped)
+            {
+                Randomizer.Checks.CheckDict["Jovani House Poe"].checkStatus = "Excluded";
+            }
+
             // Excluded until we figure out how to fix this check.
             Randomizer.Checks.CheckDict["Flight By Fowl Top Platform Chest"].checkStatus = "Excluded";
             Randomizer.Checks.CheckDict["Jovani 60 Poe Soul Reward"].checkStatus = "Vanilla";
