@@ -179,12 +179,12 @@ namespace TPRandomizer
             Randomizer.Checks.CheckDict["Jovani 60 Poe Soul Reward"].checkStatus = "Vanilla";
 
             // Vanilla until all of the flag issues are figured out.
-            Randomizer.Checks.CheckDict["Renardos Letter"].checkStatus = "Vanilla";
+            Randomizer.Checks.CheckDict["Renados Letter"].checkStatus = "Vanilla";
             Randomizer.Checks.CheckDict["Telma Invoice"].checkStatus = "Vanilla";
             Randomizer.Checks.CheckDict["Wooden Statue"].checkStatus = "Vanilla";
             Randomizer.Checks.CheckDict["Ilia Charm"].checkStatus = "Vanilla";
             Randomizer.Checks.CheckDict["Ilia Memory Reward"].checkStatus = "Vanilla";
-            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Renardos Letter"].itemId);
+            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Renados Letter"].itemId);
             Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Telma Invoice"].itemId);
             Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Wooden Statue"].itemId);
             Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ilia Charm"].itemId);

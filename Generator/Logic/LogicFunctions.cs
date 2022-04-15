@@ -861,7 +861,7 @@ namespace TPRandomizer
         /// <summary>
         /// summary text.
         /// </summary>
-        public static bool CanDefeatTetike()
+        public static bool CanDefeatTektite()
         {
             return (
                 HasSword()
