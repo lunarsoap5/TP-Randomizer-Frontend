@@ -1,12 +1,10 @@
 {
     "Neighbours": 
-    [
-        "Forest Temple North Wing", 
+    [ 
         "South Faron Woods"
     ],
     "NeighbourRequirements": 
     [
-        "true",
         "CanDefeatDiababa"
     ],
     "Checks": 
