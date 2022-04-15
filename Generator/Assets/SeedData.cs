@@ -119,6 +119,7 @@ namespace TPRandomizer.Assets
         {
             List<byte> seedHeader = new ();
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
+            SettingData settingData = Randomizer.RandoSettingData;
             SeedHeaderRaw.fileSize = 0xA000;
             SeedHeaderRaw.seed = BackendFunctions.GetChecksum(seedHash, 64);
             SeedHeaderRaw.minVersion = (ushort)(
@@ -150,6 +151,8 @@ namespace TPRandomizer.Assets
             seedHeader.Add(Converter.GcByte(randomizerSettings.zButtonColor));
             seedHeader.Add(Converter.GcByte(randomizerSettings.lanternColor));
             seedHeader.Add(Converter.GcByte(randomizerSettings.transformAnywhere ? 1 : 0));
+            seedHeader.Add(Converter.GcByte(randomizerSettings.quickTransform ? 1 : 0));
+            seedHeader.Add(Converter.GcByte(Array.IndexOf(settingData.castleRequirements, randomizerSettings.castleRequirements)));
             while (seedHeader.Count < SeedHeaderSize)
             {
                 seedHeader.Add((byte)0x0);

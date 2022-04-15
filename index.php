@@ -104,8 +104,7 @@
 								<option value="1">F̶u̶s̶e̶d̶ ̶S̶h̶a̶d̶o̶w̶s̶</option>
 								<option value="2">̶M̶i̶r̶r̶o̶r̶ ̶S̶h̶a̶r̶d̶s̶</option>
 								<option value="3">̶A̶l̶l̶ ̶D̶u̶n̶g̶e̶o̶n̶s̶</option>
-								<option value="4">̶R̶a̶n̶d̶o̶m̶ ̶D̶u̶n̶g̶e̶o̶n̶s̶</option>
-								<option value="5" selected>Vanilla</option>
+								<option value="4" selected>Vanilla</option>
 							</select>
 							<br/>
 							<label for="Palace Requirements">Palace of Twilight Requirements:</label>
