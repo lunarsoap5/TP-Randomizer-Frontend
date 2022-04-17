@@ -787,7 +787,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatShellBlade()
         {
-            return ((HasSword() || CanUseWaterBombs()) && CanUse(Item.Iron_Boots));
+            return (CanUseWaterBombs() || (HasSword() && CanUse(Item.Iron_Boots)));
         }
 
         /// <summary>

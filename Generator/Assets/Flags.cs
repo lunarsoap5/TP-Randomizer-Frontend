@@ -45,6 +45,7 @@ namespace TPRandomizer.Assets
                 { 0x16, 0x6D }, // West Bridge in CiTS Extended.
                 { 0x16, 0x6B }, // West Bridge in CiTS Destroyed CS Trigger.
                 { 0x2, 0x63 }, // Trill lets you shop at his store.
+                { 0x3, 0xB9 }, // Barnes sells water bombs.
                 { 0x2, 0x60 }, // Got Lantern Back from Monkey
                 { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
                 { 0xA, 0x99 }, // Desert Entrance CS.
@@ -92,16 +93,12 @@ namespace TPRandomizer.Assets
                 { 0x0, 0xB8 }, // Enter Ordon Village as wolf CS.
                 { 0x1, 0x42 }, // Midna text after first gate in sewers.
                 { 0x1, 0x43 }, // Midna text after exiting to rooftops.
-                { 0x1, 0x44 }, // Woke up in jail CS.
-                { 0x1, 0x4B }, // Midna CS after digging out of jail.
-                { 0x1, 0x4C }, // Midna intro CS.
                 { 0x1, 0x51 }, // Zelda tower intro CS.
                 { 0x1, 0x57 }, // Outside top door intro CS.
                 { 0x1, 0x5A }, // Went to the otherside of the fence in sewers CS.
                 { 0x1, 0x5B }, // Top of stairway intro CS.
                 { 0x1, 0x5C }, // Stairway intro CS.
                 { 0x1, 0x7B }, // Midna text when approaching the rooftop guard.
-                { 0x1, 0x7F }, // Midna CS after digging out of jail. (Second flag)
                 { 0x2, 0x74 }, // Faron intro CS.
                 { 0x2, 0x77 }, // See Faron Light Spirit from afar CS.
                 { 0x2, 0x7C }, // Entered mist area as human.
@@ -127,7 +124,6 @@ namespace TPRandomizer.Assets
                 { 0x6, 0xB6 }, // Midna text after entering Eldin Twilight.
                 { 0x6, 0xB7 }, // Midna text when seeing Eldin Twilight from far away.
                 { 0x7, 0x42 }, // Midna text after pushing block shortcut as human after Grove 2.
-                { 0x7, 0x43 }, // CS after pushing block shortcut as human after Grove 2.
                 { 0x7, 0x44 }, // Lost Woods intro CS.
                 { 0x8, 0x45 }, // Snowpeak Summit intro CS.
                 { 0x8, 0x5E }, // Midna text outside SPR.
@@ -314,7 +310,6 @@ namespace TPRandomizer.Assets
         {
             { 0x1, 0x40 }, // Talked to Yeto First Time.
             { 0x3, 0x90 }, // Jaggle Calls out to Link, talked to Squirrel as Wolf in Ordon.
-            { 0x5, 0x10 }, // Unchain Wolf Link.
             { 0x6, 0xC0 }, // CS After beating Ordon Shadow, CS after entering Faron Twilight.
             { 0x10, 0x2 }, // Talked to Jaggle after climbing vines.
             { 0xF, 0x40 }, // Talked to Doctor for the first time.

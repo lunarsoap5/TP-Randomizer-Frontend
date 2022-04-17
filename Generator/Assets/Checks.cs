@@ -180,7 +180,6 @@ namespace TPRandomizer
             }
 
             // Excluded until we figure out how to fix this check.
-            Randomizer.Checks.CheckDict["Flight By Fowl Top Platform Chest"].checkStatus = "Excluded";
             Randomizer.Checks.CheckDict["Jovani 60 Poe Soul Reward"].checkStatus = "Vanilla";
 
             // Vanilla until all of the flag issues are figured out.

@@ -654,7 +654,7 @@ namespace TPRandomizer
             }
             else
             {
-                Console.WriteLine("ERROR. Seed not beatable");
+                Console.WriteLine("ERROR. Some checks/rooms may not be reachable.");
             }
 
             List<string> optimalPlaythrough = CalculateOptimalPlaythrough(startingRoom);
