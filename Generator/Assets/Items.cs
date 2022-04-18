@@ -509,6 +509,10 @@ namespace TPRandomizer
         public void GenerateItemPool()
         {
             RandomizerSetting parseSetting = Randomizer.RandoSetting;
+            Randomizer.Items.RandomizedImportantItems.AddRange(this.ImportantItems);
+            Randomizer.Items.BaseItemPool.AddRange(this.VanillaDungeonRewards);
+            Randomizer.Items.ShuffledDungeonRewards.AddRange(this.VanillaDungeonRewards);
+
             if (parseSetting.poesShuffled)
             {
                 this.RandomizedImportantItems.AddRange(Enumerable.Repeat(Item.Poe_Soul, 60));
@@ -530,6 +534,10 @@ namespace TPRandomizer
             else if (parseSetting.smallKeySettings == "Keysanity")
             {
                 this.RandomizedImportantItems.AddRange(this.RegionSmallKeys);
+            }
+            else if (parseSetting.smallKeySettings == "Keysey")
+            {
+                this.RandomizedImportantItems.Remove(Item.Gate_Keys);
             }
 
             // Check Big Key Settings before adding them to the pool
@@ -596,10 +604,8 @@ namespace TPRandomizer
                     }
             }
 
-            Randomizer.Items.RandomizedImportantItems.AddRange(this.ImportantItems);
+            
             Randomizer.Items.BaseItemPool.AddRange(this.RandomizedImportantItems);
-            Randomizer.Items.BaseItemPool.AddRange(this.VanillaDungeonRewards);
-            Randomizer.Items.ShuffledDungeonRewards.AddRange(this.VanillaDungeonRewards);
             return;
         }
     }
