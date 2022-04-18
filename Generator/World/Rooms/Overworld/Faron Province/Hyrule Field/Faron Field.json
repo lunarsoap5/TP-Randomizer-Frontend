@@ -7,14 +7,13 @@
         "Lake Hylia Bridge", 
         "Faron Field Corner Grotto"
     ],
-    "NeighbourRequirements": 
-    [
-        "true",
-        "(Gate_Keys and (Shadow_Crystal or (Setting.lanayruTwilightCleared equals True)) or canSmash) and Empty_Bottle",
-        "true",
-        "(Gate_Keys and (Shadow_Crystal or (Setting.lanayruTwilightCleared equals True)) or canSmash)",
-        "Shadow_Crystal"
-    ],
+  "NeighbourRequirements": [
+    "true",
+    "((Gate_Keys or (Setting.smallKeySettings equals Keysey)) and (Shadow_Crystal or (Setting.lanayruTwilightCleared equals True)) or canSmash) and Empty_Bottle",
+    "true",
+    "((Gate_Keys or (Setting.smallKeySettings equals Keysey)) and (Shadow_Crystal or (Setting.lanayruTwilightCleared equals True)) or canSmash)",
+    "Shadow_Crystal"
+  ],
     "Checks": 
     [
         "Faron Field Bridge Chest",

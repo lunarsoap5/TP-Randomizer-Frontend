@@ -5,12 +5,11 @@
         "Goron Mines Upper East Wing", 
         "Goron Mines Boss Room"
     ],
-    "NeighbourRequirements": 
-    [
-        "true",
-        "(Goron_Mines_Small_Key, 3)",
-        "(Progressive_Bow, 1) and Iron_Boots and CanDefeatBulblin and Goron_Mines_Key_Shard_First and Goron_Mines_Key_Shard_Second and Goron_Mines_Big_Key"
-    ],
+  "NeighbourRequirements": [
+    "true",
+    "((Goron_Mines_Small_Key, 3) or (Setting.smallKeySettings equals Keysey))",
+    "(Progressive_Bow, 1) and Iron_Boots and CanDefeatBulblin and ((Goron_Mines_Key_Shard_First and Goron_Mines_Key_Shard_Second and Goron_Mines_Big_Key) or (Setting.bossKeySettings equals Keysey))"
+  ],
     "Checks": 
     [
         "Goron Mines Outside Beamos Chest",

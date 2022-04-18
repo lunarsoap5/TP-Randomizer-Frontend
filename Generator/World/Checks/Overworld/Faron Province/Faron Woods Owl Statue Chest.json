@@ -1,8 +1,8 @@
 {
-    "requirements": "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal and (canCompleteForestTemple or (Setting.faronWoodsLogic equals Open)) and (((Progressive_Sword, 1) and (Progressive_Fishing_Rod, 1) and North_Faron_Woods_Gate_Key and Lantern) or (Setting.introSkipped equals True))",
-    "arcFileValues": [["F_SP108/R05_00.arc", "B1354"]],
-    "fileDirectoryType": [0],
-    "replacementType": [0],
-    "category": ["Overworld", "Chest", "Faron Woods", "ARC"],
-    "itemId": "Piece_of_Heart"
+  "requirements": "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal and (canCompleteForestTemple or (Setting.faronWoodsLogic equals Open)) and (((Progressive_Sword, 1) and (Progressive_Fishing_Rod, 1) and (North_Faron_Woods_Gate_Key or (Setting.smallKeySettings equals Keysey)) and Lantern) or (Setting.introSkipped equals True))",
+  "arcFileValues": [ [ "F_SP108/R05_00.arc", "B1354" ] ],
+  "fileDirectoryType": [ 0 ],
+  "replacementType": [ 0 ],
+  "category": [ "Overworld", "Chest", "Faron Woods", "ARC" ],
+  "itemId": "Piece_of_Heart"
 }

@@ -1327,7 +1327,7 @@ namespace TPRandomizer
                 && CanUse(Item.Boomerang)
                 && CanDefeatBokoblin()
                 && CanDefeatBigBaba()
-                && (getItemCount(Item.Forest_Temple_Small_Key) >= 4)
+                && ((getItemCount(Item.Forest_Temple_Small_Key) >= 4) || (Randomizer.RandoSetting.smallKeySettings == "Keysey"))
             );
         }
 

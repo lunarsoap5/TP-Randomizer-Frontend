@@ -1,8 +1,8 @@
 {
-    "requirements": "((Progressive_Sword, 1) and (Progressive_Fishing_Rod, 1) and North_Faron_Woods_Gate_Key) or (Setting.introSkipped equals True)",
-    "arcFileValues": [["bmgres1.arc", "21ADF"]],
-    "fileDirectoryType": [1],
-    "replacementType": [0],
-    "category": ["Overworld", "Npc", "Ordonia Province", "ARC"],
-    "itemId": "Piece_of_Heart"
+  "requirements": "((Progressive_Sword, 1) and (Progressive_Fishing_Rod, 1) and (North_Faron_Woods_Gate_Key or (Setting.smallKeySettings equals Keysey))) or (Setting.introSkipped equals True)",
+  "arcFileValues": [ [ "bmgres1.arc", "21ADF" ] ],
+  "fileDirectoryType": [ 1 ],
+  "replacementType": [ 0 ],
+  "category": [ "Overworld", "Npc", "Ordonia Province", "ARC" ],
+  "itemId": "Piece_of_Heart"
 }

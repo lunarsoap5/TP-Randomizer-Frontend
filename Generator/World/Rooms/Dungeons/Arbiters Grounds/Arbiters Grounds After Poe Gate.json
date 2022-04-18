@@ -4,11 +4,10 @@
         "Arbiters Grounds Lobby",
         "Arbiters Grounds Boss Room"
     ],
-    "NeighbourRequirements": 
-    [
-        "true",
-        "Spinner and Arbiters_Grounds_Big_Key"
-    ],
+  "NeighbourRequirements": [
+    "true",
+    "Spinner and (Arbiters_Grounds_Big_Key or (Setting.bossKeySettings equals Keysey))"
+  ],
     "Checks": 
     [
         "Arbiters Grounds Big Key Chest",
