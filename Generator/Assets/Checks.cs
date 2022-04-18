@@ -90,9 +90,19 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Npc"))
                         {
-                            currentCheck.checkStatus = "Vanilla";
+                            if (((parseSetting.smallKeySettings == "Keysey") && currentCheck.category.Contains("Small Key")) 
+                            || ((parseSetting.bossKeySettings == "Keysey") && currentCheck.category.Contains("Big Key"))
+                            || ((parseSetting.mapAndCompassSettings == "Start_With") 
+                            && (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass"))))
+                            {
+                                currentCheck.checkStatus = "Excluded";
+                            }
+                            else
+                            {
+                                currentCheck.checkStatus = "Vanilla";
                             Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
 			    Randomizer.Items.alwaysItems.Remove(currentCheck.itemId);
+                            }
                         }
                     }
 

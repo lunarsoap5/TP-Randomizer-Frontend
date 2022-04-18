@@ -3,6 +3,6 @@
     "arcFileValues": [["bmgres5.arc", "1A117"]],
     "fileDirectoryType": [1],
     "replacementType": [0],
-    "category": ["Npc", "ARC"],
+    "category": ["Npc", "ARC", "Dungeon Map"],
     "itemId": "Snowpeak_Ruins_Dungeon_Map"
 }
