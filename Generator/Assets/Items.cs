@@ -521,8 +521,8 @@ namespace TPRandomizer
 
             // Check Small Key settings before adding them to the rando pool
             if (
-                (parseSetting.smallKeySettings != "Keysanity")
-                && (parseSetting.smallKeySettings != "Vanilla"))
+                (parseSetting.smallKeySettings == "Own Dungeon")
+                && (parseSetting.smallKeySettings == "Any Dungeon"))
             {
                 this.RandomizedDungeonRegionItems.AddRange(this.RegionSmallKeys);
                 Randomizer.Items.BaseItemPool.AddRange(this.RegionSmallKeys);
@@ -534,8 +534,8 @@ namespace TPRandomizer
 
             // Check Big Key Settings before adding them to the pool
             if (
-                (parseSetting.bossKeySettings != "Keysanity")
-                && (parseSetting.bossKeySettings != "Vanilla"))
+                (parseSetting.bossKeySettings == "Own Dungeon")
+                && (parseSetting.bossKeySettings == "Any Dungeon"))
             {
                 this.RandomizedDungeonRegionItems.AddRange(this.DungeonBigKeys);
                 Randomizer.Items.BaseItemPool.AddRange(this.DungeonBigKeys);
@@ -547,8 +547,8 @@ namespace TPRandomizer
 
             // Check Map and Compass settings before adding to pool
             if (
-                (parseSetting.mapAndCompassSettings != "Anywhere")
-                && (parseSetting.mapAndCompassSettings != "Vanilla"))
+                (parseSetting.mapAndCompassSettings == "Own Dungeon")
+                && (parseSetting.mapAndCompassSettings == "Any Dungeon"))
             {
                 this.RandomizedDungeonRegionItems.AddRange(this.DungeonMapsAndCompasses);
                 Randomizer.Items.BaseItemPool.AddRange(this.DungeonMapsAndCompasses);
