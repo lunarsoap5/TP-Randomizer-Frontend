@@ -48,6 +48,7 @@ namespace TPRandomizer.Assets
                 { 0x3, 0xB9 }, // Barnes sells water bombs.
                 { 0x2, 0x60 }, // Got Lantern Back from Monkey
                 { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
+                { 0x2, 0x95 }, // Midna text after warping to North Faron for bridge.
                 { 0xA, 0x99 }, // Desert Entrance CS.
                 { 0xA, 0x20 }, // Set Freestanding key flag.
                 { 0x3, 0xA4 }, // Barnes Sells Bombs.
@@ -103,7 +104,6 @@ namespace TPRandomizer.Assets
                 { 0x2, 0x74 }, // Faron intro CS.
                 { 0x2, 0x77 }, // See Faron Light Spirit from afar CS.
                 { 0x2, 0x7C }, // Entered mist area as human.
-                { 0x2, 0x95 }, // Midna text after warping to North Faron for bridge.
                 { 0x3, 0x49 }, // Death mountain intro CS.
                 { 0x3, 0x83 }, // Kakariko Graveyard intro CS.
                 { 0x3, 0x8C }, // Midna text after Meteor fell.
