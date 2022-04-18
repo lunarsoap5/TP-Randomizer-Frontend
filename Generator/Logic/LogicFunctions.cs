@@ -1376,7 +1376,7 @@ namespace TPRandomizer
         {
             return (
                 (CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag))
-                && ((Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough && CanUse(Item.Gate_Keys))
+                && (Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough
                     || (Randomizer.Rooms.RoomDict["Eldin Field Water Bomb Fish Grotto"].ReachedByPlaythrough && (getItemCount(Item.Progressive_Fishing_Rod) >= 1))
                     || (Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough && Randomizer.Rooms.RoomDict["Castle Town"].ReachedByPlaythrough))
             );
