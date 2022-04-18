@@ -224,6 +224,94 @@ namespace TPRandomizer.Assets
                 { 0x18, 0xB7 }, // Lit southeast torch in second floor north room for the first time CS.
                 { 0x18, 0xB8 }, // Lit northeast torch in second floor north room for the first time CS.
             };
+        
+        public static readonly byte[,] SmallKeyRegionFlags = new byte[,]
+            {
+                { 0x2, 0x53 }, // Coro gate unlocked.
+                { 0x2, 0x4B }, // North Faron Gate Unlocked.
+                { 0x3, 0xBA }, // Followed Rutella to graveyard.
+                { 0x3, 0xB6 }, // Started Rutella escort.
+                { 0xA, 0xE7 }, // Give Bulblin Camp Key.
+                { 0x10, 0x54 }, // Unlocked door to Second Monkey.
+                { 0x10, 0x57 }, // Unlock windless bridge east door.
+                { 0x10, 0x61 }, // Opened big baba monkey cage.
+                { 0x10, 0x74 }, // Opened tile worm monkey cage.
+                { 0x11, 0x60 }, // Unlock north door in toadpoli room.
+                { 0x11, 0x62 }, // Unlock west locked door in main magnet room.
+                { 0x11, 0x6C }, // Unlock east outside door.
+                { 0x12, 0x6B }, // Unlock east door main room 2F.
+                { 0x12, 0x7B }, // Unlocked door in second east room 2F.
+                { 0x12, 0x7C }, // Unlocked door before Deku Toad.
+                { 0x13, 0x78 }, // Unlocked door in second east room 2F.
+                { 0x13, 0x83 }, // Unlocked door in elevator room 2B.
+                { 0x13, 0x84 }, // Unlocked door in first room.
+                { 0x13, 0x92 }, // Unlocked door in first east room 1F.
+                { 0x13, 0x99 }, // Unlocked door in fourth east room.
+                { 0x14, 0x4D }, // Unlock North lobby door.
+                { 0x14, 0x4C }, // Unlock West lobby door.
+                { 0x14, 0x6F }, // Unlock door in southeast room 2F.
+                { 0x14, 0x73 }, // Unlock door in east outside hallway.
+                { 0x14, 0x74 }, // Unlock west door in courtyard.
+                { 0x14, 0x70 }, // Unlock door to lobby from Freezard room.
+                { 0x15, 0x44 }, // Unlock door in room 1.
+                { 0x15, 0x42 }, // Unlock door in room 6 on 8F.
+                { 0x15, 0x43 }, // Unlock door in 5F.
+                { 0x16, 0x59 }, // Unlock east bridge door.
+                { 0x17, 0x57 }, // Unlock door in north room 3.
+                { 0x17, 0x58 }, // Unlock door in east room 2.
+                { 0x17, 0x59 }, // Unlock door in west room 2.
+                { 0x17, 0x6C }, // Unlock door in north room 2.
+                { 0x17, 0x7A }, // Unlock door in norht room 1.
+                { 0x17, 0x7B }, // Unlock door in east room 1.
+                { 0x17, 0x7C }, // Unlock door in west room 1.
+                { 0x18, 0x93 }, // Unlock door outside 3F.
+                { 0x18, 0xB0 }, // Unlock treasure room door.
+                { 0x18, 0xA3 }, // Unlock door in south garden.
+            };
+
+        public static readonly byte[,] BigKeyRegionFlags = new byte[,]
+            {
+                { 0x10, 0x48 }, // Unlocked Forest Temple Boss Door.
+                { 0x10, 0xED }, // Got Forest Temple Big Key.
+                { 0x11, 0x48 }, // Unlocked Goron Mines Boss Door.
+                { 0x11, 0xED }, // Got Goron Mines Big Key.
+                { 0x12, 0x8A }, // Unlocked Lakebed Temple Boss Door.
+                { 0x12, 0xED }, // Got Lakebed Temple Big Key.
+                { 0x13, 0x47 }, // Unlocked Arbiter's Grounds Boss Door.
+                { 0x13, 0xED }, // Got Arbiter's Grounds Big Key.
+                { 0x14, 0x57 }, // Unlocked Snowpeak Ruins Boss Door.
+                { 0x14, 0xED }, // Got Snowpeak Ruins Big Key.
+                { 0x15, 0x7F }, // Unlocked Temple of Time Boss Door.
+                { 0x15, 0xED }, // Got Temple of Time Big Key.
+                { 0x16, 0x58 }, // Unlocked City in The Sky Boss Door.
+                { 0x16, 0xED }, // Got City in The Sky Big Key.
+                { 0x17, 0x56 }, // Unlocked Palace of Twilight Boss Door.
+                { 0x17, 0xED }, // Got Palace of Twilight Big Key.
+                { 0x18, 0xA1 }, // Unlocked Hyrule Castle Boss Door.
+                { 0x18, 0xED }, // Got Hyrule Castle Big Key.
+            };
+
+        public static readonly byte[,] MapAndCompassRegionFlags = new byte[,]
+            {
+                { 0x10, 0xEE }, // Got Forest Temple Compass.
+                { 0x11, 0xEE }, // Got Goron Mines Compass.
+                { 0x12, 0xEE }, // Got Lakebed Temple Compass.
+                { 0x13, 0xEE }, // Got Arbiter's Grounds Compass.
+                { 0x14, 0xEE }, // Got Snowpeak Ruins Compass.
+                { 0x15, 0xEE }, // Got Temple of Time Compass.
+                { 0x16, 0xEE }, // Got City in The Sky Compass.
+                { 0x17, 0xEE }, // Got Palace of Twilight Compass.
+                { 0x18, 0xEE }, // Got Hyrule Castle Compass.
+                { 0x10, 0xEF }, // Got Forest Temple Dungeon Map.
+                { 0x11, 0xEF }, // Got Goron Mines Dungeon Map.
+                { 0x12, 0xEF }, // Got Lakebed Temple Dungeon Map.
+                { 0x13, 0xEF }, // Got Arbiter's Grounds Dungeon Map.
+                { 0x14, 0xEF }, // Got Snowpeak Ruins Dungeon Map.
+                { 0x15, 0xEF }, // Got Temple of Time Dungeon Map.
+                { 0x16, 0xEF }, // Got City in The Sky Dungeon Map.
+                { 0x17, 0xEF }, // Got Palace of Twilight Dungeon Map.
+                { 0x18, 0xEF }, // Got Hyrule Castle Dungeon Map.
+            };
 
         /// <summary>
         /// summary text.
@@ -235,6 +323,9 @@ namespace TPRandomizer.Assets
             { 2, EldinTwilightRegionFlags },
             { 3, LanayruTwilightRegionFlags },
             { 4, CutsceneRegionFlags },
+            { 7, SmallKeyRegionFlags },
+            { 8, BigKeyRegionFlags },
+            { 9, MapAndCompassRegionFlags },
         };
 
         /// <summary>
@@ -343,6 +434,15 @@ namespace TPRandomizer.Assets
             { 0x1E, 0x8 }, // Midna's Deseperate Hour Completed.
         };
 
+        public static readonly byte[,] SmallKeyEventFlags = new byte[,]
+        {
+            { 0x8, 0x50 }, // Zora Escort started and completed.
+            { 0x4, 0x80 }, // Told Yeta about pumpkin.
+            { 0x0, 0x3 }, // Yeto put pumpkin and cheese in soup.
+            { 0x14, 0x60 }, // Snowpeak Ruins North and West doors unlocked.
+            { 0x1, 0x20 }, // Told Yeta about cheese
+        };
+
         /// <summary>
         /// summary text.
         /// </summary>
@@ -355,6 +455,7 @@ namespace TPRandomizer.Assets
             { 4, CutsceneEventFlags },
             { 5, OpenForestEventFlags },
             { 6, MDHEventFlags },
+            { 7, SmallKeyEventFlags },
         };
         private static readonly RandomizerSetting RandomizerSettings = Randomizer.RandoSetting;
         /// <summary>
@@ -362,13 +463,16 @@ namespace TPRandomizer.Assets
         /// </summary>
         public static readonly bool[] FlagSettings = new bool[]
         {
-            RandomizerSettings.introSkipped,
-            RandomizerSettings.faronTwilightCleared,
-            RandomizerSettings.eldinTwilightCleared,
-            RandomizerSettings.lanayruTwilightCleared,
-            RandomizerSettings.skipMinorCutscenes,
-            RandomizerSettings.faronWoodsLogic == "Open",
-            RandomizerSettings.mdhSkipped
+            /* 0 */ RandomizerSettings.introSkipped,
+            /* 1 */ RandomizerSettings.faronTwilightCleared,
+            /* 2 */ RandomizerSettings.eldinTwilightCleared,
+            /* 3 */ RandomizerSettings.lanayruTwilightCleared,
+            /* 4 */ RandomizerSettings.skipMinorCutscenes,
+            /* 5 */ RandomizerSettings.faronWoodsLogic == "Open",
+            /* 6 */ RandomizerSettings.mdhSkipped,
+            /* 7 */ RandomizerSettings.smallKeySettings == "Keysey",
+            /* 8 */ RandomizerSettings.bossKeySettings == "Keysey",
+            /* 9 */ RandomizerSettings.mapAndCompassSettings == "Start_With",
         };
     }
 }
