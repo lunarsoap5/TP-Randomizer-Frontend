@@ -53,6 +53,7 @@ namespace TPRandomizer.Assets
                 { 0x3, 0xA4 }, // Barnes Sells Bombs.
                 { 0x6, 0x7E }, // Kakariko Gorge placed CS
                 { 0x10, 0x49 }, // FT Ook Bridge Destroyed
+                { 0x17, 0x94 }, // Set flag to trigger the twilight fence before Zant
             };
 
         /// <summary>
@@ -218,10 +219,8 @@ namespace TPRandomizer.Assets
                 { 0x18, 0x8D }, // East garden intro CS trigger.
                 { 0x18, 0x77 }, // Midna text at the east end of the east garden.
                 { 0x18, 0x82 }, // South garden intro CS.
-                { 0x18, 0x86 }, // Midna text after KB4.
                 { 0x18, 0x99 }, // Double Darknut room intro CS
                 { 0x18, 0xA4 }, // Midna text after Owl Statue chest in graveyard.
-                { 0x18, 0xA6 }, // Trigger for Midna text after KB4.
                 { 0x18, 0xB7 }, // Lit southeast torch in second floor north room for the first time CS.
                 { 0x18, 0xB8 }, // Lit northeast torch in second floor north room for the first time CS.
             };
