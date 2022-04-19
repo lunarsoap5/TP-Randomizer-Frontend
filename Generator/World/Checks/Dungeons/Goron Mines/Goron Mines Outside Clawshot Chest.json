@@ -1,5 +1,5 @@
 {
-    "requirements": "(Progressive_Clawshot, 1)",
+    "requirements": "(Progressive_Clawshot, 1) and ((Progressive_Bow, 1) or Slingshot)",
     "arcFileValues": [["D_MN04/R07_00.arc", "87E58"]],
     "fileDirectoryType": [0],
     "replacementType": [0],
