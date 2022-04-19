@@ -1,6 +1,7 @@
 {
     "requirements": "(Progressive_Bow, 1) and hasBombs and Room.Zoras_Domain and ((Progressive_Sword, 1) or (CanDefeatShadowBeast and (Setting.transformAnywhere equals True)))",
-    "arcFileValues": [["bmgres8.arc", "14CD7"]],
+    "arcOffsets": ["1737"],
+    "stageIDX": [52],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],

@@ -24,6 +24,8 @@ namespace TPRandomizer
 
         public List<byte> stageIDX { get; set; } // Used by DZX, SHOP, POE, and BOSS checks. The index of the stage where the check is located.
 
+        public List<byte> lastStageIDX { get; set; } // Used by SKILL checks. The index of the previous stage where the player encountered the wolf.
+
         public byte roomIDX { get; set; } // Used by SKILL checks to determine which wolf is being learned from.
 
         public List<string> hash { get; set; } // Used by DZX checks. The hash of the actor that will be modified by a DZX-based check replacement.
@@ -42,7 +44,9 @@ namespace TPRandomizer
 
         public List<string> moduleID { get; set; } // Used by REL checks. The module ID for the rel file being loaded.
 
-        public List<string> offsets { get; set; } // Used by REL checks.
+        public List<string> relOffsets { get; set; } // Used by REL checks.
+
+        public List<string> arcOffsets { get; set; } // Used by ARC checks.
 
         public List<string> magicByte { get; set; }
 

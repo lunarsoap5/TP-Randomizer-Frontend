@@ -1,6 +1,7 @@
 {
     "requirements": "true",
-    "arcFileValues": [["bmgres6.arc", "192BF"]],
+    "arcOffsets": ["D3F"],
+    "stageIDX": [45],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Faron Woods", "ARC"],

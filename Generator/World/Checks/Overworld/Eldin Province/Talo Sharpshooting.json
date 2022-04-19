@@ -1,6 +1,7 @@
 {
     "requirements": "canCompleteGoronMines and (Progressive_Bow, 1)",
-    "arcFileValues": [["bmgres2.arc", "18B77"]],
+    "arcOffsets": ["937"],
+    "stageIDX": [46],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Npc", "Eldin Province", "ARC"],

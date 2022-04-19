@@ -1,6 +1,7 @@
 {
     "requirements": "true",
-    "arcFileValues": [["bmgres8.arc", "141B7"]],
+    "arcOffsets": ["C17"],
+    "stageIDX": [52],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],
