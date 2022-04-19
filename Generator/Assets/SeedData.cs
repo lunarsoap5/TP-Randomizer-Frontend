@@ -217,12 +217,11 @@ namespace TPRandomizer.Assets
                 {
                     for (int i = 0; i < currentCheck.arcFileValues.Count; i++)
                     {
-                        List<string> listOfArcValues = currentCheck.arcFileValues[i];
+                        byte listOfArcValues = currentCheck.arcFileValues[i];
                         listOfArcReplacements.AddRange(
                             Converter.GcBytes((UInt32)uint.Parse(
                                     listOfArcValues[1],
                                     System.Globalization.NumberStyles.HexNumber)));
-                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)0x00));
                         if (currentCheck.replacementType[i] != 3)
                         {
                             listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)currentCheck.itemId));
@@ -235,18 +234,17 @@ namespace TPRandomizer.Assets
                             Converter.GcByte(currentCheck.fileDirectoryType[i]));
                         listOfArcReplacements.Add(
                             Converter.GcByte(currentCheck.replacementType[i]));
-                        List<byte> fileNameBytes = new ();
-                        fileNameBytes.AddRange(Converter.StringBytes(listOfArcValues[0]));
-                        for (
-                            int numberofFileNameBytes = fileNameBytes.Count;
-                            numberofFileNameBytes < 18;
-                            numberofFileNameBytes++)
-                        {
-                            // Pad the length of the file name to 0x12 bytes.
-                            fileNameBytes.Add(Converter.GcByte(0x00));
-                        }
+                        listOfArcReplacements.Add(
+                            Converter.GcByte(listOfArcValues[0]));
 
-                        listOfArcReplacements.AddRange(fileNameBytes);
+                        if (currentCheck.fileDirectoryType == 0)
+                        {
+                            listOfArcReplacements.Add(Converter.GcByte(currentCheck.roomIDX));
+                        }
+                        else
+                        {
+                            listOfArcReplacements.Add(Converter.GcByte(0x0));
+                        }
                         count++;
                     }
                 }
