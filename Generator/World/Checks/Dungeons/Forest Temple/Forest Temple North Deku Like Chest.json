@@ -1,6 +1,8 @@
 {
     "requirements": "Boomerang",
-    "arcFileValues": [["D_MN05/R10_00.arc", "4C278"]],
+    "arcOffsets": ["998"],
+    "stageIDX": [6],
+    "roomIDX": [10],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "Small Key", "ARC"],

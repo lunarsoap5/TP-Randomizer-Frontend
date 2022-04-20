@@ -1,6 +1,8 @@
 {
     "requirements": "Boomerang and CanDefeatBombling",
-    "arcFileValues": [["D_MN05/R00_00.arc", "5E6EC"]],
+    "arcOffsets": ["108C"],
+    "stageIDX": [6],
+    "roomIDX": [0],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "ARC"],

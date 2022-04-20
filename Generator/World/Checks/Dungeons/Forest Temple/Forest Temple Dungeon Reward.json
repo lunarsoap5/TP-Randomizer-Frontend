@@ -4,8 +4,8 @@
     "stageIDX": [7],
     "offsets": ["1880"],
     "relOverride": ["38600000"],
-    "arcFileValues": [["D_MN05A/STG_00.arc", "8846"]],
-    "fileDirectoryType": [0],
+    "arcOffsets": ["3286"],
+    "fileDirectoryType": [3],
     "replacementType": [2],
     "category": ["Dungeon", "Forest Temple", "Dungeon Reward", "REL", "ARC"],
     "itemId": "Progressive_Fused_Shadow"
