@@ -1,6 +1,8 @@
 {
     "requirements": "Iron_Boots",
-    "arcFileValues": [["D_MN04/R14_00.arc", "82F48"]],
+    "arcOffsets": ["2C8"],
+    "stageIDX": [3],
+    "roomIDX": [14],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Goron Mines", "Dungeon Items", "Dungeon Map", "ARC"],
