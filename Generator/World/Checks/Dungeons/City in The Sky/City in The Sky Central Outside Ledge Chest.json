@@ -1,6 +1,8 @@
 {
     "requirements": "CanDefeatDinalfos and CanDefeatWalltula and CanDefeatKargarok and Shadow_Crystal",
-    "arcFileValues": [["D_MN07/R13_00.arc", "98458"]],
+    "arcOffsets": ["C38"],
+    "stageIDX": [12],
+    "roomIDX": [13],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "City in The Sky", "ARC"],
