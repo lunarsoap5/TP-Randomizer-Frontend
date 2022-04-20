@@ -1,6 +1,8 @@
 {
     "requirements": "Shadow_Crystal",
-    "arcFileValues": [["D_MN10/R15_00.arc", "50108"]],
+    "arcOffsets": ["988"],
+    "stageIDX": [24],
+    "roomIDX": [15],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key", "ARC"],

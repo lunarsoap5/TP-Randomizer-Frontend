@@ -1,6 +1,8 @@
 {
   "requirements": "(Progressive_Clawshot, 1) and Spinner and CanDefeatBubble and CanDefeatStalfos and ((Arbiters_Grounds_Small_Key, 5) or (Setting.smallKeySettings equals Keysey))",
-  "arcFileValues": [ [ "D_MN10/R13_00.arc", "7F0E4" ] ],
+  "arcOffsets": ["14C4"],
+    "stageIDX": [24],
+    "roomIDX": [13],
   "fileDirectoryType": [ 0 ],
   "replacementType": [ 0 ],
   "category": [ "Chest", "Dungeon", "Arbiters Grounds", "ARC" ],
