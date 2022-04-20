@@ -1,6 +1,8 @@
 {
     "requirements": "(Progressive_Clawshot, 1)",
-    "arcFileValues": [["D_MN01/R12_00.arc", "4FE50"]],
+    "arcOffsets": ["AF0"],
+    "stageIDX": [0],
+    "roomIDX": [12],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],

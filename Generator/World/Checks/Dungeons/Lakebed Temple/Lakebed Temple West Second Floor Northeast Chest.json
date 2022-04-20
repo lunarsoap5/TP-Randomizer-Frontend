@@ -1,6 +1,8 @@
 {
     "requirements": "(Progressive_Clawshot, 1) and canLaunchBombs",
-    "arcFileValues": [["D_MN01/R11_00.arc", "42EE0"]],
+    "arcOffsets": ["21C0"],
+    "stageIDX": [0],
+    "roomIDX": [11],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],

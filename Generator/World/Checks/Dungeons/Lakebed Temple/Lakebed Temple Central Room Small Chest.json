@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "arcFileValues": [["D_MN01/R03_00.arc", "A7D1C"]],
+    "arcOffsets": ["361C"],
+    "stageIDX": [0],
+    "roomIDX": [3],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],

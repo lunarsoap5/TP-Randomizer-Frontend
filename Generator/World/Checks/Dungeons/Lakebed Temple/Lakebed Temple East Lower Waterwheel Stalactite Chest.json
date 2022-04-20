@@ -1,6 +1,8 @@
 {
     "requirements": "canLaunchBombs",
-    "arcFileValues": [["D_MN01/R08_00.arc", "5E544"]],
+    "arcOffsets": ["3344"],
+    "stageIDX": [0],
+    "roomIDX": [8],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Lakebed Temple", "Small Key", "ARC"],
