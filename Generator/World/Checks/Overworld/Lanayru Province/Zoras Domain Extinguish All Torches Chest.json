@@ -1,6 +1,8 @@
 {
     "requirements": "Boomerang and Iron_Boots",
-    "arcFileValues": [["F_SP113/R00_00.arc", "B7A78"]],
+    "arcOffsets": ["A78"],
+    "stageIDX": [50],
+    "roomIDX": [0],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],

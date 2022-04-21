@@ -1,6 +1,8 @@
 {
     "requirements": "Iron_Boots",
-    "arcFileValues": [["F_SP115/R01_00.arc", "BFB00"]],
+    "arcOffsets": ["2500"],
+    "stageIDX": [52],
+    "roomIDX": [1],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],

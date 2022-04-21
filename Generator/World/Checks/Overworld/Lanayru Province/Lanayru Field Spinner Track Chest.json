@@ -1,6 +1,8 @@
 {
     "requirements": "canSmash and Spinner",
-    "arcFileValues": [["F_SP121/R11_00.arc", "19494"]],
+    "arcOffsets": ["5D4"],
+    "stageIDX": [56],
+    "roomIDX": [11],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
