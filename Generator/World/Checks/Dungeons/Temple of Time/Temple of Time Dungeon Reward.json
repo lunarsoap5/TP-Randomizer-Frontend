@@ -4,8 +4,8 @@
     "stageIDX": [10],
     "offsets": ["1880"],
     "relOverride": ["38600000"],
-    "arcFileValues": [["D_MN06A/STG_00.arc", "453E"]],
-    "fileDirectoryType": [0],
+    "arcOffsets": ["383E"],
+    "fileDirectoryType": [3],
     "replacementType": [2],
     "category": ["Dungeon", "Temple of Time", "Dungeon Reward", "REL", "ARC"],
     "itemId": "Progressive_Mirror_Shard"
