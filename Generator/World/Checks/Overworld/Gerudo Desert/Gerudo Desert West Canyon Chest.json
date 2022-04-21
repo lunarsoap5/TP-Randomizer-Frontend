@@ -1,6 +1,8 @@
 {
     "requirements": "(Progressive_Clawshot, 1)",
-    "arcFileValues": [["F_SP124/R00_00.arc", "102418"]],
+    "arcOffsets": ["16B8"],
+    "stageIDX": [59],
+    "roomIDX": [0],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Gerudo Desert", "ARC"],
