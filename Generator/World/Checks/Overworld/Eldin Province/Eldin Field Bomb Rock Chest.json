@@ -1,6 +1,8 @@
 {
     "requirements": "canSmash",
-    "arcFileValues": [["F_SP121/R00_00.arc", "B7D34"]],
+    "arcOffsets": ["1E34"],
+    "stageIDX": [56],
+    "roomIDX": [0],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
