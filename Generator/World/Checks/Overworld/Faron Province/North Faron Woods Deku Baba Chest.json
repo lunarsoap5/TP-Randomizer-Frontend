@@ -2,7 +2,7 @@
     "requirements": "true",
     "arcOffsets": ["EA4"],
     "stageIDX": [45],
-    "roomIDX": [6],
+    "roomIDX": 6,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Faron Woods", "ARC"],

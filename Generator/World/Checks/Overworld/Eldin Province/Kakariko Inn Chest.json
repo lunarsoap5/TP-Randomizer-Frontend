@@ -2,7 +2,7 @@
     "requirements": "true",
     "arcOffsets": ["748"],
     "stageIDX": [68],
-    "roomIDX": [2],
+    "roomIDX": 2,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Eldin Province", "ARC"],

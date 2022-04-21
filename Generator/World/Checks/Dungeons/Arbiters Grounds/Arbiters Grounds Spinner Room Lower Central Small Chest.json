@@ -3,7 +3,7 @@
   "arcFileValues": [ [ "D_MN10/R13_00.arc", "7F144" ] ],
   "arcOffsets": ["1524"],
   "stageIDX": [24],
-  "roomIDX": [13],
+  "roomIDX": 13,
   "fileDirectoryType": [ 0 ],
   "replacementType": [ 0 ],
   "category": [ "Chest", "Dungeon", "Arbiters Grounds", "ARC" ],

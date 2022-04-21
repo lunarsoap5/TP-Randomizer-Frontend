@@ -2,7 +2,7 @@
     "requirements": "Lantern",
     "arcOffsets": ["10AC"],
     "stageIDX": [6],
-    "roomIDX": [0],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "Dungeon Items", "Dungeon Map", "ARC"],

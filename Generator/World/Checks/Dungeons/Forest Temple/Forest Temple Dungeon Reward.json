@@ -2,7 +2,7 @@
     "requirements": "CanDefeatDiababa",
     "moduleID": ["5B"],
     "stageIDX": [7],
-    "offsets": ["1880"],
+    "relOffsets": ["1880"],
     "relOverride": ["38600000"],
     "arcOffsets": ["3286"],
     "fileDirectoryType": [3],

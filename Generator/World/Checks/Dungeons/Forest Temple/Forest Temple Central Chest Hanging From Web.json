@@ -2,7 +2,7 @@
     "requirements": "canCutHangingWeb",
     "arcOffsets": ["106C"],
     "stageIDX": [6],
-    "roomIDX": [0],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "Dungeon Items", "Compass", "ARC"],

@@ -2,7 +2,7 @@
     "requirements": "CanDefeatMorpheel",
     "moduleID": ["5B"],
     "stageIDX": [1],
-    "offsets": ["1880"],
+    "relOffsets": ["1880"],
     "relOverride": ["38600000"],
     "arcOffsets": ["389A"],
     "fileDirectoryType": [3],

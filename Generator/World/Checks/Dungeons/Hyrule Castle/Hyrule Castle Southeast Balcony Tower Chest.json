@@ -2,7 +2,7 @@
     "requirements": "CanDefeatAeralfos",
     "arcOffsets": ["3D8"],
     "stageIDX": [20],
-    "roomIDX": [15],
+    "roomIDX": 15,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Hyrule Castle", "Small Key", "ARC"],

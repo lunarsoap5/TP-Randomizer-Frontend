@@ -3,7 +3,7 @@
     "arcOffsets": ["31EBF", "375C", "3644"],
     "fileDirectoryType": [0, 1, 1],
     "replacementType": [0, 5, 5],
-    "stageIDX": [62],
+    "stageIDX": [62, 62, 62],
     "moduleID": ["32"],
     "relOverride": ["38600000"], 
     "relOffsets": ["7D40"],

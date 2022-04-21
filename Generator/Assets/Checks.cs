@@ -36,8 +36,6 @@ namespace TPRandomizer
 
         public string flag { get; set; } // Used by POE and SKILL checks. The flag to check to determine which check to replace.
 
-        public List<List<string>> arcFileValues { get; set; } // Used by ARC checks. The file where the item the check uses is contained.
-
         public List<byte> fileDirectoryType { get; set; } // Used by ARC checks. The type of file directory where the item is stored.
 
         public List<byte> replacementType { get; set; } // Used by ARC checks. The type of replacement taking place.

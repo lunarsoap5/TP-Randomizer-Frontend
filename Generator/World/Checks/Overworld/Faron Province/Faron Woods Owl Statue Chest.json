@@ -2,7 +2,7 @@
   "requirements": "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal and (canCompleteForestTemple or (Setting.faronWoodsLogic equals Open)) and (((Progressive_Sword, 1) and (Progressive_Fishing_Rod, 1) and (North_Faron_Woods_Gate_Key or (Setting.smallKeySettings equals Keysey)) and Lantern) or (Setting.introSkipped equals True))",
   "arcOffsets": ["1EF4"],
     "stageIDX": [45],
-    "roomIDX": [5],
+    "roomIDX": 5,
   "fileDirectoryType": [ 0 ],
   "replacementType": [ 0 ],
   "category": [ "Overworld", "Chest", "Faron Woods", "ARC" ],

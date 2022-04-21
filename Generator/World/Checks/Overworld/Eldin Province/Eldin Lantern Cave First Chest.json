@@ -2,7 +2,7 @@
     "requirements": "canBurnWebs",
     "arcOffsets": ["DC0"],
     "stageIDX": [32],
-    "roomIDX": [0],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],

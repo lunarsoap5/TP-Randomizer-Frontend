@@ -2,7 +2,7 @@
     "requirements": "CanDefeatBombling",
     "arcOffsets": ["C74"],
     "stageIDX": [6],
-    "roomIDX": [3],
+    "roomIDX": 3,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "ARC"],

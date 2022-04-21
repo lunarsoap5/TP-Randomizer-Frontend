@@ -2,7 +2,7 @@
     "requirements": "true",
     "arcOffsets": ["363C"],
     "stageIDX": [0],
-    "roomIDX": [3],
+    "roomIDX": 3,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Lakebed Temple", "Dungeon Items", "Dungeon Map", "ARC"],

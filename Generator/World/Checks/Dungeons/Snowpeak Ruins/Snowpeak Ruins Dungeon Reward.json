@@ -2,7 +2,7 @@
     "requirements": "CanDefeatBlizzeta",
     "moduleID": ["5B"],
     "stageIDX": [28],
-    "offsets": ["1880"],
+    "relOffsets": ["1880"],
     "relOverride": ["38600000"],
     "arcOffsets": ["33AA"],
     "fileDirectoryType": [3],

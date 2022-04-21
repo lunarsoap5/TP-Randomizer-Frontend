@@ -2,7 +2,7 @@
   "requirements": "((Palace_of_Twilight_Small_Key, 1) or (Setting.smallKeySettings equals Keysey)) and CanDefeatZantHead and (Progressive_Clawshot, 1)",
   "arcOffsets": ["AC8"],
     "stageIDX": [15],
-    "roomIDX": [2],
+    "roomIDX": 2,
   "fileDirectoryType": [ 0 ],
   "replacementType": [ 0 ],
   "category": [ "Chest", "Dungeon", "Palace of Twilight", "Dungeon Items", "Compass", "ARC" ],

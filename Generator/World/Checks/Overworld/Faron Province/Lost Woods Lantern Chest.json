@@ -2,7 +2,7 @@
     "requirements": "Lantern",
     "arcOffsets": ["3280"],
     "stageIDX": [54],
-    "roomIDX": [3],
+    "roomIDX": 3,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Sacred Grove", "ARC"],

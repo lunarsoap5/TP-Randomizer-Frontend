@@ -2,7 +2,7 @@
     "requirements": "CanDefeatBombling",
     "arcOffsets": ["BF4"],
     "stageIDX": [6],
-    "roomIDX": [5],
+    "roomIDX": 5,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "Small Key", "ARC"],

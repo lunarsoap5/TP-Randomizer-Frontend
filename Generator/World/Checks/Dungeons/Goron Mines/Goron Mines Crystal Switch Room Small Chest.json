@@ -2,7 +2,7 @@
     "requirements": "Iron_Boots",
     "arcOffsets": ["AC8"],
     "stageIDX": [3],
-    "roomIDX": [6],
+    "roomIDX": 6,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],

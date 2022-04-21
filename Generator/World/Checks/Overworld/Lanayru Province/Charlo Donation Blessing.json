@@ -1,6 +1,7 @@
 {
     "requirements": "true",
-    "arcFileValues": [["Prayer.arc", "D587"]],
+    "arcOffsets": ["D587"],
+    "roomIDX": 4,
     "fileDirectoryType": [2],
     "replacementType": [0],
     "stageIDX": [53],
