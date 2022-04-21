@@ -1,6 +1,8 @@
 {
     "requirements": "CanDefeatDarkhammer and Ball_and_Chain",
-    "arcFileValues": [["D_MN11B/R51_00.arc", "9ECB0"]],
+    "arcOffsets": ["4D0"],
+    "stageIDX": [29],
+    "roomIDX": [51],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Small Key", "ARC"],

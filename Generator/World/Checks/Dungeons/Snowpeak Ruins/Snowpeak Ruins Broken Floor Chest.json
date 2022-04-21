@@ -1,6 +1,8 @@
 {
     "requirements": "Ball_and_Chain",
-    "arcFileValues": [["D_MN11/R07_00.arc", "505B8"]],
+    "arcOffsets": ["B58"],
+    "stageIDX": [27],
+    "roomIDX": [7],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Snowpeak Ruins", "ARC"],
