@@ -217,18 +217,18 @@ namespace TPRandomizer.Assets
                 {
                     for (int i = 0; i < currentCheck.arcOffsets.Count; i++)
                     {
-                        Converter.GcBytes((UInt32)uint.Parse(currentCheck.arcOffsets[i],System.Globalization.NumberStyles.HexNumber));
+                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)uint.Parse(currentCheck.arcOffsets[i],System.Globalization.NumberStyles.HexNumber)));
                         if (currentCheck.replacementType[i] != 3)
                         {
                             listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)currentCheck.itemId));
                         }
                         else
                         {
-                            Converter.GcBytes((UInt32)uint.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber));
+                            listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)uint.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber)));
                         }
                         listOfArcReplacements.Add(Converter.GcByte(currentCheck.fileDirectoryType[i]));
                         listOfArcReplacements.Add(Converter.GcByte(currentCheck.replacementType[i]));
-                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)currentCheck.stageIDX[i]));
+                        listOfArcReplacements.Add(Converter.GcByte(currentCheck.stageIDX[i]));
 
                         if (currentCheck.fileDirectoryType[i] == 0)
                         {
