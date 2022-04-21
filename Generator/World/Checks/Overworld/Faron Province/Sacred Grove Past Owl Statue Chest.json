@@ -1,6 +1,8 @@
 {
     "requirements": "(Progressive_Dominion_Rod, 1)",
-    "arcFileValues": [["F_SP117/R02_00.arc", "BA924"]],
+    "arcOffsets": ["AA4"],
+    "stageIDX": [54],
+    "roomIDX": [2],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Sacred Grove", "ARC"],

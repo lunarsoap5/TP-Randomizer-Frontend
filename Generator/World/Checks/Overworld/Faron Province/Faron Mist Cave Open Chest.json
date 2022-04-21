@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "arcFileValues": [["F_SP108/R14_00.arc", "27E18"]],
+    "arcOffsets": ["218"],
+    "stageIDX": [45],
+    "roomIDX": [14],
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Faron Woods", "Small Key", "ARC"],
