@@ -6,8 +6,8 @@
     ],
     "NeighbourRequirements": 
     [
-        "true",
-        "true"
+        "canBurnWebs or (Setting.introSkipped equals True)",
+        "canBurnWebs or (Setting.introSkipped equals True)"
     ],
     "Checks": 
     [

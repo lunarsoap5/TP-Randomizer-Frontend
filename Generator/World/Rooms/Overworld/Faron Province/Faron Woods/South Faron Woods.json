@@ -9,7 +9,7 @@
     "NeighbourRequirements": 
     [
         "true",
-        "canCompleteForestTemple or (Setting.faronWoodsLogic equals Open)",
+        "canLeaveForest and CanCompleteIntro",
         "true",
         "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal"
     ],

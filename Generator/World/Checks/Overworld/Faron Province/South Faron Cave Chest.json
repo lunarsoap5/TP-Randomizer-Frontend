@@ -1,5 +1,5 @@
 {
-    "requirements": "true",
+    "requirements": "canBurnWebs or (Setting.introSkipped equals True)",
     "arcFileValues": [["D_SB10/R00_00.arc", "B6A08"]],
     "fileDirectoryType": [0],
     "replacementType": [0],
