@@ -6,7 +6,7 @@
     ],
     "NeighbourRequirements":
     [
-        "((Progressive_Sword, 1) and Slingshot) or (Setting.introSkipped equals True)",
+        "(HasSword and Slingshot) or (Setting.introSkipped equals True)",
         "Shadow_Crystal"
     ],
     "Checks": 

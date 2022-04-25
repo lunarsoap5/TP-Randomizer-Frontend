@@ -690,9 +690,7 @@ namespace TPRandomizer
         {
             return (
                 HasSword()
-                || (CanUse(Item.Shadow_Crystal) 
-                    && ((Randomizer.RandoSetting.mdhSkipped == true) || canCompleteLakebedTemple())
-                    )
+                || (CanUse(Item.Shadow_Crystal) && CanCompleteMDH())
             );
         }
 
@@ -1379,6 +1377,31 @@ namespace TPRandomizer
                 && (Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough
                     || (Randomizer.Rooms.RoomDict["Eldin Field Water Bomb Fish Grotto"].ReachedByPlaythrough && (getItemCount(Item.Progressive_Fishing_Rod) >= 1))
                     || (Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough && Randomizer.Rooms.RoomDict["Castle Town"].ReachedByPlaythrough))
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanCompleteIntro()
+        {
+            return (
+                (HasSword()
+                 && CanUse(Item.Slingshot)
+                 && (getItemCount(Item.Progressive_Fishing_Rod) >= 1)
+                 && (((CanUse(Item.North_Faron_Woods_Gate_Key) || (Randomizer.RandoSetting.smallKeySettings == "Keysey")) && canBurnWebs())
+                 || (CanUse(Item.Shadow_Crystal) && (Randomizer.RandoSetting.faronTwilightCleared == true))))
+                || (Randomizer.RandoSetting.introSkipped == true)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanCompleteMDH()
+        {
+            return (
+                (canCompleteLakebedTemple() || (Randomizer.RandoSetting.mdhSkipped == true))
             );
         }
 

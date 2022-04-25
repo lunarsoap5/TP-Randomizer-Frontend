@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal and ((Setting.mdhSkipped equals True) or canCompleteLakebedTemple)",
+    "requirements": "Shadow_Crystal and CanCompleteMDH",
     "stageIDX": [56],
     "flag": "33",
     "category": ["Overworld", "Poe", "Lanayru Province"],
