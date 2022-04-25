@@ -1,6 +1,6 @@
 {
     "requirements": "Shadow_Crystal",
-    "arcOffsets": ["F50"],
+    "arcOffsets": ["F30"],
     "stageIDX": [27],
     "roomIDX": 4,
     "fileDirectoryType": [0],

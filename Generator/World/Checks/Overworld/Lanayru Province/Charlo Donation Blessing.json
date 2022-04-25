@@ -1,10 +1,8 @@
 {
     "requirements": "true",
-    "arcOffsets": ["D587"],
-    "roomIDX": 4,
-    "fileDirectoryType": [2],
-    "replacementType": [0],
+    "arcOffsets": ["D3C2"],
+    "fileName": "Prayer",
     "stageIDX": [53],
-    "category": ["Overworld", "Npc", "Castle Town", "ARC", "Boss"],
+    "category": ["Overworld", "Npc", "Castle Town", "ObjectARC", "Boss"],
     "itemId": "Piece_of_Heart"
 }

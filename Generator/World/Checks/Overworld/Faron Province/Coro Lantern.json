@@ -1,9 +1,0 @@
-{
-    "requirements": "true",
-    "arcOffsets": ["D3F"],
-    "stageIDX": [45],
-    "fileDirectoryType": [1],
-    "replacementType": [0],
-    "category": ["Overworld", "Faron Woods", "ARC"],
-    "itemId": "Lantern"
-}

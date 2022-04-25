@@ -400,8 +400,7 @@ namespace TPRandomizer
                 // Walk through the current graph and get a list of rooms that we can currently access
                 // If we collect any items during the playthrough, we add them to the player's inventory
                 // and try walking through the graph again until we have collected every item that we can.
-                do
-                {
+                
                     sphereItems.Clear();
                     foreach (Room graphRoom in currentPlaythroughGraph)
                     {
@@ -454,8 +453,7 @@ namespace TPRandomizer
                     }
 
                     Randomizer.Items.heldItems.AddRange(sphereItems);
-                }
-                while (sphereItems.Count > 0);
+                
 
                 sphereCount++;
                 if ((hasCompletedSphere == false) && !hasConcludedPlaythrough)

@@ -48,6 +48,8 @@ namespace TPRandomizer
 
         public List<string> magicByte { get; set; }
 
+        public string fileName {get; set;}
+
         public List<string> relOverride { get; set; } // Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }
 
@@ -161,14 +163,11 @@ namespace TPRandomizer
                 // We also place the Lantern vanilla because it is a big logic hole and since we don't know how to make coro give both items in one state yet, it's safer to do this.
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
-                Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Vanilla";
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
             }
             else
             {
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Excluded";
                 Randomizer.Checks.CheckDict["Ordon Cat Rescue"].checkStatus = "Excluded";
-                Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Excluded";
                 Randomizer.Items.RandomizedImportantItems.Remove(Item.North_Faron_Woods_Gate_Key);
                 Randomizer.Items.RandomizedDungeonRegionItems.Remove(Item.North_Faron_Woods_Gate_Key);
             }
