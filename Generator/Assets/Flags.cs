@@ -237,7 +237,6 @@ namespace TPRandomizer.Assets
                 { 0x3, 0xBA }, // Followed Rutella to graveyard.
                 { 0x3, 0xB6 }, // Started Rutella escort.
                 { 0xA, 0xE7 }, // Give Bulblin Camp Key.
-                { 0x10, 0x98 }, // Set flag for first monkey rescued.
                 { 0x10, 0x54 }, // Unlocked door to Second Monkey.
                 { 0x10, 0x57 }, // Unlock windless bridge east door.
                 { 0x10, 0x61 }, // Opened big baba monkey cage.
