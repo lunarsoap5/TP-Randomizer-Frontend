@@ -1390,7 +1390,7 @@ namespace TPRandomizer
                  && CanUse(Item.Slingshot)
                  && (getItemCount(Item.Progressive_Fishing_Rod) >= 1)
                  && (((CanUse(Item.North_Faron_Woods_Gate_Key) || (Randomizer.RandoSetting.smallKeySettings == "Keysey")) && canBurnWebs())
-                  || (CanUse(Item.Shadow_Crystal) && (Randomizer.RandoSetting.faronTwilightCleared == true))))
+                 || (CanUse(Item.Shadow_Crystal) && (Randomizer.RandoSetting.faronTwilightCleared == true))))
                 || (Randomizer.RandoSetting.introSkipped == true)
             );
         }

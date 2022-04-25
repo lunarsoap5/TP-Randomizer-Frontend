@@ -1,6 +1,8 @@
 {
     "requirements": "canSmash and Lantern",
-    "arcFileValues": [["D_SB03/R00_00.arc", "DF21C"]],
+    "arcOffsets": ["1CFC"],
+    "stageIDX": [33],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],

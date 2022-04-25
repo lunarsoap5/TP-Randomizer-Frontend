@@ -1,6 +1,8 @@
 {
     "requirements": "CanDefeatZantHead",
-    "arcFileValues": [["D_MN08/R01_00.arc", "703E0"]],
+    "arcOffsets": ["840"],
+    "stageIDX": [15],
+    "roomIDX": 1,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Palace of Twilight", "Small Key", "ARC"],

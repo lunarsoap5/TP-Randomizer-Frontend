@@ -1,6 +1,8 @@
 {
     "requirements": "Zora_Armor and (Progressive_Clawshot,1) and canLaunchBombs",
-    "arcFileValues": [["D_MN01/R05_00.arc", "81AC4"]],
+    "arcOffsets": ["F24"],
+    "stageIDX": [0],
+    "roomIDX": 5,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],

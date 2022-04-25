@@ -24,6 +24,8 @@ namespace TPRandomizer
 
         public List<byte> stageIDX { get; set; } // Used by DZX, SHOP, POE, and BOSS checks. The index of the stage where the check is located.
 
+        public List<byte> lastStageIDX { get; set; } // Used by SKILL checks. The index of the previous stage where the player encountered the wolf.
+
         public byte roomIDX { get; set; } // Used by SKILL checks to determine which wolf is being learned from.
 
         public List<string> hash { get; set; } // Used by DZX checks. The hash of the actor that will be modified by a DZX-based check replacement.
@@ -34,17 +36,19 @@ namespace TPRandomizer
 
         public string flag { get; set; } // Used by POE and SKILL checks. The flag to check to determine which check to replace.
 
-        public List<List<string>> arcFileValues { get; set; } // Used by ARC checks. The file where the item the check uses is contained.
-
         public List<byte> fileDirectoryType { get; set; } // Used by ARC checks. The type of file directory where the item is stored.
 
         public List<byte> replacementType { get; set; } // Used by ARC checks. The type of replacement taking place.
 
         public List<string> moduleID { get; set; } // Used by REL checks. The module ID for the rel file being loaded.
 
-        public List<string> offsets { get; set; } // Used by REL checks.
+        public List<string> relOffsets { get; set; } // Used by REL checks.
+
+        public List<string> arcOffsets { get; set; } // Used by ARC checks.
 
         public List<string> magicByte { get; set; }
+
+        public string fileName {get; set;}
 
         public List<string> relOverride { get; set; } // Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }
@@ -159,14 +163,11 @@ namespace TPRandomizer
                 // We also place the Lantern vanilla because it is a big logic hole and since we don't know how to make coro give both items in one state yet, it's safer to do this.
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
-                Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Vanilla";
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
             }
             else
             {
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Excluded";
                 Randomizer.Checks.CheckDict["Ordon Cat Rescue"].checkStatus = "Excluded";
-                Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Excluded";
                 Randomizer.Items.RandomizedImportantItems.Remove(Item.North_Faron_Woods_Gate_Key);
                 Randomizer.Items.RandomizedDungeonRegionItems.Remove(Item.North_Faron_Woods_Gate_Key);
             }

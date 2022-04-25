@@ -1,6 +1,8 @@
 {
     "requirements": "canSmash",
-    "arcFileValues": [["D_MN09/R09_00.arc", "6C58C"]],
+    "arcOffsets": ["42C"],
+    "stageIDX": [20],
+    "roomIDX": 9,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],

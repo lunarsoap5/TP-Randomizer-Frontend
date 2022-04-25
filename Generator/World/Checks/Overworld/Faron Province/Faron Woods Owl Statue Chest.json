@@ -1,6 +1,8 @@
 {
   "requirements": "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal and canLeaveForest and CanCompleteIntro",
-  "arcFileValues": [ [ "F_SP108/R05_00.arc", "B1354" ] ],
+  "arcOffsets": ["1EF4"],
+    "stageIDX": [45],
+    "roomIDX": 5,
   "fileDirectoryType": [ 0 ],
   "replacementType": [ 0 ],
   "category": [ "Overworld", "Chest", "Faron Woods", "ARC" ],

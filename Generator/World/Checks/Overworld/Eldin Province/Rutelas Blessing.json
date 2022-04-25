@@ -1,6 +1,7 @@
 {
   "requirements": "Gate_Keys or (Setting.smallKeySettings equals Keysey)",
-  "arcFileValues": [ [ "bmgres2.arc", "184FF" ] ],
+  "arcOffsets": ["2BF"],
+    "stageIDX": [48],
   "fileDirectoryType": [ 1 ],
   "replacementType": [ 0 ],
   "category": [ "Overworld", "Npc", "Eldin Province", "ARC" ],

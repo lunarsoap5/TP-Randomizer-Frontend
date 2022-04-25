@@ -1,6 +1,7 @@
 {
     "requirements": "Shadow_Crystal",
-    "arcFileValues": [["bmgres8.arc", "14597"]],
+    "arcOffsets": ["FF7"],
+    "stageIDX": [61],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],

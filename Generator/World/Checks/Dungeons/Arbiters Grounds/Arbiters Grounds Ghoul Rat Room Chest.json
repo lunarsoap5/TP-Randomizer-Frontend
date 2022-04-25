@@ -1,6 +1,8 @@
 {
   "requirements": "CanDefeatBubble and CanDefeatStalchild and CanDefeatRedeadKnight and ((Arbiters_Grounds_Small_Key, 3) or (Setting.smallKeySettings equals Keysey))",
-  "arcFileValues": [ [ "D_MN10/R14_00.arc", "2484C" ] ],
+  "arcOffsets": ["6CC"],
+  "stageIDX": [24],
+  "roomIDX": 14,
   "fileDirectoryType": [ 0 ],
   "replacementType": [ 0 ],
   "category": [ "Chest", "Dungeon", "Arbiters Grounds", "Small Key", "ARC" ],

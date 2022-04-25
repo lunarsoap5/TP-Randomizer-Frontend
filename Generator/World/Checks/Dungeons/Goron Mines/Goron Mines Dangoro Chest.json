@@ -1,6 +1,8 @@
 {
     "requirements": "Iron_Boots and CanDefeatDangoro",
-    "arcFileValues": [["D_MN04/R11_00.arc", "73858"]],
+    "arcOffsets": ["B38"],
+    "stageIDX": [3],
+    "roomIDX": 11,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],

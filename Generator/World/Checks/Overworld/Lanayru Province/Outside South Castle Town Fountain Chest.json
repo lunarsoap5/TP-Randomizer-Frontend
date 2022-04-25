@@ -1,6 +1,8 @@
 {
     "requirements": "Spinner and (Progressive_Clawshot, 1)",
-    "arcFileValues": [["F_SP122/R16_00.arc", "141DFC"]],
+    "arcOffsets": ["21BC"],
+    "stageIDX": [57],
+    "roomIDX": 16,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],

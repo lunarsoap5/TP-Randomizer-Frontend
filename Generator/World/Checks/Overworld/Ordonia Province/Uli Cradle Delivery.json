@@ -1,6 +1,7 @@
 {
     "requirements": "true",
-    "arcFileValues": [["bmgres1.arc", "20D2F"]],
+    "arcOffsets": ["C8F"],
+    "stageIDX": [43],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Ordonia Province", "ARC"],

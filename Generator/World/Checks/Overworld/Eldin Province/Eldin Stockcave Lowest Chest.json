@@ -1,6 +1,8 @@
 {
     "requirements": "Iron_Boots",
-    "arcFileValues": [["D_SB04/R10_00.arc", "8D990"]],
+    "arcOffsets": ["E90"],
+    "stageIDX": [34],
+    "roomIDX": 10,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],

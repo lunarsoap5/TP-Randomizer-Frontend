@@ -1,6 +1,7 @@
 {
     "requirements": "(Progressive_Bow, 1)",
-    "arcFileValues": [["bmgres6.arc", "18727"]],
+    "arcOffsets": ["1A7"],
+    "stageIDX": [63],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Npc", "Hidden Village", "ARC"],

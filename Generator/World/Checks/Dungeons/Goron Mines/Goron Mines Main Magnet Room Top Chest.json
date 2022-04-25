@@ -1,6 +1,8 @@
 {
   "requirements": "(Progressive_Bow, 1) and Iron_Boots and CanDefeatDangoro and ((Goron_Mines_Small_Key, 3) or (Setting.smallKeySettings equals Keysey))",
-  "arcFileValues": [ [ "D_MN04/R03_00.arc", "8807C" ] ],
+  "arcOffsets": ["169C"],
+    "stageIDX": [3],
+    "roomIDX": 3,
   "fileDirectoryType": [ 0 ],
   "replacementType": [ 0 ],
   "category": [ "Chest", "Dungeon", "Goron Mines", "ARC" ],

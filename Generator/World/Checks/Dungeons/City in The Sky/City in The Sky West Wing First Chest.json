@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "arcFileValues": [["D_MN07/R10_00.arc", "80E38"]],
+    "arcOffsets": ["638"],
+    "stageIDX": [12],
+    "roomIDX": 10,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "City in The Sky", "Small Key", "ARC"],

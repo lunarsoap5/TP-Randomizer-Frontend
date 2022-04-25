@@ -1,6 +1,8 @@
 {
     "requirements": "CanDefeatWalltula",
-    "arcFileValues": [["D_MN05/R22_00.arc", "86960"]],
+    "arcOffsets": ["940"],
+    "stageIDX": [6],
+    "roomIDX": 22,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "ARC"],

@@ -1,6 +1,7 @@
 {
   "requirements": "CanCompleteIntro",
-  "arcFileValues": [ [ "bmgres1.arc", "21ADF" ] ],
+  "arcOffsets": ["1A3F"],
+    "stageIDX": [41],
   "fileDirectoryType": [ 1 ],
   "replacementType": [ 0 ],
   "category": [ "Overworld", "Npc", "Ordonia Province", "ARC" ],

@@ -1,6 +1,8 @@
 {
     "requirements": "CanDefeatArmos and CanDefeatBabyGohma and CanDefeatYoungGohma",
-    "arcFileValues": [["D_MN06/R07_00.arc", "4D1B0"]],
+    "arcOffsets": ["1050"],
+    "stageIDX": [9],
+    "roomIDX": 7,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],

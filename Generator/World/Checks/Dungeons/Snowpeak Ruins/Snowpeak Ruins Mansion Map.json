@@ -1,6 +1,7 @@
 {
     "requirements": "true",
-    "arcFileValues": [["bmgres5.arc", "1A117"]],
+    "arcOffsets": ["1E57"],
+    "stageIDX": [27],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Npc", "ARC", "Dungeon Map"],

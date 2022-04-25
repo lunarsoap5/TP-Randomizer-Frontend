@@ -77,6 +77,11 @@ namespace TPRandomizer.Assets
                 { 0x0, 0x63 }, // Spawn the Chest in Link's House
                 { 0x2, 0x4B }, // Unlock North Faron Woods Gate
             };
+
+        public static readonly byte[,] MDHRegionFlags = new byte[,]
+            {
+                { 0x4, 0x51 }, // Set flag for MDH Cutscene in Lake Hylia
+            };
         
         public static readonly byte[,] CutsceneRegionFlags = new byte[,]
             {
@@ -232,6 +237,7 @@ namespace TPRandomizer.Assets
                 { 0x3, 0xBA }, // Followed Rutella to graveyard.
                 { 0x3, 0xB6 }, // Started Rutella escort.
                 { 0xA, 0xE7 }, // Give Bulblin Camp Key.
+                { 0x10, 0xE6 }, // Give two forest temple keys for monkey cages.
                 { 0x10, 0x54 }, // Unlocked door to Second Monkey.
                 { 0x10, 0x57 }, // Unlock windless bridge east door.
                 { 0x10, 0x61 }, // Opened big baba monkey cage.
@@ -243,8 +249,8 @@ namespace TPRandomizer.Assets
                 { 0x12, 0x7B }, // Unlocked door in second east room 2F.
                 { 0x12, 0x7C }, // Unlocked door before Deku Toad.
                 { 0x13, 0x78 }, // Unlocked door in second east room 2F.
-                { 0x13, 0x83 }, // Unlocked door in elevator room 2B.
-                { 0x13, 0x84 }, // Unlocked door in first room.
+                { 0x13, 0x84 }, // Unlocked door in elevator room 2B.
+                { 0x13, 0x85 }, // Unlocked door in first room.
                 { 0x13, 0x92 }, // Unlocked door in first east room 1F.
                 { 0x13, 0x99 }, // Unlocked door in fourth east room.
                 { 0x14, 0x4D }, // Unlock North lobby door.
@@ -323,6 +329,7 @@ namespace TPRandomizer.Assets
             { 2, EldinTwilightRegionFlags },
             { 3, LanayruTwilightRegionFlags },
             { 4, CutsceneRegionFlags },
+            { 6, MDHRegionFlags },
             { 7, SmallKeyRegionFlags },
             { 8, BigKeyRegionFlags },
             { 9, MapAndCompassRegionFlags },

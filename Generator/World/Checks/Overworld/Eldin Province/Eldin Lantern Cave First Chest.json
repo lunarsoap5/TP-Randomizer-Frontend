@@ -1,6 +1,8 @@
 {
     "requirements": "canBurnWebs",
-    "arcFileValues": [["D_SB02/R00_00.arc", "FDC60"]],
+    "arcOffsets": ["DC0"],
+    "stageIDX": [32],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],

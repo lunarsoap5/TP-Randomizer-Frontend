@@ -1,6 +1,7 @@
 {
     "requirements": "true",
-    "arcFileValues": [["bmgres6.arc", "199A7"]],
+    "arcOffsets": ["1427"],
+    "stageIDX": [51],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Npc", "Snowpeak Province", "ARC"],

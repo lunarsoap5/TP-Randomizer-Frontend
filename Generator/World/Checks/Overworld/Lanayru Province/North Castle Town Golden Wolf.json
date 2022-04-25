@@ -1,10 +1,11 @@
 {
     "requirements": "Shadow_Crystal and Room.Hidden_Village and HasSword and CanCompleteMDH",
-    "arcFileValues": [["bmgres6.arc", "4014"],["bmgres6.arc", "3BDC"],["bmgres6.arc", "4244"],["bmgres6.arc", "46A4"],["bmgres6.arc", "4488"],["bmgres6.arc", "48FC"],["bmgres6.arc", "4B68"]],
+    "arcOffsets": ["3F54", "3B1C", "4184", "45E4", "43C8", "483C", "4AA8"],
     "fileDirectoryType": [1,1,1,1,1,1,1],
     "replacementType": [1,1,1,1,1,1,1],
-    "stageIDX": [53],
-    "roomIDX": 1,
+    "stageIDX": [64,64,64,64,64,64,64],
+    "lastStageIDX": [53],
+    "roomIDX": 0,
     "flag": "3D40",
     "category": ["Overworld", "Hidden Skill", "Lanayru Province", "ARC"],
     "itemId": "Progressive_Hidden_Skill"

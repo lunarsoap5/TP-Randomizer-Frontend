@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "arcFileValues": [["R_SP109/R02_00.arc", "A2488"]],
+    "arcOffsets": ["748"],
+    "stageIDX": [68],
+    "roomIDX": 2,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Eldin Province", "ARC"],

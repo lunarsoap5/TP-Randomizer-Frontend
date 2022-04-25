@@ -1,6 +1,7 @@
 {
     "requirements": "CanUseWaterBombs and Iron_Boots and Zora_Armor",
-    "arcFileValues": [["bmgres7.arc", "13D77"]],
+    "arcOffsets": ["57"],
+    "stageIDX": [50],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],

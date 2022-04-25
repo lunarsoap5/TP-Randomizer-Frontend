@@ -1,6 +1,8 @@
 {
   "requirements": "CanCompleteIntro",
-  "arcFileValues": [ [ "R_SP01/R00_00.arc", "C25C4" ] ],
+  "arcOffsets": ["544"],
+    "stageIDX": [65],
+    "roomIDX": 0,
   "fileDirectoryType": [ 0 ],
   "replacementType": [ 0 ],
   "category": [ "Overworld", "Chest", "Ordonia Province", "ARC" ],

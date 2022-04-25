@@ -1,6 +1,8 @@
 {
   "requirements": "Ball_and_Chain or (hasBombs and ((Snowpeak_Ruins_Small_Key, 4) or (Setting.smallKeySettings equals Keysey)))",
-  "arcFileValues": [ [ "D_MN11/R04_00.arc", "6C510" ] ],
+  "arcOffsets": ["F70"],
+    "stageIDX": [27],
+    "roomIDX": 4,
   "fileDirectoryType": [ 0 ],
   "replacementType": [ 0 ],
   "category": [ "Chest", "Dungeon", "Snowpeak Ruins", "ARC" ],
