@@ -238,7 +238,7 @@ namespace TPRandomizer.Assets
                 { 0x3, 0xB6 }, // Started Rutella escort.
                 { 0xA, 0xE7 }, // Give Bulblin Camp Key.
                 { 0x10, 0x54 }, // Unlocked door to Second Monkey.
-                { 0x10, 0x57 }, // Unlock windless bridge east door.
+                { 0x10, 0x58 }, // Unlock windless bridge east door.
                 { 0x10, 0x61 }, // Opened big baba monkey cage.
                 { 0x10, 0x74 }, // Opened tile worm monkey cage.
                 { 0x11, 0x60 }, // Unlock north door in toadpoli room.
@@ -342,7 +342,7 @@ namespace TPRandomizer.Assets
             { 0x6, 0x9 }, // Tame Epona, KB1 trigger activated
             { 0x14, 0x10 }, // Put Bo outside, ready to wrestle
             { 0xA, 0x2F }, // Bridge of Eldin Stolen, KB1 defeated, KB1 started
-            { 0xF, 0x8 }, // Bridge of Eldin Warped Back
+            { 0xF, 0x9 }, // Bridge of Eldin Warped Back, coro gave lantern
             { 0x40, 0x8 }, // Visited Gerudo Desert for the first time.
             { 0x7, 0xA0 }, // Watched Colin CS after KB1, talked to Bo before sumo
             { 0x20, 0x20 }, // Master Sword Story Progression
