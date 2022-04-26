@@ -49,6 +49,8 @@ namespace TPRandomizer.Assets
                 { 0x2, 0x60 }, // Got Lantern Back from Monkey
                 { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
                 { 0x2, 0x95 }, // Midna text after warping to North Faron for bridge.
+                { 0x2, 0xBF }, // Burned First cobweb in faron cave
+                { 0x2, 0xBE }, // Burned second cobweb in faron cave
                 { 0xA, 0x99 }, // Desert Entrance CS.
                 { 0xA, 0x20 }, // Set Freestanding key flag.
                 { 0x3, 0xA4 }, // Barnes Sells Bombs.
@@ -286,6 +288,7 @@ namespace TPRandomizer.Assets
                 { 0x13, 0xED }, // Got Arbiter's Grounds Big Key.
                 { 0x14, 0x57 }, // Unlocked Snowpeak Ruins Boss Door.
                 { 0x14, 0xED }, // Got Snowpeak Ruins Big Key.
+                { 0x14, 0x56 }, // Watched CS of Yeta entering boss room.
                 { 0x15, 0x7F }, // Unlocked Temple of Time Boss Door.
                 { 0x15, 0xED }, // Got Temple of Time Big Key.
                 { 0x16, 0x58 }, // Unlocked City in The Sky Boss Door.
