@@ -1,6 +1,7 @@
 {
-    "requirements": "((Room.Goron_Mines_Boss_Room and CanDefeatFyrus) and (Progressive_Bow, 1))",
-    "arcFileValues": [["bmgres2.arc", "1A41F"]],
+    "requirements": "(canCompleteGoronMines and (Progressive_Bow, 1))",
+    "arcOffsets": ["21DF"],
+    "stageIDX": [68],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "flag": "12",

@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "arcFileValues": [["D_MN04/R03_00.arc", "8805C"]],
+    "arcOffsets": ["167C"],
+    "stageIDX": [3],
+    "roomIDX": 3,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Goron Mines", "Small Key", "ARC"],

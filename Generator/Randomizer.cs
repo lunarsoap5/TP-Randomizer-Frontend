@@ -199,7 +199,7 @@ namespace TPRandomizer
             PlaceItemsRestricted(startingRoom, Items.ShuffledDungeonRewards, Randomizer.Items.heldItems, "Dungeon Rewards");
 
             // Next we want to place items that are locked to a specific region such as keys, maps, compasses, etc.
-            Console.WriteLine("Placing Region-restriced Checks.");
+            Console.WriteLine("Placing Region-Restricted Checks.");
             PlaceItemsRestricted(startingRoom, Items.RandomizedDungeonRegionItems, Randomizer.Items.heldItems, "Region");
 
             // Once all of the items that have some restriction on their placement are placed, we then place all of the items that can
@@ -306,7 +306,7 @@ namespace TPRandomizer
                         foreach (Room graphRoom in currentPlaythroughGraph)
                         {
                             graphRoom.Visited = true;
-                            // Console.WriteLine("Currently Exploring: " + graphRoom.name);
+                            // Console.WriteLine("Currently Exploring: " + graphRoom.RoomName);
                             for (int i = 0; i < graphRoom.Checks.Count; i++)
                             {
                                 // Create reference to the dictionary entry of the check whose logic we are evaluating

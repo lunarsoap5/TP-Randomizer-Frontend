@@ -104,20 +104,19 @@
 							<legend> Access Options</legend>
 							<label for="castleRequirementsFieldset">Hyrule Castle Requirements:</label>
 							<select name="Castle Requirements" id="castleRequirementsFieldset">
-								<option value="0" disabled> ̶O̶p̶e̶n̶</option>
-								<option value="1" disabled>F̶u̶s̶e̶d̶ ̶S̶h̶a̶d̶o̶w̶s̶</option>
-								<option value="2" disabled>̶M̶i̶r̶r̶o̶r̶ ̶S̶h̶a̶r̶d̶s̶</option>
-								<option value="3" disabled>̶A̶l̶l̶ ̶D̶u̶n̶g̶e̶o̶n̶s̶</option>
-								<option value="4" disabled>̶R̶a̶n̶d̶o̶m̶ ̶D̶u̶n̶g̶e̶o̶n̶s̶</option>
-								<option value="5" selected>Vanilla</option>
+								<option value="0"> Open </option>
+								<option value="1"> Fused Shadows </option>
+								<option value="2"> Mirror Shards </option>
+								<option value="3"> All Dungeons </option>
+								<option value="4" selected>Vanilla</option>
 							</select>
 							<br/>
 							<label for="palaceRequirementsFieldset">Palace of Twilight Requirements:</label>
 							<select name="Palace Requirements" id="palaceRequirementsFieldset">
-								<option value="0" disabled>O̶p̶e̶n̶</option>
-								<option value="1" disabled>F̶u̶s̶e̶d̶ ̶S̶h̶a̶d̶o̶w̶s̶</option>
-								<option value="2" disabled>̶M̶i̶r̶r̶o̶r̶ ̶S̶h̶a̶r̶d̶s̶</option>
-								<option value="3" selected>Vanilla</option>
+								<option value="0"> Open </option>
+								<option value="1"> Fused Shadows </option>
+								<option value="2"> Mirror Shards </option>
+								<option value="3" selected> Vanilla </option>
 							</select>
 							<br/>
 							<label for="faronLogicFieldset">Faron Woods Logic:</label>
@@ -248,10 +247,10 @@
 							<legend>Additional Settings</legend>
 							<input type="checkbox" id="fastIBCheckbox" name="Fast IB Checkbox" value="">
 							<label for="fastIBCheckbox"> Fast Iron Boots </label><br>
-							<input type="checkbox" id="quickTransformCheckbox" name="Quick Transform Checkbox" value="" disabled>
-							<label for="quickTransformCheckbox">  ̶Q̶u̶i̶c̶k̶ ̶T̶r̶a̶n̶s̶f̶o̶r̶m̶</label><br>
-							<input type="checkbox" id="transformAnywhereCheckbox" name="Transform Anywhere Checkbox" value="" disabled>
-							<label for="transformAnywhereCheckbox">  ̶T̶r̶a̶n̶s̶f̶o̶r̶m̶ ̶A̶n̶y̶w̶h̶e̶r̶e̶</label><br>
+							<input type="checkbox" id="quickTransformCheckbox" name="Quick Transform Checkbox" value="">
+							<label for="quickTransformCheckbox"> Quick Transform </label><br>
+							<input type="checkbox" id="transformAnywhereCheckbox" name="Transform Anywhere Checkbox" value="">
+							<label for="transformAnywhereCheckbox">  Transform Anywhere </label><br>
 							<input type="checkbox" id="increaseWalletCheckbox" name="Increase Wallet Checkbox" value="">
 							<label for="increaseWalletCheckbox"> Increase Wallet Capacity</label><br>
 							<input type="checkbox" id="modifyShopModelsCheckbox" name="Modify Shop Models Checkbox" value="">

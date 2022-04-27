@@ -1,12 +1,13 @@
 {
     "requirements": "(Progressive_Clawshot, 1) or (Progressive_Fishing_Rod, 1)",
-    "arcFileValues": [["F_SP127/R00_00.arc", "11F7FF"], ["bmgres7.arc", "381C"], ["bmgres7.arc", "3704"]],
+    "arcOffsets": ["C1F", "375C", "3644"],
     "fileDirectoryType": [0, 1, 1],
-    "replacementType": [0, 2, 2],
-    "stageIDX": [62],
+    "replacementType": [0, 5, 5],
+    "stageIDX": [62, 62, 62],
+    "roomIDX": 0,
     "moduleID": ["32"],
     "relOverride": ["38600000"], 
-    "offsets": ["7D40"],
+    "relOffsets": ["7D40"],
     "category": ["Overworld", "Lanayru Province", "ARC", "REL"],
     "itemId": "Piece_of_Heart"
 }

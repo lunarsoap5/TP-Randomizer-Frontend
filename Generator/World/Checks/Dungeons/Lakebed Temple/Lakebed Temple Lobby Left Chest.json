@@ -1,6 +1,8 @@
 {
     "requirements": "Zora_Armor",
-    "arcFileValues": [["D_MN01/R00_00.arc", "829B8"]],
+    "arcOffsets": ["A18"],
+    "stageIDX": [0],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],

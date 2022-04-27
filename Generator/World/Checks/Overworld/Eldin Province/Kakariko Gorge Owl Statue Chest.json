@@ -1,6 +1,8 @@
 {
     "requirements": "(Progressive_Dominion_Rod, 2)",
-    "arcFileValues": [["F_SP121/R03_00.arc", "BD298"]],
+    "arcOffsets": ["1698"],
+    "stageIDX": [56],
+    "roomIDX": 3,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],

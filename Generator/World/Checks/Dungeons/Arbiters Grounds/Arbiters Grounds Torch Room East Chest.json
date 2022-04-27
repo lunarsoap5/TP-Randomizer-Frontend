@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "arcFileValues": [["D_MN10/R02_00.arc", "6F59C"]],
+    "arcOffsets": ["109C"],
+    "stageIDX": [24],
+    "roomIDX": 2,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],

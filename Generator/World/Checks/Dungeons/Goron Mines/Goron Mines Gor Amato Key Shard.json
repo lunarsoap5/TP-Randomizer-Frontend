@@ -1,6 +1,7 @@
 {
     "requirements": "Iron_Boots",
-    "arcFileValues": [["bmgres5.arc", "1948F"]],
+    "arcOffsets": ["11CF"],
+    "stageIDX": [3],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Npc", "Dungeon", "Goron Mines", "Dungeon Items", "Big Key", "ARC"],

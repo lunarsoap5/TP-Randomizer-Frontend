@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "arcFileValues": [["D_MN06/R07_00.arc", "4D190"]],
+    "arcOffsets": ["1030"],
+    "stageIDX": [9],
+    "roomIDX": 7,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Temple of Time", "Small Key", "ARC"],

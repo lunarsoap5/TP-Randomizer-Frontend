@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "arcFileValues": [["D_MN05/R09_00.arc", "5BB70"]],
+    "arcOffsets": ["750"],
+    "stageIDX": [6],
+    "roomIDX": 9,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "Small Key", "ARC"],

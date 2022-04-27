@@ -62,7 +62,6 @@ namespace TPRandomizer
                 "Fused_Shadows",
                 "Mirror_Shards",
                 "All_Dungeons",
-                "Random_Dungeons",
                 "Vanilla",
             };
 

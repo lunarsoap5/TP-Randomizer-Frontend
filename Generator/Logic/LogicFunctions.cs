@@ -690,9 +690,7 @@ namespace TPRandomizer
         {
             return (
                 HasSword()
-                || (CanUse(Item.Shadow_Crystal) 
-                    && ((Randomizer.RandoSetting.mdhSkipped == true) || (Randomizer.Rooms.RoomDict["Lakebed Temple Boss Room"].ReachedByPlaythrough && CanDefeatMorpheel()))
-                    )
+                || (CanUse(Item.Shadow_Crystal) && CanCompleteMDH())
             );
         }
 
@@ -787,7 +785,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatShellBlade()
         {
-            return ((HasSword() || CanUseWaterBombs()) && CanUse(Item.Iron_Boots));
+            return (CanUseWaterBombs() || (HasSword() && CanUse(Item.Iron_Boots)));
         }
 
         /// <summary>
@@ -861,7 +859,7 @@ namespace TPRandomizer
         /// <summary>
         /// summary text.
         /// </summary>
-        public static bool CanDefeatTetike()
+        public static bool CanDefeatTektite()
         {
             return (
                 HasSword()
@@ -1327,7 +1325,7 @@ namespace TPRandomizer
                 && CanUse(Item.Boomerang)
                 && CanDefeatBokoblin()
                 && CanDefeatBigBaba()
-                && (getItemCount(Item.Forest_Temple_Small_Key) >= 4)
+                && ((getItemCount(Item.Forest_Temple_Small_Key) >= 4) || (Randomizer.RandoSetting.smallKeySettings == "Keysey"))
             );
         }
 
@@ -1376,9 +1374,33 @@ namespace TPRandomizer
         {
             return (
                 (CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag))
-                && ((Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough && CanUse(Item.Gate_Keys))
+                && (Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough
                     || (Randomizer.Rooms.RoomDict["Eldin Field Water Bomb Fish Grotto"].ReachedByPlaythrough && (getItemCount(Item.Progressive_Fishing_Rod) >= 1))
                     || (Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough && Randomizer.Rooms.RoomDict["Castle Town"].ReachedByPlaythrough))
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanCompleteIntro()
+        {
+            return (
+                (HasSword()
+                 && CanUse(Item.Slingshot)
+                 && (getItemCount(Item.Progressive_Fishing_Rod) >= 1)
+                 && (CanUse(Item.North_Faron_Woods_Gate_Key) || (Randomizer.RandoSetting.smallKeySettings == "Keysey")))
+                || (Randomizer.RandoSetting.introSkipped == true)
+            );
+        }
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static bool CanCompleteMDH()
+        {
+            return (
+                (canCompleteLakebedTemple() || (Randomizer.RandoSetting.mdhSkipped == true))
             );
         }
 
@@ -1405,15 +1427,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool canCompleteGoronMines()
         {
-            return (
-                (getItemCount(Item.Goron_Mines_Small_Key) >= 3)
-                && CanDefeatDangoro()
-                && CanDefeatFyrus()
-                && (getItemCount(Item.Progressive_Bow) >= 1)
-                && CanUse(Item.Iron_Boots)
-                && HasSword()
-                && CanUse(Item.Goron_Mines_Big_Key)
-            );
+            return (Randomizer.Rooms.RoomDict["Goron Mines Boss Room"].ReachedByPlaythrough && CanDefeatFyrus());
         }
 
         /// <summary>
@@ -1421,15 +1435,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool canCompleteLakebedTemple()
         {
-            return (
-                (getItemCount(Item.Lakebed_Temple_Small_Key) >= 3)
-                && CanDefeatDekuToad()
-                && CanDefeatMorpheel()
-                && (getItemCount(Item.Progressive_Clawshot) >= 1)
-                && canLaunchBombs()
-                && CanUseWaterBombs()
-                && CanUse(Item.Lakebed_Temple_Big_Key)
-            );
+            return (Randomizer.Rooms.RoomDict["Lakebed Temple Boss Room"].ReachedByPlaythrough && CanDefeatMorpheel());
         }
 
         /// <summary>
@@ -1437,21 +1443,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool canCompleteArbitersGrounds()
         {
-            return (
-                (getItemCount(Item.Arbiters_Grounds_Small_Key) >= 5)
-                && CanUse(Item.Arbiters_Grounds_Big_Key)
-                && CanUse(Item.Lantern)
-                && CanDefeatPoe()
-                && CanUse(Item.Shadow_Crystal)
-                && (getItemCount(Item.Progressive_Clawshot) >= 1)
-                && CanDefeatRedeadKnight()
-                && CanDefeatStalchild()
-                && CanDefeatBubble()
-                && CanDefeatGhoulRat()
-                && CanDefeatStalfos()
-                && CanUse(Item.Spinner)
-                && CanDefeatStallord()
-            );
+            return (Randomizer.Rooms.RoomDict["Arbiters Grounds Boss Room"].ReachedByPlaythrough && CanDefeatStallord());
         }
 
         /// <summary>
@@ -1459,18 +1451,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool canCompleteSnowpeakRuins()
         {
-            return (
-                CanDefeatBlizzeta()
-                && CanUse(Item.Snowpeak_Ruins_Ordon_Goat_Cheese)
-                && CanUse(Item.Snowpeak_Ruins_Ordon_Pumpkin)
-                && CanUse(Item.Ball_and_Chain)
-                && CanDefeatChilfos()
-                && CanDefeatMiniFreezard()
-                && CanDefeatFreezard()
-                && (getItemCount(Item.Snowpeak_Ruins_Small_Key) >= 4)
-                && hasBombs()
-                && CanUse(Item.Snowpeak_Ruins_Bedroom_Key)
-            );
+            return (Randomizer.Rooms.RoomDict["Snowpeak Ruins Boss Room"].ReachedByPlaythrough && CanDefeatBlizzeta());
         }
 
         /// <summary>
@@ -1478,17 +1459,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool canCompleteTempleofTime()
         {
-            return (
-                (getItemCount(Item.Progressive_Dominion_Rod) >= 1)
-                && (getItemCount(Item.Progressive_Bow) >= 1)
-                && CanUse(Item.Spinner)
-                && CanDefeatLizalfos()
-                && CanDefeatDinalfos()
-                && CanDefeatDarknut()
-                && CanDefeatArmogohma()
-                && CanUse(Item.Temple_of_Time_Big_Key)
-                && (getItemCount(Item.Temple_of_Time_Small_Key) >= 3)
-            );
+            return (Randomizer.Rooms.RoomDict["Temple of Time Boss Room"].ReachedByPlaythrough && CanDefeatArmogohma());
         }
 
         /// <summary>
@@ -1496,16 +1467,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool canCompleteCityinTheSky()
         {
-            return (
-                (getItemCount(Item.Progressive_Clawshot) >= 2)
-                && CanUse(Item.Spinner)
-                && CanDefeatKargarok()
-                && CanDefeatDinalfos()
-                && (getItemCount(Item.City_in_The_Sky_Small_Key) >= 1)
-                && CanUse(Item.City_in_The_Sky_Big_Key)
-                && CanDefeatBabaSerpent()
-                && CanDefeatArgorok()
-            );
+            return (Randomizer.Rooms.RoomDict["City in The Sky Boss Room"].ReachedByPlaythrough && CanDefeatArgorok());
         }
 
         /// <summary>
@@ -1513,17 +1475,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool canCompletePalaceofTwilight()
         {
-            return (
-                (getItemCount(Item.Palace_of_Twilight_Small_Key) >= 7)
-                && (getItemCount(Item.Progressive_Sword) >= 4)
-                && CanDefeatZantHead()
-                && CanDefeatShadowBeast()
-                && (getItemCount(Item.Progressive_Clawshot) >= 2)
-                && CanDefeatPhantomZant()
-                && CanDefeatZant()
-                && CanUse(Item.Shadow_Crystal)
-                && CanUse(Item.Palace_of_Twilight_Big_Key)
-            );
+            return (Randomizer.Rooms.RoomDict["Palace of Twilight Boss Room"].ReachedByPlaythrough && CanDefeatZant());
         }
 
         /// <summary>

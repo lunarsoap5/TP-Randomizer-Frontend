@@ -1,8 +1,9 @@
 {
-    "requirements": "Gate_Keys",
-    "arcFileValues": [["bmgres2.arc", "184FF"]],
-    "fileDirectoryType": [1],
-    "replacementType": [0],
-    "category": ["Overworld", "Npc", "Eldin Province", "ARC"],
-    "itemId": "Zora_Armor"
+  "requirements": "Gate_Keys or (Setting.smallKeySettings equals Keysey)",
+  "arcOffsets": ["2BF"],
+    "stageIDX": [48],
+  "fileDirectoryType": [ 1 ],
+  "replacementType": [ 0 ],
+  "category": [ "Overworld", "Npc", "Eldin Province", "ARC" ],
+  "itemId": "Zora_Armor"
 }

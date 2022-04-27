@@ -1,6 +1,8 @@
 {
     "requirements": "canCutHangingWeb",
-    "arcFileValues": [["D_MN05/R00_00.arc", "5E6CC"]],
+    "arcOffsets": ["106C"],
+    "stageIDX": [6],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "Dungeon Items", "Compass", "ARC"],

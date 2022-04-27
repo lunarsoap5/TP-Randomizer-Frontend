@@ -1,6 +1,8 @@
 {
     "requirements": "CanDefeatIceKeese",
-    "arcFileValues": [["D_MN11/R08_00.arc", "599C0"]],
+    "arcOffsets": ["640"],
+    "stageIDX": [27],
+    "roomIDX": 8,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Dungeon Items", "Compass", "ARC"],

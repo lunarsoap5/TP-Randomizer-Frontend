@@ -1,6 +1,8 @@
 {
-    "requirements": "(Room.Goron_Mines_Boss_Room and CanDefeatFyrus) or ((Progressive_Clawshot, 1) and Iron_Boots)",
-    "arcFileValues": [["F_SP110/R00_00.arc", "A9C04"]],
+    "requirements": "canCompleteGoronMines or ((Progressive_Clawshot, 1) and Iron_Boots)",
+    "arcOffsets": ["1504"],
+    "stageIDX": [47],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Eldin Province", "ARC"],

@@ -7,14 +7,13 @@
         "Outside Castle Town West", 
         "Lake Hylia Bridge Bubble Grotto"
     ],
-    "NeighbourRequirements": 
-    [
-        "Gate_Keys",
-        "true",
-        "canSmash",
-        "true",
-        "Shadow_Crystal and canLaunchBombs and (Progressive_Clawshot, 1)"
-    ],
+  "NeighbourRequirements": [
+    "(Gate_Keys or (Setting.smallKeySettings equals Keysey))",
+    "true",
+    "canSmash",
+    "true",
+    "Shadow_Crystal and canLaunchBombs and (Progressive_Clawshot, 1)"
+  ],
     "Checks": 
     [
         "Lake Hylia Bridge Vines Chest",

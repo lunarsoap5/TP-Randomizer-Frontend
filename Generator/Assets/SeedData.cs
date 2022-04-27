@@ -56,6 +56,10 @@ namespace TPRandomizer.Assets
 
             public UInt16 arcCheckInfoDataOffset { get; set; }
 
+            public UInt16 objectArcCheckInfoNumEntries { get; set; }
+
+            public UInt16 objectArcCheckInfoDataOffset { get; set; }
+
             public UInt16 bossCheckInfoNumEntries { get; set; }
 
             public UInt16 bossCheckInfoDataOffset { get; set; }
@@ -94,6 +98,7 @@ namespace TPRandomizer.Assets
             CheckDataRaw.AddRange(ParseRELOverrides());
             CheckDataRaw.AddRange(ParsePOEReplacements());
             CheckDataRaw.AddRange(ParseARCReplacements());
+            CheckDataRaw.AddRange(ParseObjectARCReplacements());
             CheckDataRaw.AddRange(ParseBossReplacements());
             CheckDataRaw.AddRange(ParseHiddenSkills());
             CheckDataRaw.AddRange(ParseBugRewards());
@@ -119,6 +124,7 @@ namespace TPRandomizer.Assets
         {
             List<byte> seedHeader = new ();
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
+            SettingData settingData = Randomizer.RandoSettingData;
             SeedHeaderRaw.fileSize = 0xA000;
             SeedHeaderRaw.seed = BackendFunctions.GetChecksum(seedHash, 64);
             SeedHeaderRaw.minVersion = (ushort)(
@@ -150,6 +156,9 @@ namespace TPRandomizer.Assets
             seedHeader.Add(Converter.GcByte(randomizerSettings.zButtonColor));
             seedHeader.Add(Converter.GcByte(randomizerSettings.lanternColor));
             seedHeader.Add(Converter.GcByte(randomizerSettings.transformAnywhere ? 1 : 0));
+            seedHeader.Add(Converter.GcByte(randomizerSettings.quickTransform ? 1 : 0));
+            seedHeader.Add(Converter.GcByte(Array.IndexOf(settingData.castleRequirements, randomizerSettings.castleRequirements)));
+            seedHeader.Add(Converter.GcByte(Array.IndexOf(settingData.palaceRequirements, randomizerSettings.palaceRequirements)));
             while (seedHeader.Count < SeedHeaderSize)
             {
                 seedHeader.Add((byte)0x0);
@@ -173,7 +182,8 @@ namespace TPRandomizer.Assets
                 randomizerSettings.eldinTwilightCleared,
                 randomizerSettings.lanayruTwilightCleared,
                 randomizerSettings.modifyShopModels,
-                randomizerSettings.skipMinorCutscenes
+                randomizerSettings.skipMinorCutscenes,
+                randomizerSettings.mdhSkipped
             };
             int patchOptions = 0x0;
             int bitwiseOperator = 0;
@@ -210,38 +220,29 @@ namespace TPRandomizer.Assets
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("ARC"))
                 {
-                    for (int i = 0; i < currentCheck.arcFileValues.Count; i++)
+                    for (int i = 0; i < currentCheck.arcOffsets.Count; i++)
                     {
-                        List<string> listOfArcValues = currentCheck.arcFileValues[i];
-                        listOfArcReplacements.AddRange(
-                            Converter.GcBytes((UInt32)uint.Parse(
-                                    listOfArcValues[1],
-                                    System.Globalization.NumberStyles.HexNumber)));
-                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)0x00));
+                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)uint.Parse(currentCheck.arcOffsets[i],System.Globalization.NumberStyles.HexNumber)));
                         if (currentCheck.replacementType[i] != 3)
                         {
                             listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)currentCheck.itemId));
                         }
                         else
                         {
-                            Converter.GcBytes((UInt32)uint.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber));
+                            listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)uint.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber)));
                         }
-                        listOfArcReplacements.Add(
-                            Converter.GcByte(currentCheck.fileDirectoryType[i]));
-                        listOfArcReplacements.Add(
-                            Converter.GcByte(currentCheck.replacementType[i]));
-                        List<byte> fileNameBytes = new ();
-                        fileNameBytes.AddRange(Converter.StringBytes(listOfArcValues[0]));
-                        for (
-                            int numberofFileNameBytes = fileNameBytes.Count;
-                            numberofFileNameBytes < 18;
-                            numberofFileNameBytes++)
-                        {
-                            // Pad the length of the file name to 0x12 bytes.
-                            fileNameBytes.Add(Converter.GcByte(0x00));
-                        }
+                        listOfArcReplacements.Add(Converter.GcByte(currentCheck.fileDirectoryType[i]));
+                        listOfArcReplacements.Add(Converter.GcByte(currentCheck.replacementType[i]));
+                        listOfArcReplacements.Add(Converter.GcByte(currentCheck.stageIDX[i]));
 
-                        listOfArcReplacements.AddRange(fileNameBytes);
+                        if (currentCheck.fileDirectoryType[i] == 0)
+                        {
+                            listOfArcReplacements.Add(Converter.GcByte(currentCheck.roomIDX));
+                        }
+                        else
+                        {
+                            listOfArcReplacements.Add(Converter.GcByte(0x0));
+                        }
                         count++;
                     }
                 }
@@ -249,6 +250,42 @@ namespace TPRandomizer.Assets
 
             SeedHeaderRaw.arcCheckInfoNumEntries = count;
             SeedHeaderRaw.arcCheckInfoDataOffset = (ushort)(
+                CheckDataRaw.Count + 1 + SeedHeaderSize);
+            return listOfArcReplacements;
+        }
+
+        private static List<byte> ParseObjectARCReplacements()
+        {
+            List<byte> listOfArcReplacements = new ();
+            ushort count = 0;
+            foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
+            {
+                Check currentCheck = checkList.Value;
+                if (currentCheck.category.Contains("ObjectARC"))
+                {
+                    for (int i = 0; i < currentCheck.arcOffsets.Count; i++)
+                    {
+                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)uint.Parse(currentCheck.arcOffsets[i],System.Globalization.NumberStyles.HexNumber)));
+                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)currentCheck.itemId));
+                        List<byte> fileNameBytes = new ();
+                        fileNameBytes.AddRange(Converter.StringBytes(currentCheck.fileName));
+                        for (
+                            int numberofFileNameBytes = fileNameBytes.Count;
+                            numberofFileNameBytes < 15;
+                            numberofFileNameBytes++)
+                        {
+                            // Pad the length of the file name to 0x12 bytes.
+                            fileNameBytes.Add(Converter.GcByte(0x00));
+                        }
+                        listOfArcReplacements.AddRange(fileNameBytes);
+                        listOfArcReplacements.Add(Converter.GcByte(currentCheck.stageIDX[i]));
+                        count++;
+                    }
+                }
+            }
+
+            SeedHeaderRaw.objectArcCheckInfoNumEntries = count;
+            SeedHeaderRaw.objectArcCheckInfoDataOffset = (ushort)(
                 CheckDataRaw.Count + 1 + SeedHeaderSize);
             return listOfArcReplacements;
         }
@@ -355,7 +392,7 @@ namespace TPRandomizer.Assets
                         listOfRELReplacements.AddRange(
                             Converter.GcBytes(
                                 (UInt32)uint.Parse(
-                                    currentCheck.offsets[i],
+                                    currentCheck.relOffsets[i],
                                     System.Globalization.NumberStyles.HexNumber)));
                         listOfRELReplacements.AddRange(
                             Converter.GcBytes(
@@ -458,7 +495,7 @@ namespace TPRandomizer.Assets
                                 currentCheck.flag,
                                 System.Globalization.NumberStyles.HexNumber)));
                     listOfHiddenSkills.AddRange(Converter.GcBytes((UInt16)currentCheck.itemId));
-                    listOfHiddenSkills.AddRange(Converter.GcBytes((UInt16)currentCheck.stageIDX[0]));
+                    listOfHiddenSkills.AddRange(Converter.GcBytes((UInt16)currentCheck.lastStageIDX[0]));
                     listOfHiddenSkills.AddRange(Converter.GcBytes((UInt16)currentCheck.roomIDX));
                     count++;
                 }

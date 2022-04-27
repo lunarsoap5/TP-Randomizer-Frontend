@@ -1,6 +1,8 @@
 {
     "requirements": "canSmash",
-    "arcFileValues": [["F_SP109/R00_00.arc", "14FF4C"]],
+    "arcOffsets": ["2F6C"],
+    "stageIDX": [46],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Eldin Province", "ARC"],

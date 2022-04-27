@@ -1,6 +1,7 @@
 {
-    "requirements": "Room.Snowpeak_Ruins_Boss_Room and CanDefeatBlizzeta",
-    "arcFileValues": [["bmgres6.arc", "19D57"]],
+    "requirements": "canCompleteSnowpeakRuins",
+    "arcOffsets": ["17D7"],
+    "stageIDX": [51],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Npc", "Snowpeak Province", "ARC"],

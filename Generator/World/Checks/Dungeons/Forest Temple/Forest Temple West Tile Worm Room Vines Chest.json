@@ -1,6 +1,8 @@
 {
     "requirements": "CanDefeatBombling",
-    "arcFileValues": [["D_MN05/R05_00.arc", "79954"]],
+    "arcOffsets": ["C34"],
+    "stageIDX": [6],
+    "roomIDX": 5,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Forest Temple", "ARC"],

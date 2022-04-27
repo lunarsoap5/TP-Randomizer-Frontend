@@ -4,11 +4,10 @@
         "Gerudo Desert", 
         "Outside Arbiters Grounds"
     ],
-    "NeighbourRequirements": 
-    [
-        "true",
-        "CanDefeatKingBulblinDesert and Gerudo_Desert_Bulblin_Camp_Key"
-    ],
+  "NeighbourRequirements": [
+    "true",
+    "CanDefeatKingBulblinDesert and (Gerudo_Desert_Bulblin_Camp_Key or (Setting.smallKeySettings equals Keysey))"
+  ],
     "Checks": 
     [
         "Bulblin Camp First Chest Under Tower At Entrance",

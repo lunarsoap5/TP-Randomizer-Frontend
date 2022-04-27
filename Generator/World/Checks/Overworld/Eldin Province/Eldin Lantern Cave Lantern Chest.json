@@ -1,6 +1,8 @@
 {
     "requirements": "Lantern",
-    "arcFileValues": [["D_SB02/R00_00.arc", "FDC20"]],
+    "arcOffsets": ["D80"],
+    "stageIDX": [32],
+    "roomIDX": 0,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],

@@ -1,8 +1,10 @@
 {
-    "requirements": "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal and ((Room.Forest_Temple_Boss_Room and CanDefeatDiababa) or Setting.faronWoodsLogic equals Open) and (((Progressive_Sword, 1) and (Progressive_Fishing_Rod, 1) and North_Faron_Woods_Gate_Key and Lantern) or (Setting.introSkipped equals True))",
-    "arcFileValues": [["F_SP108/R05_00.arc", "B1354"]],
-    "fileDirectoryType": [0],
-    "replacementType": [0],
-    "category": ["Overworld", "Chest", "Faron Woods", "ARC"],
-    "itemId": "Piece_of_Heart"
+  "requirements": "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal and canLeaveForest and CanCompleteIntro",
+  "arcOffsets": ["1EF4"],
+    "stageIDX": [45],
+    "roomIDX": 5,
+  "fileDirectoryType": [ 0 ],
+  "replacementType": [ 0 ],
+  "category": [ "Overworld", "Chest", "Faron Woods", "ARC" ],
+  "itemId": "Piece_of_Heart"
 }

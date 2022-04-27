@@ -135,7 +135,7 @@ namespace TPRandomizer
         Simple_Soup = 0x7D,
         Good_Soup = 0x7E,
         Superb_Soup = 0x7F,
-        Renardos_Letter = 0x80,
+        Renados_Letter = 0x80,
         Invoice = 0x81,
         Wooden_Statue = 0x82,
         Ilias_Charm = 0x83,
@@ -397,7 +397,7 @@ namespace TPRandomizer
             Item.Progressive_Sky_Book,
             Item.Progressive_Sky_Book,
             Item.Progressive_Sky_Book,
-            Item.Renardos_Letter,
+            Item.Renados_Letter,
             Item.Invoice,
             Item.Wooden_Statue,
             Item.Ilias_Charm,
@@ -509,6 +509,10 @@ namespace TPRandomizer
         public void GenerateItemPool()
         {
             RandomizerSetting parseSetting = Randomizer.RandoSetting;
+            Randomizer.Items.RandomizedImportantItems.AddRange(this.ImportantItems);
+            Randomizer.Items.BaseItemPool.AddRange(this.VanillaDungeonRewards);
+            Randomizer.Items.ShuffledDungeonRewards.AddRange(this.VanillaDungeonRewards);
+
             if (parseSetting.poesShuffled)
             {
                 this.RandomizedImportantItems.AddRange(Enumerable.Repeat(Item.Poe_Soul, 60));
@@ -521,8 +525,8 @@ namespace TPRandomizer
 
             // Check Small Key settings before adding them to the rando pool
             if (
-                (parseSetting.smallKeySettings != "Keysanity")
-                && (parseSetting.smallKeySettings != "Vanilla"))
+                (parseSetting.smallKeySettings == "Own_Dungeon")
+                || (parseSetting.smallKeySettings == "Any_Dungeon"))
             {
                 this.RandomizedDungeonRegionItems.AddRange(this.RegionSmallKeys);
                 Randomizer.Items.BaseItemPool.AddRange(this.RegionSmallKeys);
@@ -531,11 +535,15 @@ namespace TPRandomizer
             {
                 this.RandomizedImportantItems.AddRange(this.RegionSmallKeys);
             }
+            else if (parseSetting.smallKeySettings == "Keysey")
+            {
+                this.RandomizedImportantItems.Remove(Item.Gate_Keys);
+            }
 
             // Check Big Key Settings before adding them to the pool
             if (
-                (parseSetting.bossKeySettings != "Keysanity")
-                && (parseSetting.bossKeySettings != "Vanilla"))
+                (parseSetting.bossKeySettings == "Own_Dungeon")
+                || (parseSetting.bossKeySettings == "Any_Dungeon"))
             {
                 this.RandomizedDungeonRegionItems.AddRange(this.DungeonBigKeys);
                 Randomizer.Items.BaseItemPool.AddRange(this.DungeonBigKeys);
@@ -547,8 +555,8 @@ namespace TPRandomizer
 
             // Check Map and Compass settings before adding to pool
             if (
-                (parseSetting.mapAndCompassSettings != "Anywhere")
-                && (parseSetting.mapAndCompassSettings != "Vanilla"))
+                (parseSetting.mapAndCompassSettings == "Own_Dungeon")
+                || (parseSetting.mapAndCompassSettings == "Any_Dungeon"))
             {
                 this.RandomizedDungeonRegionItems.AddRange(this.DungeonMapsAndCompasses);
                 Randomizer.Items.BaseItemPool.AddRange(this.DungeonMapsAndCompasses);
@@ -596,10 +604,8 @@ namespace TPRandomizer
                     }
             }
 
-            Randomizer.Items.RandomizedImportantItems.AddRange(this.ImportantItems);
+            
             Randomizer.Items.BaseItemPool.AddRange(this.RandomizedImportantItems);
-            Randomizer.Items.BaseItemPool.AddRange(this.VanillaDungeonRewards);
-            Randomizer.Items.ShuffledDungeonRewards.AddRange(this.VanillaDungeonRewards);
             return;
         }
     }

@@ -1,6 +1,8 @@
 {
     "requirements": "CanDefeatBokoblin",
-    "arcFileValues": [["D_MN09/R13_00.arc", "636C0"]],
+    "arcOffsets": ["320"],
+    "stageIDX": [20],
+    "roomIDX": 13,
     "fileDirectoryType": [0],
     "replacementType": [0],
     "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],

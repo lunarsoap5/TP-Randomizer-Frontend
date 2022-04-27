@@ -1,6 +1,7 @@
 {
-    "requirements": "(Poe_Soul, 20) and Shadow_Crystal and ((Setting.mdhSkipped equals True) or (Room.Lakebed_Temple_Boss_Room and CanDefeatMorpheel))",
-    "arcFileValues": [["bmgres4.arc", "21F3F"]],
+    "requirements": "(Poe_Soul, 20) and Shadow_Crystal and ((Setting.mdhSkipped equals True) or canCompleteLakebedTemple)",
+    "arcOffsets": ["421F"],
+    "stageIDX": [73],
     "fileDirectoryType": [1],
     "replacementType": [0],
     "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],

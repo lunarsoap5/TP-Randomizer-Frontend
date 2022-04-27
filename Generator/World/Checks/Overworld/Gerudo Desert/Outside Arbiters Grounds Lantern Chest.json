@@ -1,8 +1,10 @@
 {
-    "requirements": "Lantern and Gerudo_Desert_Bulblin_Camp_Key",
-    "arcFileValues": [["F_SP118/R03_00.arc", "10143C"]],
-    "fileDirectoryType": [0],
-    "replacementType": [0],
-    "category": ["Overworld", "Chest", "Bulblin Camp", "ARC"],
-    "itemId": "Purple_Rupee"
+  "requirements": "Lantern and (Gerudo_Desert_Bulblin_Camp_Key or (Setting.smallKeySettings equals Keysey))",
+  "arcOffsets": ["7FC"],
+    "stageIDX": [55],
+    "roomIDX": 3,
+  "fileDirectoryType": [ 0 ],
+  "replacementType": [ 0 ],
+  "category": [ "Overworld", "Chest", "Bulblin Camp", "ARC" ],
+  "itemId": "Purple_Rupee"
 }
