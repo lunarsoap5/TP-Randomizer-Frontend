@@ -604,6 +604,12 @@ namespace TPRandomizer
                     }
             }
 
+            foreach (Item startingItem in parseSetting.StartingItems)
+            {
+                RandomizedImportantItems.Remove(startingItem);
+                Randomizer.Items.heldItems.Add(startingItem);
+            }
+
             
             Randomizer.Items.BaseItemPool.AddRange(this.RandomizedImportantItems);
             return;

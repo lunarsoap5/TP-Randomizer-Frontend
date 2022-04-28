@@ -13,7 +13,7 @@ namespace TPRandomizer.Assets
     {
         private static readonly List<byte> CheckDataRaw = new ();
         private static readonly SeedHeader SeedHeaderRaw = new ();
-        private static readonly byte SeedHeaderSize = 0x50;
+        private static readonly byte SeedHeaderSize = 0x60;
 
         /// <summary>
         /// summary text.
@@ -79,6 +79,10 @@ namespace TPRandomizer.Assets
             public UInt16 shopCheckInfoNumEntries { get; set; }
 
             public UInt16 shopCheckInfoDataOffset { get; set; }
+
+            public UInt16 startingItemInfoNumEntries { get; set; }
+
+            public UInt16 startingItemInfoDataOffset { get; set; }
         }
 
         /// <summary>
@@ -104,6 +108,7 @@ namespace TPRandomizer.Assets
             CheckDataRaw.AddRange(ParseBugRewards());
             CheckDataRaw.AddRange(ParseSkyCharacters());
             CheckDataRaw.AddRange(ParseShopItems());
+            CheckDataRaw.AddRange(ParseStartingItems());
             currentSeedHeader.AddRange(GenerateSeedHeader(randomizerSettings.seedNumber, seedHash));
 
             currentSeedData.AddRange(currentSeedHeader);
@@ -125,7 +130,7 @@ namespace TPRandomizer.Assets
             List<byte> seedHeader = new ();
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             SettingData settingData = Randomizer.RandoSettingData;
-            SeedHeaderRaw.fileSize = 0xA000;
+            SeedHeaderRaw.fileSize = 0x6000;
             SeedHeaderRaw.seed = BackendFunctions.GetChecksum(seedHash, 64);
             SeedHeaderRaw.minVersion = (ushort)(
                 Randomizer.RandomizerVersionMajor << 8 | Randomizer.RandomizerVersionMinor);
@@ -530,6 +535,22 @@ namespace TPRandomizer.Assets
             SeedHeaderRaw.shopCheckInfoDataOffset = (ushort)(
                 CheckDataRaw.Count + 1 + SeedHeaderSize);
             return listOfShopItems;
+        }
+
+        private static List<byte> ParseStartingItems()
+        {
+            RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
+            List<byte> listOfStartingItems = new ();
+            ushort count = 0;
+            foreach (Item startingItem in randomizerSettings.StartingItems)
+            {
+                listOfStartingItems.Add(Converter.GcByte((int)startingItem));
+                    count++;
+            }
+
+            SeedHeaderRaw.startingItemInfoNumEntries = count;
+            SeedHeaderRaw.startingItemInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + SeedHeaderSize);
+            return listOfStartingItems;
         }
 
         private static List<byte> GenerateEventFlags()

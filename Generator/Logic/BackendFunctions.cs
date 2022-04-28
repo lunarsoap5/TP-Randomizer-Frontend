@@ -364,6 +364,7 @@ namespace TPRandomizer
         /// </summary>
         private static List<string> CalculateOptimalPlaythrough(Room startingRoom)
         {
+            RandomizerSetting parseSetting = Randomizer.RandoSetting;
             bool hasCompletedSphere;
             bool hasConcludedPlaythrough;
             List<List<string>> listofPlaythroughs = new ();
@@ -389,6 +390,10 @@ namespace TPRandomizer
             }
 
             Randomizer.Items.heldItems.Clear();
+            foreach (Item startingItem in parseSetting.StartingItems)
+            {
+                Randomizer.Items.heldItems.Add(startingItem);
+            }
 
             while (!Randomizer.Rooms.RoomDict["Ganondorf Castle"].Visited)
             {
