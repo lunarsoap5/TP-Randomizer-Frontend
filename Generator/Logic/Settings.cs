@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace TPRandomizer
 {
@@ -49,7 +50,6 @@ namespace TPRandomizer
         public bool increaseWallet { get; set; }
         public bool modifyShopModels {get; set;}
     }
-
     public class SettingData
     {
         public static string[] logicRules { get; set; } =

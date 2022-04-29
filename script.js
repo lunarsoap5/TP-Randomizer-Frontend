@@ -421,6 +421,7 @@ function parseSettingsString(settingsString)
 				itemIndex = parseInt(evaluatedByteString, 2);
 				if (itemIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
 				{
+					document.getElementById(currentSettingsItem).options.length = 0;
 					var checkList = document.getElementById(currentSettingsItem.replace("added", "base"));
 					for(var j=0; j < checkList.options.length; j++)
 					{
@@ -429,6 +430,8 @@ function parseSettingsString(settingsString)
 							var checkListOptionValue = checkList.options[j].value;
 							let itemOption = new Option(checkList.options[j].text, checkListOptionValue);
 							document.getElementById(currentSettingsItem).add(itemOption, undefined);
+							document.getElementById(currentSettingsItem.replace("added", "base")).remove(itemOption, undefined);
+							break;
 						}
 					}
 				}
