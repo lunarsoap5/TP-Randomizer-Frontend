@@ -519,6 +519,7 @@ namespace TPRandomizer
             bool hasConcludedPlaythrough;
             List<Room> currentPlaythroughGraph;
             List<Item> sphereItems = new ();
+            RandomizerSetting parseSetting = Randomizer.RandoSetting;
 
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -535,6 +536,10 @@ namespace TPRandomizer
             }
 
             Randomizer.Items.heldItems.Clear();
+            foreach (Item startingItem in parseSetting.StartingItems)
+            {
+                Randomizer.Items.heldItems.Add(startingItem);
+            }
 
             while (!Randomizer.Rooms.RoomDict["Ganondorf Castle"].Visited)
             {
@@ -580,7 +585,6 @@ namespace TPRandomizer
                                         currentCheck.requirements);
                                 if ((bool)areCheckRequirementsMet == true)
                                 {
-                                    sphereItems.Add(currentCheck.itemId);
                                     currentCheck.hasBeenReached = true;
                                     if (
                                         Randomizer.Items.ImportantItems.Contains(currentCheck.itemId)
@@ -590,6 +594,7 @@ namespace TPRandomizer
                                         || Randomizer.Items.goldenBugs.Contains( currentCheck.itemId)
                                         || (currentCheck.itemId == Item.Poe_Soul))
                                     {
+                                        sphereItems.Add(currentCheck.itemId);
                                         hasCompletedSphere = true;
                                     }
                                 }

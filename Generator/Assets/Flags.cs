@@ -321,6 +321,11 @@ namespace TPRandomizer.Assets
                 { 0x18, 0xEF }, // Got Hyrule Castle Dungeon Map.
             };
 
+            public static readonly byte[,] OpenCastleRegionFlags = new byte[,]
+            {
+                { 0x9, 0x50 }, // Set flag for Midna breaking Barrier CS.
+            };
+
         /// <summary>
         /// summary text.
         /// </summary>
@@ -335,6 +340,7 @@ namespace TPRandomizer.Assets
             { 7, SmallKeyRegionFlags },
             { 8, BigKeyRegionFlags },
             { 9, MapAndCompassRegionFlags },
+            { 10, OpenCastleRegionFlags },
         };
 
         /// <summary>
@@ -452,6 +458,16 @@ namespace TPRandomizer.Assets
             { 0x1, 0x20 }, // Told Yeta about cheese
         };
 
+        public static readonly byte[,] OpenCastleEventFlags = new byte[,]
+        {
+            { 0x42, 0x8 }, // Remove Castle Barrier
+        };
+
+        public static readonly byte[,] OpenPalaceEventFlags = new byte[,]
+        {
+            { 0x2B, 0x8 }, // Mirror of Twilight Repaired.
+        };
+
         /// <summary>
         /// summary text.
         /// </summary>
@@ -465,6 +481,8 @@ namespace TPRandomizer.Assets
             { 5, OpenForestEventFlags },
             { 6, MDHEventFlags },
             { 7, SmallKeyEventFlags },
+            { 10, OpenCastleEventFlags },
+            { 11, OpenPalaceEventFlags },
         };
         private static readonly RandomizerSetting RandomizerSettings = Randomizer.RandoSetting;
         /// <summary>
@@ -482,6 +500,8 @@ namespace TPRandomizer.Assets
             /* 7 */ RandomizerSettings.smallKeySettings == "Keysey",
             /* 8 */ RandomizerSettings.bossKeySettings == "Keysey",
             /* 9 */ RandomizerSettings.mapAndCompassSettings == "Start_With",
+            /* 10 */ RandomizerSettings.castleRequirements == "Open",
+            /* 11 */ RandomizerSettings.palaceRequirements == "Open",
         };
     }
 }
