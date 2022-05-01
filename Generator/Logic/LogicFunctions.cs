@@ -159,7 +159,7 @@ namespace TPRandomizer
             return 
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
-                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || ((getItemCount(Item.Progressive_Bow) >= 1) && CanGetArrows())
                 || CanUse(Item.Iron_Boots)
                 || CanUse(Item.Shadow_Crystal);
         }
@@ -187,7 +187,7 @@ namespace TPRandomizer
             return (
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
-                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || ((getItemCount(Item.Progressive_Bow) >= 1) && CanGetArrows())
                 || CanUse(Item.Iron_Boots)
                 || CanUse(Item.Spinner)
                 || CanUse(Item.Slingshot)
@@ -219,7 +219,7 @@ namespace TPRandomizer
             return (
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
-                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || ((getItemCount(Item.Progressive_Bow) >= 1) && CanGetArrows())
                 || CanUse(Item.Iron_Boots)
                 || CanUse(Item.Spinner)
                 || CanUse(Item.Shadow_Crystal)
@@ -933,8 +933,8 @@ namespace TPRandomizer
         {
             return (
                 CanUse(Item.Ball_and_Chain)
-		|| CanUse(Item.Slingshot)
-                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || CanUse(Item.Slingshot)
+                || ((getItemCount(Item.Progressive_Bow) >= 1) && CanGetArrows())
                 || CanUse(Item.Boomerang)
                 || (getItemCount(Item.Progressive_Clawshot) >= 1)
             );
@@ -986,7 +986,7 @@ namespace TPRandomizer
             return (
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
-                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || ((getItemCount(Item.Progressive_Bow) >= 1) && CanGetArrows())
                 || CanUse(Item.Iron_Boots)
                 || CanUse(Item.Shadow_Crystal)
             );
@@ -1125,13 +1125,12 @@ namespace TPRandomizer
         public static bool CanDefeatDiababa()
         {
             return (
-                (
-                    CanUse(Item.Boomerang)
-                    || (hasBombs() && (getItemCount(Item.Progressive_Bow) >= 1))
-                ) && HasSword()
-                || CanUse(Item.Ball_and_Chain)
-                || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Shadow_Crystal)
+                (CanUse(Item.Boomerang)
+                  || (hasBombs() && (getItemCount(Item.Progressive_Bow) >= 1))) 
+                 && (HasSword()
+                  || CanUse(Item.Ball_and_Chain)
+                  || CanUse(Item.Iron_Boots)
+                  || CanUse(Item.Shadow_Crystal))
             );
         }
 
@@ -1276,7 +1275,7 @@ namespace TPRandomizer
         {
             return (
                 (getItemCount(Item.Progressive_Clawshot) >= 1)
-                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || ((getItemCount(Item.Progressive_Bow) >= 1) && CanGetArrows())
                 || CanUse(Item.Boomerang)
                 || CanUse(Item.Ball_and_Chain)
             );
@@ -1301,7 +1300,7 @@ namespace TPRandomizer
                 || CanUse(Item.Spinner)
                 || CanUse(Item.Ball_and_Chain)
                 || CanUse(Item.Shadow_Crystal)
-                || (getItemCount(Item.Progressive_Bow) >= 1)
+                || ((getItemCount(Item.Progressive_Bow) >= 1) && CanGetArrows())
                 || (getItemCount(Item.Progressive_Clawshot) >= 1)
             );
         }
@@ -1349,7 +1348,7 @@ namespace TPRandomizer
             return (
                 CanUse(Item.Shadow_Crystal)
                 || HasSword()
-                || (CanUse(Item.Ball_and_Chain) || hasBombs())
+                || canSmash()
             );
         }
 
@@ -1381,6 +1380,14 @@ namespace TPRandomizer
         }
 
         /// <summary>
+        /// This is a temporary function that ensures arrows can be refilled for bow usage in Faron Woods/FT.
+        /// </summary>
+        public static bool CanGetArrows()
+        {
+            return (canLeaveForest() || Randomizer.Rooms.RoomDict["Lost Woods"].ReachedByPlaythrough);
+        }
+
+        /// <summary>
         /// summary text.
         /// </summary>
         public static bool CanCompleteIntro()
@@ -1399,9 +1406,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanCompleteMDH()
         {
-            return (
-                (canCompleteLakebedTemple() || (Randomizer.RandoSetting.mdhSkipped == true))
-            );
+            return (canCompleteLakebedTemple() || (Randomizer.RandoSetting.mdhSkipped == true));
         }
 
         /// <summary>
@@ -1410,7 +1415,7 @@ namespace TPRandomizer
         public static bool canLeaveForest()
         {
             return (
-                (canCompleteForestTemple() || (Randomizer.RandoSetting.faronWoodsLogic == "Open"))
+                (canCompleteForestTemple() || (Randomizer.RandoSetting.faronWoodsLogic == "Open")) && CanCompleteIntro()
             );
         }
 
