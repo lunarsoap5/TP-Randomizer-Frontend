@@ -78,48 +78,13 @@ function GameVer(ver) {
 	}
 }
 
-document.getElementById('excludeCheckButton').addEventListener("click", addExcludedCheck);
-function addExcludedCheck()
+for(var j=0; j < document.getElementById('baseExcludedChecksListbox').getElementsByTagName("input").length; j++)
 {
-	var checkList = document.getElementById('baseExcludedChecksListbox');
-	var strUser = checkList[checkList.selectedIndex].value;
-	let newExcludedCheck = new Option(checkList[checkList.selectedIndex].text, strUser);
-	document.getElementById('addedExcludedChecksListbox').add(newExcludedCheck, undefined);
-	checkList.remove(checkList.selectedIndex);
-	setSettingsString();
+	document.getElementById('baseExcludedChecksListbox').getElementsByTagName("input")[j].addEventListener("click", setSettingsString);
 }
-
-document.getElementById('unexcludeCheckButton').addEventListener("click", removeExcludedCheck);
-function removeExcludedCheck()
+for(var j=0; j < document.getElementById('baseImportantItemsListbox').getElementsByTagName("input").length; j++)
 {
-	var checkList = document.getElementById('addedExcludedChecksListbox');
-	var strUser = checkList[checkList.selectedIndex].value;
-	let newExcludedCheck = new Option(checkList[checkList.selectedIndex].text, strUser);
-	document.getElementById('baseExcludedChecksListbox').add(newExcludedCheck, undefined);
-	checkList.remove(checkList.selectedIndex);
-	setSettingsString();
-}
-
-document.getElementById('addToInventoryButton').addEventListener("click", addItemToInventory);
-function addItemToInventory()
-{
-	var checkList = document.getElementById('baseImportantItemsListbox');
-	var strUser = checkList[checkList.selectedIndex].value;
-	let newExcludedCheck = new Option(checkList[checkList.selectedIndex].text, strUser);
-	document.getElementById('addedImportantItemsListbox').add(newExcludedCheck, undefined);
-	checkList.remove(checkList.selectedIndex);
-	setSettingsString();
-}
-
-document.getElementById('removeFromInventoryButton').addEventListener("click", removeFromInventory);
-function removeFromInventory()
-{
-	var checkList = document.getElementById('addedImportantItemsListbox');
-	var strUser = checkList[checkList.selectedIndex].value;
-	let newExcludedCheck = new Option(checkList[checkList.selectedIndex].text, strUser);
-	document.getElementById('baseImportantItemsListbox').add(newExcludedCheck, undefined);
-	checkList.remove(checkList.selectedIndex);
-	setSettingsString();
+	document.getElementById('baseImportantItemsListbox').getElementsByTagName("input")[j].addEventListener("click", setSettingsString);
 }
 
 var settingsLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789";
@@ -193,17 +158,20 @@ function setSettingsString()
         settingsStringRaw[18] = document.getElementById('quickTransformCheckbox').checked;
         settingsStringRaw[19] = document.getElementById('transformAnywhereCheckbox').checked;
         settingsStringRaw[20] = document.getElementById('foolishItemFieldset').selectedIndex;
-		var i = null;
+		var listItem = document.getElementById('baseImportantItemsListbox').getElementsByTagName("input");
 		var options = [];
-		for (var i = 0; i < document.getElementById('addedImportantItemsListbox').length; i++)
+		for (var i = 0; i < listItem.length; i++)
 		{
-			options.push(document.getElementById('addedImportantItemsListbox').options[i].value);
+			if (listItem[i].checked)
+			options.push(listItem[i].id);
 		}
 		settingsStringRaw[21] = options;
+		listItem = document.getElementById('baseExcludedChecksListbox').getElementsByTagName("input");
 		options = [];
-		for (var i = 0; i < document.getElementById('addedExcludedChecksListbox').length; i++)
+		for (var i = 0; i < listItem.length; i++)
 		{
-			options.push(document.getElementById('addedExcludedChecksListbox').options[i].value);
+			if (listItem[i].checked)
+			options.push(listItem[i].id);
 		}
 		settingsStringRaw[22] = options;
         settingsStringRaw[23] = document.getElementById('tunicColorFieldset').selectedIndex;
@@ -350,8 +318,8 @@ var arrayOfSettingsItems =
 	"quickTransformCheckbox",
 	"transformAnywhereCheckbox",
 	"foolishItemFieldset",
-	"addedImportantItemsListbox",
-	"addedExcludedChecksListbox",
+	"baseImportantItemsListbox",
+	"baseExcludedChecksListbox",
 	"tunicColorFieldset",
 	"midnaHairColorFieldset",
 	"lanternColorFieldset",
@@ -409,6 +377,11 @@ function parseSettingsString(settingsString)
 		}
 		if (currentSettingsItem.includes("Listbox"))
 		{
+			var checkList = document.getElementById(currentSettingsItem).getElementsByTagName("input");
+			for(var j=0; j < checkList.length; j++)
+			{
+				checkList[j].checked = false;
+			}
 			//We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
 			settingBitWidth = 9;
 			while (!reachedEndofList)
@@ -421,16 +394,12 @@ function parseSettingsString(settingsString)
 				itemIndex = parseInt(evaluatedByteString, 2);
 				if (itemIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
 				{
-					document.getElementById(currentSettingsItem).options.length = 0;
-					var checkList = document.getElementById(currentSettingsItem.replace("added", "base"));
-					for(var j=0; j < checkList.options.length; j++)
+					var checkList = document.getElementById(currentSettingsItem).getElementsByTagName("input");
+					for(var j=0; j < checkList.length; j++)
 					{
-						if (itemIndex == checkList.options[j].value)
+						if (itemIndex == checkList[j].id && !checkList[j].checked)
 						{
-							var checkListOptionValue = checkList.options[j].value;
-							let itemOption = new Option(checkList.options[j].text, checkListOptionValue);
-							document.getElementById(currentSettingsItem).add(itemOption, undefined);
-							document.getElementById(currentSettingsItem.replace("added", "base")).remove(itemOption, undefined);
+							checkList[j].checked = true;
 							break;
 						}
 					}

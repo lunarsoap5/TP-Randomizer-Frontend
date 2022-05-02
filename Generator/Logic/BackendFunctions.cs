@@ -469,7 +469,6 @@ namespace TPRandomizer
                 }
             }
 
-            List<Item> testItem = Randomizer.Items.heldItems;
             bool playthroughStatus;
             Item currentItem;
             foreach (KeyValuePair<string,Check> dictEntry in playthroughDictionary.Reverse())

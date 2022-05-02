@@ -286,6 +286,17 @@ img.flag
 	display: none;
 }
 
+#checkboxFieldset
+{
+	max-height: 300px;
+	overflow: scroll;
+}
+
+ul
+{
+	list-style: none;
+}
+
 /* Style the tab */
 .tab {
 	overflow: hidden;

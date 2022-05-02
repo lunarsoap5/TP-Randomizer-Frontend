@@ -206,25 +206,27 @@
 				</div>
 				  
 				<div id="excludedChecksTab" class="tabcontent">
-					<select id="baseExcludedChecksListbox" multiple="multiple" size="10" width="20%">
+					<fieldset id="checkboxFieldset">
+					<legend>Excluded Checks</legend>
+					<ul id="baseExcludedChecksListbox" multiple="multiple" size="10" width="20%">
 						<?php 
 							$files = glob('Generator/World/Checks/*/*/*.json');
 								$i = 0;
 							foreach ($files as $file) 
 							{
 								$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file);
-								echo "<option value='$i'>".pathinfo($file, PATHINFO_BASENAME)."</option>"; 
+								echo "<li><label><input type = checkbox id='$i'>".pathinfo($file, PATHINFO_BASENAME)."</label> </li>"; 
 								$i++;
 							}
 						?>
-					</select>	
-					<input id="excludeCheckButton" value=">" type="button"> 			  
-					<input id="unexcludeCheckButton" value="<" type="button">
-					<select id="addedExcludedChecksListbox" multiple="multiple" size = "10"  width="20%"></select>
+					</ul>
+					</fieldset>	
 				</div>
 
 				<div id="startingInventoryTab" class="tabcontent">
-					<select id="baseImportantItemsListbox" multiple="multiple" size="10" width="20%">
+				<fieldset id="checkboxFieldset">
+					<legend>Starting Items</legend>
+					<ul id="baseImportantItemsListbox" multiple="multiple" size="10" width="20%">
 						<?php 
 							$important_items = file_get_contents("Resources/StartingItems.txt");
 							$important_items = explode("\n", $important_items);
@@ -232,13 +234,11 @@
 							{
 								list($value, $name) = explode(",", $important_item);
 								$name = str_replace("_"," ", $name);
-								echo "<option value='$value'>".$name."</option>"; 
+								echo "<li><label><input type = checkbox id='$value'>".$name."</label> </li>"; 
 							}
 						?>
-					</select>	
-					<input id="addToInventoryButton" value=">" type="button"> 			  
-					<input id="removeFromInventoryButton" value="<" type="button">
-					<select id="addedImportantItemsListbox" multiple="multiple" size = "10"  width="20%"></select>
+					</ul>
+				</fieldset>
 				</div>
 
 				<div id="cosmeticsAndQuirksTab" class="tabcontent">
