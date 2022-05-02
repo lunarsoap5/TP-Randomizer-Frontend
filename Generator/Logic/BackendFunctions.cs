@@ -190,6 +190,16 @@ namespace TPRandomizer
                         + settingProperty.GetValue(Randomizer.RandoSetting, null));
             }
 
+            if (!Randomizer.RandoSetting.shuffleHiddenSkills)
+            {
+                Randomizer.RandoSetting.StartingItems.Add(Item.Progressive_Hidden_Skill);
+            }
+
+            if ( Randomizer.RandoSetting.mdhSkipped && !Randomizer.RandoSetting.poesShuffled)
+            {
+                Randomizer.RandoSetting.StartingItems.Add(Item.Poe_Soul);
+            }
+
             return;
         }
 

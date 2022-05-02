@@ -603,15 +603,6 @@ namespace TPRandomizer
                         break;
                     }
             }
-            if (!parseSetting.shuffleHiddenSkills)
-            {
-                parseSetting.StartingItems.Add(Item.Progressive_Hidden_Skill);
-            }
-
-            if ( parseSetting.mdhSkipped && parseSetting.poesShuffled)
-            {
-                parseSetting.StartingItems.Add(Item.Poe_Soul);
-            }
 
             foreach (Item startingItem in parseSetting.StartingItems)
             {
