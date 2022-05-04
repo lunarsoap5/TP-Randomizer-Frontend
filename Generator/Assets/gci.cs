@@ -76,7 +76,7 @@ namespace TPRandomizer.Assets
             /*x28*/
             gciHeader.AddRange(Converter.GcBytes((UInt32)(DateTime.UtcNow - new DateTime(2000, 1, 1)).TotalSeconds));
             /*x2c*/
-            gciHeader.AddRange(Converter.GcBytes((UInt32)0x60)); // Image data offset
+            gciHeader.AddRange(Converter.GcBytes((UInt32)0x0)); // Image data offset
             /*x30*/
             gciHeader.AddRange(Converter.GcBytes((UInt16)0x0001)); // iconFormats
             /*x32*/
@@ -92,13 +92,13 @@ namespace TPRandomizer.Assets
             /*x3A*/
             gciHeader.AddRange(Converter.GcBytes((UInt16)0xFFFF)); // unused
             /*x3C*/
-            gciHeader.AddRange(Converter.GcBytes((UInt32)0x1460)); // Comments Offset
+            gciHeader.AddRange(Converter.GcBytes((UInt32)0x1400)); // Comments Offset
 
             gciFile.AddRange(gciHeader);
             gciFile.AddRange(seedData);
 
             // Pad
-            while (gciFile.Count < (2 * 0x2000) + 0x40) // Pad to 3 blocks.
+            while (gciFile.Count < (2 * 0x2000) + 0x40) // Pad to 2 blocks.
                 gciFile.Add((byte)0x0);
 
         }

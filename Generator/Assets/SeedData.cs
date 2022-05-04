@@ -91,6 +91,10 @@ namespace TPRandomizer.Assets
         /// </summary>
         public static void GenerateSeedData(string seedHash)
         {
+            /*
+            * General Note: offset sizes are handled as two bytes. Because of this,
+            * any seed bigger than 7 blocks will not work with this method.
+            */
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             List<byte> currentSeedHeader = new ();
             List<byte> currentSeedData = new ();
@@ -109,10 +113,11 @@ namespace TPRandomizer.Assets
                     break;
             }
 
-            // Header Info
+            // Add seed banner
             BannerDataRaw.AddRange(Properties.Resources.seedGciImageData);
             BannerDataRaw.AddRange(Converter.StringBytes("TPR 1.0 Seed Data", 0x20, regionCode));
             BannerDataRaw.AddRange(Converter.StringBytes(seedHash, 0x20, regionCode));
+            // Header Info
             CheckDataRaw.AddRange(GeneratePatchSettings());
             CheckDataRaw.AddRange(GenerateEventFlags());
             CheckDataRaw.AddRange(GenerateRegionFlags());
@@ -127,10 +132,10 @@ namespace TPRandomizer.Assets
             CheckDataRaw.AddRange(ParseSkyCharacters());
             CheckDataRaw.AddRange(ParseShopItems());
             CheckDataRaw.AddRange(ParseStartingItems());
-            currentSeedHeader.AddRange(GenerateSeedHeader(randomizerSettings.seedNumber, seedHash));  
+            currentSeedHeader.AddRange(GenerateSeedHeader(randomizerSettings.seedNumber, seedHash));
 
-            currentSeedData.AddRange(currentSeedHeader);  
-            currentSeedData.AddRange(BannerDataRaw);       
+            currentSeedData.AddRange(BannerDataRaw);
+            currentSeedData.AddRange(currentSeedHeader);
             currentSeedData.AddRange(CheckDataRaw);
 
             var gci = new Gci((byte)randomizerSettings.seedNumber, randomizerSettings.gameRegion, currentSeedData, seedHash);
@@ -149,7 +154,7 @@ namespace TPRandomizer.Assets
             List<byte> seedHeader = new ();
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             SettingData settingData = Randomizer.RandoSettingData;
-            SeedHeaderRaw.fileSize = 0x4000;
+            SeedHeaderRaw.fileSize = (uint)CheckDataRaw.Count;
             SeedHeaderRaw.seed = BackendFunctions.GetChecksum(seedHash, 64);
             SeedHeaderRaw.minVersion = (ushort)(
                 Randomizer.RandomizerVersionMajor << 8 | Randomizer.RandomizerVersionMinor);
@@ -231,7 +236,7 @@ namespace TPRandomizer.Assets
             }
 
             listOfPatches.Add(Converter.GcByte(patchOptions));
-            SeedHeaderRaw.patchInfoDataOffset = (ushort)(CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+            SeedHeaderRaw.patchInfoDataOffset = (ushort)(CheckDataRaw.Count);
             return listOfPatches;
         }
 
@@ -274,7 +279,7 @@ namespace TPRandomizer.Assets
 
             SeedHeaderRaw.arcCheckInfoNumEntries = count;
             SeedHeaderRaw.arcCheckInfoDataOffset = (ushort)(
-                CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+                CheckDataRaw.Count);
             return listOfArcReplacements;
         }
 
@@ -310,7 +315,7 @@ namespace TPRandomizer.Assets
 
             SeedHeaderRaw.objectArcCheckInfoNumEntries = count;
             SeedHeaderRaw.objectArcCheckInfoDataOffset = (ushort)(
-                CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+                CheckDataRaw.Count);
             return listOfArcReplacements;
         }
 
@@ -368,7 +373,7 @@ namespace TPRandomizer.Assets
 
             SeedHeaderRaw.dzxCheckInfoNumEntries = count;
             SeedHeaderRaw.dzxCheckInfoDataOffset = (ushort)(
-                CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+                CheckDataRaw.Count);
             return listOfDZXReplacements;
         }
 
@@ -393,7 +398,7 @@ namespace TPRandomizer.Assets
             }
 
             SeedHeaderRaw.poeCheckInfoNumEntries = count;
-            SeedHeaderRaw.poeCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+            SeedHeaderRaw.poeCheckInfoDataOffset = (ushort)(CheckDataRaw.Count);
             return listOfPOEReplacements;
         }
 
@@ -431,7 +436,7 @@ namespace TPRandomizer.Assets
             }
 
             SeedHeaderRaw.relCheckInfoNumEntries = count;
-            SeedHeaderRaw.relCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+            SeedHeaderRaw.relCheckInfoDataOffset = (ushort)(CheckDataRaw.Count);
             return listOfRELReplacements;
         }
 
@@ -453,7 +458,7 @@ namespace TPRandomizer.Assets
 
             SeedHeaderRaw.bossCheckInfoNumEntries = count;
             SeedHeaderRaw.bossCheckInfoDataOffset = (ushort)(
-                CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+                CheckDataRaw.Count);
             return listOfBossReplacements;
         }
 
@@ -478,7 +483,7 @@ namespace TPRandomizer.Assets
 
             SeedHeaderRaw.bugRewardCheckInfoNumEntries = count;
             SeedHeaderRaw.bugRewardCheckInfoDataOffset = (ushort)(
-                CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+                CheckDataRaw.Count);
             return listOfBugRewards;
         }
 
@@ -500,7 +505,7 @@ namespace TPRandomizer.Assets
 
             SeedHeaderRaw.skyCharacterCheckInfoNumEntries = count;
             SeedHeaderRaw.skyCharacterCheckInfoDataOffset = (ushort)(
-                CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+                CheckDataRaw.Count);
             return listOfSkyCharacters;
         }
 
@@ -527,7 +532,7 @@ namespace TPRandomizer.Assets
 
             SeedHeaderRaw.hiddenSkillCheckInfoNumEntries = count;
             SeedHeaderRaw.hiddenSkillCheckInfoDataOffset = (ushort)(
-                CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+                CheckDataRaw.Count);
             return listOfHiddenSkills;
         }
 
@@ -552,7 +557,7 @@ namespace TPRandomizer.Assets
 
             SeedHeaderRaw.shopCheckInfoNumEntries = count;
             SeedHeaderRaw.shopCheckInfoDataOffset = (ushort)(
-                CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+                CheckDataRaw.Count);
             return listOfShopItems;
         }
 
@@ -568,7 +573,7 @@ namespace TPRandomizer.Assets
             }
 
             SeedHeaderRaw.startingItemInfoNumEntries = count;
-            SeedHeaderRaw.startingItemInfoDataOffset = (ushort)(CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+            SeedHeaderRaw.startingItemInfoDataOffset = (ushort)(CheckDataRaw.Count);
             return listOfStartingItems;
         }
 
@@ -596,7 +601,7 @@ namespace TPRandomizer.Assets
             }
 
             SeedHeaderRaw.eventFlagsInfoNumEntries = count;
-            SeedHeaderRaw.eventFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+            SeedHeaderRaw.eventFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count);
             return listOfEventFlags;
         }
 
@@ -624,7 +629,7 @@ namespace TPRandomizer.Assets
             }
 
             SeedHeaderRaw.regionFlagsInfoNumEntries = count;
-            SeedHeaderRaw.regionFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + SeedHeaderSize + BannerDataRaw.Count);
+            SeedHeaderRaw.regionFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count);
             return listOfRegionFlags;
         }
     }
