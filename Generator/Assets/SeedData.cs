@@ -21,7 +21,8 @@ namespace TPRandomizer.Assets
         /// </summary>
         internal class SeedHeader
         {
-            public UInt32 fileSize { get; set; } // Total number of bytes including the header
+            public UInt16 headerSize { get; set; } // Total size of the header in bytes
+            public UInt16 dataSize { get; set; } // Total number of bytes
 
             public UInt64 seed { get; set; } // Current seed
 
@@ -154,7 +155,8 @@ namespace TPRandomizer.Assets
             List<byte> seedHeader = new ();
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             SettingData settingData = Randomizer.RandoSettingData;
-            SeedHeaderRaw.fileSize = (uint)CheckDataRaw.Count;
+            SeedHeaderRaw.headerSize = (ushort)SeedHeaderSize;
+            SeedHeaderRaw.dataSize = (ushort)CheckDataRaw.Count;
             SeedHeaderRaw.seed = BackendFunctions.GetChecksum(seedHash, 64);
             SeedHeaderRaw.minVersion = (ushort)(
                 Randomizer.RandomizerVersionMajor << 8 | Randomizer.RandomizerVersionMinor);
