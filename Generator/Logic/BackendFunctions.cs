@@ -403,6 +403,7 @@ namespace TPRandomizer
             foreach (Item startingItem in parseSetting.StartingItems)
             {
                 Randomizer.Items.heldItems.Add(startingItem);
+                playthroughDictionary.Add("Starting Item: " + startingItem.ToString(), null);
             }
 
             while (!Randomizer.Rooms.RoomDict["Ganondorf Castle"].Visited)
