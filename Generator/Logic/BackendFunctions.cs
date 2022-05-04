@@ -647,6 +647,16 @@ namespace TPRandomizer
             file.WriteLine("Settings: ");
             file.WriteLine(JsonConvert.SerializeObject(Randomizer.RandoSetting, Formatting.Indented));
             file.WriteLine(string.Empty);
+            file.WriteLine("Dungeon Rewards: ");
+            foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
+            {
+                currentCheck = check.Value;
+                if (currentCheck.itemWasPlaced && currentCheck.category.Contains("Dungeon Reward"))
+                {
+                    file.WriteLine(currentCheck.checkName + ": " + currentCheck.itemId);
+                }
+            }
+            file.WriteLine(string.Empty);
             file.WriteLine("Item Locations: ");
             foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
             {
