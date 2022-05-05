@@ -631,7 +631,6 @@ namespace TPRandomizer
         {
             Check currentCheck;
             bool isPlaythroughValid;
-            Random rnd = new ();
             Randomizer.Items.GenerateItemPool();
 
             string fileHash = "TPR-v1.0-" + seedHash + ".txt";
