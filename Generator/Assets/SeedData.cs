@@ -11,9 +11,9 @@ namespace TPRandomizer.Assets
     /// </summary>
     public class SeedData
     {
-        private static readonly List<byte> CheckDataRaw = new ();
-        private static readonly List<byte> BannerDataRaw = new ();
-        private static readonly SeedHeader SeedHeaderRaw = new ();
+        private static readonly List<byte> CheckDataRaw = new();
+        private static readonly List<byte> BannerDataRaw = new();
+        private static readonly SeedHeader SeedHeaderRaw = new();
         private static readonly byte SeedHeaderSize = 0x60;
 
         /// <summary>
@@ -95,8 +95,8 @@ namespace TPRandomizer.Assets
             * any seed bigger than 7 blocks will not work with this method.
             */
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
-            List<byte> currentSeedHeader = new ();
-            List<byte> currentSeedData = new ();
+            List<byte> currentSeedHeader = new();
+            List<byte> currentSeedData = new();
 
             char regionCode;
             switch (randomizerSettings.gameRegion)
@@ -150,7 +150,7 @@ namespace TPRandomizer.Assets
         /// <returns> The inserted value as a byte. </returns>
         internal static List<byte> GenerateSeedHeader(int seedNumber, string seedHash)
         {
-            List<byte> seedHeader = new ();
+            List<byte> seedHeader = new();
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             SettingData settingData = Randomizer.RandoSettingData;
             SeedHeaderRaw.headerSize = (ushort)SeedHeaderSize;
@@ -188,7 +188,7 @@ namespace TPRandomizer.Assets
             seedHeader.Add(Converter.GcByte(randomizerSettings.quickTransform ? 1 : 0));
             seedHeader.Add(Converter.GcByte(Array.IndexOf(settingData.castleRequirements, randomizerSettings.castleRequirements)));
             seedHeader.Add(Converter.GcByte(Array.IndexOf(settingData.palaceRequirements, randomizerSettings.palaceRequirements)));
-            while (seedHeader.Count < (SeedHeaderSize -1))
+            while (seedHeader.Count < (SeedHeaderSize - 1))
             {
                 seedHeader.Add((byte)0x0);
             }
@@ -200,7 +200,7 @@ namespace TPRandomizer.Assets
         private static List<byte> GeneratePatchSettings()
         {
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
-            List<byte> listOfPatches = new ();
+            List<byte> listOfPatches = new();
             bool[] patchSettingsArray =
             {
                 randomizerSettings.increaseWallet,
@@ -242,7 +242,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseARCReplacements()
         {
-            List<byte> listOfArcReplacements = new ();
+            List<byte> listOfArcReplacements = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -251,7 +251,7 @@ namespace TPRandomizer.Assets
                 {
                     for (int i = 0; i < currentCheck.arcOffsets.Count; i++)
                     {
-                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)uint.Parse(currentCheck.arcOffsets[i],System.Globalization.NumberStyles.HexNumber)));
+                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)uint.Parse(currentCheck.arcOffsets[i], System.Globalization.NumberStyles.HexNumber)));
                         if (currentCheck.replacementType[i] != 3)
                         {
                             listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)currentCheck.itemId));
@@ -285,7 +285,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseObjectARCReplacements()
         {
-            List<byte> listOfArcReplacements = new ();
+            List<byte> listOfArcReplacements = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -294,9 +294,9 @@ namespace TPRandomizer.Assets
                 {
                     for (int i = 0; i < currentCheck.arcOffsets.Count; i++)
                     {
-                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)uint.Parse(currentCheck.arcOffsets[i],System.Globalization.NumberStyles.HexNumber)));
+                        listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)uint.Parse(currentCheck.arcOffsets[i], System.Globalization.NumberStyles.HexNumber)));
                         listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)currentCheck.itemId));
-                        List<byte> fileNameBytes = new ();
+                        List<byte> fileNameBytes = new();
                         fileNameBytes.AddRange(Converter.StringBytes(currentCheck.fileName));
                         for (
                             int numberofFileNameBytes = fileNameBytes.Count;
@@ -321,7 +321,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseDZXReplacements()
         {
-            List<byte> listOfDZXReplacements = new ();
+            List<byte> listOfDZXReplacements = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -379,7 +379,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParsePOEReplacements()
         {
-            List<byte> listOfPOEReplacements = new ();
+            List<byte> listOfPOEReplacements = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -404,7 +404,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseRELOverrides()
         {
-            List<byte> listOfRELReplacements = new ();
+            List<byte> listOfRELReplacements = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -442,7 +442,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseBossReplacements()
         {
-            List<byte> listOfBossReplacements = new ();
+            List<byte> listOfBossReplacements = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -464,7 +464,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseBugRewards()
         {
-            List<byte> listOfBugRewards = new ();
+            List<byte> listOfBugRewards = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -489,7 +489,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseSkyCharacters()
         {
-            List<byte> listOfSkyCharacters = new ();
+            List<byte> listOfSkyCharacters = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -511,7 +511,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseHiddenSkills()
         {
-            List<byte> listOfHiddenSkills = new ();
+            List<byte> listOfHiddenSkills = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -538,7 +538,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseShopItems()
         {
-            List<byte> listOfShopItems = new ();
+            List<byte> listOfShopItems = new();
             ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -564,12 +564,12 @@ namespace TPRandomizer.Assets
         private static List<byte> ParseStartingItems()
         {
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
-            List<byte> listOfStartingItems = new ();
+            List<byte> listOfStartingItems = new();
             ushort count = 0;
             foreach (Item startingItem in randomizerSettings.StartingItems)
             {
                 listOfStartingItems.Add(Converter.GcByte((int)startingItem));
-                    count++;
+                count++;
             }
 
             SeedHeaderRaw.startingItemInfoNumEntries = count;
@@ -579,7 +579,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> GenerateEventFlags()
         {
-            List<byte> listOfEventFlags = new ();
+            List<byte> listOfEventFlags = new();
             ushort count = 0;
             byte[,] arrayOfEventFlags = { };
 
@@ -607,7 +607,7 @@ namespace TPRandomizer.Assets
 
         private static List<byte> GenerateRegionFlags()
         {
-            List<byte> listOfRegionFlags = new ();
+            List<byte> listOfRegionFlags = new();
             ushort count = 0;
             byte[,] arrayOfRegionFlags = { };
 

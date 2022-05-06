@@ -12,7 +12,7 @@ namespace TPRandomizer
         /// <summary>
         /// summary text.
         /// </summary>
-        public Dictionary<Token, string> TokenDict = new ();
+        public Dictionary<Token, string> TokenDict = new();
 
         //Evaluate the tokenized settings to their respective values that are set by the settings string.
 
@@ -70,7 +70,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool HasDamagingItem()
         {
-            return 
+            return
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
@@ -108,7 +108,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatBabaSerpent()
         {
-            return 
+            return
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
@@ -122,7 +122,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatBabyGohma()
         {
-            return 
+            return
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
@@ -145,7 +145,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatBeamos()
         {
-            return 
+            return
                 CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || hasBombs();
@@ -156,7 +156,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatBigBaba()
         {
-            return 
+            return
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
                 || ((getItemCount(Item.Progressive_Bow) >= 1) && CanGetArrows())
@@ -1124,7 +1124,7 @@ namespace TPRandomizer
         {
             return (
                 (CanUse(Item.Boomerang)
-                  || (hasBombs() && (getItemCount(Item.Progressive_Bow) >= 1))) 
+                  || (hasBombs() && (getItemCount(Item.Progressive_Bow) >= 1)))
                  && (HasSword()
                   || CanUse(Item.Ball_and_Chain)
                   || CanUse(Item.Iron_Boots)

@@ -48,7 +48,7 @@ namespace TPRandomizer
 
         public List<string> magicByte { get; set; }
 
-        public string fileName {get; set;}
+        public string fileName { get; set; }
 
         public List<string> relOverride { get; set; } // Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }
@@ -61,7 +61,7 @@ namespace TPRandomizer
         /// <summary>
         /// A dictionary of all randomizer locations.
         /// </summary>
-        public Dictionary<string, Check> CheckDict = new ();
+        public Dictionary<string, Check> CheckDict = new();
 
         /// <summary>
         /// summary text.
@@ -94,9 +94,9 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Npc"))
                         {
-                            if (((parseSetting.smallKeySettings == "Keysey") && currentCheck.category.Contains("Small Key")) 
+                            if (((parseSetting.smallKeySettings == "Keysey") && currentCheck.category.Contains("Small Key"))
                             || ((parseSetting.bossKeySettings == "Keysey") && currentCheck.category.Contains("Big Key"))
-                            || ((parseSetting.mapAndCompassSettings == "Start_With") 
+                            || ((parseSetting.mapAndCompassSettings == "Start_With")
                             && (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass"))))
                             {
                                 currentCheck.checkStatus = "Excluded";
@@ -104,8 +104,8 @@ namespace TPRandomizer
                             else
                             {
                                 currentCheck.checkStatus = "Vanilla";
-                            Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
-			    Randomizer.Items.alwaysItems.Remove(currentCheck.itemId);
+                                Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
+                                Randomizer.Items.alwaysItems.Remove(currentCheck.itemId);
                             }
                         }
                     }
@@ -131,7 +131,7 @@ namespace TPRandomizer
                         if (currentCheck.category.Contains("Hidden Skill"))
                         {
                             currentCheck.checkStatus = "Vanilla";
-			    Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
+                            Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                         }
                     }
 
@@ -150,7 +150,7 @@ namespace TPRandomizer
                         {
                             currentCheck.checkStatus = "Vanilla";
                             Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
- 			    Randomizer.Items.alwaysItems.Remove(currentCheck.itemId);
+                            Randomizer.Items.alwaysItems.Remove(currentCheck.itemId);
 
                         }
                     }

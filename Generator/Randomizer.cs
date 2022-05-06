@@ -14,32 +14,32 @@ namespace TPRandomizer
         /// <summary>
         /// A reference to all logic functions that need to be used by the randomizer.
         /// </summary>
-        public static readonly LogicFunctions Logic = new ();
+        public static readonly LogicFunctions Logic = new();
 
         /// <summary>
         /// A reference to all check-related functions that need to be used by the randomizer.
         /// </summary>
-        public static readonly CheckFunctions Checks = new ();
+        public static readonly CheckFunctions Checks = new();
 
         /// <summary>
         /// A reference to all room-related functions that need to be used by the randomizer.
         /// </summary>
-        public static readonly RoomFunctions Rooms = new ();
+        public static readonly RoomFunctions Rooms = new();
 
         /// <summary>
         /// A reference to all item lists and functions that need to be used by the randomizer.
         /// </summary>
-        public static readonly ItemFunctions Items = new ();
+        public static readonly ItemFunctions Items = new();
 
         /// <summary>
         /// A reference to the settings structures that need to be used by the randomizer.
         /// </summary>
-        public static readonly RandomizerSetting RandoSetting = new ();
+        public static readonly RandomizerSetting RandoSetting = new();
 
         /// <summary>
         /// A reference to the settings that the settings string use that need to be used by the randomizer.
         /// </summary>
-        public static readonly SettingData RandoSettingData = new ();
+        public static readonly SettingData RandoSettingData = new();
 
         /// <summary>
         /// The most recent version of the randomizer that will support the seed generated.
@@ -60,8 +60,8 @@ namespace TPRandomizer
             bool generationStatus = false;
             int remainingGenerationAttempts = 30;
             Console.WriteLine("Twilight Princess Randomizer Version " + RandomizerVersionMajor + "." + RandomizerVersionMinor);
-            Random rnd = new ();
-            string seedHash = generatorSeedHash;;
+            Random rnd = new();
+            string seedHash = generatorSeedHash; ;
 
             // Generate the dictionary values that are needed and initialize the data for the selected logic type.
             DeserializeChecks();
@@ -88,7 +88,7 @@ namespace TPRandomizer
                     Assets.SeedData.GenerateSeedData(seedHash);
                     Console.WriteLine("Generating Spoiler Log.");
                     BackendFunctions.GenerateSpoilerLog(startingRoom, seedHash);
-                    IEnumerable<string> fileList = new string[] {"TPR-v1.0-" + seedHash + ".txt", "TPR-v1.0-" + seedHash + "-Seed-Data.gci"};
+                    IEnumerable<string> fileList = new string[] { "TPR-v1.0-" + seedHash + ".txt", "TPR-v1.0-" + seedHash + "-Seed-Data.gci" };
                     BackendFunctions.CreateZipFile("Seed/TPR-v1.0-" + seedHash + ".zip", fileList);
                     Console.WriteLine("Generation Complete!");
                     generationStatus = true;
@@ -115,10 +115,10 @@ namespace TPRandomizer
         /// <returns> A complete playthrough graph for the player to traverse. </returns>
         public static List<Room> GeneratePlaythroughGraph(Room startingRoom)
         {
-            List<Room> playthroughGraph = new ();
-            
+            List<Room> playthroughGraph = new();
+
             int availableRooms = 1;
-            List<Room> roomsToExplore = new ();
+            List<Room> roomsToExplore = new();
 
             foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
             {
@@ -243,7 +243,7 @@ namespace TPRandomizer
         /// </summary>
         private static void PlaceExcludedChecks()
         {
-            Random rnd = new ();
+            Random rnd = new();
             foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
@@ -268,15 +268,15 @@ namespace TPRandomizer
             // Once all of the items in ItemGroup have been placed, we dump our item pool and restore it with the copy we have.
             if (itemGroup.Count > 0)
             {
-                List<string> availableChecks = new ();
+                List<string> availableChecks = new();
                 Item itemToPlace;
                 Check checkToReciveItem;
-                List<Item> itemsToBeRandomized = new ();
-                List<Item> playthroughItems = new ();
-                List<Item> currentItemPool = new ();
+                List<Item> itemsToBeRandomized = new();
+                List<Item> playthroughItems = new();
+                List<Item> currentItemPool = new();
                 currentItemPool.AddRange(itemPool);
                 itemsToBeRandomized.AddRange(itemGroup);
-                Random rnd = new ();
+                Random rnd = new();
 
                 while (itemsToBeRandomized.Count > 0)
                 {
@@ -382,10 +382,10 @@ namespace TPRandomizer
         /// <param name="itemsToBeRandomized"> The group of items that are to be randomized. </param>
         private static void PlaceNonImpactItems(List<Item> itemsToBeRandomized)
         {
-            List<string> availableChecks = new ();
+            List<string> availableChecks = new();
             Item itemToPlace;
             Check checkToReciveItem;
-            Random rnd = new ();
+            Random rnd = new();
 
             while (itemsToBeRandomized.Count > 0)
             {
@@ -416,7 +416,7 @@ namespace TPRandomizer
         /// <param name="itemsToBeRandomized"> The group of items that are to be randomized. </param>
         private static void PlaceJunkItems(List<Item> itemsToBeRandomized)
         {
-            Random rnd = new ();
+            Random rnd = new();
             foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;

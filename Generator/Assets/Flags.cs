@@ -3,8 +3,8 @@ namespace TPRandomizer.Assets
     using System.Collections.Generic;
 
     /// <summary>
-        /// summary text.
-        /// </summary>
+    /// summary text.
+    /// </summary>
     public class Flags
     {
         /// <summary>
@@ -84,7 +84,7 @@ namespace TPRandomizer.Assets
             {
                 { 0x4, 0x51 }, // Set flag for MDH Cutscene in Lake Hylia
             };
-        
+
         public static readonly byte[,] CutsceneRegionFlags = new byte[,]
             {
                 { 0x0, 0x4A }, // Ordon Day 3 Intro CS.
@@ -231,7 +231,7 @@ namespace TPRandomizer.Assets
                 { 0x18, 0xB7 }, // Lit southeast torch in second floor north room for the first time CS.
                 { 0x18, 0xB8 }, // Lit northeast torch in second floor north room for the first time CS.
             };
-        
+
         public static readonly byte[,] SmallKeyRegionFlags = new byte[,]
             {
                 { 0x2, 0x53 }, // Coro gate unlocked.
@@ -321,15 +321,15 @@ namespace TPRandomizer.Assets
                 { 0x18, 0xEF }, // Got Hyrule Castle Dungeon Map.
             };
 
-            public static readonly byte[,] OpenCastleRegionFlags = new byte[,]
-            {
+        public static readonly byte[,] OpenCastleRegionFlags = new byte[,]
+        {
                 { 0x9, 0x50 }, // Set flag for Midna breaking Barrier CS.
-            };
+        };
 
         /// <summary>
         /// summary text.
         /// </summary>
-        public static readonly Dictionary<int, byte[,]> RegionFlags = new ()
+        public static readonly Dictionary<int, byte[,]> RegionFlags = new()
         {
             { 0, IntroRegionFlags },
             { 1, FaronTwilightRegionFlags },
@@ -471,7 +471,7 @@ namespace TPRandomizer.Assets
         /// <summary>
         /// summary text.
         /// </summary>
-        public static readonly Dictionary<int, byte[,]> EventFlags = new ()
+        public static readonly Dictionary<int, byte[,]> EventFlags = new()
         {
             { 0, IntroEventFlags },
             { 1, FaronTwilightEventFlags },
