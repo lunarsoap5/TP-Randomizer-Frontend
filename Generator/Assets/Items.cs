@@ -572,33 +572,6 @@ namespace TPRandomizer
                 Item.Red_Rupee,
                 Item.Red_Rupee,
                 Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
                 Item.Purple_Rupee,
                 Item.Purple_Rupee,
                 Item.Purple_Rupee,
@@ -645,9 +618,12 @@ namespace TPRandomizer
                 Item.Purple_Rupee,
                 Item.Purple_Rupee,
                 Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
+                Item.Orange_Rupee,
+                Item.Orange_Rupee,
+                Item.Orange_Rupee,
+                Item.Orange_Rupee,
+                Item.Orange_Rupee,
+                Item.Orange_Rupee,
                 Item.Orange_Rupee,
                 Item.Orange_Rupee,
                 Item.Orange_Rupee,
@@ -827,14 +803,14 @@ namespace TPRandomizer
                 case "Few": // There is a small chance that a Foolish Item could appear
                 {
                     this.JunkItems.AddRange(this.vanillaJunkItems);
-                    this.JunkItems.Add(Item.Foolish_Item);
+                    this.JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 4));
                     break;
                 }
 
                 case "Many": // There is an increased chance that a Foolish Item could appear
                 {
                     this.JunkItems.AddRange(this.vanillaJunkItems);
-                    this.JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 4));
+                    this.JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 20));
                     break;
                 }
 
