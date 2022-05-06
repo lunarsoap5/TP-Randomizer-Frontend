@@ -147,7 +147,6 @@ namespace TPRandomizer
                     }
                     tokenValue++;
                 }
-
                 // If there is no comma following the function, then it doesnt need to return an int value, and we can continue to evaluate it
                 else
                 {
@@ -238,7 +237,11 @@ namespace TPRandomizer
                         var text = new StringBuilder();
                         if (Char.IsLetter(_reader[i]))
                         {
-                            while (Char.IsLetter(_reader[i]) || (_reader[i] == '_') || (_reader[i] == '.'))
+                            while (
+                                Char.IsLetter(_reader[i])
+                                || (_reader[i] == '_')
+                                || (_reader[i] == '.')
+                            )
                             {
                                 text.Append(_reader[i]);
                                 i++;
@@ -269,11 +272,13 @@ namespace TPRandomizer
                                         tokens.Add(new itemToken(), potentialKeyword.ToString());
                                         break;
                                     }
-
                                     // if it is a setting, it needs to be evaluated as such later on
                                     else if (potentialKeyword.Contains("Setting."))
                                     {
-                                        tokens.Add(new settingsToken(), potentialKeyword.ToString());
+                                        tokens.Add(
+                                            new settingsToken(),
+                                            potentialKeyword.ToString()
+                                        );
                                         break;
                                     }
                                     else if (potentialKeyword.Contains("Room."))
@@ -281,16 +286,17 @@ namespace TPRandomizer
                                         tokens.Add(new roomToken(), potentialKeyword.ToString());
                                         break;
                                     }
-
                                     // If it isnt a keyword, we assume that it is a logic function
                                     else
                                     {
-                                        tokens.Add(new logicFunctionToken(), potentialKeyword.ToString());
+                                        tokens.Add(
+                                            new logicFunctionToken(),
+                                            potentialKeyword.ToString()
+                                        );
                                         break;
                                     }
                             }
                         }
-
                         // If the char is an integer, we need to see if it is a larger number (one that is more than one char)
                         else if (Char.IsNumber(_reader[i]))
                         {

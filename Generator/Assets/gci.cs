@@ -40,7 +40,12 @@ namespace TPRandomizer.Assets
         /// <param name="seedRegion">The region of the game that the seed is being generated for.</param>
         /// <param name="seedData">Any data that needs to be read into the GCI file.</param>
         /// <returns> The inserted value as a byte. </returns>
-        public Gci(byte seedNumber = 0, string seedRegion = "NTSC", List<byte> seedData = null, string seedHash = "")
+        public Gci(
+            byte seedNumber = 0,
+            string seedRegion = "NTSC",
+            List<byte> seedData = null,
+            string seedHash = ""
+        )
         {
             char regionCode;
             switch (seedRegion)
@@ -74,7 +79,9 @@ namespace TPRandomizer.Assets
             /*x8*/
             gciHeader.AddRange(Converter.StringBytes($"rando-data{seedNumber}", 0x20));
             /*x28*/
-            gciHeader.AddRange(Converter.GcBytes((UInt32)(DateTime.UtcNow - new DateTime(2000, 1, 1)).TotalSeconds));
+            gciHeader.AddRange(
+                Converter.GcBytes((UInt32)(DateTime.UtcNow - new DateTime(2000, 1, 1)).TotalSeconds)
+            );
             /*x2c*/
             gciHeader.AddRange(Converter.GcBytes((UInt32)0x0)); // Image data offset
             /*x30*/
@@ -100,7 +107,6 @@ namespace TPRandomizer.Assets
             // Pad
             while (gciFile.Count < (2 * 0x2000) + 0x40) // Pad to 2 blocks.
                 gciFile.Add((byte)0x0);
-
         }
     }
 }

@@ -50,20 +50,14 @@ namespace TPRandomizer
         public bool increaseWallet { get; set; }
         public bool modifyShopModels { get; set; }
     }
+
     public class SettingData
     {
         public static string[] logicRules { get; set; } =
             new string[] { "Glitchless", "Glitched", "No_Logic" };
 
         public string[] castleRequirements { get; set; } =
-            new string[]
-            {
-                "Open",
-                "Fused_Shadows",
-                "Mirror_Shards",
-                "All_Dungeons",
-                "Vanilla",
-            };
+            new string[] { "Open", "Fused_Shadows", "Mirror_Shards", "All_Dungeons", "Vanilla", };
 
         public string[] palaceRequirements { get; set; } =
             new string[] { "Open", "Fused_Shadows", "Mirror_Shards", "Vanilla" };

@@ -74,13 +74,15 @@ namespace TPRandomizer
             {
                 if (
                     (parseSetting.smallKeySettings == "Own_Dungeon")
-                    && itemName.Contains(currentRoom.Region))
+                    && itemName.Contains(currentRoom.Region)
+                )
                 {
                     return true;
                 }
                 else if (
                     (parseSetting.smallKeySettings == "Any_Dungeon")
-                    && currentCheck.category.Contains("Dungeon"))
+                    && currentCheck.category.Contains("Dungeon")
+                )
                 {
                     return true;
                 }

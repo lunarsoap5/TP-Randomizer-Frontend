@@ -89,7 +89,8 @@ namespace TPRandomizer
                             settingProperty.SetValue(
                                 Randomizer.RandoSetting,
                                 dataArray[Convert.ToInt32(evaluatedByteString, 2)],
-                                null);
+                                null
+                            );
                             break;
                         }
                     }
@@ -109,7 +110,8 @@ namespace TPRandomizer
                     settingProperty.SetValue(
                         Randomizer.RandoSetting,
                         Convert.ToInt32(evaluatedByteString, 2),
-                        null);
+                        null
+                    );
                 }
 
                 if (settingProperty.PropertyType == typeof(List<Item>))
@@ -170,8 +172,11 @@ namespace TPRandomizer
                         // Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         if (checkIndex != 511)
                         {
-                            Randomizer.Checks.CheckDict.Values.ElementAt(checkIndex).checkStatus = "Excluded";
-                            excludedChecks.Add(Randomizer.Checks.CheckDict.Values.ElementAt(checkIndex).checkName);
+                            Randomizer.Checks.CheckDict.Values.ElementAt(checkIndex).checkStatus =
+                                "Excluded";
+                            excludedChecks.Add(
+                                Randomizer.Checks.CheckDict.Values.ElementAt(checkIndex).checkName
+                            );
                         }
                         else
                         {
@@ -187,7 +192,8 @@ namespace TPRandomizer
                 Console.WriteLine(
                     settingProperty.Name
                         + ": "
-                        + settingProperty.GetValue(Randomizer.RandoSetting, null));
+                        + settingProperty.GetValue(Randomizer.RandoSetting, null)
+                );
             }
 
             if (!Randomizer.RandoSetting.shuffleHiddenSkills)
@@ -300,14 +306,20 @@ namespace TPRandomizer
             {
                 playthroughItems.Clear();
                 List<Room> currentPlaythroughGraph = Randomizer.GeneratePlaythroughGraph(
-                    startingRoom);
+                    startingRoom
+                );
                 foreach (Room graphRoom in currentPlaythroughGraph)
                 {
                     // Console.WriteLine("Currently Exploring: " + graphRoom.name);
                     for (int i = 0; i < graphRoom.Checks.Count; i++)
                     {
                         // Create reference to the dictionary entry of the check whose logic we are evaluating
-                        if (!Randomizer.Checks.CheckDict.TryGetValue(graphRoom.Checks[i], out Check currentCheck))
+                        if (
+                            !Randomizer.Checks.CheckDict.TryGetValue(
+                                graphRoom.Checks[i],
+                                out Check currentCheck
+                            )
+                        )
                         {
                             if (graphRoom.Checks[i].ToString() == string.Empty)
                             {
@@ -319,7 +331,8 @@ namespace TPRandomizer
                         if (!currentCheck.hasBeenReached)
                         {
                             var areCheckRequirementsMet = Randomizer.Logic.EvaluateRequirements(
-                                currentCheck.requirements);
+                                currentCheck.requirements
+                            );
                             if ((bool)areCheckRequirementsMet == true)
                             {
                                 if (currentCheck.itemWasPlaced)
@@ -336,8 +349,7 @@ namespace TPRandomizer
                 }
 
                 Randomizer.Items.heldItems.AddRange(playthroughItems);
-            }
-            while (playthroughItems.Count > 0);
+            } while (playthroughItems.Count > 0);
 
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -434,7 +446,9 @@ namespace TPRandomizer
                         if (
                             !Randomizer.Checks.CheckDict.TryGetValue(
                                 graphRoom.Checks[i],
-                                out Check currentCheck))
+                                out Check currentCheck
+                            )
+                        )
                         {
                             if (graphRoom.Checks[i].ToString() == string.Empty)
                             {
@@ -445,22 +459,33 @@ namespace TPRandomizer
 
                         if (!currentCheck.hasBeenReached)
                         {
-                            var areCheckRequirementsMet =
-                                Randomizer.Logic.EvaluateRequirements(
-                                    currentCheck.requirements);
+                            var areCheckRequirementsMet = Randomizer.Logic.EvaluateRequirements(
+                                currentCheck.requirements
+                            );
                             if ((bool)areCheckRequirementsMet == true)
                             {
                                 sphereItems.Add(currentCheck.itemId);
                                 currentCheck.hasBeenReached = true;
                                 if (
                                     Randomizer.Items.ImportantItems.Contains(currentCheck.itemId)
-                                    || Randomizer.Items.RegionSmallKeys.Contains(currentCheck.itemId)
+                                    || Randomizer.Items.RegionSmallKeys.Contains(
+                                        currentCheck.itemId
+                                    )
                                     || Randomizer.Items.DungeonBigKeys.Contains(currentCheck.itemId)
-                                    || Randomizer.Items.VanillaDungeonRewards.Contains(currentCheck.itemId)
+                                    || Randomizer.Items.VanillaDungeonRewards.Contains(
+                                        currentCheck.itemId
+                                    )
                                     || Randomizer.Items.goldenBugs.Contains(currentCheck.itemId)
-                                    || (currentCheck.itemId == Item.Poe_Soul))
+                                    || (currentCheck.itemId == Item.Poe_Soul)
+                                )
                                 {
-                                    playthroughDictionary.Add("    " + currentCheck.checkName + ": " + currentCheck.itemId, currentCheck);
+                                    playthroughDictionary.Add(
+                                        "    "
+                                            + currentCheck.checkName
+                                            + ": "
+                                            + currentCheck.itemId,
+                                        currentCheck
+                                    );
                                     hasCompletedSphere = true;
                                 }
                             }
@@ -470,12 +495,12 @@ namespace TPRandomizer
 
                 Randomizer.Items.heldItems.AddRange(sphereItems);
 
-
                 sphereCount++;
                 if ((hasCompletedSphere == false) && !hasConcludedPlaythrough)
                 {
                     Console.WriteLine(
-                        "Could not validate playthrough. There possibly is an error in logic or the specific playthrough has failed.");
+                        "Could not validate playthrough. There possibly is an error in logic or the specific playthrough has failed."
+                    );
                     break;
                 }
             }
@@ -579,7 +604,9 @@ namespace TPRandomizer
                             if (
                                 !Randomizer.Checks.CheckDict.TryGetValue(
                                     graphRoom.Checks[i],
-                                    out Check currentCheck))
+                                    out Check currentCheck
+                                )
+                            )
                             {
                                 if (graphRoom.Checks[i].ToString() == string.Empty)
                                 {
@@ -590,19 +617,28 @@ namespace TPRandomizer
 
                             if (!currentCheck.hasBeenReached)
                             {
-                                var areCheckRequirementsMet =
-                                    Randomizer.Logic.EvaluateRequirements(
-                                        currentCheck.requirements);
+                                var areCheckRequirementsMet = Randomizer.Logic.EvaluateRequirements(
+                                    currentCheck.requirements
+                                );
                                 if ((bool)areCheckRequirementsMet == true)
                                 {
                                     currentCheck.hasBeenReached = true;
                                     if (
-                                        Randomizer.Items.ImportantItems.Contains(currentCheck.itemId)
-                                        || Randomizer.Items.RegionSmallKeys.Contains(currentCheck.itemId)
-                                        || Randomizer.Items.DungeonBigKeys.Contains(currentCheck.itemId)
-                                        || Randomizer.Items.VanillaDungeonRewards.Contains(currentCheck.itemId)
+                                        Randomizer.Items.ImportantItems.Contains(
+                                            currentCheck.itemId
+                                        )
+                                        || Randomizer.Items.RegionSmallKeys.Contains(
+                                            currentCheck.itemId
+                                        )
+                                        || Randomizer.Items.DungeonBigKeys.Contains(
+                                            currentCheck.itemId
+                                        )
+                                        || Randomizer.Items.VanillaDungeonRewards.Contains(
+                                            currentCheck.itemId
+                                        )
                                         || Randomizer.Items.goldenBugs.Contains(currentCheck.itemId)
-                                        || (currentCheck.itemId == Item.Poe_Soul))
+                                        || (currentCheck.itemId == Item.Poe_Soul)
+                                    )
                                     {
                                         sphereItems.Add(currentCheck.itemId);
                                         hasCompletedSphere = true;
@@ -613,8 +649,7 @@ namespace TPRandomizer
                     }
 
                     Randomizer.Items.heldItems.AddRange(sphereItems);
-                }
-                while (sphereItems.Count > 0);
+                } while (sphereItems.Count > 0);
 
                 if ((hasCompletedSphere == false) && !hasConcludedPlaythrough)
                 {
@@ -639,12 +674,15 @@ namespace TPRandomizer
             using StreamWriter file = new(fileHash);
 
             file.WriteLine(
-                "Randomizer Version: " +
-                Randomizer.RandomizerVersionMajor +
-                "." +
-                Randomizer.RandomizerVersionMinor);
+                "Randomizer Version: "
+                    + Randomizer.RandomizerVersionMajor
+                    + "."
+                    + Randomizer.RandomizerVersionMinor
+            );
             file.WriteLine("Settings: ");
-            file.WriteLine(JsonConvert.SerializeObject(Randomizer.RandoSetting, Formatting.Indented));
+            file.WriteLine(
+                JsonConvert.SerializeObject(Randomizer.RandoSetting, Formatting.Indented)
+            );
             file.WriteLine(string.Empty);
             file.WriteLine("Dungeon Rewards: ");
             foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
@@ -686,10 +724,11 @@ namespace TPRandomizer
 
             List<string> optimalPlaythrough = CalculateOptimalPlaythrough(startingRoom);
             optimalPlaythrough.ForEach(
-                delegate (string playthroughItem)
+                delegate(string playthroughItem)
                 {
                     file.WriteLine(playthroughItem);
-                });
+                }
+            );
             file.Close();
         }
 
@@ -700,7 +739,8 @@ namespace TPRandomizer
         {
             byte[,] array3 = new byte[
                 destArray.GetLength(0) + sourceArray.GetLength(0),
-                destArray.GetLength(1) + sourceArray.GetLength(1)];
+                destArray.GetLength(1) + sourceArray.GetLength(1)
+            ];
             int j = 0;
             for (int i = 0; i < destArray.GetLength(0); i++)
             {

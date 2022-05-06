@@ -74,18 +74,29 @@ namespace TPRandomizer
                 Check currentCheck = check.Value;
                 if (currentCheck.checkStatus == "Ready")
                 {
-                    if ((parseSetting.smallKeySettings == "Vanilla") && currentCheck.category.Contains("Small Key"))
+                    if (
+                        (parseSetting.smallKeySettings == "Vanilla")
+                        && currentCheck.category.Contains("Small Key")
+                    )
                     {
                         currentCheck.checkStatus = "Vanilla";
                     }
 
-                    if ((parseSetting.bossKeySettings == "Vanilla") && currentCheck.category.Contains("Big Key"))
+                    if (
+                        (parseSetting.bossKeySettings == "Vanilla")
+                        && currentCheck.category.Contains("Big Key")
+                    )
                     {
                         currentCheck.checkStatus = "Vanilla";
                     }
 
-                    if ((parseSetting.mapAndCompassSettings == "Vanilla") && (currentCheck.category.Contains("Dungeon Map")
-                        || currentCheck.category.Contains("Compass")))
+                    if (
+                        (parseSetting.mapAndCompassSettings == "Vanilla")
+                        && (
+                            currentCheck.category.Contains("Dungeon Map")
+                            || currentCheck.category.Contains("Compass")
+                        )
+                    )
                     {
                         currentCheck.checkStatus = "Vanilla";
                     }
@@ -94,17 +105,32 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Npc"))
                         {
-                            if (((parseSetting.smallKeySettings == "Keysey") && currentCheck.category.Contains("Small Key"))
-                            || ((parseSetting.bossKeySettings == "Keysey") && currentCheck.category.Contains("Big Key"))
-                            || ((parseSetting.mapAndCompassSettings == "Start_With")
-                            && (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass"))))
+                            if (
+                                (
+                                    (parseSetting.smallKeySettings == "Keysey")
+                                    && currentCheck.category.Contains("Small Key")
+                                )
+                                || (
+                                    (parseSetting.bossKeySettings == "Keysey")
+                                    && currentCheck.category.Contains("Big Key")
+                                )
+                                || (
+                                    (parseSetting.mapAndCompassSettings == "Start_With")
+                                    && (
+                                        currentCheck.category.Contains("Dungeon Map")
+                                        || currentCheck.category.Contains("Compass")
+                                    )
+                                )
+                            )
                             {
                                 currentCheck.checkStatus = "Excluded";
                             }
                             else
                             {
                                 currentCheck.checkStatus = "Vanilla";
-                                Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
+                                Randomizer.Items.RandomizedImportantItems.Remove(
+                                    currentCheck.itemId
+                                );
                                 Randomizer.Items.alwaysItems.Remove(currentCheck.itemId);
                             }
                         }
@@ -151,7 +177,6 @@ namespace TPRandomizer
                             currentCheck.checkStatus = "Vanilla";
                             Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                             Randomizer.Items.alwaysItems.Remove(currentCheck.itemId);
-
                         }
                     }
                 }
@@ -162,14 +187,18 @@ namespace TPRandomizer
                 // We want to set Uli Cradle Delivery vanilla if intro is not skipped since a Fishing Rod has to be there in order to progress the seed.
                 // We also place the Lantern vanilla because it is a big logic hole and since we don't know how to make coro give both items in one state yet, it's safer to do this.
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Vanilla";
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
+                Randomizer.Items.RandomizedImportantItems.Remove(
+                    Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId
+                );
             }
             else
             {
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Excluded";
                 Randomizer.Checks.CheckDict["Ordon Cat Rescue"].checkStatus = "Excluded";
                 Randomizer.Items.RandomizedImportantItems.Remove(Item.North_Faron_Woods_Gate_Key);
-                Randomizer.Items.RandomizedDungeonRegionItems.Remove(Item.North_Faron_Woods_Gate_Key);
+                Randomizer.Items.RandomizedDungeonRegionItems.Remove(
+                    Item.North_Faron_Woods_Gate_Key
+                );
             }
 
             if (parseSetting.faronTwilightCleared)
@@ -179,9 +208,13 @@ namespace TPRandomizer
             }
             else
             {
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Sword"].itemId);
+                Randomizer.Items.RandomizedImportantItems.Remove(
+                    Randomizer.Checks.CheckDict["Ordon Sword"].itemId
+                );
                 Randomizer.Checks.CheckDict["Ordon Sword"].checkStatus = "Vanilla";
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Shield"].itemId);
+                Randomizer.Items.RandomizedImportantItems.Remove(
+                    Randomizer.Checks.CheckDict["Ordon Shield"].itemId
+                );
                 Randomizer.Checks.CheckDict["Ordon Shield"].checkStatus = "Vanilla";
             }
 
@@ -199,11 +232,21 @@ namespace TPRandomizer
             Randomizer.Checks.CheckDict["Wooden Statue"].checkStatus = "Vanilla";
             Randomizer.Checks.CheckDict["Ilia Charm"].checkStatus = "Vanilla";
             Randomizer.Checks.CheckDict["Ilia Memory Reward"].checkStatus = "Vanilla";
-            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Renados Letter"].itemId);
-            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Telma Invoice"].itemId);
-            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Wooden Statue"].itemId);
-            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ilia Charm"].itemId);
-            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ilia Memory Reward"].itemId);
+            Randomizer.Items.RandomizedImportantItems.Remove(
+                Randomizer.Checks.CheckDict["Renados Letter"].itemId
+            );
+            Randomizer.Items.RandomizedImportantItems.Remove(
+                Randomizer.Checks.CheckDict["Telma Invoice"].itemId
+            );
+            Randomizer.Items.RandomizedImportantItems.Remove(
+                Randomizer.Checks.CheckDict["Wooden Statue"].itemId
+            );
+            Randomizer.Items.RandomizedImportantItems.Remove(
+                Randomizer.Checks.CheckDict["Ilia Charm"].itemId
+            );
+            Randomizer.Items.RandomizedImportantItems.Remove(
+                Randomizer.Checks.CheckDict["Ilia Memory Reward"].itemId
+            );
         }
     }
 }

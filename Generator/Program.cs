@@ -1,7 +1,6 @@
 ﻿using System;
 
 namespace TPRandomizer
-
 {
     static class Program
     {
