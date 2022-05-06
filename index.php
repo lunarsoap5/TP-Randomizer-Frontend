@@ -179,10 +179,10 @@
 							<label for="foolishItemFieldset">Foolish Items:</label>
 							<select name="Foolish Items" id="foolishItemFieldset">
 								<option value="0">None</option>
-								<option value="1" disabled>Few</option>
-								<option value="2" disabled>Many</option>
-								<option value="3" disabled>Mayhem</option>
-								<option value="4" disabled>Nightmare</option>
+								<option value="1">Few</option>
+								<option value="2">Many</option>
+								<option value="3">Mayhem</option>
+								<option value="4">Nightmare</option>
 							</select>
 						</fieldset>
 					</fieldset>
