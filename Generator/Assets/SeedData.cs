@@ -21,14 +21,12 @@ namespace TPRandomizer.Assets
         /// </summary>
         internal class SeedHeader
         {
+            public UInt16 minVersion { get; set; } // minimal required REL version
+            public UInt16 maxVersion { get; set; } // maximum supported REL version
             public UInt16 headerSize { get; set; } // Total size of the header in bytes
             public UInt16 dataSize { get; set; } // Total number of bytes
 
-            public UInt64 seed { get; set; } // Current seed
-
-            public UInt16 minVersion { get; set; } // minimal required REL version
-
-            public UInt16 maxVersion { get; set; } // maximum supported REL version
+            public UInt64 seed { get; set; } // Current seed  
 
             public UInt16 patchInfoNumEntries { get; set; } // bitArray where each bit represents a patch/modification to be applied for this playthrough
 
