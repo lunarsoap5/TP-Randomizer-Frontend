@@ -41,172 +41,188 @@ namespace TPRandomizer
         public static void InterpretSettingsString(string settingsString)
         {
             // Convert the settings string into a binary string to be interpreted.
-            string bitString = TextToBitString(Base64Decode(settingsString));
-            PropertyInfo[] randoSettingProperties = Randomizer.RandoSetting
-                .GetType()
-                .GetProperties();
-            PropertyInfo[] settingDataProperties = Randomizer.RandoSettingData
-                .GetType()
-                .GetProperties();
-            foreach (PropertyInfo settingProperty in randoSettingProperties)
+            try
             {
-                string evaluatedByteString = string.Empty;
-                int settingBitWidth = 0;
-                bool reachedEndofList = false;
-                if (settingProperty.PropertyType == typeof(bool))
+                string bitString = TextToBitString(Base64Decode(settingsString));
+                PropertyInfo[] randoSettingProperties = Randomizer.RandoSetting
+                    .GetType()
+                    .GetProperties();
+                PropertyInfo[] settingDataProperties = Randomizer.RandoSettingData
+                    .GetType()
+                    .GetProperties();
+                foreach (PropertyInfo settingProperty in randoSettingProperties)
                 {
-                    int value = Convert.ToInt32(bitString[0].ToString(), 2);
-                    if (value == 1)
+                    string evaluatedByteString = string.Empty;
+                    int settingBitWidth = 0;
+                    bool reachedEndofList = false;
+                    if (settingProperty.PropertyType == typeof(bool))
                     {
-                        settingProperty.SetValue(Randomizer.RandoSetting, true, null);
-                    }
-                    else
-                    {
-                        settingProperty.SetValue(Randomizer.RandoSetting, false, null);
-                    }
-
-                    bitString = bitString.Remove(0, 1);
-                }
-
-                if (settingProperty.PropertyType == typeof(string))
-                {
-                    // We loop through the Settings Data to match the index with the appropriate value.
-                    foreach (PropertyInfo dataProperty in settingDataProperties)
-                    {
-                        var dataValue = dataProperty.GetValue(Randomizer.RandoSettingData, null);
-                        if (settingProperty.Name == dataProperty.Name)
+                        int value = Convert.ToInt32(bitString[0].ToString(), 2);
+                        if (value == 1)
                         {
-                            settingBitWidth = 4;
+                            settingProperty.SetValue(Randomizer.RandoSetting, true, null);
+                        }
+                        else
+                        {
+                            settingProperty.SetValue(Randomizer.RandoSetting, false, null);
+                        }
 
-                            // We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
+                        bitString = bitString.Remove(0, 1);
+                    }
+
+                    if (settingProperty.PropertyType == typeof(string))
+                    {
+                        // We loop through the Settings Data to match the index with the appropriate value.
+                        foreach (PropertyInfo dataProperty in settingDataProperties)
+                        {
+                            var dataValue = dataProperty.GetValue(
+                                Randomizer.RandoSettingData,
+                                null
+                            );
+                            if (settingProperty.Name == dataProperty.Name)
+                            {
+                                settingBitWidth = 4;
+
+                                // We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
+                                for (int j = 0; j < settingBitWidth; j++)
+                                {
+                                    evaluatedByteString += bitString[0];
+                                    bitString = bitString.Remove(0, 1);
+                                }
+
+                                string[] dataArray = (string[])dataValue;
+                                settingProperty.SetValue(
+                                    Randomizer.RandoSetting,
+                                    dataArray[Convert.ToInt32(evaluatedByteString, 2)],
+                                    null
+                                );
+                                break;
+                            }
+                        }
+                    }
+
+                    if (settingProperty.PropertyType == typeof(int))
+                    {
+                        settingBitWidth = 4;
+
+                        // We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
+                        for (int j = 0; j < settingBitWidth; j++)
+                        {
+                            evaluatedByteString += bitString[0];
+                            bitString = bitString.Remove(0, 1);
+                        }
+
+                        settingProperty.SetValue(
+                            Randomizer.RandoSetting,
+                            Convert.ToInt32(evaluatedByteString, 2),
+                            null
+                        );
+                    }
+
+                    if (settingProperty.PropertyType == typeof(List<Item>))
+                    {
+                        List<Item> startingItems = new();
+
+                        // We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
+                        settingBitWidth = 9;
+                        while (!reachedEndofList)
+                        {
                             for (int j = 0; j < settingBitWidth; j++)
                             {
                                 evaluatedByteString += bitString[0];
                                 bitString = bitString.Remove(0, 1);
                             }
 
-                            string[] dataArray = (string[])dataValue;
-                            settingProperty.SetValue(
-                                Randomizer.RandoSetting,
-                                dataArray[Convert.ToInt32(evaluatedByteString, 2)],
-                                null
-                            );
-                            break;
+                            int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
+
+                            // Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
+                            if (itemIndex != 511)
+                            {
+                                foreach (Item item in Randomizer.Items.ImportantItems)
+                                {
+                                    if (itemIndex == (byte)item)
+                                    {
+                                        startingItems.Add(item);
+                                        break;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                reachedEndofList = true;
+                            }
+
+                            evaluatedByteString = string.Empty;
                         }
+
+                        settingProperty.SetValue(Randomizer.RandoSetting, startingItems, null);
                     }
-                }
 
-                if (settingProperty.PropertyType == typeof(int))
-                {
-                    settingBitWidth = 4;
-
-                    // We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
-                    for (int j = 0; j < settingBitWidth; j++)
+                    if (settingProperty.PropertyType == typeof(List<string>))
                     {
-                        evaluatedByteString += bitString[0];
-                        bitString = bitString.Remove(0, 1);
+                        List<string> excludedChecks = new();
+
+                        // We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
+                        settingBitWidth = 9;
+                        while (!reachedEndofList)
+                        {
+                            for (int j = 0; j < settingBitWidth; j++)
+                            {
+                                evaluatedByteString += bitString[0];
+                                bitString = bitString.Remove(0, 1);
+                            }
+
+                            int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
+
+                            // Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
+                            if (checkIndex != 511)
+                            {
+                                Randomizer.Checks.CheckDict.Values
+                                    .ElementAt(checkIndex)
+                                    .checkStatus = "Excluded";
+                                excludedChecks.Add(
+                                    Randomizer.Checks.CheckDict.Values
+                                        .ElementAt(checkIndex)
+                                        .checkName
+                                );
+                            }
+                            else
+                            {
+                                reachedEndofList = true;
+                            }
+
+                            evaluatedByteString = string.Empty;
+                        }
+
+                        settingProperty.SetValue(Randomizer.RandoSetting, excludedChecks, null);
                     }
 
-                    settingProperty.SetValue(
-                        Randomizer.RandoSetting,
-                        Convert.ToInt32(evaluatedByteString, 2),
-                        null
+                    Console.WriteLine(
+                        settingProperty.Name
+                            + ": "
+                            + settingProperty.GetValue(Randomizer.RandoSetting, null)
                     );
                 }
 
-                if (settingProperty.PropertyType == typeof(List<Item>))
+                if (!Randomizer.RandoSetting.shuffleHiddenSkills)
                 {
-                    List<Item> startingItems = new();
-
-                    // We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
-                    settingBitWidth = 9;
-                    while (!reachedEndofList)
-                    {
-                        for (int j = 0; j < settingBitWidth; j++)
-                        {
-                            evaluatedByteString += bitString[0];
-                            bitString = bitString.Remove(0, 1);
-                        }
-
-                        int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
-
-                        // Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
-                        if (itemIndex != 511)
-                        {
-                            foreach (Item item in Randomizer.Items.ImportantItems)
-                            {
-                                if (itemIndex == (byte)item)
-                                {
-                                    startingItems.Add(item);
-                                    break;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            reachedEndofList = true;
-                        }
-
-                        evaluatedByteString = string.Empty;
-                    }
-
-                    settingProperty.SetValue(Randomizer.RandoSetting, startingItems, null);
+                    Randomizer.RandoSetting.StartingItems.Add(Item.Progressive_Hidden_Skill);
                 }
 
-                if (settingProperty.PropertyType == typeof(List<string>))
+                if (Randomizer.RandoSetting.mdhSkipped && !Randomizer.RandoSetting.poesShuffled)
                 {
-                    List<string> excludedChecks = new();
-
-                    // We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
-                    settingBitWidth = 9;
-                    while (!reachedEndofList)
-                    {
-                        for (int j = 0; j < settingBitWidth; j++)
-                        {
-                            evaluatedByteString += bitString[0];
-                            bitString = bitString.Remove(0, 1);
-                        }
-
-                        int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
-
-                        // Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
-                        if (checkIndex != 511)
-                        {
-                            Randomizer.Checks.CheckDict.Values.ElementAt(checkIndex).checkStatus =
-                                "Excluded";
-                            excludedChecks.Add(
-                                Randomizer.Checks.CheckDict.Values.ElementAt(checkIndex).checkName
-                            );
-                        }
-                        else
-                        {
-                            reachedEndofList = true;
-                        }
-
-                        evaluatedByteString = string.Empty;
-                    }
-
-                    settingProperty.SetValue(Randomizer.RandoSetting, excludedChecks, null);
+                    Randomizer.RandoSetting.StartingItems.Add(Item.Poe_Soul);
                 }
 
+                return;
+            }
+            catch (System.Exception ex)
+            {
                 Console.WriteLine(
-                    settingProperty.Name
-                        + ": "
-                        + settingProperty.GetValue(Randomizer.RandoSetting, null)
+                    "The entered value is not a valid settings string. Please check your settings string and try again."
                 );
+                System.Environment.Exit(0);
             }
-
-            if (!Randomizer.RandoSetting.shuffleHiddenSkills)
-            {
-                Randomizer.RandoSetting.StartingItems.Add(Item.Progressive_Hidden_Skill);
-            }
-
-            if (Randomizer.RandoSetting.mdhSkipped && !Randomizer.RandoSetting.poesShuffled)
-            {
-                Randomizer.RandoSetting.StartingItems.Add(Item.Poe_Soul);
-            }
-
-            return;
         }
 
         /// <summary>
