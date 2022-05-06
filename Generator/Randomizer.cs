@@ -249,7 +249,7 @@ namespace TPRandomizer
                 Check currentCheck = checkList.Value;
                 if (!currentCheck.itemWasPlaced && (currentCheck.checkStatus == "Excluded"))
                 {
-                    PlaceItemInCheck(Items.JunkItems[rnd.Next(Items.JunkItems.Count - 1)], currentCheck);
+                    PlaceItemInCheck(Items.JunkItems[rnd.Next(Items.JunkItems.Count)], currentCheck);
                 }
             }
         }
@@ -268,7 +268,6 @@ namespace TPRandomizer
             // Once all of the items in ItemGroup have been placed, we dump our item pool and restore it with the copy we have.
             if (itemGroup.Count > 0)
             {
-                Random rnd = new ();
                 List<string> availableChecks = new ();
                 Item itemToPlace;
                 Check checkToReciveItem;
@@ -277,6 +276,7 @@ namespace TPRandomizer
                 List<Item> currentItemPool = new ();
                 currentItemPool.AddRange(itemPool);
                 itemsToBeRandomized.AddRange(itemGroup);
+                Random rnd = new ();
 
                 while (itemsToBeRandomized.Count > 0)
                 {
@@ -284,7 +284,7 @@ namespace TPRandomizer
                     // the item pool will compound and be way too big affecting both memory and logic.
                     itemPool.Clear();
                     itemPool.AddRange(currentItemPool);
-                    itemToPlace = itemsToBeRandomized[rnd.Next(itemsToBeRandomized.Count - 1)];
+                    itemToPlace = itemsToBeRandomized[rnd.Next(itemsToBeRandomized.Count)];
 
                     // Console.WriteLine("Item to place: " + itemToPlace);
                     itemPool.Remove(itemToPlace);
@@ -363,8 +363,7 @@ namespace TPRandomizer
                         itemPool.AddRange(playthroughItems);
                     }
                     while (playthroughItems.Count > 0);
-
-                    checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count - 1)].ToString()];
+                    checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count)].ToString()];
                     currentItemPool.Remove(itemToPlace);
                     PlaceItemInCheck(itemToPlace, checkToReciveItem);
                     availableChecks.Clear();
@@ -383,10 +382,10 @@ namespace TPRandomizer
         /// <param name="itemsToBeRandomized"> The group of items that are to be randomized. </param>
         private static void PlaceNonImpactItems(List<Item> itemsToBeRandomized)
         {
-            Random rnd = new ();
             List<string> availableChecks = new ();
             Item itemToPlace;
             Check checkToReciveItem;
+            Random rnd = new ();
 
             while (itemsToBeRandomized.Count > 0)
             {

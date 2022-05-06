@@ -263,7 +263,7 @@
 							<input type="checkbox" id="randomizeFanfaresCheckbox" name="Randomize Fanfares Checkbox" value="">
 							<label for="randomizeFanfaresCheckbox"> Randomize Fanfares </label><br>
 							<input type="checkbox" id="disableEnemyBGMCheckbox" name="Disable Enemy BGM Checkbox" value="">
-							<label for="disableEnemyBGMCheckbox"> Disable Enemy Background Music?</label><br>
+							<label for="disableEnemyBGMCheckbox"> Disable Enemy Background Music</label><br>
 						</fieldset>
 					</div>
 					<fieldset id="itemPoolOptionsFieldset">
