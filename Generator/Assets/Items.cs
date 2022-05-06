@@ -527,97 +527,6 @@ namespace TPRandomizer
                 Item.Purple_Rupee_Links_House,
                 Item.Green_Rupee,
                 Item.Green_Rupee,
-                Item.Blue_Rupee,
-                Item.Blue_Rupee,
-                Item.Blue_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Yellow_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Red_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
-                Item.Purple_Rupee,
                 Item.Orange_Rupee,
                 Item.Orange_Rupee,
                 Item.Orange_Rupee,
@@ -728,6 +637,31 @@ namespace TPRandomizer
                 Item.Bomblings_5,
                 Item.Bomblings_10,
                 Item.Bomblings_10,
+                Item.Blue_Rupee,
+                Item.Yellow_Rupee,
+                Item.Yellow_Rupee,
+                Item.Yellow_Rupee,
+                Item.Yellow_Rupee,
+                Item.Yellow_Rupee,
+                Item.Yellow_Rupee,
+                Item.Red_Rupee,
+                Item.Red_Rupee,
+                Item.Red_Rupee,
+                Item.Red_Rupee,
+                Item.Red_Rupee,
+                Item.Red_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee,
+                Item.Purple_Rupee
             };
 
         /// <summary>
@@ -803,21 +737,21 @@ namespace TPRandomizer
                 case "Few": // There is a small chance that a Foolish Item could appear
                 {
                     this.JunkItems.AddRange(this.vanillaJunkItems);
-                    this.JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 4));
+                    this.JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 6));
                     break;
                 }
 
                 case "Many": // There is an increased chance that a Foolish Item could appear
                 {
                     this.JunkItems.AddRange(this.vanillaJunkItems);
-                    this.JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 20));
+                    this.JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 27));
                     break;
                 }
 
                 case "Mayhem": // All junk items outside of the item pool are Foolish Items
                 {
                     this.JunkItems.AddRange(this.vanillaJunkItems);
-                    this.JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 50));
+                    this.JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 64));
                     break;
                 }
 
