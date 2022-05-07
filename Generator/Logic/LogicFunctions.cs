@@ -1345,7 +1345,7 @@ namespace TPRandomizer
         public static bool hasBombs()
         {
             return (
-                (CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag))
+                (CanUse(Item.Progressive_Bomb_Bag))
                 && (
                     Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough
                     || (
@@ -1368,7 +1368,7 @@ namespace TPRandomizer
         public static bool CanUseWaterBombs()
         {
             return (
-                (CanUse(Item.Bomb_Bag_And_Bombs) || CanUse(Item.Empty_Bomb_Bag))
+                CanUse(Item.Progressive_Bomb_Bag)
                 && (
                     Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough
                     || (

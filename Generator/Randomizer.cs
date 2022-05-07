@@ -59,6 +59,7 @@ namespace TPRandomizer
         {
             bool generationStatus = false;
             int remainingGenerationAttempts = 30;
+            RandomizerSetting parseSetting = Randomizer.RandoSetting;
             Console.WriteLine(
                 "Twilight Princess Randomizer Version "
                     + RandomizerVersionMajor
@@ -84,6 +85,10 @@ namespace TPRandomizer
             Room startingRoom = SetupGraph();
             while (remainingGenerationAttempts > 0)
             {
+                foreach (Item startingItem in parseSetting.StartingItems)
+                {
+                    Randomizer.Items.heldItems.Add(startingItem);
+                }
                 Randomizer.Items.heldItems.AddRange(Randomizer.Items.BaseItemPool);
                 remainingGenerationAttempts--;
                 try
@@ -187,7 +192,13 @@ namespace TPRandomizer
                                 Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]].Visited =
                                     true;
 
-                                // Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                                /*Console.WriteLine(
+                                    "Neighbour: "
+                                        + Randomizer.Rooms.RoomDict[
+                                            roomsToExplore[0].Neighbours[i]
+                                        ].RoomName
+                                        + " added to room list."
+                                );*/
                             }
                         }
                     }

@@ -15,7 +15,7 @@ namespace TPRandomizer
         Silver_Rupee = 0x07,
 
         /*Borrow_Bomb_Bag?	=	0x08,*/
-        /*Bomb_Bag_And_Bombs?	=	0x09,*/
+        /*Progressive_Bomb_Bag?	=	0x09,*/
         Bombs_5 = 0x0A,
         Bombs_10 = 0x0B,
         Bombs_20 = 0x0C,
@@ -92,7 +92,7 @@ namespace TPRandomizer
         /*?	=	0x4E,*/
         Giant_Bomb_Bag = 0x4F,
         Empty_Bomb_Bag = 0x50,
-        Bomb_Bag_And_Bombs = 0x51,
+        Progressive_Bomb_Bag = 0x51,
 
         /*Giant_Bomb_Bag?	=	0x52,*/
         /*?	=	0x53,*/
@@ -273,7 +273,7 @@ namespace TPRandomizer
 
         /*Shield?	=	0xF7,*/
         Got_Lantern_Back = 0xF8,
-        Goron_Mines_Key_Shard_First = 0xF9,
+        Goron_Mines_Key_Shard = 0xF9,
         Goron_Mines_Key_Shard_Second = 0xFA,
         Goron_Mines_Key_Shard_3 = 0xFB,
 
@@ -350,9 +350,9 @@ namespace TPRandomizer
             new()
             {
                 Item.Forest_Temple_Big_Key,
-                Item.Goron_Mines_Key_Shard_First,
-                Item.Goron_Mines_Key_Shard_Second,
-                Item.Goron_Mines_Big_Key,
+                Item.Goron_Mines_Key_Shard,
+                Item.Goron_Mines_Key_Shard,
+                Item.Goron_Mines_Key_Shard,
                 Item.Lakebed_Temple_Big_Key,
                 Item.Arbiters_Grounds_Big_Key,
                 Item.Temple_of_Time_Big_Key,
@@ -400,7 +400,7 @@ namespace TPRandomizer
                 Item.Progressive_Fishing_Rod,
                 Item.Iron_Boots,
                 Item.Progressive_Bow,
-                Item.Bomb_Bag_And_Bombs,
+                Item.Progressive_Bomb_Bag,
                 Item.Zora_Armor,
                 Item.Progressive_Clawshot,
                 Item.Progressive_Clawshot,
@@ -582,9 +582,9 @@ namespace TPRandomizer
                 Item.Progressive_Wallet,
                 Item.Progressive_Bow,
                 Item.Progressive_Bow,
-                Item.Bomb_Bag_And_Bombs,
-                Item.Bomb_Bag_And_Bombs,
-                Item.Giant_Bomb_Bag,
+                Item.Progressive_Bomb_Bag,
+                Item.Progressive_Bomb_Bag,
+                Item.Progressive_Bomb_Bag,
                 Item.Sera_Bottle,
                 Item.Coro_Bottle,
                 Item.Jovani_Bottle,
@@ -771,7 +771,6 @@ namespace TPRandomizer
             foreach (Item startingItem in parseSetting.StartingItems)
             {
                 RandomizedImportantItems.Remove(startingItem);
-                Randomizer.Items.heldItems.Add(startingItem);
             }
 
             Randomizer.Items.BaseItemPool.AddRange(this.RandomizedImportantItems);

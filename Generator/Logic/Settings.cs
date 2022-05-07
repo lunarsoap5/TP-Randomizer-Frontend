@@ -100,7 +100,7 @@ namespace TPRandomizer
         public bool transformAnywhere { get; set; }
 
         public string[] iceTrapSettings { get; set; } =
-            new string[] { "None", "Few", "Extra", "Mayhem", "Nightmare" };
+            new string[] { "None", "Few", "Many", "Mayhem", "Nightmare" };
 
         public List<Item> StartingItems { get; set; }
 
