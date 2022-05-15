@@ -306,6 +306,7 @@ namespace TPRandomizer
             bool areAllChecksReachable = true;
             bool areAllRoomsReachable = true;
             List<Item> playthroughItems = new();
+            RandomizerSetting parseSetting = Randomizer.RandoSetting;
 
             // Console.WriteLine("Item to place: " + itemToPlace);
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
@@ -313,6 +314,11 @@ namespace TPRandomizer
                 Check currentCheck = checkList.Value;
                 currentCheck.hasBeenReached = false;
                 Randomizer.Checks.CheckDict[currentCheck.checkName] = currentCheck;
+            }
+
+            foreach (Item startingItem in parseSetting.StartingItems)
+            {
+                Randomizer.Items.heldItems.Add(startingItem);
             }
 
             // Walk through the current graph and get a list of rooms that we can currently access

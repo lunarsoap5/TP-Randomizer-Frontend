@@ -115,6 +115,34 @@ namespace TPRandomizer.Assets
         }
 
         /// <summary>
+        /// Get bytes from text (without null terminator).
+        /// </summary>
+        /// <param name="text"> The ASCII text you want to convert.</param>
+        /// <param name="desiredLength"> The length of the string in bytes.</param>
+        /// <param name="region"> The language region of the text you want to convert.</param>
+        /// <returns>Array of Bytes processed.</returns>
+        public static byte[] MessageStringBytes(
+            string text,
+            int desiredLength = 0,
+            char region = 'E'
+        )
+        {
+            List<byte> textData = new();
+            for (int i = 0; i < text.Length; i++)
+            {
+                textData.Add((byte)text[i]);
+            }
+
+            // Account for padding
+            while (textData.Count < desiredLength)
+            {
+                textData.Add(0);
+            }
+
+            return textData.ToArray<byte>();
+        }
+
+        /// <summary>
         /// text.
         /// </summary>
         /// <param name="text">The number you want to convert.</param>
