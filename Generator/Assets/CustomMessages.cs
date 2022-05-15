@@ -33,8 +33,13 @@ namespace TPRandomizer.Assets
             public string message;
         }
 
-        public Dictionary<byte, MessageEntry[]> CustomMessageDictionary =
+        public Dictionary<byte, MessageEntry[]> CustomPALMessageDictionary =
             new() { { 0, englishMessages }, { 1, germanMessages }, { 2, frenchMessages } };
+
+        public Dictionary<byte, MessageEntry[]> CustomUSMessageDictionary =
+            new() { { 0, englishMessages }, };
+        public Dictionary<byte, MessageEntry[]> CustomJPMessageDictionary =
+            new() { { 0, japaneseMessages } };
 
         public static MessageEntry[] englishMessages =
         {
@@ -1177,6 +1182,24 @@ namespace TPRandomizer.Assets
                     + messageColorWhite
                     + "."
             },
+        };
+
+        public static MessageEntry[] japaneseMessages =
+        {
+            new MessageEntry
+            {
+                messageID = 0xEA,
+                message =
+                    messageSpeedFast
+                    + messageColorRed
+                    + "\x8F\xAC\x82\xB3\x82\xC8\x83\x4A\x83\x4D "
+                    + messageColorWhite
+                    + "\x82\xF0\x8E\xE8\x82\xC9\x93\xFC\x82\xEA\x82\xBD\x81\x49 "
+                    + messageColorGreen
+                    + "\x90\x58\x82\xCC\x90\x5F\x93\x61 "
+                    + messageColorWhite
+                    + "\x82\xC5\x8E\x67\x97\x70\x82\xC5\x82\xAB\x82\xE9 "
+            }
         };
     }
 }

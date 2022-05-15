@@ -17,7 +17,7 @@ namespace TPRandomizer.Assets
         private static readonly CustomTextHeader CustomMessageHeaderRaw = new();
         private static readonly short SeedHeaderSize = 0x160;
 
-        private static short MessageHeaderSize = 0x8;
+        private static short MessageHeaderSize = 0x4;
 
         /// <summary>
         /// summary text.
@@ -64,8 +64,6 @@ namespace TPRandomizer.Assets
 
         internal class CustomTextHeader
         {
-            public UInt16 minVersion { get; set; }
-            public UInt16 maxVersion { get; set; }
             public UInt16 headerSize { get; set; }
             public byte totalLanguages { get; set; }
             public byte padding { get; set; }
@@ -96,6 +94,8 @@ namespace TPRandomizer.Assets
             List<byte> currentMessageHeader = new();
             List<byte> currentMessageData = new();
             List<byte> currentMessageEntryInfo = new();
+            TPRandomizer.Assets.CustomMessages customMessage = new();
+            Dictionary<byte, CustomMessages.MessageEntry[]> seedDictionary = new();
 
             char regionCode;
             switch (randomizerSettings.gameRegion)
@@ -103,14 +103,17 @@ namespace TPRandomizer.Assets
                 case "JAP":
                     regionCode = 'J';
                     CustomMessageHeaderRaw.totalLanguages = 1;
+                    seedDictionary = customMessage.CustomJPMessageDictionary;
                     break;
                 case "PAL":
                     regionCode = 'P';
                     CustomMessageHeaderRaw.totalLanguages = 3;
+                    seedDictionary = customMessage.CustomPALMessageDictionary;
                     break;
                 default:
                     regionCode = 'E';
                     CustomMessageHeaderRaw.totalLanguages = 1;
+                    seedDictionary = customMessage.CustomUSMessageDictionary;
                     break;
             }
 
@@ -146,7 +149,9 @@ namespace TPRandomizer.Assets
             for (int i = 0; i < CustomMessageHeaderRaw.totalLanguages; i++)
             {
                 CustomMessageHeaderRaw.entry[i] = new CustomMessageTableInfo();
-                currentMessageData.AddRange(ParseCustomMessageData(i, currentMessageData));
+                currentMessageData.AddRange(
+                    ParseCustomMessageData(i, currentMessageData, seedDictionary)
+                );
                 while (currentMessageData.Count % 0x4 != 0)
                 {
                     currentMessageData.Add(Converter.GcByte(0x0));
@@ -700,21 +705,22 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseMessageIDTables(
             int currentLanguage,
-            List<byte> currentMessageData
+            List<byte> currentMessageData,
+            Dictionary<byte, CustomMessages.MessageEntry[]> seedDictionary
         )
         {
-            TPRandomizer.Assets.CustomMessages customMessage = new();
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             List<byte> listOfCustomMsgIDs = new();
             ushort count = 0;
-            CustomMessageHeaderRaw.entry[currentLanguage].language =
-                customMessage.CustomMessageDictionary.ElementAt(currentLanguage).Key;
+            CustomMessageHeaderRaw.entry[currentLanguage].language = seedDictionary
+                .ElementAt(currentLanguage)
+                .Key;
             CustomMessageHeaderRaw.entry[currentLanguage].msgIdTableOffset = (ushort)(
                 (0xC * (CustomMessageHeaderRaw.totalLanguages - currentLanguage))
                 + currentMessageData.Count
             );
             foreach (
-                CustomMessages.MessageEntry messageEntry in customMessage.CustomMessageDictionary
+                CustomMessages.MessageEntry messageEntry in seedDictionary
                     .ElementAt(currentLanguage)
                     .Value
             )
@@ -734,7 +740,8 @@ namespace TPRandomizer.Assets
 
         private static List<byte> ParseCustomMessageData(
             int currentLanguage,
-            List<byte> currentMessageData
+            List<byte> currentMessageData,
+            Dictionary<byte, CustomMessages.MessageEntry[]> seedDictionary
         )
         {
             TPRandomizer.Assets.CustomMessages customMessage = new();
@@ -744,10 +751,12 @@ namespace TPRandomizer.Assets
             List<byte> listOfMsgOffsets = new();
             List<byte> customMsgIDTables = new();
 
-            customMsgIDTables.AddRange(ParseMessageIDTables(currentLanguage, currentMessageData));
+            customMsgIDTables.AddRange(
+                ParseMessageIDTables(currentLanguage, currentMessageData, seedDictionary)
+            );
 
             foreach (
-                CustomMessages.MessageEntry messageEntry in customMessage.CustomMessageDictionary
+                CustomMessages.MessageEntry messageEntry in seedDictionary
                     .ElementAt(currentLanguage)
                     .Value
             )
@@ -771,18 +780,8 @@ namespace TPRandomizer.Assets
             TPRandomizer.Assets.CustomMessages customMessage = new();
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             List<byte> messageHeader = new();
-            CustomMessageHeaderRaw.minVersion = (ushort)(
-                Randomizer.RandomizerVersionMajor << 8 | Randomizer.RandomizerVersionMinor
-            );
-            CustomMessageHeaderRaw.maxVersion = (ushort)(
-                Randomizer.RandomizerVersionMajor << 8 | Randomizer.RandomizerVersionMinor
-            );
-
             CustomMessageHeaderRaw.padding = 0x0;
-
-            messageHeader.AddRange(Converter.GcBytes((UInt16)CustomMessageHeaderRaw.minVersion));
-            messageHeader.AddRange(Converter.GcBytes((UInt16)CustomMessageHeaderRaw.maxVersion));
-            messageHeader.AddRange(Converter.GcBytes((UInt16)(0x8 + messageTableInfo.Count))); // header size
+            messageHeader.AddRange(Converter.GcBytes((UInt16)(0x4 + messageTableInfo.Count))); // header size
             messageHeader.Add(Converter.GcByte(CustomMessageHeaderRaw.totalLanguages));
             messageHeader.Add(Converter.GcByte(0x0)); // padding
             messageHeader.AddRange(messageTableInfo);

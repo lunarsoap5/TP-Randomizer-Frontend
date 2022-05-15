@@ -96,14 +96,7 @@ namespace TPRandomizer.Assets
         {
             List<byte> textData = new();
 
-            if (region == 'J')
-            {
-                textData.AddRange(Encoding.GetEncoding("shift_jis").GetBytes(text));
-            }
-            else
-            {
-                textData.AddRange(Encoding.ASCII.GetBytes(text));
-            }
+            textData.AddRange(Encoding.ASCII.GetBytes(text));
 
             // Account for padding
             while (textData.Count < desiredLength)
