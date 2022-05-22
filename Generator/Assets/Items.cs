@@ -700,6 +700,7 @@ namespace TPRandomizer
             else if (parseSetting.smallKeySettings == "Keysey")
             {
                 this.RandomizedImportantItems.Remove(Item.Gate_Keys);
+                parseSetting.StartingItems.Add(Item.Gerudo_Desert_Bulblin_Camp_Key);
             }
 
             // Check Big Key Settings before adding them to the pool

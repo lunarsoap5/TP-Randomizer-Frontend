@@ -95,7 +95,7 @@ namespace TPRandomizer.Assets
             /*x36*/
             gciHeader.AddRange(Converter.GcBytes((UInt16)0x00)); // first block number
             /*x38*/
-            gciHeader.AddRange(Converter.GcBytes((UInt16)0x03)); // Actual num of blocks.
+            gciHeader.AddRange(Converter.GcBytes((UInt16)0x04)); // Actual num of blocks.
             /*x3A*/
             gciHeader.AddRange(Converter.GcBytes((UInt16)0xFFFF)); // unused
             /*x3C*/
@@ -105,7 +105,7 @@ namespace TPRandomizer.Assets
             gciFile.AddRange(seedData);
 
             // Pad
-            while (gciFile.Count < (3 * 0x2000) + 0x40) // Pad to 2 blocks.
+            while (gciFile.Count < (4 * 0x2000) + 0x40) // Pad to 4 blocks.
                 gciFile.Add((byte)0x0);
         }
     }
