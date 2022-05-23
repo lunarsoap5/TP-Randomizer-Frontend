@@ -22,10 +22,10 @@ namespace TPRandomizer.Assets
         static string messageColorBlue = "\x1A\x06\xFF\x00\x00\x0A";
         static string messageColorSilver = "\x1A\x06\xFF\x00\x00\x0B";
 
-        static string messageIconR = "\x1A\x05\x00\x00\x0E";
-        static string messageIconA = "\x1A\x05\x00\x00\x0A";
-        static string messageIconX = "\x1A\x05\x00\x00\x0F";
-        static string messageIconY = "\x1A\x05\x00\x00\x10";
+        //static string messageIconR = "\x1A\x05\x00\x00\x0E";
+        //static string messageIconA = "\x1A\x05\x00\x00\x0A";
+        //static string messageIconX = "\x1A\x05\x00\x00\x0F";
+        //static string messageIconY = "\x1A\x05\x00\x00\x10";
 
         public struct MessageEntry
         {
