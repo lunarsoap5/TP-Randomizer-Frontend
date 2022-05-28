@@ -107,7 +107,7 @@ namespace TPRandomizer.Assets
                     break;
                 case "PAL":
                     regionCode = 'P';
-                    CustomMessageHeaderRaw.totalLanguages = 3;
+                    CustomMessageHeaderRaw.totalLanguages = 5;
                     seedDictionary = customMessage.CustomPALMessageDictionary;
                     break;
                 default:

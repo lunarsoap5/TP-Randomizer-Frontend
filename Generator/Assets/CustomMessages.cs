@@ -9,6 +9,7 @@ namespace TPRandomizer.Assets
     /// </summary>
     public class CustomMessages
     {
+        RandomizerSetting parseSetting = Randomizer.RandoSetting;
         static string messageSpeedFast = "\x1A\x05\x00\x00\x01";
         static string messageSpeedSlow = "\x1A\x05\x00\x00\x02";
         static string messageColorWhite = "\x1A\x06\xFF\x00\x00\x00";
@@ -21,6 +22,10 @@ namespace TPRandomizer.Assets
         static string messageColorDarkGreen = "\x1A\x06\xFF\x00\x00\x09";
         static string messageColorBlue = "\x1A\x06\xFF\x00\x00\x0A";
         static string messageColorSilver = "\x1A\x06\xFF\x00\x00\x0B";
+        static string playerName = "\x1A\x05\x00\x00\x00";
+        static string messageOption1 = "\x1A\x06\x00\x00\x09\x01";
+        static string messageOption2 = "\x1A\x06\x00\x00\x09\x02";
+        static string messageOption3 = "\x1A\x06\x00\x00\x09\x03";
 
         //static string messageIconR = "\x1A\x05\x00\x00\x0E";
         //static string messageIconA = "\x1A\x05\x00\x00\x0A";
@@ -41,6 +46,17 @@ namespace TPRandomizer.Assets
                 { 2, frenchMessages },
                 { 3, spanishMessages },
                 { 4, italianMessages }
+            };
+
+        List<MessageEntry[]> listOfLanguageEntries =
+            new()
+            {
+                englishMessages,
+                germanMessages,
+                frenchMessages,
+                spanishMessages,
+                italianMessages,
+                japaneseMessages
             };
 
         public Dictionary<byte, MessageEntry[]> CustomUSMessageDictionary =
@@ -836,33 +852,17 @@ namespace TPRandomizer.Assets
             },
             new MessageEntry
             {
-                messageID = 0x99,
+                messageID = 0xBBB, // Talk to Midna
                 message =
-                    messageSpeedFast
-                    + "You got the "
-                    + messageColorRed
-                    + "Big Wallet"
-                    + messageColorWhite
-                    + "! You can now hold "
-                    + messageColorRed
-                    + "5,000 Rupees"
-                    + messageColorWhite
-                    + "!"
-            },
-            new MessageEntry
-            {
-                messageID = 0x9A,
-                message =
-                    messageSpeedFast
-                    + "You got the "
-                    + messageColorRed
-                    + "Giant Wallet"
-                    + messageColorWhite
-                    + "! You can now hold "
-                    + messageColorPurple
-                    + "9,999 Rupees"
-                    + messageColorWhite
-                    + "!"
+                    "What is it, "
+                    + playerName
+                    + "?"
+                    + messageOption1
+                    + "Transform\n"
+                    + messageOption2
+                    + "Warp\n"
+                    + messageOption3
+                    + "Change time of day"
             },
         };
 
@@ -1659,33 +1659,17 @@ namespace TPRandomizer.Assets
             },
             new MessageEntry
             {
-                messageID = 0x99,
+                messageID = 0xBBB, // Talk to Midna
                 message =
-                    messageSpeedFast
-                    + "You got the "
-                    + messageColorRed
-                    + "Big Wallet"
-                    + messageColorWhite
-                    + "! You can now hold "
-                    + messageColorRed
-                    + "5,000 Rupees"
-                    + messageColorWhite
-                    + "!"
-            },
-            new MessageEntry
-            {
-                messageID = 0x9A,
-                message =
-                    messageSpeedFast
-                    + "You got the "
-                    + messageColorRed
-                    + "Giant Wallet"
-                    + messageColorWhite
-                    + "! You can now hold "
-                    + messageColorPurple
-                    + "9,999 Rupees"
-                    + messageColorWhite
-                    + "!"
+                    "Was ist los, "
+                    + playerName
+                    + "?"
+                    + messageOption1
+                    + "Verwandeln\n"
+                    + messageOption2
+                    + "Teleportieren\n"
+                    + messageOption3
+                    + "Tageszeit ändern"
             },
         };
 
@@ -1836,7 +1820,7 @@ namespace TPRandomizer.Assets
                     + "petite clé"
                     + messageColorWhite
                     + "!\nElle peut être utilisée au\n"
-                    + messageColorSilver
+                    + messageColorOrange
                     + "Camp Bulblin"
                     + messageColorWhite
                     + "."
@@ -1952,7 +1936,7 @@ namespace TPRandomizer.Assets
                     + messageColorRed
                     + "carte de\ndonjon"
                     + messageColorWhite
-                    + "!  Elle appartient à\n"
+                    + "! Elle appartient à\n"
                     + messageColorYellow
                     + "Célestia"
                     + messageColorWhite
@@ -2087,7 +2071,7 @@ namespace TPRandomizer.Assets
                     + messageColorRed
                     + "boussole"
                     + messageColorWhite
-                    + "!\nElle appartient à \n"
+                    + "!\nElle appartient à "
                     + messageColorYellow
                     + "Célestia"
                     + messageColorWhite
@@ -2130,7 +2114,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous obtenez "
                     + messageColorRed
-                    + "la grande clé "
+                    + "la grande clé"
                     + messageColorWhite
                     + "!\nElle peut être utilisée au\n"
                     + messageColorGreen
@@ -2145,7 +2129,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous obtenez "
                     + messageColorRed
-                    + "la grande clé "
+                    + "la grande clé"
                     + messageColorWhite
                     + "!\nElle peut être utilisée au\n"
                     + messageColorBlue
@@ -2160,7 +2144,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous obtenez "
                     + messageColorRed
-                    + "la grande clé "
+                    + "la grande clé"
                     + messageColorWhite
                     + "!\nElle peut être utilisée dans la\n"
                     + messageColorOrange
@@ -2175,7 +2159,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous obtenez "
                     + messageColorRed
-                    + "la grande clé "
+                    + "la grande clé"
                     + messageColorWhite
                     + "!\nElle peut être utilisée au\n"
                     + messageColorDarkGreen
@@ -2190,7 +2174,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous obtenez "
                     + messageColorRed
-                    + "la grande clé "
+                    + "la grande clé"
                     + messageColorWhite
                     + "!\nElle peut être utilisée à\n"
                     + messageColorYellow
@@ -2205,7 +2189,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous obtenez "
                     + messageColorRed
-                    + "la grande clé "
+                    + "la grande clé"
                     + messageColorWhite
                     + "!\nElle peut être utilisée au\n"
                     + messageColorPurple
@@ -2220,7 +2204,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous obtenez "
                     + messageColorRed
-                    + "la grande clé "
+                    + "la grande clé"
                     + messageColorWhite
                     + "!\nElle peut être utilisée au\n"
                     + messageColorSilver
@@ -2235,7 +2219,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous avez appris le "
                     + messageColorRed
-                    + "Coup de Grâce"
+                    + "Coup de\nGrâce"
                     + messageColorWhite
                     + "!"
             },
@@ -2246,7 +2230,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous avez appris la "
                     + messageColorRed
-                    + "Charge Bouclier"
+                    + "Charge\nBouclier"
                     + messageColorWhite
                     + "!"
             },
@@ -2257,7 +2241,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous avez appris le "
                     + messageColorRed
-                    + "Coup à Revers"
+                    + "Coup à\nRevers"
                     + messageColorWhite
                     + "!"
             },
@@ -2268,7 +2252,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous avez appris le "
                     + messageColorRed
-                    + "Brise-Casque"
+                    + "\nBrise-Casque"
                     + messageColorWhite
                     + "!"
             },
@@ -2279,7 +2263,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous avez appris le "
                     + messageColorRed
-                    + "Coup Éclair"
+                    + "Coup\nÉclair"
                     + messageColorWhite
                     + "!"
             },
@@ -2290,7 +2274,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous avez appris le "
                     + messageColorRed
-                    + "Coup Plongé"
+                    + "Coup\nPlongé"
                     + messageColorWhite
                     + "!"
             },
@@ -2301,7 +2285,7 @@ namespace TPRandomizer.Assets
                     messageSpeedFast
                     + "Vous avez appris "
                     + messageColorRed
-                    + "l'Attaque Tourbillon"
+                    + "l'Attaque\nTourbillon"
                     + messageColorWhite
                     + "!"
             },
@@ -2310,8 +2294,9 @@ namespace TPRandomizer.Assets
                 messageID = 0xB0, // Dominion Rod
                 message =
                     messageSpeedFast
+                    + "Le "
                     + messageColorRed
-                    + "Le bâton Anima "
+                    + "bâton Anima "
                     + messageColorWhite
                     + "a recouvré ses\npouvoirs magiques! Il peut\nmaintenant être utilisé pour\ninsuffler la vie aux statues\ndans le présent!"
             },
@@ -2473,33 +2458,17 @@ namespace TPRandomizer.Assets
             },
             new MessageEntry
             {
-                messageID = 0x99, // Big Wallet
+                messageID = 0xBBB, // Talk to Midna
                 message =
-                    messageSpeedFast
-                    + "Vous obtenez la "
-                    + messageColorRed
-                    + "Grande Bourse"
-                    + messageColorWhite
-                    + "! Elle peut contenir jusqu'à "
-                    + messageColorRed
-                    + "5,000 rubis"
-                    + messageColorWhite
-                    + "!"
-            },
-            new MessageEntry
-            {
-                messageID = 0x9A, // Giant Wallet
-                message =
-                    messageSpeedFast
-                    + "Vous obtenez la "
-                    + messageColorRed
-                    + "Bourse Géante"
-                    + messageColorWhite
-                    + "! Elle peut contenir jusqu'à "
-                    + messageColorPurple
-                    + "9,999 rubis"
-                    + messageColorWhite
-                    + "!"
+                    "Qu'est-ce qu'il y a, "
+                    + playerName
+                    + "?"
+                    + messageOption1
+                    + "Je veux me transformer\n"
+                    + messageOption2
+                    + "Je veux me téléporter\n"
+                    + messageOption3
+                    + "Changer l'heure de la journée"
             },
         };
 
@@ -2507,256 +2476,256 @@ namespace TPRandomizer.Assets
         {
             new MessageEntry
             {
-                messageID = 0xE9,
+                messageID = 0xE9, // Forest Temple Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in the \n"
+                    + "!\nPuede ser utilizada en el\n"
                     + messageColorGreen
-                    + "Forest Temple"
+                    + "Templo del Bosque"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0xEA,
+                messageID = 0xEA, // Goron Mines Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in\n"
+                    + "!\nPuede ser utilizada en las\n"
                     + messageColorRed
-                    + "Goron Mines"
+                    + "Minas de los Goron"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0xEB,
+                messageID = 0xEB, // Lakebed Temple Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "!\nPuede ser utilizada en el\n"
                     + messageColorBlue
-                    + "Lakebed Temple"
+                    + "Santuario del Lago"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0xEC,
+                messageID = 0xEC, //Arbiter's Grounds Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in\n"
+                    + "!\nPuede ser utilizada en el\n"
                     + messageColorOrange
-                    + "Arbiter's Grounds"
+                    + "Patíbulo del Desierto"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0xED,
+                messageID = 0xED, // Snowpeak Ruins Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in\n"
+                    + "!\nPuede ser utilizada en las\n"
                     + messageColorLightBlue
-                    + "Snowpeak Ruins"
+                    + "Ruinas del Pico Nevado"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0xEE,
+                messageID = 0xEE, // Temple of Time Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "!\nPuede ser utilizada en el\n"
                     + messageColorDarkGreen
-                    + "Temple of Time"
+                    + "Templo del Tiempo"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0xEF,
+                messageID = 0xEF, // City in The Sky Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "!\nPuede ser utilizada en\n"
                     + messageColorYellow
-                    + "City in The Sky"
+                    + "Celestia"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0xF0,
+                messageID = 0xF0, // Palace of Twilight Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "!\nPuede ser utilizada en el\n"
                     + messageColorPurple
-                    + "Palace of Twilight"
+                    + "Palacio del Crepúsculo"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0xF1,
+                messageID = 0xF1, // Hyrule Castle Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in\n"
+                    + "!\nPuede ser utilizada en el\n"
                     + messageColorSilver
-                    + "Hyrule Castle"
+                    + "Castillo de Hyrule"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0xF2,
+                messageID = 0xF2, // Bulblin Camp Small Key
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido una "
                     + messageColorRed
-                    + "small key"
+                    + "llave pequeña"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "!\nPuede ser utilizada en el\n"
                     + messageColorOrange
-                    + "Bulblin Camp"
+                    + "Campo Bulbin"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0x96,
+                messageID = 0x96, // Shadow Crystal
                 message =
                     messageSpeedSlow
-                    + "You got the "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "Shadow Crystal"
+                    + "Cristal Oscuro"
                     + messageColorWhite
-                    + "!\nThis is a dark manifestation\nof "
+                    + "!\nEsa manifestación maléfica del\npoder de "
                     + messageColorRed
-                    + "Zant's "
+                    + "Zant "
                     + messageColorWhite
-                    + "power that allows\nyou to transform at will!"
+                    + "te permite\ntransformarte cuando quieras!"
             },
             new MessageEntry
             {
-                messageID = 0x11A,
+                messageID = 0x11A, // Forest Temple Dungeon Map
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "dungeon map"
+                    + "mapa de una\nmazmorra"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "! Indica el camino en\nel "
                     + messageColorGreen
-                    + "Forest Temple"
+                    + "Templo del Bosque"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0x11B,
+                messageID = 0x11B, // Goron Mines Dungeon Map
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "dungeon map"
+                    + "mapa de una\nmazmorra"
                     + messageColorWhite
-                    + "!\nIt can be used in\n"
+                    + "! Indica el camino en\nlas "
                     + messageColorRed
-                    + "Goron Mines"
+                    + "Minas de los Goron"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0x11C,
+                messageID = 0x11C, // Lakebed Temple Dungeon Map
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "dungeon map"
+                    + "mapa de una\nmazmorra"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "! Indica el camino en\nel "
                     + messageColorBlue
-                    + "Lakebed Temple"
+                    + "Santuario del Lago"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0x11D,
+                messageID = 0x11D, // Arbiter's Grounds Dungeon Map
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "dungeon map"
+                    + "mapa de una\nmazmorra"
                     + messageColorWhite
-                    + "!\nIt can be used in\n"
+                    + "! Indica el camino en\nel "
                     + messageColorOrange
-                    + "Arbiter's Grounds"
+                    + "Patíbulo del Desierto"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0x11E,
+                messageID = 0x11E, // Snowpeak Ruins Dungeon Map
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "dungeon map"
+                    + "mapa de una\nmazmorra"
                     + messageColorWhite
-                    + "!\nIt can be used in\n"
+                    + "! Indica el camino en\nlas "
                     + messageColorLightBlue
-                    + "Snowpeak Ruins"
+                    + "Ruinas del Pico Nevado"
                     + messageColorWhite
                     + "."
             },
             new MessageEntry
             {
-                messageID = 0x11F,
+                messageID = 0x11F, // Temple of Time Dungeon Map
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "dungeon map"
+                    + "mapa de una\nmazmorra"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "! Indica el camino en\nel "
                     + messageColorDarkGreen
-                    + "Temple of Time"
+                    + "Templo del Tiempo"
                     + messageColorWhite
                     + "."
             },
@@ -2765,11 +2734,11 @@ namespace TPRandomizer.Assets
                 messageID = 0x120,
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "dungeon map"
+                    + "mapa de una\nmazmorra"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "! Indica el camino en\nel "
                     + messageColorYellow
                     + "City in The Sky"
                     + messageColorWhite
@@ -2780,11 +2749,11 @@ namespace TPRandomizer.Assets
                 messageID = 0x121,
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "dungeon map"
+                    + "mapa de una\nmazmorra"
                     + messageColorWhite
-                    + "!\nIt can be used in the\n"
+                    + "! Indica el camino en\nel "
                     + messageColorPurple
                     + "Palace of Twilight"
                     + messageColorWhite
@@ -2795,11 +2764,11 @@ namespace TPRandomizer.Assets
                 messageID = 0x122,
                 message =
                     messageSpeedFast
-                    + "You got a "
+                    + "¡Has obtenido el "
                     + messageColorRed
-                    + "dungeon map"
+                    + "mapa de una\nmazmorra"
                     + messageColorWhite
-                    + "!\nIt can be used in\n"
+                    + "! Indica el camino en\nel "
                     + messageColorSilver
                     + "Hyrule Castle"
                     + messageColorWhite
@@ -4955,5 +4924,235 @@ namespace TPRandomizer.Assets
                     + "!"
             },
         };
+
+        static MessageEntry[] englishWalletText =
+        {
+            new MessageEntry
+            {
+                messageID = 0x99,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Big Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorRed
+                    + "5,000 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+            new MessageEntry
+            {
+                messageID = 0x9A,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Giant Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorPurple
+                    + "9,999 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+        };
+
+        static MessageEntry[] germanWalletText =
+        {
+            new MessageEntry
+            {
+                messageID = 0x99,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Big Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorRed
+                    + "5,000 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+            new MessageEntry
+            {
+                messageID = 0x9A,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Giant Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorPurple
+                    + "9,999 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+        };
+
+        static MessageEntry[] frenchWaletText =
+        {
+            new MessageEntry
+            {
+                messageID = 0x99, // Big Wallet
+                message =
+                    messageSpeedFast
+                    + "Vous obtenez la "
+                    + messageColorRed
+                    + "Grande Bourse"
+                    + messageColorWhite
+                    + "!\nElle peut contenir jusqu'à\n"
+                    + messageColorRed
+                    + "5,000 rubis"
+                    + messageColorWhite
+                    + "!"
+            },
+            new MessageEntry
+            {
+                messageID = 0x9A, // Giant Wallet
+                message =
+                    messageSpeedFast
+                    + "Vous obtenez la "
+                    + messageColorRed
+                    + "Bourse Géante"
+                    + messageColorWhite
+                    + "!\nElle peut contenir jusqu'à\n"
+                    + messageColorPurple
+                    + "9,999 rubis"
+                    + messageColorWhite
+                    + "!"
+            },
+        };
+
+        static MessageEntry[] spanishWalletText =
+        {
+            new MessageEntry
+            {
+                messageID = 0x99,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Big Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorRed
+                    + "5,000 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+            new MessageEntry
+            {
+                messageID = 0x9A,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Giant Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorPurple
+                    + "9,999 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+        };
+
+        static MessageEntry[] italianWalletText =
+        {
+            new MessageEntry
+            {
+                messageID = 0x99,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Big Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorRed
+                    + "5,000 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+            new MessageEntry
+            {
+                messageID = 0x9A,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Giant Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorPurple
+                    + "9,999 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+        };
+
+        static MessageEntry[] japaneseWalletText =
+        {
+            new MessageEntry
+            {
+                messageID = 0x99,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Big Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorRed
+                    + "5,000 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+            new MessageEntry
+            {
+                messageID = 0x9A,
+                message =
+                    messageSpeedFast
+                    + "You got the "
+                    + messageColorRed
+                    + "Giant Wallet"
+                    + messageColorWhite
+                    + "! You can now hold "
+                    + messageColorPurple
+                    + "9,999 Rupees"
+                    + messageColorWhite
+                    + "!"
+            },
+        };
+
+        List<MessageEntry[]> listOfWalletEntries =
+            new()
+            {
+                englishWalletText,
+                germanWalletText,
+                frenchWaletText,
+                spanishWalletText,
+                italianWalletText,
+                japaneseWalletText
+            };
+
+        void setSeedMessages()
+        {
+            RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
+            if (randomizerSettings.increaseWallet)
+            {
+                for (int i = 0; i < listOfLanguageEntries.Count(); i++)
+                {
+                    listOfLanguageEntries[i] = BackendFunctions.ConcatMessageArrays(
+                        listOfLanguageEntries[i],
+                        listOfWalletEntries[i]
+                    );
+                }
+            }
+        }
     }
 }

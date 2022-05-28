@@ -14,6 +14,8 @@ namespace TPRandomizer.Assets
         {
             { 0x2, 0x46 }, // Midna jump 1 mist area.
             { 0x2, 0x47 }, // Midna jump 1 mist area.
+            { 0x0, 0x47 }, // Picked Up Ordon Sword.
+            { 0x0, 0x45 }, // Picked up Ordon Shield.
             { 0x2, 0x5D }, // North Faron Portal.
             { 0x2, 0x98 }, // South Faron Portal.
             { 0x0, 0x6B }, // Ordon Spring Portal.
@@ -47,6 +49,8 @@ namespace TPRandomizer.Assets
             { 0x2, 0x63 }, // Trill lets you shop at his store.
             { 0x3, 0xB9 }, // Barnes sells water bombs.
             { 0x2, 0x60 }, // Got Lantern Back from Monkey
+            { 0x2, 0x4E }, // Saved Monkey from Puppets.
+            { 0x2, 0x62 }, // Midna text before jumping to lost woods
             { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
             { 0x2, 0x95 }, // Midna text after warping to North Faron for bridge.
             { 0x2, 0xBF }, // Burned First cobweb in faron cave
