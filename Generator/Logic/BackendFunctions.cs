@@ -782,29 +782,6 @@ namespace TPRandomizer
             return array3;
         }
 
-        public static Assets.CustomMessages.MessageEntry[] ConcatMessageArrays(
-            Assets.CustomMessages.MessageEntry[] destArray,
-            Assets.CustomMessages.MessageEntry[] sourceArray
-        )
-        {
-            Assets.CustomMessages.MessageEntry[] array3 = new Assets.CustomMessages.MessageEntry[
-                destArray.GetLength(0) + sourceArray.GetLength(0)
-            ];
-            int j = 0;
-            for (int i = 0; i < destArray.GetLength(0); i++)
-            {
-                array3[i] = destArray[i];
-            }
-
-            for (int i = destArray.GetLength(0); i < array3.GetLength(0); i++)
-            {
-                array3[i] = sourceArray[j];
-                j++;
-            }
-
-            return array3;
-        }
-
         private static IEnumerable<UInt64> Blockify(byte[] inputAsBytes, int blockSize)
         {
             int i = 0;
