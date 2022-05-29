@@ -111,6 +111,7 @@ namespace TPRandomizer.Assets
                 CheckDataRaw.Add(Converter.GcByte(0x0));
             }
 
+            SeedHeaderRaw.totalSize = (uint)(SeedHeaderSize + CheckDataRaw.Count);
             currentSeedHeader.AddRange(GenerateSeedHeader(randomizerSettings.seedNumber, seedHash));
             currentSeedData.AddRange(BannerDataRaw);
             currentSeedData.AddRange(currentSeedHeader);
