@@ -212,13 +212,13 @@ namespace TPRandomizer.Assets
             List<byte> listOfPatches = new();
             bool[] volatilePatchSettingsArray =
             {
-                randomizerSettings.shuffleBackgroundMusic,
-                randomizerSettings.disableEnemyBackgoundMusic,
                 randomizerSettings.faronTwilightCleared,
                 randomizerSettings.eldinTwilightCleared,
                 randomizerSettings.lanayruTwilightCleared,
                 randomizerSettings.skipMinorCutscenes,
-                randomizerSettings.mdhSkipped
+                randomizerSettings.mdhSkipped,
+                randomizerSettings.shuffleBackgroundMusic,
+                randomizerSettings.disableEnemyBackgoundMusic
             };
             bool[] oneTimePatchSettingsArray =
             {
