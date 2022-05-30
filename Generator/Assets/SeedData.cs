@@ -29,8 +29,10 @@ namespace TPRandomizer.Assets
             public UInt16 dataSize { get; set; } // Total number of bytes in the check data
             public UInt64 seed { get; set; } // Current seed
             public UInt32 totalSize { get; set; } // Total number of bytes in the gci after the comments
-            public UInt16 patchInfoNumEntries { get; set; } // bitArray where each bit represents a patch/modification to be applied for this playthrough
-            public UInt16 patchInfoDataOffset { get; set; }
+            public UInt16 volatilePatchInfoNumEntries { get; set; } // bitArray where each bit represents a patch/modification to be applied for this playthrough
+            public UInt16 volatilePatchInfoDataOffset { get; set; }
+            public UInt16 oneTimePatchInfoNumEntries { get; set; } // bitArray where each bit represents a patch/modification to be applied for this playthrough
+            public UInt16 oneTimePatchInfoDataOffset { get; set; }
             public UInt16 eventFlagsInfoNumEntries { get; set; } // eventFlags that need to be set for this seed
             public UInt16 eventFlagsInfoDataOffset { get; set; }
             public UInt16 regionFlagsInfoNumEntries { get; set; } // regionFlags that need to be set, alternating
@@ -208,33 +210,37 @@ namespace TPRandomizer.Assets
         {
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             List<byte> listOfPatches = new();
-            bool[] patchSettingsArray =
+            bool[] volatilePatchSettingsArray =
             {
-                randomizerSettings.increaseWallet,
                 randomizerSettings.shuffleBackgroundMusic,
                 randomizerSettings.disableEnemyBackgoundMusic,
-                randomizerSettings.fastIronBoots,
                 randomizerSettings.faronTwilightCleared,
                 randomizerSettings.eldinTwilightCleared,
                 randomizerSettings.lanayruTwilightCleared,
-                randomizerSettings.modifyShopModels,
                 randomizerSettings.skipMinorCutscenes,
                 randomizerSettings.mdhSkipped
             };
+            bool[] oneTimePatchSettingsArray =
+            {
+                randomizerSettings.increaseWallet,
+                randomizerSettings.fastIronBoots,
+                randomizerSettings.modifyShopModels,
+            };
             int patchOptions = 0x0;
             int bitwiseOperator = 0;
-            SeedHeaderRaw.patchInfoNumEntries = 1; // Start off at one to ensure alignment
-            for (int i = 0; i < patchSettingsArray.Length; i++)
+            SeedHeaderRaw.volatilePatchInfoNumEntries = 1; // Start off at one to ensure alignment
+            SeedHeaderRaw.oneTimePatchInfoNumEntries = 1; // Start off at one to ensure alignment
+            for (int i = 0; i < volatilePatchSettingsArray.Length; i++)
             {
                 if (((i % 8) == 0) && (i >= 8))
                 {
-                    SeedHeaderRaw.patchInfoNumEntries++;
+                    SeedHeaderRaw.volatilePatchInfoNumEntries++;
                     listOfPatches.Add(Converter.GcByte(patchOptions));
                     patchOptions = 0;
                     bitwiseOperator = 0;
                 }
 
-                if (patchSettingsArray[i])
+                if (volatilePatchSettingsArray[i])
                 {
                     patchOptions |= 0x80 >> bitwiseOperator;
                 }
@@ -243,7 +249,31 @@ namespace TPRandomizer.Assets
             }
 
             listOfPatches.Add(Converter.GcByte(patchOptions));
-            SeedHeaderRaw.patchInfoDataOffset = (ushort)(CheckDataRaw.Count);
+            SeedHeaderRaw.volatilePatchInfoDataOffset = (ushort)(CheckDataRaw.Count);
+            SeedHeaderRaw.oneTimePatchInfoDataOffset = (ushort)(
+                CheckDataRaw.Count + listOfPatches.Count
+            );
+            patchOptions = 0;
+            bitwiseOperator = 0;
+            for (int i = 0; i < oneTimePatchSettingsArray.Length; i++)
+            {
+                if (((i % 8) == 0) && (i >= 8))
+                {
+                    SeedHeaderRaw.oneTimePatchInfoNumEntries++;
+                    listOfPatches.Add(Converter.GcByte(patchOptions));
+                    patchOptions = 0;
+                    bitwiseOperator = 0;
+                }
+
+                if (oneTimePatchSettingsArray[i])
+                {
+                    patchOptions |= 0x80 >> bitwiseOperator;
+                }
+
+                bitwiseOperator++;
+            }
+            listOfPatches.Add(Converter.GcByte(patchOptions));
+
             return listOfPatches;
         }
 
