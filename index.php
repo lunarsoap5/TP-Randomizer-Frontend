@@ -303,13 +303,14 @@
 						<label for="heartColorFieldset">Heart Color:</label>
 						<select name="Heart Color Fieldset" id="heartColorFieldset">
 							<option value="0">Default</option>
-							<option value="2">Teal</option>
-							<option value="3">Pink</option>
-							<option value="4">Orange</option>
+							<option value="1">Pink</option>
+							<option value="2">Orange</option>
+							<option value="3">Green</option>
+							<option value="4">Teal</option>
 							<option value="5">Blue</option>
-							<option value="6">Green</option>
-							<option value="7">Purple</option>
-							<option value="8">Black</option>
+							<option value="6">Purple</option>
+							<option value="7">Black</option>
+							<option value="8">Rainbow</option>
 						</select>
 						<br/>
 						<label for="aButtonColorFieldset">A Button Color:</label>
