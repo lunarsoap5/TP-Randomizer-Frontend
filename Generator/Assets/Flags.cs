@@ -362,6 +362,7 @@ namespace TPRandomizer.Assets
             { 0x20, 0x10 }, // Arbiters Grounds Story Progression
             { 0x2C, 0x10 }, // Raised the mirror in the Mirror Chamber
             { 0x1B, 0x38 }, // Skip Monkey Escort
+            { 0x1C, 0x20 }, // Talked to Bo after opening boots chest.
             { 0x6, 0x20 }, // Warped Kakariko Bridge Back.
             { 0x5F, 0x20 }, // Shad leaves sanctuary.
             { 0xF7, 0x1 }, // Add 256 Rupees to Charlo.
