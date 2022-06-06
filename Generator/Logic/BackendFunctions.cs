@@ -414,12 +414,12 @@ namespace TPRandomizer
             bool hasCompletedSphere;
             bool hasConcludedPlaythrough;
             List<List<string>> listofPlaythroughs = new();
-            int sphereCount;
+            int sphereCount = 0;
             List<Room> currentPlaythroughGraph;
             List<Item> playthroughItems = new();
             List<Item> sphereItems = new();
             Dictionary<string, Check> playthroughDictionary = new();
-            sphereCount = 0;
+            int startingItemCount = 1;
             List<string> currentPlaythrough = new();
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -439,7 +439,11 @@ namespace TPRandomizer
             foreach (Item startingItem in parseSetting.StartingItems)
             {
                 Randomizer.Items.heldItems.Add(startingItem);
-                playthroughDictionary.Add("Starting Item: " + startingItem.ToString(), null);
+                playthroughDictionary.Add(
+                    "Starting Item " + startingItemCount + ": " + startingItem.ToString(),
+                    null
+                );
+                startingItemCount++;
             }
 
             while (!Randomizer.Rooms.RoomDict["Ganondorf Castle"].Visited)
