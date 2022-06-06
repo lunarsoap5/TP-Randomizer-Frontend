@@ -3,6 +3,10 @@ namespace TPRandomizer
     using System.Collections.Generic;
     using System.Linq;
 
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum Item : byte
     {
         Recovery_Heart = 0x00,
