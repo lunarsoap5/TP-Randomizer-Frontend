@@ -52,6 +52,11 @@ namespace TPRandomizer
         public static readonly byte RandomizerVersionMinor = 0;
 
         /// <summary>
+        /// The oldest version of the randomizer that will support the seed generated..
+        /// </summary>
+        public static int RequiredDungeons = 0;
+
+        /// <summary>
         /// Generates a randomizer seed given a settings string.
         /// </summary>
         /// <param name="settingsString"> The Settings String to be read in. </param>
@@ -221,12 +226,6 @@ namespace TPRandomizer
             Console.WriteLine("Placing Vanilla Checks.");
             PlaceVanillaChecks();
 
-            // Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.). This is to
-            // prevent important items from being placed in checks that the player or randomizer has requested to be not
-            // considered in logic.
-            Console.WriteLine("Placing Excluded Checks.");
-            PlaceExcludedChecks();
-
             // Dungeon rewards have a very limited item pool, so we want to place them first to prevent the generator from putting
             // an unnecessary item in one of the checks.
             // starting room, list of checks to be randomized, items to be randomized, item pool, restriction
@@ -246,6 +245,17 @@ namespace TPRandomizer
                 Randomizer.Items.heldItems,
                 "Region"
             );
+
+            if (Randomizer.RandoSetting.barrenDungeons)
+            {
+                ExcludeUnrequiredDungeons();
+            }
+
+            // Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.). This is to
+            // prevent important items from being placed in checks that the player or randomizer has requested to be not
+            // considered in logic.
+            Console.WriteLine("Placing Excluded Checks.");
+            PlaceExcludedChecks();
 
             // Once all of the items that have some restriction on their placement are placed, we then place all of the items that can
             // be logically important (swords, clawshot, bow, etc.)
@@ -396,34 +406,39 @@ namespace TPRandomizer
                                         }
                                         else
                                         {
-                                            if (restriction == "Region")
+                                            if (currentCheck.checkStatus == "Ready")
                                             {
-                                                if (
-                                                    RoomFunctions.IsRegionCheck(
-                                                        itemToPlace,
-                                                        currentCheck,
-                                                        graphRoom
+                                                if (restriction == "Region")
+                                                {
+                                                    if (
+                                                        RoomFunctions.IsRegionCheck(
+                                                            itemToPlace,
+                                                            currentCheck,
+                                                            graphRoom
+                                                        )
                                                     )
-                                                )
+                                                    {
+                                                        // Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
+                                                        availableChecks.Add(currentCheck.checkName);
+                                                    }
+                                                }
+                                                else if (restriction == "Dungeon Rewards")
+                                                {
+                                                    if (
+                                                        currentCheck.category.Contains(
+                                                            "Dungeon Reward"
+                                                        )
+                                                    )
+                                                    {
+                                                        // Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
+                                                        availableChecks.Add(currentCheck.checkName);
+                                                    }
+                                                }
+                                                else
                                                 {
                                                     // Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
                                                     availableChecks.Add(currentCheck.checkName);
                                                 }
-                                            }
-                                            else if (restriction == "Dungeon Rewards")
-                                            {
-                                                if (
-                                                    currentCheck.category.Contains("Dungeon Reward")
-                                                )
-                                                {
-                                                    // Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
-                                                    availableChecks.Add(currentCheck.checkName);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                // Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
-                                                availableChecks.Add(currentCheck.checkName);
                                             }
                                         }
 
@@ -543,6 +558,151 @@ namespace TPRandomizer
             }
 
             Randomizer.Rooms.RoomDict["Ordon Province"].IsStartingRoom = true;
+        }
+
+        private static void ExcludeUnrequiredDungeons()
+        {
+            Check dungeonCheck = new();
+            string[,] listOfRewards = new string[,]
+            {
+                { "Forest Temple Dungeon Reward", "Forest Temple" },
+                { "Goron Mines Dungeon Reward", "Goron Mines" },
+                { "Lakebed Temple Dungeon Reward", "Lakebed Temple" },
+                { "Arbiters Grounds Stallord Heart Container", "Arbiters Grounds" },
+                { "Snowpeak Ruins Dungeon Reward", "Snowpeak Ruins" },
+                { "Temple of Time Dungeon Reward", "Temple of Time" },
+                { "City in The Sky Dungeon Reward", "City in The Sky" },
+                { "Palace of Twilight Zant Heart Container", "Palace of Twilight" }
+            };
+            List<string> requiredDungeons = new();
+
+            if (Randomizer.RandoSetting.castleRequirements == "Open")
+            {
+                if (!Randomizer.RandoSetting.mdhSkipped)
+                {
+                    requiredDungeons.Add("Lakebed Temple");
+                }
+            }
+            else if (Randomizer.RandoSetting.castleRequirements == "Fused_Shadows")
+            {
+                for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                {
+                    if (
+                        Checks.CheckDict[listOfRewards[i, 0]].itemId
+                        == Item.Progressive_Fused_Shadow
+                    )
+                    {
+                        requiredDungeons.Add(listOfRewards[i, 1]);
+                    }
+                }
+            }
+            else if (Randomizer.RandoSetting.castleRequirements == "Mirror_Shards")
+            {
+                for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                {
+                    if (
+                        Checks.CheckDict[listOfRewards[i, 0]].itemId
+                        == Item.Progressive_Mirror_Shard
+                    )
+                    {
+                        requiredDungeons.Add(listOfRewards[i, 1]);
+                    }
+                }
+            }
+            else if (Randomizer.RandoSetting.castleRequirements == "Vanilla")
+            {
+                // If Palace is required then Arbiters is automatically required.
+                requiredDungeons.Add("Arbiters Grounds");
+                requiredDungeons.Add("Palace of Twilight");
+                if (Randomizer.RandoSetting.palaceRequirements == "Fused_Shadows")
+                {
+                    for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                    {
+                        if (
+                            Checks.CheckDict[listOfRewards[i, 0]].itemId
+                            == Item.Progressive_Fused_Shadow
+                        )
+                        {
+                            requiredDungeons.Add(listOfRewards[i, 1]);
+                        }
+                    }
+                }
+                else if (Randomizer.RandoSetting.palaceRequirements == "Mirror_Shards")
+                {
+                    for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                    {
+                        if (
+                            Checks.CheckDict[listOfRewards[i, 0]].itemId
+                            == Item.Progressive_Mirror_Shard
+                        )
+                        {
+                            requiredDungeons.Add(listOfRewards[i, 1]);
+                        }
+                    }
+                }
+                else if (Randomizer.RandoSetting.palaceRequirements == "Vanilla")
+                {
+                    requiredDungeons.Add("City in The Sky");
+                }
+            }
+            if (requiredDungeons != null) // No point in worrying about excluded locations if no dungeons are required
+            {
+                foreach (string requiredDungeon in requiredDungeons)
+                {
+                    Console.WriteLine(requiredDungeon + " is a required dungeon");
+                    for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                    {
+                        if (listOfRewards[i, 1] == requiredDungeon)
+                        {
+                            Randomizer.RequiredDungeons |= 0x80 >> i;
+                        }
+                        else
+                        {
+                            // For excluded checks, we handle Glitched and Glitchless logic differently. With no logic, there really isn't a preference, but we will try to honor the player's settings as much as possible.
+                            if (Randomizer.RandoSetting.logicRules != "Glitched")
+                            {
+                                foreach (
+                                    KeyValuePair<
+                                        string,
+                                        Check
+                                    > checkList in Checks.CheckDict.ToList()
+                                )
+                                {
+                                    Check currentCheck = checkList.Value;
+                                    if (
+                                        currentCheck.category.Contains(listOfRewards[i, 1])
+                                        && !currentCheck.checkName.Contains("Dungeon Reward")
+                                    )
+                                    {
+                                        currentCheck.checkStatus = "Excluded";
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                foreach (
+                                    KeyValuePair<
+                                        string,
+                                        Check
+                                    > checkList in Checks.CheckDict.ToList()
+                                )
+                                {
+                                    Check currentCheck = checkList.Value;
+                                    if (
+                                        currentCheck.category.Contains(listOfRewards[i, 1])
+                                        && !currentCheck.checkName.Contains("Dungeon Reward")
+                                        && !currentCheck.category.Contains("Glitchless") // If the category doesn't mention glitchless, then we assume that the dependency on the dungeon is hard locked by progression.
+                                    )
+                                    {
+                                        currentCheck.checkStatus = "Excluded";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return;
         }
 
         private static Room SetupGraph()
