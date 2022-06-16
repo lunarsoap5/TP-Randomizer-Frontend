@@ -246,10 +246,7 @@ namespace TPRandomizer
                 "Region"
             );
 
-            if (Randomizer.RandoSetting.barrenDungeons)
-            {
-                ExcludeUnrequiredDungeons();
-            }
+            CheckUnrequiredDungeons();
 
             // Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.). This is to
             // prevent important items from being placed in checks that the player or randomizer has requested to be not
@@ -560,19 +557,19 @@ namespace TPRandomizer
             Randomizer.Rooms.RoomDict["Ordon Province"].IsStartingRoom = true;
         }
 
-        private static void ExcludeUnrequiredDungeons()
+        private static void CheckUnrequiredDungeons()
         {
             Check dungeonCheck = new();
             string[,] listOfRewards = new string[,]
             {
-                { "Forest Temple Dungeon Reward", "Forest Temple" },
-                { "Goron Mines Dungeon Reward", "Goron Mines" },
-                { "Lakebed Temple Dungeon Reward", "Lakebed Temple" },
-                { "Arbiters Grounds Stallord Heart Container", "Arbiters Grounds" },
-                { "Snowpeak Ruins Dungeon Reward", "Snowpeak Ruins" },
-                { "Temple of Time Dungeon Reward", "Temple of Time" },
+                { "Palace of Twilight Zant Heart Container", "Palace of Twilight" },
                 { "City in The Sky Dungeon Reward", "City in The Sky" },
-                { "Palace of Twilight Zant Heart Container", "Palace of Twilight" }
+                { "Temple of Time Dungeon Reward", "Temple of Time" },
+                { "Snowpeak Ruins Dungeon Reward", "Snowpeak Ruins" },
+                { "Arbiters Grounds Stallord Heart Container", "Arbiters Grounds" },
+                { "Lakebed Temple Dungeon Reward", "Lakebed Temple" },
+                { "Goron Mines Dungeon Reward", "Goron Mines" },
+                { "Forest Temple Dungeon Reward", "Forest Temple" }
             };
             List<string> requiredDungeons = new();
 
@@ -645,7 +642,7 @@ namespace TPRandomizer
                     requiredDungeons.Add("City in The Sky");
                 }
             }
-            if (requiredDungeons != null) // No point in worrying about excluded locations if no dungeons are required
+            if ((requiredDungeons != null) && Randomizer.RandoSetting.barrenDungeons) // No point in worrying about excluded locations if no dungeons are required
             {
                 foreach (string requiredDungeon in requiredDungeons)
                 {
