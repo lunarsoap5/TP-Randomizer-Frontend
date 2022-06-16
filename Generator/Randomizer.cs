@@ -642,7 +642,7 @@ namespace TPRandomizer
                     requiredDungeons.Add("City in The Sky");
                 }
             }
-            if ((requiredDungeons != null) && Randomizer.RandoSetting.barrenDungeons) // No point in worrying about excluded locations if no dungeons are required
+            if (requiredDungeons != null) // No point in worrying about excluded locations if no dungeons are required
             {
                 foreach (string requiredDungeon in requiredDungeons)
                 {
@@ -655,43 +655,45 @@ namespace TPRandomizer
                         }
                         else
                         {
-                            // For excluded checks, we handle Glitched and Glitchless logic differently. With no logic, there really isn't a preference, but we will try to honor the player's settings as much as possible.
-                            if (Randomizer.RandoSetting.logicRules != "Glitched")
-                            {
-                                foreach (
-                                    KeyValuePair<
-                                        string,
-                                        Check
-                                    > checkList in Checks.CheckDict.ToList()
-                                )
+                            if (Randomizer.RandoSetting.barrenDungeons)
+                            { // For excluded checks, we handle Glitched and Glitchless logic differently. With no logic, there really isn't a preference, but we will try to honor the player's settings as much as possible.
+                                if (Randomizer.RandoSetting.logicRules != "Glitched")
                                 {
-                                    Check currentCheck = checkList.Value;
-                                    if (
-                                        currentCheck.category.Contains(listOfRewards[i, 1])
-                                        && !currentCheck.checkName.Contains("Dungeon Reward")
+                                    foreach (
+                                        KeyValuePair<
+                                            string,
+                                            Check
+                                        > checkList in Checks.CheckDict.ToList()
                                     )
                                     {
-                                        currentCheck.checkStatus = "Excluded";
+                                        Check currentCheck = checkList.Value;
+                                        if (
+                                            currentCheck.category.Contains(listOfRewards[i, 1])
+                                            && !currentCheck.checkName.Contains("Dungeon Reward")
+                                        )
+                                        {
+                                            currentCheck.checkStatus = "Excluded";
+                                        }
                                     }
                                 }
-                            }
-                            else
-                            {
-                                foreach (
-                                    KeyValuePair<
-                                        string,
-                                        Check
-                                    > checkList in Checks.CheckDict.ToList()
-                                )
+                                else
                                 {
-                                    Check currentCheck = checkList.Value;
-                                    if (
-                                        currentCheck.category.Contains(listOfRewards[i, 1])
-                                        && !currentCheck.checkName.Contains("Dungeon Reward")
-                                        && !currentCheck.category.Contains("Glitchless") // If the category doesn't mention glitchless, then we assume that the dependency on the dungeon is hard locked by progression.
+                                    foreach (
+                                        KeyValuePair<
+                                            string,
+                                            Check
+                                        > checkList in Checks.CheckDict.ToList()
                                     )
                                     {
-                                        currentCheck.checkStatus = "Excluded";
+                                        Check currentCheck = checkList.Value;
+                                        if (
+                                            currentCheck.category.Contains(listOfRewards[i, 1])
+                                            && !currentCheck.checkName.Contains("Dungeon Reward")
+                                            && !currentCheck.category.Contains("Glitchless") // If the category doesn't mention glitchless, then we assume that the dependency on the dungeon is hard locked by progression.
+                                        )
+                                        {
+                                            currentCheck.checkStatus = "Excluded";
+                                        }
                                     }
                                 }
                             }
