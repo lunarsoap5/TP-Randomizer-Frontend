@@ -553,6 +553,7 @@ namespace TPRandomizer
                 currentRoom.Visited = false;
                 Randomizer.Rooms.RoomDict[currentRoom.RoomName] = currentRoom;
             }
+            Randomizer.RequiredDungeons = 0;
 
             Randomizer.Rooms.RoomDict["Ordon Province"].IsStartingRoom = true;
         }
