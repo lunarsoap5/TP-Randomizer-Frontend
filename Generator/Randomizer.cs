@@ -304,7 +304,7 @@ namespace TPRandomizer
             foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
-                if (!currentCheck.itemWasPlaced && (currentCheck.checkStatus == "Excluded"))
+                if (!currentCheck.itemWasPlaced && (currentCheck.checkStatus.Contains("Excluded")))
                 {
                     PlaceItemInCheck(
                         Items.JunkItems[rnd.Next(Items.JunkItems.Count)],
@@ -542,6 +542,10 @@ namespace TPRandomizer
             foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
+                if (currentCheck.checkStatus == "Excluded-Unrequired")
+                {
+                    currentCheck.checkStatus = "Ready";
+                }
                 currentCheck.hasBeenReached = false;
                 currentCheck.itemWasPlaced = false;
                 Checks.CheckDict[currentCheck.checkName] = currentCheck;
@@ -673,7 +677,7 @@ namespace TPRandomizer
                                             && !currentCheck.checkName.Contains("Dungeon Reward")
                                         )
                                         {
-                                            currentCheck.checkStatus = "Excluded";
+                                            currentCheck.checkStatus = "Excluded-Unrequired";
                                         }
                                     }
                                 }
@@ -693,7 +697,7 @@ namespace TPRandomizer
                                             && !currentCheck.category.Contains("Glitchless") // If the category doesn't mention glitchless, then we assume that the dependency on the dungeon is hard locked by progression.
                                         )
                                         {
-                                            currentCheck.checkStatus = "Excluded";
+                                            currentCheck.checkStatus = "Excluded-Unrequired";
                                         }
                                     }
                                 }

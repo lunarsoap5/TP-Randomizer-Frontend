@@ -48,6 +48,7 @@ namespace TPRandomizer.Assets
             { 0x16, 0x6B }, // West Bridge in CiTS Destroyed CS Trigger.
             { 0x2, 0x63 }, // Trill lets you shop at his store.
             { 0x3, 0xB9 }, // Barnes sells water bombs.
+            { 0x3, 0xB3 }, // Colin Rescued CS (Malo Mart is Open).
             { 0x2, 0x60 }, // Got Lantern Back from Monkey
             { 0x2, 0x4E }, // Saved Monkey from Puppets.
             { 0x2, 0x62 }, // Midna text before jumping to lost woods
@@ -356,7 +357,7 @@ namespace TPRandomizer.Assets
             { 0x14, 0x10 }, // Put Bo outside, ready to wrestle
             { 0xA, 0x2F }, // Bridge of Eldin Stolen, KB1 defeated, KB1 started
             { 0xF, 0x9 }, // Bridge of Eldin Warped Back, coro gave lantern
-            { 0x40, 0x8 }, // Visited Gerudo Desert for the first time.
+            { 0x40, 0x88 }, // Saved monkey from puppets, Visited Gerudo Desert for the first time.
             { 0x7, 0xA0 }, // Watched Colin CS after KB1, talked to Bo before sumo
             { 0x20, 0x20 }, // Master Sword Story Progression
             { 0x20, 0x10 }, // Arbiters Grounds Story Progression
