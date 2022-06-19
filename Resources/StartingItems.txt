@@ -9,7 +9,7 @@
 74,Progressive_Fishing_Rod
 69,Iron_Boots
 67,Progressive_Bow
-81,Bomb_Bag_and_Bombs
+81,Filled_Bomb_Bag
 49,Zora_Armor
 68,Progressive_Clawshot
 68,Progressive_Clawshot

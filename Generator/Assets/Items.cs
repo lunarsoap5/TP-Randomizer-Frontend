@@ -95,8 +95,8 @@ namespace TPRandomizer
         /*?	=	0x4D,*/
         /*?	=	0x4E,*/
         Giant_Bomb_Bag = 0x4F,
-        Empty_Bomb_Bag = 0x50,
-        Progressive_Bomb_Bag = 0x51,
+        Barnes_Bomb_Bag = 0x50,
+        Filled_Bomb_Bag = 0x51,
 
         /*Giant_Bomb_Bag?	=	0x52,*/
         /*?	=	0x53,*/
@@ -404,7 +404,7 @@ namespace TPRandomizer
                 Item.Progressive_Fishing_Rod,
                 Item.Iron_Boots,
                 Item.Progressive_Bow,
-                Item.Progressive_Bomb_Bag,
+                Item.Filled_Bomb_Bag,
                 Item.Zora_Armor,
                 Item.Progressive_Clawshot,
                 Item.Progressive_Clawshot,
@@ -586,9 +586,9 @@ namespace TPRandomizer
                 Item.Progressive_Wallet,
                 Item.Progressive_Bow,
                 Item.Progressive_Bow,
-                Item.Progressive_Bomb_Bag,
-                Item.Progressive_Bomb_Bag,
-                Item.Progressive_Bomb_Bag,
+                Item.Filled_Bomb_Bag,
+                Item.Filled_Bomb_Bag,
+                Item.Giant_Bomb_Bag,
                 Item.Sera_Bottle,
                 Item.Coro_Bottle,
                 Item.Jovani_Bottle,

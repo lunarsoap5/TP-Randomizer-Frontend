@@ -94,10 +94,12 @@ namespace TPRandomizer
         {
             return (
                 (getItemCount(Item.Progressive_Clawshot) >= 1)
-                && (HasSword()
-                || CanUse(Item.Ball_and_Chain)
-                || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Shadow_Crystal))
+                && (
+                    HasSword()
+                    || CanUse(Item.Ball_and_Chain)
+                    || CanUse(Item.Iron_Boots)
+                    || CanUse(Item.Shadow_Crystal)
+                )
             );
         }
 
@@ -1359,7 +1361,7 @@ namespace TPRandomizer
         public static bool hasBombs()
         {
             return (
-                (CanUse(Item.Progressive_Bomb_Bag))
+                (CanUse(Item.Filled_Bomb_Bag))
                 && (
                     Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough
                     || (
@@ -1382,7 +1384,7 @@ namespace TPRandomizer
         public static bool CanUseWaterBombs()
         {
             return (
-                CanUse(Item.Progressive_Bomb_Bag)
+                CanUse(Item.Filled_Bomb_Bag)
                 && (
                     Randomizer.Rooms.RoomDict["Kakariko Village"].ReachedByPlaythrough
                     || (
