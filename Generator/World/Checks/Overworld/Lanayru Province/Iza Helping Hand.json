@@ -1,5 +1,5 @@
 {
-    "requirements": "(Progressive_Bow, 1) and hasBombs and Room.Zoras_Domain and (HasSword or (CanDefeatShadowBeast and (Setting.transformAnywhere equals True)))",
+    "requirements": "(Progressive_Bow, 1) and hasBombs and Room.Zoras_Domain and (HasSword or (CanDefeatShadowBeast and (Setting.transformAnywhere equals True) and ((Room.Lakebed_Temple_Boss_Room and CanDefeatMorpheel) or Setting.mdhSkipped equals True)))",
     "arcOffsets": ["1737"],
     "stageIDX": [52],
     "fileDirectoryType": [1],
