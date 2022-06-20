@@ -13,7 +13,7 @@ namespace TPRandomizer
         public string palaceRequirements { get; set; }
         public string faronWoodsLogic { get; set; }
         public bool mdhSkipped { get; set; }
-        public bool introSkipped { get; set; }
+        public bool prologueSkipped { get; set; }
         public string smallKeySettings { get; set; }
         public string bossKeySettings { get; set; }
         public string mapAndCompassSettings { get; set; }
@@ -67,7 +67,7 @@ namespace TPRandomizer
 
         public bool mdhSkipped { get; set; }
 
-        public bool introSkipped { get; set; }
+        public bool prologueSkipped { get; set; }
 
         public string[] smallKeySettings { get; set; } =
             new string[] { "Vanilla", "Own_Dungeon", "Any_Dungeon", "Keysanity", "Keysey" };

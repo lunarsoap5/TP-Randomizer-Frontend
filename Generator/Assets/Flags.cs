@@ -498,7 +498,7 @@ namespace TPRandomizer.Assets
         /// </summary>
         public static readonly bool[] FlagSettings = new bool[]
         {
-            /* 0 */RandomizerSettings.introSkipped,
+            /* 0 */RandomizerSettings.prologueSkipped,
             /* 1 */RandomizerSettings.faronTwilightCleared,
             /* 2 */RandomizerSettings.eldinTwilightCleared,
             /* 3 */RandomizerSettings.lanayruTwilightCleared,

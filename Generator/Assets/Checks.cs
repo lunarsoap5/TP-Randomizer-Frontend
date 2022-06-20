@@ -182,7 +182,7 @@ namespace TPRandomizer
                 }
             }
 
-            if (!parseSetting.introSkipped)
+            if (!parseSetting.prologueSkipped)
             {
                 // We want to set Uli Cradle Delivery vanilla if intro is not skipped since a Fishing Rod has to be there in order to progress the seed.
                 // We also place the Lantern vanilla because it is a big logic hole and since we don't know how to make coro give both items in one state yet, it's safer to do this.

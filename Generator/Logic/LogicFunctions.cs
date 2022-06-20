@@ -1424,7 +1424,7 @@ namespace TPRandomizer
                         CanUse(Item.North_Faron_Woods_Gate_Key)
                         || (Randomizer.RandoSetting.smallKeySettings == "Keysey")
                     )
-                ) || (Randomizer.RandoSetting.introSkipped == true)
+                ) || (Randomizer.RandoSetting.prologueSkipped == true)
             );
         }
 
