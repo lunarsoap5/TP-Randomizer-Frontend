@@ -679,8 +679,9 @@ namespace TPRandomizer
                                 {
                                     Check currentCheck = checkList.Value;
                                     if (
-                                        currentCheck.category.Contains(listOfRewards[i, 1])
-                                        && !currentCheck.checkName.Contains("Dungeon Reward")
+                                        currentCheck.category.FirstOrDefault(
+                                            s => s.Contains(listOfRewards[i, 1])
+                                        ) != null
                                     )
                                     {
                                         currentCheck.checkStatus = "Excluded-Unrequired";
