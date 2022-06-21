@@ -16,8 +16,6 @@ namespace TPRandomizer.Assets
         private static readonly SeedHeader SeedHeaderRaw = new();
         private static readonly short SeedHeaderSize = 0x160;
 
-        private static short MessageHeaderSize = 0x4;
-
         /// <summary>
         /// summary text.
         /// </summary>
