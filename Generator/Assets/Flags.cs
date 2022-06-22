@@ -447,6 +447,8 @@ namespace TPRandomizer.Assets
         public static readonly byte[,] OpenForestEventFlags = new byte[,]
         {
             { 0x6, 0x2 }, // Forest Temple Story Flag
+            { 0xC, 0x40 }, // Talked to Farone after clearing Forest Temple
+            { 0x5E, 0x10 }, // Midna text after Forest Temple completed
         };
 
         public static readonly byte[,] MDHEventFlags = new byte[,]
