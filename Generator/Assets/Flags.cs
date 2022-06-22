@@ -358,6 +358,7 @@ namespace TPRandomizer.Assets
             { 0xA, 0x2F }, // Bridge of Eldin Stolen, KB1 defeated, KB1 started
             { 0xF, 0x9 }, // Bridge of Eldin Warped Back, coro gave lantern
             { 0x40, 0x88 }, // Saved monkey from puppets, Visited Gerudo Desert for the first time.
+            { 0x41, 0x18 }, // Talked to Fado after Faron and Eldin Twilight
             { 0x7, 0xA0 }, // Watched Colin CS after KB1, talked to Bo before sumo
             { 0x20, 0x20 }, // Master Sword Story Progression
             { 0x20, 0x10 }, // Arbiters Grounds Story Progression
@@ -368,6 +369,7 @@ namespace TPRandomizer.Assets
             { 0x5F, 0x20 }, // Shad leaves sanctuary.
             { 0xF7, 0x1 }, // Add 256 Rupees to Charlo.
             { 0xF8, 0xF4 }, // Add 244 Rupees to Charlo.
+            { 0x60, 0x1 }, // Talked to Fyer after Lanayru Twilight
         };
 
         /// <summary>
@@ -422,6 +424,7 @@ namespace TPRandomizer.Assets
             { 0x1, 0x40 }, // Talked to Yeto First Time.
             { 0x3, 0x90 }, // Jaggle Calls out to Link, talked to Squirrel as Wolf in Ordon.
             { 0x6, 0xC0 }, // CS After beating Ordon Shadow, CS after entering Faron Twilight.
+            { 0x7, 0x2 }, // First Time Talking to Gor Coron in Sumo Hall
             { 0x10, 0x2 }, // Talked to Jaggle after climbing vines.
             { 0xF, 0x40 }, // Talked to Doctor for the first time.
             { 0x5E, 0x10 }, // Midna text after beating Forest Temple.
