@@ -458,7 +458,6 @@ namespace TPRandomizer.Assets
         {
             { 0xC, 0x1 }, // Midna's Desperate Hour started.
             { 0x1E, 0x8 }, // Midna's Deseperate Hour Completed.
-            { 0x38, 0x80 }, // Talked to Jovani after defeating the Poe in his house.
         };
 
         public static readonly byte[,] SmallKeyEventFlags = new byte[,]
