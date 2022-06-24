@@ -540,7 +540,6 @@ namespace TPRandomizer
         private static void StartOver()
         {
             Randomizer.Items.heldItems.Clear();
-            Console.WriteLine("Logical error. Starting Over.");
             foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;

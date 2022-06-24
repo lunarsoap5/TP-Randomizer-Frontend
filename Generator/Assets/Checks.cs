@@ -223,9 +223,6 @@ namespace TPRandomizer
                 Randomizer.Checks.CheckDict["Jovani House Poe"].checkStatus = "Excluded";
             }
 
-            // Excluded until we figure out how to fix this check.
-            Randomizer.Checks.CheckDict["Jovani 60 Poe Soul Reward"].checkStatus = "Vanilla";
-
             // Vanilla until all of the flag issues are figured out.
             Randomizer.Checks.CheckDict["Renados Letter"].checkStatus = "Vanilla";
             Randomizer.Checks.CheckDict["Telma Invoice"].checkStatus = "Vanilla";
