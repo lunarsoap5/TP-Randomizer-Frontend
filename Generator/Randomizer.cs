@@ -681,9 +681,12 @@ namespace TPRandomizer
                             {
                                 Check currentCheck = checkList.Value;
                                 if (
-                                    currentCheck.category.FirstOrDefault(
-                                        s => s.Contains(listOfRewards[i, 1])
-                                    ) != null
+                                    (
+                                        currentCheck.category.FirstOrDefault(
+                                            s => s.Contains(listOfRewards[i, 1])
+                                        ) != null
+                                    )
+                                    && currentCheck.checkStatus != "Vanilla"
                                 )
                                 {
                                     currentCheck.checkStatus = "Excluded-Unrequired";
@@ -700,7 +703,8 @@ namespace TPRandomizer
                                 if (
                                     currentCheck.category.Contains(listOfRewards[i, 1])
                                     && !currentCheck.checkName.Contains("Dungeon Reward")
-                                    && !currentCheck.category.Contains("Glitchless") // If the category doesn't mention glitchless, then we assume that the dependency on the dungeon is hard locked by progression.
+                                    && !currentCheck.category.Contains("Glitchless")
+                                    && (currentCheck.checkStatus != "Vanilla") // If the category doesn't mention glitchless, then we assume that the dependency on the dungeon is hard locked by progression.
                                 )
                                 {
                                     currentCheck.checkStatus = "Excluded-Unrequired";
