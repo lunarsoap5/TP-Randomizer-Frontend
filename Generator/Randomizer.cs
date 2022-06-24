@@ -648,9 +648,9 @@ namespace TPRandomizer
                     requiredDungeons.Add("City in The Sky");
                 }
             }
-            if (requiredDungeons.Any()) // No point in worrying about excluded locations if no dungeons are required
+            for (int i = 0; i < listOfRewards.GetLength(0); i++)
             {
-                for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                if (requiredDungeons.Any()) // If the list is empty, we know that Castle has no required dungeons.
                 {
                     foreach (string requiredDungeon in requiredDungeons)
                     {
@@ -664,59 +664,58 @@ namespace TPRandomizer
                             isUnrequired = true;
                         }
                     }
-                    if (isUnrequired)
-                    {
-                        if (Randomizer.RandoSetting.barrenDungeons)
-                        { // For excluded checks, we handle Glitched and Glitchless logic differently. With no logic, there really isn't a preference, but we will try to honor the player's settings as much as possible.
-                            if (Randomizer.RandoSetting.logicRules != "Glitched")
+                }
+                else
+                {
+                    isUnrequired = true;
+                }
+                if (isUnrequired)
+                {
+                    if (Randomizer.RandoSetting.barrenDungeons)
+                    { // For excluded checks, we handle Glitched and Glitchless logic differently. With no logic, there really isn't a preference, but we will try to honor the player's settings as much as possible.
+                        if (Randomizer.RandoSetting.logicRules != "Glitched")
+                        {
+                            foreach (
+                                KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList()
+                            )
                             {
-                                foreach (
-                                    KeyValuePair<
-                                        string,
-                                        Check
-                                    > checkList in Checks.CheckDict.ToList()
+                                Check currentCheck = checkList.Value;
+                                if (
+                                    currentCheck.category.FirstOrDefault(
+                                        s => s.Contains(listOfRewards[i, 1])
+                                    ) != null
                                 )
                                 {
-                                    Check currentCheck = checkList.Value;
-                                    if (
-                                        currentCheck.category.FirstOrDefault(
-                                            s => s.Contains(listOfRewards[i, 1])
-                                        ) != null
-                                    )
-                                    {
-                                        currentCheck.checkStatus = "Excluded-Unrequired";
-                                    }
+                                    currentCheck.checkStatus = "Excluded-Unrequired";
                                 }
                             }
-                            else
+                        }
+                        else
+                        {
+                            foreach (
+                                KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList()
+                            )
                             {
-                                foreach (
-                                    KeyValuePair<
-                                        string,
-                                        Check
-                                    > checkList in Checks.CheckDict.ToList()
+                                Check currentCheck = checkList.Value;
+                                if (
+                                    currentCheck.category.Contains(listOfRewards[i, 1])
+                                    && !currentCheck.checkName.Contains("Dungeon Reward")
+                                    && !currentCheck.category.Contains("Glitchless") // If the category doesn't mention glitchless, then we assume that the dependency on the dungeon is hard locked by progression.
                                 )
                                 {
-                                    Check currentCheck = checkList.Value;
-                                    if (
-                                        currentCheck.category.Contains(listOfRewards[i, 1])
-                                        && !currentCheck.checkName.Contains("Dungeon Reward")
-                                        && !currentCheck.category.Contains("Glitchless") // If the category doesn't mention glitchless, then we assume that the dependency on the dungeon is hard locked by progression.
-                                    )
-                                    {
-                                        currentCheck.checkStatus = "Excluded-Unrequired";
-                                    }
+                                    currentCheck.checkStatus = "Excluded-Unrequired";
                                 }
                             }
                         }
                     }
-                    else
-                    {
-                        Randomizer.RequiredDungeons |= 0x80 >> i;
-                        Console.WriteLine(listOfRewards[i, 1] + " is a required Dungeon!");
-                    }
+                }
+                else
+                {
+                    Randomizer.RequiredDungeons |= 0x80 >> i;
+                    Console.WriteLine(listOfRewards[i, 1] + " is a required Dungeon!");
                 }
             }
+
             return;
         }
 
