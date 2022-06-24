@@ -648,7 +648,7 @@ namespace TPRandomizer
                     requiredDungeons.Add("City in The Sky");
                 }
             }
-            if (requiredDungeons != null) // No point in worrying about excluded locations if no dungeons are required
+            if (requiredDungeons.Any()) // No point in worrying about excluded locations if no dungeons are required
             {
                 for (int i = 0; i < listOfRewards.GetLength(0); i++)
                 {
