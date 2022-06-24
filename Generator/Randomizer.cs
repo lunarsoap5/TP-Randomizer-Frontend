@@ -649,6 +649,13 @@ namespace TPRandomizer
                     requiredDungeons.Add("City in The Sky");
                 }
             }
+            else if (Randomizer.RandoSetting.castleRequirements == "All_Dungeons")
+            {
+                for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                {
+                    requiredDungeons.Add(listOfRewards[i, 1]);
+                }
+            }
             for (int i = 0; i < listOfRewards.GetLength(0); i++)
             {
                 if (requiredDungeons.Any()) // If the list is empty, we know that Castle has no required dungeons.
