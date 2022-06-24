@@ -117,7 +117,9 @@ namespace TPRandomizer
                 // If for some reason the assumed fill fails, we want to dump everything and start over.
                 catch (ArgumentOutOfRangeException a)
                 {
-                    Console.WriteLine(a + " No checks remaining, starting over..");
+                    Console.WriteLine(
+                        "/~~~~~~~~~~~~~~~~~~~~~ Generation Failure. No checks remaining, starting over..~~~~~~~~~~~~~~~~~~~~~~~~~~~~/"
+                    );
                     StartOver();
                     continue;
                 }
