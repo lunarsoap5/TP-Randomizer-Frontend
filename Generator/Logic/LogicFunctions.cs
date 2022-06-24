@@ -1058,12 +1058,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatKingBulblinDesert()
         {
-            return (
-                HasSword()
-                || CanUse(Item.Ball_and_Chain)
-                || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Shadow_Crystal)
-            );
+            return (HasSword() || CanUse(Item.Ball_and_Chain) || CanUse(Item.Shadow_Crystal));
         }
 
         /// <summary>
@@ -1071,12 +1066,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatKingBulblinCastle()
         {
-            return (
-                HasSword()
-                || CanUse(Item.Ball_and_Chain)
-                || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Shadow_Crystal)
-            );
+            return (HasSword() || CanUse(Item.Ball_and_Chain) || CanUse(Item.Shadow_Crystal));
         }
 
         /// <summary>
