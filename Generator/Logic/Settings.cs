@@ -50,6 +50,12 @@ namespace TPRandomizer
         public bool increaseWallet { get; set; }
         public bool modifyShopModels { get; set; }
         public bool barrenDungeons { get; set; }
+        public bool skipMinesEntrance { get; set; }
+        public bool skipLakebedEntrance { get; set; }
+        public bool skipArbitersEntrance { get; set; }
+        public bool skipSnowpeakEntrance { get; set; }
+        public bool skipToTEntrance { get; set; }
+        public bool skipCityEntrance { get; set; }
     }
 
     public class SettingData
@@ -255,5 +261,11 @@ namespace TPRandomizer
 
         public bool modifyShopModels { get; set; }
         public bool barrenDungeons { get; set; }
+        public bool skipMinesEntrance { get; set; }
+        public bool skipLakebedEntrance { get; set; }
+        public bool skipArbitersEntrance { get; set; }
+        public bool skipSnowpeakEntrance { get; set; }
+        public bool skipToTEntrance { get; set; }
+        public bool skipCityEntrance { get; set; }
     }
 }

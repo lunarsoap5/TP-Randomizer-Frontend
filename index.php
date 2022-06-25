@@ -191,19 +191,36 @@
 				</div>
 				  
 				<div id="gameplaySettingsTab" class="tabcontent">
-					<fieldset id="clearedTwilightsFieldset">
-						<legend>Cleared Twilights</legend>
-						<input type="checkbox" id="faronTwilightCheckbox" name="Faron Twilight Checkbox" value="">
-						<label for="faronTwilightCheckbox"> Faron Twilight Cleared </label><br>
-						<input type="checkbox" id="eldinTwilightCheckbox" name="Eldin Twilight Checkbox" value="">
-						<label for="eldinTwilightCheckbox"> Eldin Twilight Cleared </label><br>
-						<input type="checkbox" id="lanayruTwilightCheckbox" name="Lanayru Twilight Checkbox" value="">
-						<label for="lanayruTwilightCheckbox"> Lanayru Twilight Cleared </label><br>
-					</fieldset>
-					<fieldset id="cutscenesAndMundaneSkipsFieldset">
-						<legend>Cutscenes/Mundane Skips</legend>
-						<input type="checkbox" id="skipMinorCutscenesCheckbox" name="Skip Minor Cutscenes Checkbox" value="">
-						<label for="skipMinorCutscenesCheckbox"> Skip Minor Cutscenes </label><br>
+					<div class="leftColumn">
+						<fieldset id="clearedTwilightsFieldset">
+							<legend>Cleared Twilights</legend>
+							<input type="checkbox" id="faronTwilightCheckbox" name="Faron Twilight Checkbox" value="">
+							<label for="faronTwilightCheckbox"> Faron Twilight Cleared </label><br>
+							<input type="checkbox" id="eldinTwilightCheckbox" name="Eldin Twilight Checkbox" value="">
+							<label for="eldinTwilightCheckbox"> Eldin Twilight Cleared </label><br>
+							<input type="checkbox" id="lanayruTwilightCheckbox" name="Lanayru Twilight Checkbox" value="">
+							<label for="lanayruTwilightCheckbox"> Lanayru Twilight Cleared </label><br>
+						</fieldset>
+						<fieldset id="cutscenesAndMundaneSkipsFieldset">
+							<legend>Cutscenes/Mundane Skips</legend>
+							<input type="checkbox" id="skipMinorCutscenesCheckbox" name="Skip Minor Cutscenes Checkbox" value="">
+							<label for="skipMinorCutscenesCheckbox"> Skip Minor Cutscenes </label><br>
+						</fieldset>
+					</div>
+					<fieldset id="dungeonRequirementsFieldset">
+						<legend>Dungeon Logic Settings</legend>
+						<input type="checkbox" id="minesEntranceCheckbox" name="Goron Mines Checkbox" value="">
+						<label for="minesEntranceCheckbox"> Goron Mines Does Not Require Wrestling </label><br>
+						<input type="checkbox" id="lakebedEntranceCheckbox" name="Lakebed Temple Checkbox" value="">
+						<label for="lakebedEntranceCheckbox"> Lakebed Does Not Require Water Bombs </label><br>
+						<input type="checkbox" id="arbitersEntranceCheckbox" name="Arbiters Grounds Checkbox" value="">
+						<label for="arbitersEntranceCheckbox"> Arbiters Does Not Require Bulblin Camp </label><br>
+						<input type="checkbox" id="snowpeakEntranceCheckbox" name="Snowpeak Ruins Checkbox" value="">
+						<label for="snowpeakEntranceCheckbox"> Snowpeak Does Not Require Reekfish Scent </label><br>
+						<input type="checkbox" id="totEntranceCheckbox" name="Temple of Time Checkbox" value="">
+						<label for="totEntranceCheckbox"> Temple of Time Does Not Require Master Sword </label><br>
+						<input type="checkbox" id="cityEntranceCheckbox" name="City in The Sky Checkbox" value="">
+						<label for="cityEntranceCheckbox"> City in The Sky Does Not Require Skybook </label><br>
 					</fieldset>
 				</div>
 				  

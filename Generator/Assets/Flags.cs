@@ -330,6 +330,17 @@ namespace TPRandomizer.Assets
             { 0x9, 0x50 }, // Set flag for Midna breaking Barrier CS.
         };
 
+        public static readonly byte[,] OpenLakebedRegionFlags = new byte[,]
+        {
+            { 0x4, 0x70 }, // Blew up rock in front of lakebed.
+        };
+
+        public static readonly byte[,] OpenToTRegionFlags = new byte[,]
+        {
+            { 0x7, 0x49 }, // Stairs to Temple of time created.
+            { 0x7, 0x4A }, // Struck master sword pedestal with sword.
+        };
+
         /// <summary>
         /// summary text.
         /// </summary>
@@ -346,6 +357,8 @@ namespace TPRandomizer.Assets
                 { 8, BigKeyRegionFlags },
                 { 9, MapAndCompassRegionFlags },
                 { 10, OpenCastleRegionFlags },
+                { 13, OpenLakebedRegionFlags },
+                { 16, OpenToTRegionFlags },
             };
 
         /// <summary>
@@ -479,6 +492,23 @@ namespace TPRandomizer.Assets
             { 0x2B, 0x8 }, // Mirror of Twilight Repaired.
         };
 
+        public static readonly byte[,] OpenMinesEventFlags = new byte[,]
+        {
+            { 0x7, 0x6 }, // Talked to Gor Coron, Won Sumo against Gor Coron.
+        };
+        public static readonly byte[,] OpenArbitersEventFlags = new byte[,]
+        {
+            { 0xB, 0x40 }, // Escaped Burning Tent in Bulblin Camp.
+        };
+        public static readonly byte[,] OpenSnowpeakEventFlags = new byte[,]
+        {
+            { 0x61, 0x20 }, // Got the reekfish and smelled it (removes void in Snowpeak).
+        };
+        public static readonly byte[,] OpenCityEventFlags = new byte[,]
+        {
+            { 0x3B, 0x8 }, // Sky Cannon Repaired.
+        };
+
         /// <summary>
         /// summary text.
         /// </summary>
@@ -495,6 +525,10 @@ namespace TPRandomizer.Assets
                 { 7, SmallKeyEventFlags },
                 { 10, OpenCastleEventFlags },
                 { 11, OpenPalaceEventFlags },
+                { 12, OpenMinesEventFlags },
+                { 14, OpenArbitersEventFlags },
+                { 15, OpenSnowpeakEventFlags },
+                { 17, OpenCityEventFlags },
             };
         private static readonly RandomizerSetting RandomizerSettings = Randomizer.RandoSetting;
 
@@ -515,6 +549,12 @@ namespace TPRandomizer.Assets
             /* 9 */RandomizerSettings.mapAndCompassSettings == "Start_With",
             /* 10 */RandomizerSettings.castleRequirements == "Open",
             /* 11 */RandomizerSettings.palaceRequirements == "Open",
+            /* 12 */RandomizerSettings.skipMinesEntrance,
+            /* 13 */RandomizerSettings.skipLakebedEntrance,
+            /* 14 */RandomizerSettings.skipArbitersEntrance,
+            /* 15 */RandomizerSettings.skipSnowpeakEntrance,
+            /* 16 */RandomizerSettings.skipToTEntrance,
+            /* 17 */RandomizerSettings.skipCityEntrance,
         };
     }
 }

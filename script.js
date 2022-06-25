@@ -128,6 +128,12 @@ document.getElementById('zButtonColorFieldset').onchange = setSettingsString;
 document.getElementById('increaseWalletCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('modifyShopModelsCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('barrenCheckbox').addEventListener("click", setSettingsString);
+document.getElementById('minesEntranceCheckbox').addEventListener("click", setSettingsString);
+document.getElementById('lakebedEntranceCheckbox').addEventListener("click", setSettingsString);
+document.getElementById('arbitersEntranceCheckbox').addEventListener("click", setSettingsString);
+document.getElementById('snowpeakEntranceCheckbox').addEventListener("click", setSettingsString);
+document.getElementById('totEntranceCheckbox').addEventListener("click", setSettingsString);
+document.getElementById('cityEntranceCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('importSettingsStringButton').addEventListener("click", importSettingsString);
 
 function importSettingsString()
@@ -194,6 +200,12 @@ function setSettingsString()
 		settingsStringRaw[39] = document.getElementById('increaseWalletCheckbox').checked;
 		settingsStringRaw[41] = document.getElementById('modifyShopModelsCheckbox').checked;
 		settingsStringRaw[42] = document.getElementById('barrenCheckbox').checked;
+		settingsStringRaw[43] = document.getElementById('minesEntranceCheckbox').checked;
+		settingsStringRaw[44] = document.getElementById('lakebedEntranceCheckbox').checked;
+		settingsStringRaw[45] = document.getElementById('arbitersEntranceCheckbox').checked;
+		settingsStringRaw[46] = document.getElementById('snowpeakEntranceCheckbox').checked;
+		settingsStringRaw[47] = document.getElementById('totEntranceCheckbox').checked;
+		settingsStringRaw[48] = document.getElementById('cityEntranceCheckbox').checked;
 		document.getElementById('settingsStringTextbox').value = getSettingsString(settingsStringRaw);
     }
 
@@ -340,7 +352,13 @@ var arrayOfSettingsItems =
 	"seedNumberFieldset",
 	"increaseWalletCheckbox",
 	"modifyShopModelsCheckbox",
-	"barrenCheckbox"
+	"barrenCheckbox",
+	"minesEntranceCheckbox",
+	"lakebedEntranceCheckbox",
+	"arbtiersEntranceCheckbox",
+	"snowpeakEntranceCheckbox",
+	"totEntranceCheckbox",
+	"cityEntranceCheckbox"
 ];
 
 function parseSettingsString(settingsString)
