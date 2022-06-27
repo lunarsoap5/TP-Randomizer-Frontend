@@ -218,7 +218,7 @@
 						<input type="checkbox" id="snowpeakEntranceCheckbox" name="Snowpeak Ruins Checkbox" value="">
 						<label for="snowpeakEntranceCheckbox"> Snowpeak Does Not Require Reekfish Scent </label><br>
 						<input type="checkbox" id="totEntranceCheckbox" name="Temple of Time Checkbox" value="">
-						<label for="totEntranceCheckbox"> Temple of Time Does Not Require Master Sword </label><br>
+						<label for="totEntranceCheckbox"> Temple of Time Does Not Require Skull Kid or Grove</label><br>
 						<input type="checkbox" id="cityEntranceCheckbox" name="City in The Sky Checkbox" value="">
 						<label for="cityEntranceCheckbox"> City in The Sky Does Not Require Skybook </label><br>
 					</fieldset>

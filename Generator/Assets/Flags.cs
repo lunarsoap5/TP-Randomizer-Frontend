@@ -332,13 +332,18 @@ namespace TPRandomizer.Assets
 
         public static readonly byte[,] OpenLakebedRegionFlags = new byte[,]
         {
-            { 0x4, 0x70 }, // Blew up rock in front of lakebed.
+            { 0x4, 0x70 }, // Blew up rock in front of lakebed CS.
+            { 0x4, 0x78 }, // Blew up rock in front of lakebed.
         };
 
         public static readonly byte[,] OpenToTRegionFlags = new byte[,]
         {
             { 0x7, 0x49 }, // Stairs to Temple of time created.
             { 0x7, 0x4A }, // Struck master sword pedestal with sword.
+            { 0x7, 0x4B }, // Stairs and window appear and work properly (Past).
+            { 0x7, 0xB6 }, // Skull Kid - Human defeated.
+            { 0x7, 0xB7 }, // Lost Woods Turns to day after defeating Skull Kid - Human
+            { 0x7, 0xBB }, // Sacred Grove Portal
         };
 
         /// <summary>
