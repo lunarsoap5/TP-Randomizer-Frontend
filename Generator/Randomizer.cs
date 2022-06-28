@@ -107,7 +107,10 @@ namespace TPRandomizer
                     IEnumerable<string> fileList = new string[]
                     {
                         "TPR-v1.0-" + seedHash + ".txt",
-                        "TPR-v1.0-" + seedHash + "-Seed-Data.gci"
+                        "TPR-v1.0-" + seedHash + "-Seed-Data.us.gci",
+                        "TPR-v1.0-" + seedHash + "-Seed-Data.eu.gci",
+                        "TPR-v1.0-" + seedHash + "-Seed-Data.jp.gci",
+                        "rando-data" + Randomizer.RandoSetting.seedNumber,
                     };
                     BackendFunctions.CreateZipFile("Seed/TPR-v1.0-" + seedHash + ".zip", fileList);
                     Console.WriteLine("Generation Complete!");

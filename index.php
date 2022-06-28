@@ -75,17 +75,6 @@
 								<option value="2" disabled>N̶o̶ ̶L̶o̶g̶i̶c̶</option>
 							</select>
 							<br/>
-							<label for="gameRegionFieldset">Game Region:</label>
-							<select name="Game Region Fieldset" id="gameRegionFieldset">
-								<option value="0">NTSC (US)</option>
-								<option value="1">PAL (EUR)</option>
-								<option value="2">JP (JAP)</option>
-								<option value="3" disabled>Wii NTSC 1.0 (US)</option>
-								<option value="4" disabled>Wii NTSC 1.2 (US)</option>
-								<option value="5" disabled>Wii PAL (EUR)</option>
-								<option value="6" disabled>Wii JP (JAP)</option>
-							</select>
-							<br/>
 							<label for="seedNumberFieldset">Seed Number:</label>
 							<select name="Seed Number Fieldset" id="seedNumberFieldset">
 								<option value="0">0</option>
@@ -277,8 +266,13 @@
 						</fieldset>
 						<fieldset id="musicAndSFXFieldset">
 							<legend> Music and SFX </legend>
-							<input type="checkbox" id="randomizeBGMCheckbox" name="Randomize BGM Checkbox" value="">
-							<label for="randomizeBGMCheckbox"> Randomize Background Music </label><br>
+							<label for="bgmFieldset">Randomized Background Music:</label>
+							<select name="Background Music Fieldset" id="bgmFieldset">
+								<option value="0">Vanilla</option>
+								<option value="1">Overworld</option>
+								<option value="2">Dungeon</option>
+								<option value="3">All</option>
+							</select> <br>
 							<input type="checkbox" id="randomizeFanfaresCheckbox" name="Randomize Fanfares Checkbox" value="">
 							<label for="randomizeFanfaresCheckbox"> Randomize Fanfares </label><br>
 							<input type="checkbox" id="disableEnemyBGMCheckbox" name="Disable Enemy BGM Checkbox" value="">
@@ -400,6 +394,8 @@
 							<option value="7">Black</option>
 							<option value="8">Light Blue</option>
 						</select>
+						<br>
+						<br>
 					</fieldset>
 				</div>
 				<br/>

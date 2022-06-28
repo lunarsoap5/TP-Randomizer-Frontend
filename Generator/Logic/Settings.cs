@@ -40,10 +40,9 @@ namespace TPRandomizer
         public int xButtonColor { get; set; }
         public int yButtonColor { get; set; }
         public int zButtonColor { get; set; }
-        public bool shuffleBackgroundMusic { get; set; }
+        public int backgroundMusicSetting { get; set; }
         public bool shuffleItemFanfares { get; set; }
         public bool disableEnemyBackgoundMusic { get; set; }
-        public string gameRegion { get; set; }
         public bool shuffleHiddenSkills { get; set; }
         public bool shuffleSkyCharacters { get; set; }
         public int seedNumber { get; set; }
@@ -242,13 +241,11 @@ namespace TPRandomizer
                 "Light Blue"
             };
 
-        public bool shuffleBackgroundMusic { get; set; }
+        public int backgroundMusicSetting { get; set; }
 
         public bool shuffleItemFanfares { get; set; }
 
         public bool disableEnemyBackgoundMusic { get; set; }
-
-        public string[] gameRegion { get; set; } = new string[] { "NTSC", "PAL", "JAP" };
 
         public bool shuffleHiddenSkills { get; set; }
 

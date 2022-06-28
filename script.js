@@ -89,7 +89,6 @@ for(var j=0; j < document.getElementById('baseImportantItemsListbox').getElement
 
 var settingsLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789";
 document.getElementById('logicRulesFieldset').onchange = setSettingsString;
-document.getElementById('gameRegionFieldset').onchange = setSettingsString;
 document.getElementById('seedNumberFieldset').onchange = setSettingsString;
 document.getElementById('castleRequirementsFieldset').onchange = setSettingsString;
 document.getElementById('palaceRequirementsFieldset').onchange = setSettingsString;
@@ -113,7 +112,7 @@ document.getElementById('skipMinorCutscenesCheckbox').addEventListener("click", 
 document.getElementById('fastIBCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('quickTransformCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('transformAnywhereCheckbox').addEventListener("click", setSettingsString);
-document.getElementById('randomizeBGMCheckbox').addEventListener("click", setSettingsString);
+document.getElementById('bgmFieldset').onchange = setSettingsString;
 document.getElementById('randomizeFanfaresCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('disableEnemyBGMCheckbox').addEventListener("click", setSettingsString);
 document.getElementById('tunicColorFieldset').onchange = setSettingsString;
@@ -190,22 +189,21 @@ function setSettingsString()
         settingsStringRaw[29] = document.getElementById('xButtonColorFieldset').selectedIndex;
         settingsStringRaw[30] = document.getElementById('yButtonColorFieldset').selectedIndex;
         settingsStringRaw[31] = document.getElementById('zButtonColorFieldset').selectedIndex;
-        settingsStringRaw[32] = document.getElementById('randomizeBGMCheckbox').checked;
+        settingsStringRaw[32] = document.getElementById('bgmFieldset').selectedIndex;
         settingsStringRaw[33] = document.getElementById('randomizeFanfaresCheckbox').checked;
         settingsStringRaw[34] = document.getElementById('disableEnemyBGMCheckbox').checked;
-        settingsStringRaw[35] = document.getElementById('gameRegionFieldset').selectedIndex;
-        settingsStringRaw[36] = document.getElementById('hiddenSkillsCheckbox').checked;
-        settingsStringRaw[37] = document.getElementById('skyCharacterCheckbox').checked;
-        settingsStringRaw[38] = document.getElementById('seedNumberFieldset').selectedIndex;
-		settingsStringRaw[39] = document.getElementById('increaseWalletCheckbox').checked;
-		settingsStringRaw[41] = document.getElementById('modifyShopModelsCheckbox').checked;
-		settingsStringRaw[42] = document.getElementById('barrenCheckbox').checked;
-		settingsStringRaw[43] = document.getElementById('minesEntranceCheckbox').checked;
-		settingsStringRaw[44] = document.getElementById('lakebedEntranceCheckbox').checked;
-		settingsStringRaw[45] = document.getElementById('arbitersEntranceCheckbox').checked;
-		settingsStringRaw[46] = document.getElementById('snowpeakEntranceCheckbox').checked;
-		settingsStringRaw[47] = document.getElementById('totEntranceCheckbox').checked;
-		settingsStringRaw[48] = document.getElementById('cityEntranceCheckbox').checked;
+        settingsStringRaw[35] = document.getElementById('hiddenSkillsCheckbox').checked;
+        settingsStringRaw[36] = document.getElementById('skyCharacterCheckbox').checked;
+        settingsStringRaw[37] = document.getElementById('seedNumberFieldset').selectedIndex;
+		settingsStringRaw[38] = document.getElementById('increaseWalletCheckbox').checked;
+		settingsStringRaw[39] = document.getElementById('modifyShopModelsCheckbox').checked;
+		settingsStringRaw[40] = document.getElementById('barrenCheckbox').checked;
+		settingsStringRaw[41] = document.getElementById('minesEntranceCheckbox').checked;
+		settingsStringRaw[42] = document.getElementById('lakebedEntranceCheckbox').checked;
+		settingsStringRaw[43] = document.getElementById('arbitersEntranceCheckbox').checked;
+		settingsStringRaw[44] = document.getElementById('snowpeakEntranceCheckbox').checked;
+		settingsStringRaw[45] = document.getElementById('totEntranceCheckbox').checked;
+		settingsStringRaw[46] = document.getElementById('cityEntranceCheckbox').checked;
 		document.getElementById('settingsStringTextbox').value = getSettingsString(settingsStringRaw);
     }
 
@@ -343,10 +341,9 @@ var arrayOfSettingsItems =
 	"xButtonColorFieldset",
 	"yButtonColorFieldset",
 	"zButtonColorFieldset",
-	"randomizeBGMCheckbox",
+	"bgmFieldset",
 	"randomizeFanfaresCheckbox",
 	"disableEnemyBGMCheckbox",
-	"gameRegionFieldset",
 	"hiddenSkillsCheckbox",
 	"skyCharacterCheckbox",
 	"seedNumberFieldset",

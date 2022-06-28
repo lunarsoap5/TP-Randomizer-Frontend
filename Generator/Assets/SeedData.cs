@@ -13,13 +13,13 @@ namespace TPRandomizer.Assets
     {
         private static readonly List<byte> CheckDataRaw = new();
         private static readonly List<byte> BannerDataRaw = new();
-        private static readonly SeedHeader SeedHeaderRaw = new();
+        public static readonly SeedHeader SeedHeaderRaw = new();
         private static readonly short SeedHeaderSize = 0x160;
 
         /// <summary>
         /// summary text.
         /// </summary>
-        internal class SeedHeader
+        public class SeedHeader
         {
             public UInt16 minVersion { get; set; } // minimal required REL version
             public UInt16 maxVersion { get; set; } // maximum supported REL version
@@ -58,7 +58,15 @@ namespace TPRandomizer.Assets
             public UInt16 shopCheckInfoDataOffset { get; set; }
             public UInt16 startingItemInfoNumEntries { get; set; }
             public UInt16 startingItemInfoDataOffset { get; set; }
+            public UInt16 bgmTableSize { get; set; }
+            public UInt16 fanfareTableSize { get; set; }
+            public UInt16 bgmTableOffset { get; set; }
+            public UInt16 fanfareTableOffset { get; set; }
+            public byte bgmTableNumEntries { get; set; }
+            public byte fanfareTableNumEntries { get; set; }
         }
+
+        public class BgmHeader { }
 
         /// <summary>
         /// summary text.
@@ -70,29 +78,14 @@ namespace TPRandomizer.Assets
             * any seed bigger than 7 blocks will not work with this method.
             */
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
+            List<byte> currentGCIData = new();
             List<byte> currentSeedHeader = new();
             List<byte> currentSeedData = new();
+            List<byte> currentBgmData = new();
+            string fileHash = seedHash;
+            char[] gameRegions = { 'J', 'P', 'E' };
 
-            char regionCode;
-            switch (randomizerSettings.gameRegion)
-            {
-                case "JAP":
-                    regionCode = 'J';
-                    break;
-                case "PAL":
-                    regionCode = 'P';
-                    break;
-                default:
-                    regionCode = 'E';
-                    break;
-            }
-
-            // Add seed banner
-            BannerDataRaw.AddRange(Properties.Resources.seedGciImageData);
-            BannerDataRaw.AddRange(Converter.StringBytes("TPR 1.0 Seed Data", 0x20, regionCode));
-            BannerDataRaw.AddRange(Converter.StringBytes(seedHash, 0x20, regionCode));
-
-            // Header Info
+            // Raw Check Data
             CheckDataRaw.AddRange(GeneratePatchSettings());
             CheckDataRaw.AddRange(GenerateEventFlags());
             CheckDataRaw.AddRange(GenerateRegionFlags());
@@ -112,20 +105,75 @@ namespace TPRandomizer.Assets
                 CheckDataRaw.Add(Converter.GcByte(0x0));
             }
 
-            SeedHeaderRaw.totalSize = (uint)(SeedHeaderSize + CheckDataRaw.Count);
+            // BGM Table info
+            SeedHeaderRaw.bgmTableOffset = (UInt16)(CheckDataRaw.Count + SeedHeaderSize);
+            currentBgmData.AddRange(SoundAssets.GenerateBgmData());
+            SeedHeaderRaw.fanfareTableOffset = (UInt16)(
+                CheckDataRaw.Count + currentBgmData.Count + SeedHeaderSize
+            );
+            currentBgmData.AddRange(SoundAssets.GenerateFanfareData());
+
+            SeedHeaderRaw.totalSize = (uint)(
+                SeedHeaderSize + CheckDataRaw.Count + currentBgmData.Count
+            );
+
+            // Generate Seed Data
             currentSeedHeader.AddRange(GenerateSeedHeader(randomizerSettings.seedNumber, seedHash));
-            currentSeedData.AddRange(BannerDataRaw);
             currentSeedData.AddRange(currentSeedHeader);
             currentSeedData.AddRange(CheckDataRaw);
+            currentSeedData.AddRange(currentBgmData);
+            while (currentSeedData.Count % 0x20 != 0)
+            {
+                currentSeedData.Add(Converter.GcByte(0x0));
+            }
 
-            var gci = new Gci(
-                (byte)randomizerSettings.seedNumber,
-                randomizerSettings.gameRegion,
-                currentSeedData,
-                seedHash
+            // Generate Data file
+            File.WriteAllBytes(
+                "rando-data" + randomizerSettings.seedNumber,
+                currentSeedData.ToArray()
             );
-            string fileHash = "TPR-v1.0-" + seedHash + "-Seed-Data.gci";
-            File.WriteAllBytes(fileHash, gci.gciFile.ToArray());
+
+            foreach (char gameRegion in gameRegions)
+            {
+                string region;
+                switch (gameRegion)
+                {
+                    case 'P':
+                    {
+                        region = "eu";
+                        break;
+                    }
+                    case 'J':
+                    {
+                        region = "jp";
+                        break;
+                    }
+                    default:
+                    {
+                        region = "us";
+                        break;
+                    }
+                }
+                // Add seed banner
+                BannerDataRaw.AddRange(Properties.Resources.seedGciImageData);
+                BannerDataRaw.AddRange(
+                    Converter.StringBytes("TPR 1.0 Seed Data", 0x20, gameRegion)
+                );
+                BannerDataRaw.AddRange(Converter.StringBytes(seedHash, 0x20, gameRegion));
+                // Generate GCI Files
+                currentGCIData.AddRange(BannerDataRaw);
+                currentGCIData.AddRange(currentSeedData);
+                var gci = new Gci(
+                    (byte)randomizerSettings.seedNumber,
+                    gameRegion,
+                    currentGCIData,
+                    seedHash
+                );
+                fileHash = "TPR-v1.0-" + seedHash + "-Seed-Data." + region + ".gci";
+                File.WriteAllBytes(fileHash, gci.gciFile.ToArray());
+                BannerDataRaw.Clear();
+                currentGCIData.Clear();
+            }
         }
 
         /// <summary>
@@ -168,6 +216,12 @@ namespace TPRandomizer.Assets
                 {
                     seedHeader.AddRange(
                         Converter.GcBytes((UInt16)headerObject.GetValue(SeedHeaderRaw, null))
+                    );
+                }
+                else if (headerObject.PropertyType == typeof(byte))
+                {
+                    seedHeader.Add(
+                        Converter.GcByte((byte)headerObject.GetValue(SeedHeaderRaw, null))
                     );
                 }
             }
@@ -217,7 +271,6 @@ namespace TPRandomizer.Assets
                 randomizerSettings.lanayruTwilightCleared,
                 randomizerSettings.skipMinorCutscenes,
                 randomizerSettings.mdhSkipped,
-                randomizerSettings.shuffleBackgroundMusic,
                 randomizerSettings.disableEnemyBackgoundMusic
             };
             bool[] oneTimePatchSettingsArray =

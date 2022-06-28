@@ -42,25 +42,11 @@ namespace TPRandomizer.Assets
         /// <returns> The inserted value as a byte. </returns>
         public Gci(
             byte seedNumber = 0,
-            string seedRegion = "NTSC",
+            char regionCode = 'E',
             List<byte> seedData = null,
             string seedHash = ""
         )
         {
-            char regionCode;
-            switch (seedRegion)
-            {
-                case "JAP":
-                    regionCode = 'J';
-                    break;
-                case "PAL":
-                    regionCode = 'P';
-                    break;
-                default:
-                    regionCode = 'E';
-                    break;
-            }
-
             gciHeader = new List<byte>();
             gciData = new List<byte>();
             gciFile = new List<byte>();
