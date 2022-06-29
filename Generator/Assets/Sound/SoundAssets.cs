@@ -125,10 +125,11 @@ namespace TPRandomizer.Assets
                     data.Add((byte)currentReplacement.originalBgmTrack);
                     data.Add((byte)currentReplacement.replacementBgmTrack);
                     data.Add((byte)currentReplacement.replacementBgmWave);
+                    data.Add((byte)0x0); // Padding
                 }
             }
-            SeedData.SeedHeaderRaw.bgmTableNumEntries = ((byte)bgmReplacementArray.Count);
-            SeedData.SeedHeaderRaw.bgmTableSize = (UInt16)data.Count;
+            SeedData.BgmHeaderRaw.bgmTableNumEntries = ((byte)bgmReplacementArray.Count);
+            SeedData.BgmHeaderRaw.bgmTableSize = (UInt16)data.Count;
             return data;
         }
 
@@ -190,10 +191,12 @@ namespace TPRandomizer.Assets
                 {
                     data.Add((byte)currentReplacement.originalBgmTrack);
                     data.Add((byte)currentReplacement.replacementBgmTrack);
+                    data.Add((byte)0x0); // Padding
+                    data.Add((byte)0x0); // Padding
                 }
             }
-            SeedData.SeedHeaderRaw.fanfareTableNumEntries = (byte)fanfareReplacementArray.Count;
-            SeedData.SeedHeaderRaw.fanfareTableSize = (UInt16)data.Count;
+            SeedData.BgmHeaderRaw.fanfareTableNumEntries = (byte)fanfareReplacementArray.Count;
+            SeedData.BgmHeaderRaw.fanfareTableSize = (UInt16)data.Count;
             return data;
         }
     }

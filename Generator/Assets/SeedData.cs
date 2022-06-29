@@ -13,13 +13,15 @@ namespace TPRandomizer.Assets
     {
         private static readonly List<byte> CheckDataRaw = new();
         private static readonly List<byte> BannerDataRaw = new();
-        public static readonly SeedHeader SeedHeaderRaw = new();
+        private static readonly SeedHeader SeedHeaderRaw = new();
+        public static BgmHeader BgmHeaderRaw = new();
         private static readonly short SeedHeaderSize = 0x160;
+        private static readonly byte BgmHeaderSize = 0x8;
 
         /// <summary>
         /// summary text.
         /// </summary>
-        public class SeedHeader
+        internal class SeedHeader
         {
             public UInt16 minVersion { get; set; } // minimal required REL version
             public UInt16 maxVersion { get; set; } // maximum supported REL version
@@ -58,15 +60,18 @@ namespace TPRandomizer.Assets
             public UInt16 shopCheckInfoDataOffset { get; set; }
             public UInt16 startingItemInfoNumEntries { get; set; }
             public UInt16 startingItemInfoDataOffset { get; set; }
-            public UInt16 bgmTableSize { get; set; }
-            public UInt16 fanfareTableSize { get; set; }
-            public UInt16 bgmTableOffset { get; set; }
-            public UInt16 fanfareTableOffset { get; set; }
-            public byte bgmTableNumEntries { get; set; }
-            public byte fanfareTableNumEntries { get; set; }
+            public UInt16 bgmHeaderOffset { get; set; }
         }
 
-        public class BgmHeader { }
+        public class BgmHeader
+        {
+            public UInt16 bgmTableSize;
+            public UInt16 fanfareTableSize;
+            public UInt16 bgmTableOffset;
+            public UInt16 fanfareTableOffset;
+            public byte bgmTableNumEntries;
+            public byte fanfareTableNumEntries;
+        }
 
         /// <summary>
         /// summary text.
@@ -75,7 +80,12 @@ namespace TPRandomizer.Assets
         {
             /*
             * General Note: offset sizes are handled as two bytes. Because of this,
-            * any seed bigger than 7 blocks will not work with this method.
+            * any seed bigger than 7 blocks will not work with this method. The seed structure is as follow:
+            * Seed Header
+            * Seed Data
+            * Check Data
+            * Bgm Header
+            * Bgm Data
             */
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             List<byte> currentGCIData = new();
@@ -104,23 +114,25 @@ namespace TPRandomizer.Assets
             {
                 CheckDataRaw.Add(Converter.GcByte(0x0));
             }
+            SeedHeaderRaw.bgmHeaderOffset = (UInt16)(SeedHeaderSize + CheckDataRaw.Count());
 
             // BGM Table info
-            SeedHeaderRaw.bgmTableOffset = (UInt16)(CheckDataRaw.Count + SeedHeaderSize);
+            SeedData.BgmHeaderRaw.bgmTableOffset = (UInt16)BgmHeaderSize;
             currentBgmData.AddRange(SoundAssets.GenerateBgmData());
-            SeedHeaderRaw.fanfareTableOffset = (UInt16)(
-                CheckDataRaw.Count + currentBgmData.Count + SeedHeaderSize
+            SeedData.BgmHeaderRaw.fanfareTableOffset = (UInt16)(
+                BgmHeaderSize + currentBgmData.Count
             );
             currentBgmData.AddRange(SoundAssets.GenerateFanfareData());
 
             SeedHeaderRaw.totalSize = (uint)(
-                SeedHeaderSize + CheckDataRaw.Count + currentBgmData.Count
+                SeedHeaderSize + CheckDataRaw.Count + BgmHeaderSize + currentBgmData.Count
             );
 
             // Generate Seed Data
             currentSeedHeader.AddRange(GenerateSeedHeader(randomizerSettings.seedNumber, seedHash));
             currentSeedData.AddRange(currentSeedHeader);
             currentSeedData.AddRange(CheckDataRaw);
+            currentSeedData.AddRange(GenerateBgmHeader());
             currentSeedData.AddRange(currentBgmData);
             while (currentSeedData.Count % 0x20 != 0)
             {
@@ -218,12 +230,6 @@ namespace TPRandomizer.Assets
                         Converter.GcBytes((UInt16)headerObject.GetValue(SeedHeaderRaw, null))
                     );
                 }
-                else if (headerObject.PropertyType == typeof(byte))
-                {
-                    seedHeader.Add(
-                        Converter.GcByte((byte)headerObject.GetValue(SeedHeaderRaw, null))
-                    );
-                }
             }
 
             seedHeader.Add(Converter.GcByte(randomizerSettings.heartColor));
@@ -258,6 +264,44 @@ namespace TPRandomizer.Assets
 
             seedHeader.Add(Converter.GcByte(seedNumber));
             return seedHeader;
+        }
+
+        private static List<byte> GenerateBgmHeader()
+        {
+            List<byte> bgmHeaderRaw = new();
+            PropertyInfo[] bgmHeaderProperties = BgmHeaderRaw.GetType().GetProperties();
+            foreach (PropertyInfo headerObject in bgmHeaderProperties)
+            {
+                if (headerObject.PropertyType == typeof(UInt32))
+                {
+                    bgmHeaderRaw.AddRange(
+                        Converter.GcBytes((UInt32)headerObject.GetValue(BgmHeaderRaw, null))
+                    );
+                }
+                else if (headerObject.PropertyType == typeof(UInt64))
+                {
+                    bgmHeaderRaw.AddRange(
+                        Converter.GcBytes((UInt64)headerObject.GetValue(BgmHeaderRaw, null))
+                    );
+                }
+                else if (headerObject.PropertyType == typeof(UInt16))
+                {
+                    bgmHeaderRaw.AddRange(
+                        Converter.GcBytes((UInt16)headerObject.GetValue(BgmHeaderRaw, null))
+                    );
+                }
+                else if (headerObject.PropertyType == typeof(byte))
+                {
+                    bgmHeaderRaw.Add(
+                        Converter.GcByte((byte)headerObject.GetValue(BgmHeaderRaw, null))
+                    );
+                }
+            }
+            while (bgmHeaderRaw.Count % 0x4 != 0)
+            {
+                bgmHeaderRaw.Add(Converter.GcByte(0x0));
+            }
+            return bgmHeaderRaw;
         }
 
         private static List<byte> GeneratePatchSettings()

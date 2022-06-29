@@ -583,12 +583,14 @@ namespace TPRandomizer
             };
             List<string> requiredDungeons = new();
 
-            if (Randomizer.RandoSetting.castleRequirements == "Open")
+            if (Randomizer.RandoSetting.faronWoodsLogic == "Closed")
             {
-                if (!Randomizer.RandoSetting.mdhSkipped)
-                {
-                    requiredDungeons.Add("Lakebed Temple");
-                }
+                requiredDungeons.Add("Forest Temple");
+            }
+
+            if (!Randomizer.RandoSetting.mdhSkipped)
+            {
+                requiredDungeons.Add("Lakebed Temple");
             }
             else if (Randomizer.RandoSetting.castleRequirements == "Fused_Shadows")
             {
