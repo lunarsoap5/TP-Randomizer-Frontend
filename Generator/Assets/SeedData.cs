@@ -16,7 +16,7 @@ namespace TPRandomizer.Assets
         private static readonly SeedHeader SeedHeaderRaw = new();
         public static BgmHeader BgmHeaderRaw = new();
         private static readonly short SeedHeaderSize = 0x160;
-        private static readonly byte BgmHeaderSize = 0x8;
+        private static readonly byte BgmHeaderSize = 0xC;
 
         /// <summary>
         /// summary text.
@@ -65,12 +65,12 @@ namespace TPRandomizer.Assets
 
         public class BgmHeader
         {
-            public UInt16 bgmTableSize;
-            public UInt16 fanfareTableSize;
-            public UInt16 bgmTableOffset;
-            public UInt16 fanfareTableOffset;
-            public byte bgmTableNumEntries;
-            public byte fanfareTableNumEntries;
+            public UInt16 bgmTableSize { get; set; }
+            public UInt16 fanfareTableSize { get; set; }
+            public UInt16 bgmTableOffset { get; set; }
+            public UInt16 fanfareTableOffset { get; set; }
+            public byte bgmTableNumEntries { get; set; }
+            public byte fanfareTableNumEntries { get; set; }
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace TPRandomizer.Assets
             {
                 CheckDataRaw.Add(Converter.GcByte(0x0));
             }
-            SeedHeaderRaw.bgmHeaderOffset = (UInt16)(SeedHeaderSize + CheckDataRaw.Count());
+            SeedHeaderRaw.bgmHeaderOffset = (UInt16)CheckDataRaw.Count();
 
             // BGM Table info
             SeedData.BgmHeaderRaw.bgmTableOffset = (UInt16)BgmHeaderSize;
