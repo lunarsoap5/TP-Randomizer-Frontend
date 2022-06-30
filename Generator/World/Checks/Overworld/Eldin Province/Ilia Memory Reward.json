@@ -1,5 +1,5 @@
 {
     "requirements": "Ilias_Charm",
-    "category": ["Overworld", "Npc", "Eldin Province", "Glitchless - Temple of Time Dependant"],
+    "category": ["Overworld", "Npc", "Eldin Province"],
     "itemId": "Horse_Call"
 }

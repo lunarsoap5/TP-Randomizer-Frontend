@@ -569,159 +569,151 @@ namespace TPRandomizer
         private static void CheckUnrequiredDungeons()
         {
             Check dungeonCheck = new();
-            bool isUnrequired = false;
-            string[,] listOfRewards = new string[,]
+            int palace = 0;
+            int city = 1;
+            //int tot = 2;
+            //int snowpeak = 3;
+            int arbiters = 4;
+            int lakebed = 5;
+            //int mines = 6;
+            int forest = 7;
+            List<string>[] listOfAffectedChecks = new List<string>[]
             {
-                { "Palace of Twilight Zant Heart Container", "Palace of Twilight" },
-                { "City in The Sky Dungeon Reward", "City in The Sky" },
-                { "Temple of Time Dungeon Reward", "Temple of Time" },
-                { "Snowpeak Ruins Dungeon Reward", "Snowpeak Ruins" },
-                { "Arbiters Grounds Stallord Heart Container", "Arbiters Grounds" },
-                { "Lakebed Temple Dungeon Reward", "Lakebed Temple" },
-                { "Goron Mines Dungeon Reward", "Goron Mines" },
-                { "Forest Temple Dungeon Reward", "Forest Temple" }
+                CheckFunctions.palaceRequirementChecksGlitchless,
+                CheckFunctions.cityRequirementChecksGlitchless,
+                CheckFunctions.totRequirementChecksGlitchless,
+                CheckFunctions.snowpeakRequirementChecksGlitchless,
+                CheckFunctions.arbitersRequirementChecksGlitchless,
+                CheckFunctions.lakebedRequirementChecksGlitchless,
+                CheckFunctions.minesRequirementChecksGlitchless,
+                CheckFunctions.forestRequirementChecksGlitchless
             };
-            List<string> requiredDungeons = new();
 
-            if (Randomizer.RandoSetting.faronWoodsLogic == "Closed")
+            // Create the dungeon entries
+            requiredDungeons forestTemple = new("Forest Temple Dungeon Reward", false, null);
+            requiredDungeons goronMines = new("Goron Mines Dungeon Reward", false, null);
+            requiredDungeons lakebedTemple = new("Lakebed Temple Dungeon Reward", false, null);
+            requiredDungeons arbitersGrounds =
+                new("Arbiters Grounds Stallord Heart Container", false, null);
+            requiredDungeons snowpeakRuins = new("Snowpeak Ruins Dungeon Reward", false, null);
+            requiredDungeons templeOfTime = new("Temple of Time Dungeon Reward", false, null);
+            requiredDungeons cityInTheSky = new("City in The Sky Dungeon Reward", false, null);
+            requiredDungeons palaceOfTwilight =
+                new("Palace of Twilight Zant Heart Container", false, null);
+
+            requiredDungeons[] listOfRequiredDungeons = new requiredDungeons[]
             {
-                requiredDungeons.Add("Forest Temple");
+                palaceOfTwilight,
+                cityInTheSky,
+                templeOfTime,
+                snowpeakRuins,
+                arbitersGrounds,
+                lakebedTemple,
+                goronMines,
+                forestTemple,
+            };
+
+            for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
+            {
+                if (Randomizer.RandoSetting.logicRules == "Glitchless")
+                {
+                    listOfRequiredDungeons[i].requirementChecks = listOfAffectedChecks[i];
+                }
             }
 
-            if (!Randomizer.RandoSetting.mdhSkipped)
+            // First we want to check the Hyrule Castle access requirements to get the base required dungeons to access Hyrule.
+            if (Randomizer.RandoSetting.castleRequirements == "Fused_Shadows")
             {
-                requiredDungeons.Add("Lakebed Temple");
-            }
-            else if (Randomizer.RandoSetting.castleRequirements == "Fused_Shadows")
-            {
-                for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
                 {
                     if (
-                        Checks.CheckDict[listOfRewards[i, 0]].itemId
+                        Checks.CheckDict[listOfRequiredDungeons[i].dungeonReward].itemId
                         == Item.Progressive_Fused_Shadow
                     )
                     {
-                        requiredDungeons.Add(listOfRewards[i, 1]);
+                        listOfRequiredDungeons[i].isRequired = true;
                     }
                 }
             }
             else if (Randomizer.RandoSetting.castleRequirements == "Mirror_Shards")
             {
-                for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
                 {
                     if (
-                        Checks.CheckDict[listOfRewards[i, 0]].itemId
+                        Checks.CheckDict[listOfRequiredDungeons[i].dungeonReward].itemId
                         == Item.Progressive_Mirror_Shard
                     )
                     {
-                        requiredDungeons.Add(listOfRewards[i, 1]);
+                        listOfRequiredDungeons[i].isRequired = true;
                     }
                 }
             }
             else if (Randomizer.RandoSetting.castleRequirements == "Vanilla")
             {
                 // If Palace is required then Arbiters is automatically required.
-                requiredDungeons.Add("Arbiters Grounds");
-                requiredDungeons.Add("Palace of Twilight");
+                listOfRequiredDungeons[arbiters].isRequired = true;
+                listOfRequiredDungeons[palace].isRequired = true;
                 if (Randomizer.RandoSetting.palaceRequirements == "Fused_Shadows")
                 {
-                    for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                    for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
                     {
                         if (
-                            Checks.CheckDict[listOfRewards[i, 0]].itemId
+                            Checks.CheckDict[listOfRequiredDungeons[i].dungeonReward].itemId
                             == Item.Progressive_Fused_Shadow
                         )
                         {
-                            requiredDungeons.Add(listOfRewards[i, 1]);
+                            listOfRequiredDungeons[i].isRequired = true;
                         }
                     }
                 }
                 else if (Randomizer.RandoSetting.palaceRequirements == "Mirror_Shards")
                 {
-                    for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                    for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
                     {
                         if (
-                            Checks.CheckDict[listOfRewards[i, 0]].itemId
+                            Checks.CheckDict[listOfRequiredDungeons[i].dungeonReward].itemId
                             == Item.Progressive_Mirror_Shard
                         )
                         {
-                            requiredDungeons.Add(listOfRewards[i, 1]);
+                            listOfRequiredDungeons[i].isRequired = true;
                         }
                     }
                 }
                 else if (Randomizer.RandoSetting.palaceRequirements == "Vanilla")
                 {
-                    requiredDungeons.Add("City in The Sky");
+                    listOfRequiredDungeons[city].isRequired = true;
                 }
             }
             else if (Randomizer.RandoSetting.castleRequirements == "All_Dungeons")
             {
-                for (int i = 0; i < listOfRewards.GetLength(0); i++)
+                for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
                 {
-                    requiredDungeons.Add(listOfRewards[i, 1]);
+                    listOfRequiredDungeons[i].isRequired = true;
                 }
             }
-            for (int i = 0; i < listOfRewards.GetLength(0); i++)
+
+            if (Randomizer.RandoSetting.faronWoodsLogic == "Closed")
             {
-                if (requiredDungeons.Any()) // If the list is empty, we know that Castle has no required dungeons.
-                {
-                    foreach (string requiredDungeon in requiredDungeons)
-                    {
-                        if (listOfRewards[i, 1] == requiredDungeon)
-                        {
-                            isUnrequired = false;
-                            break;
-                        }
-                        else
-                        {
-                            isUnrequired = true;
-                        }
-                    }
-                }
-                else
-                {
-                    isUnrequired = true;
-                }
-                if (isUnrequired)
+                listOfRequiredDungeons[forest].isRequired = true;
+            }
+
+            if (!Randomizer.RandoSetting.mdhSkipped)
+            {
+                listOfRequiredDungeons[lakebed].isRequired = true;
+            }
+
+            for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
+            {
+                if (!listOfRequiredDungeons[i].isRequired)
                 {
                     if (Randomizer.RandoSetting.barrenDungeons)
-                    { // For excluded checks, we handle Glitched and Glitchless logic differently. With no logic, there really isn't a preference, but we will try to honor the player's settings as much as possible.
-                        if (Randomizer.RandoSetting.logicRules != "Glitched")
+                    {
+                        foreach (string check in listOfRequiredDungeons[i].requirementChecks)
                         {
-                            foreach (
-                                KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList()
-                            )
+                            if (Checks.CheckDict[check].checkStatus != "Vanilla")
                             {
-                                Check currentCheck = checkList.Value;
-                                if (
-                                    (
-                                        currentCheck.category.FirstOrDefault(
-                                            s => s.Contains(listOfRewards[i, 1])
-                                        ) != null
-                                    )
-                                    && currentCheck.checkStatus != "Vanilla"
-                                )
-                                {
-                                    currentCheck.checkStatus = "Excluded-Unrequired";
-                                }
-                            }
-                        }
-                        else
-                        {
-                            foreach (
-                                KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList()
-                            )
-                            {
-                                Check currentCheck = checkList.Value;
-                                if (
-                                    currentCheck.category.Contains(listOfRewards[i, 1])
-                                    && !currentCheck.checkName.Contains("Dungeon Reward")
-                                    && !currentCheck.category.Contains("Glitchless")
-                                    && (currentCheck.checkStatus != "Vanilla") // If the category doesn't mention glitchless, then we assume that the dependency on the dungeon is hard locked by progression.
-                                )
-                                {
-                                    currentCheck.checkStatus = "Excluded-Unrequired";
-                                }
+                                //Console.WriteLine(check + " is now excluded");
+                                Checks.CheckDict[check].checkStatus = "Excluded-Unrequired";
                             }
                         }
                     }
@@ -729,7 +721,9 @@ namespace TPRandomizer
                 else
                 {
                     Randomizer.RequiredDungeons |= 0x80 >> i;
-                    Console.WriteLine(listOfRewards[i, 1] + " is a required Dungeon!");
+                    Console.WriteLine(
+                        listOfRequiredDungeons[i].dungeonReward + " is a required Dungeon!"
+                    );
                 }
             }
 
@@ -773,7 +767,7 @@ namespace TPRandomizer
                 currentCheck.itemWasPlaced = false;
                 Checks.CheckDict[fileName] = currentCheck;
 
-                //Console.WriteLine("Check File Loaded " + fileName);
+                //Console.WriteLine(fileName);
             }
 
             return;
@@ -825,5 +819,23 @@ namespace TPRandomizer
             Randomizer.Items.heldItems.Clear();
             Randomizer.Items.BaseItemPool.Clear();
         }
+
+        public struct requiredDungeons
+        {
+            public string dungeonReward;
+            public bool isRequired;
+            public List<String> requirementChecks;
+
+            public requiredDungeons(
+                string dungeonReward,
+                bool isRequired,
+                List<string> requirementChecks
+            )
+            {
+                this.dungeonReward = dungeonReward;
+                this.isRequired = isRequired;
+                this.requirementChecks = requirementChecks;
+            }
+        };
     }
 }

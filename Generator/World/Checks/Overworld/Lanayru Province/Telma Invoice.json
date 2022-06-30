@@ -4,6 +4,6 @@
     "stageIDX": [70],
     "fileDirectoryType": [1],
     "replacementType": [0],
-    "category": ["Overworld", "Npc", "Castle Town", "ARC", "Temple of Time Dependant"],
+    "category": ["Overworld", "Npc", "Castle Town", "ARC"],
     "itemId": "Invoice"
 }
