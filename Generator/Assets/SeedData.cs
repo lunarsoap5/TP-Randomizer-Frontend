@@ -315,13 +315,13 @@ namespace TPRandomizer.Assets
                 randomizerSettings.lanayruTwilightCleared,
                 randomizerSettings.skipMinorCutscenes,
                 randomizerSettings.mdhSkipped,
-                randomizerSettings.disableEnemyBackgoundMusic
             };
             bool[] oneTimePatchSettingsArray =
             {
                 randomizerSettings.increaseWallet,
                 randomizerSettings.fastIronBoots,
                 randomizerSettings.modifyShopModels,
+                randomizerSettings.disableEnemyBackgoundMusic
             };
             int patchOptions = 0x0;
             int bitwiseOperator = 0;
