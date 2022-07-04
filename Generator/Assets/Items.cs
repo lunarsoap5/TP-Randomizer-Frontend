@@ -781,6 +781,31 @@ namespace TPRandomizer
                 RandomizedImportantItems.Remove(startingItem);
             }
 
+            // If a poe is excluded, we still want to place the item that was in its location.
+            foreach (string excludedCheck in parseSetting.ExcludedChecks)
+            {
+                if (Randomizer.Checks.CheckDict[excludedCheck].itemId == Item.Poe_Soul)
+                {
+                    if (!parseSetting.poesShuffled)
+                    {
+                        this.alwaysItems.Add(Randomizer.Checks.CheckDict[excludedCheck].itemId);
+                    }
+                }
+            }
+
+            // Remove the bulblin camp key from the item pool if we have the setting to skip Bulblin Camp enabled.
+            if (parseSetting.skipArbitersEntrance)
+            {
+                if (parseSetting.smallKeySettings == "Keysanity")
+                {
+                    this.RandomizedImportantItems.Remove(Item.Gerudo_Desert_Bulblin_Camp_Key);
+                }
+                else
+                {
+                    this.alwaysItems.Remove(Item.Gerudo_Desert_Bulblin_Camp_Key);
+                }
+            }
+
             Randomizer.Items.BaseItemPool.AddRange(this.RandomizedImportantItems);
             return;
         }
