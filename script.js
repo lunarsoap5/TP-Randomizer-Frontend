@@ -352,7 +352,7 @@ var arrayOfSettingsItems =
 	"barrenCheckbox",
 	"minesEntranceCheckbox",
 	"lakebedEntranceCheckbox",
-	"arbtiersEntranceCheckbox",
+	"arbitersEntranceCheckbox",
 	"snowpeakEntranceCheckbox",
 	"totEntranceCheckbox",
 	"cityEntranceCheckbox"
