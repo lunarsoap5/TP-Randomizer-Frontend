@@ -1,9 +1,9 @@
 {
     "requirements": "(Progressive_Fishing_Rod, 1)",
-    "arcOffsets": ["13A4C","13A4C"],
-    "fileDirectoryType": [0,0],
-    "replacementType": [4,0],
-    "stageIDX": [62,61],
+    "arcOffsets": ["139C8"],
+    "fileDirectoryType": [0],
+    "replacementType": [4],
+    "stageIDX": [62],
     "moduleID": ["32"],
     "relOffsets": ["B2AC"],
     "relOverride": ["38600000"],
