@@ -344,7 +344,7 @@ namespace TPRandomizer.Assets
             { 0x7, 0xB6 }, // Skull Kid - Human defeated.
             { 0x7, 0xB7 }, // Lost Woods Turns to day after defeating Skull Kid - Human
             { 0x7, 0xBB }, // Sacred Grove Portal
-            { 0x7, 0x53 }, // Block pushed down
+            { 0x7, 0x5B }, // Block pushed down
             { 0x7, 0x42 }, // Midna text after block pushed down
         };
 
