@@ -692,14 +692,22 @@ namespace TPRandomizer
                 }
             }
 
+            // If Faron Woods is closed then we need to beat Forest Temple to leave.
             if (Randomizer.RandoSetting.faronWoodsLogic == "Closed")
             {
                 listOfRequiredDungeons[forest].isRequired = true;
             }
 
+            // If MDH is not skipped then we need to complete Lakebed to enter Hyrule
             if (!Randomizer.RandoSetting.mdhSkipped)
             {
                 listOfRequiredDungeons[lakebed].isRequired = true;
+            }
+
+            // If Palace is required then Arbiters is required to enter the dungeon.
+            if (listOfRequiredDungeons[palace].isRequired)
+            {
+                listOfRequiredDungeons[arbiters].isRequired = true;
             }
 
             for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
