@@ -776,6 +776,7 @@ namespace TPRandomizer
                 currentCheck.requirements = "(" + currentCheck.requirements + ")";
                 currentCheck.checkStatus = "Ready";
                 currentCheck.itemWasPlaced = false;
+                currentCheck.itemId = Item.Recovery_Heart;
                 Checks.CheckDict[fileName] = currentCheck;
 
                 //Console.WriteLine(fileName);
