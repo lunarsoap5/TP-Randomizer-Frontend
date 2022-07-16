@@ -62,6 +62,7 @@ namespace TPRandomizer.Assets
             { 0x6, 0x7E }, // Kakariko Gorge placed CS
             { 0x10, 0x49 }, // FT Ook Bridge Destroyed
             { 0x17, 0x94 }, // Set flag to trigger the twilight fence before Zant
+            { 0x3, 0x42 }, // Big Rock fell at DMT
         };
 
         /// <summary>
