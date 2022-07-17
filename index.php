@@ -118,8 +118,8 @@
 							<label for="mdhCheckbox">  Skip Midna's Desperate Hour </label><br>
 							<input type="checkbox" id="introCheckbox" name="Intro Logic" value="">
 							<label for="introCheckbox"> Skip Prologue </label><br>
-							<input type="checkbox" id="barrenCheckbox" name="Intro Logic" value="">
-							<label for="introCheckbox"> Barren Unrequired Dungeons </label><br>
+							<input type="checkbox" id="barrenCheckbox" name="Barren Dungeons" value="">
+							<label for="barrenCheckbox"> Barren Unrequired Dungeons </label><br>
 						</fieldset>
 					</div>
 					<fieldset id="itemPoolOptionsFieldset">
