@@ -692,6 +692,43 @@ namespace TPRandomizer
                 }
             }
 
+            if (listOfRequiredDungeons[palace].isRequired)
+            {
+                // If Palace is required then Arbiters is automatically required.
+                listOfRequiredDungeons[arbiters].isRequired = true;
+                listOfRequiredDungeons[palace].isRequired = true;
+                if (Randomizer.RandoSetting.palaceRequirements == "Fused_Shadows")
+                {
+                    for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
+                    {
+                        if (
+                            Checks.CheckDict[listOfRequiredDungeons[i].dungeonReward].itemId
+                            == Item.Progressive_Fused_Shadow
+                        )
+                        {
+                            listOfRequiredDungeons[i].isRequired = true;
+                        }
+                    }
+                }
+                else if (Randomizer.RandoSetting.palaceRequirements == "Mirror_Shards")
+                {
+                    for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
+                    {
+                        if (
+                            Checks.CheckDict[listOfRequiredDungeons[i].dungeonReward].itemId
+                            == Item.Progressive_Mirror_Shard
+                        )
+                        {
+                            listOfRequiredDungeons[i].isRequired = true;
+                        }
+                    }
+                }
+                else if (Randomizer.RandoSetting.palaceRequirements == "Vanilla")
+                {
+                    listOfRequiredDungeons[city].isRequired = true;
+                }
+            }
+
             // If Faron Woods is closed then we need to beat Forest Temple to leave.
             if (Randomizer.RandoSetting.faronWoodsLogic == "Closed")
             {
@@ -702,12 +739,6 @@ namespace TPRandomizer
             if (!Randomizer.RandoSetting.mdhSkipped)
             {
                 listOfRequiredDungeons[lakebed].isRequired = true;
-            }
-
-            // If Palace is required then Arbiters is required to enter the dungeon.
-            if (listOfRequiredDungeons[palace].isRequired)
-            {
-                listOfRequiredDungeons[arbiters].isRequired = true;
             }
 
             for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
@@ -776,7 +807,10 @@ namespace TPRandomizer
                 currentCheck.requirements = "(" + currentCheck.requirements + ")";
                 currentCheck.checkStatus = "Ready";
                 currentCheck.itemWasPlaced = false;
-                currentCheck.itemId = Item.Recovery_Heart;
+                if (currentCheck.category.Contains("Dungeon Reward"))
+                {
+                    currentCheck.itemId = Item.Recovery_Heart;
+                }
                 Checks.CheckDict[fileName] = currentCheck;
 
                 //Console.WriteLine(fileName);
