@@ -63,6 +63,8 @@ namespace TPRandomizer.Assets
             { 0x10, 0x49 }, // FT Ook Bridge Destroyed
             { 0x17, 0x94 }, // Set flag to trigger the twilight fence before Zant
             { 0x3, 0x42 }, // Big Rock fell at DMT
+            { 0x3, 0x9A }, // Kakariko Village intro CS.
+            { 0x9, 0x4E }, // Castle Town intro CS.
         };
 
         /// <summary>
@@ -120,7 +122,6 @@ namespace TPRandomizer.Assets
             { 0x3, 0x49 }, // Death mountain intro CS.
             { 0x3, 0x83 }, // Kakariko Graveyard intro CS.
             { 0x3, 0x8C }, // Midna text after Meteor fell.
-            { 0x3, 0x9A }, // Kakariko Village intro CS.
             { 0x4, 0x58 }, // Talked to Rutella in Lanayru Twilight.
             { 0x4, 0x5F }, // Zora's domain intro CS twilight.
             { 0x4, 0x67 }, // Midna text after jumping to Lake from burning bridge.
