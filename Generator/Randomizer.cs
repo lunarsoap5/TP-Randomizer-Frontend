@@ -550,6 +550,10 @@ namespace TPRandomizer
                 {
                     currentCheck.checkStatus = "Ready";
                 }
+                if (currentCheck.category.Contains("Dungeon Reward"))
+                {
+                    currentCheck.itemId = Item.Recovery_Heart;
+                }
                 currentCheck.hasBeenReached = false;
                 currentCheck.itemWasPlaced = false;
                 Checks.CheckDict[currentCheck.checkName] = currentCheck;

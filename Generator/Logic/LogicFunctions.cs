@@ -1090,13 +1090,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatDarkhammer()
         {
-            return (
-                HasSword()
-                || CanUse(Item.Ball_and_Chain)
-                || (getItemCount(Item.Progressive_Bow) >= 1)
-                || CanUse(Item.Iron_Boots)
-                || CanUse(Item.Shadow_Crystal)
-            );
+            return (HasSword() || CanUse(Item.Ball_and_Chain) || CanUse(Item.Shadow_Crystal));
         }
 
         /// <summary>
